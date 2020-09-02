@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 912402957908897711}
   - component: {fileID: 912402957908897708}
   - component: {fileID: 912402957908897709}
-  - component: {fileID: 912402957908897706}
   - component: {fileID: 912402957908897707}
+  - component: {fileID: -3226316706636376199}
   m_Layer: 8
   m_Name: 8_ Bar XR
   m_TagString: Untagged
@@ -98,7 +98,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &912402957908897706
+--- !u!65 &912402957908897707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912402957908897705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20320003, y: 0.025400005, z: 0.003810001}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3226316706636376199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 912402957908897705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: eb3e88203092f4cd4bf9b7c0cfeb651f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -172,16 +185,3 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
---- !u!65 &912402957908897707
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912402957908897705}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.20320003, y: 0.025400005, z: 0.003810001}
-  m_Center: {x: 0, y: 0, z: 0}

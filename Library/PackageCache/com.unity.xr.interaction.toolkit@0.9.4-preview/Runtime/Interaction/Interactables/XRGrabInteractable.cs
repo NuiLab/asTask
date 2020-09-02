@@ -9,7 +9,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
     /// </summary>
     [SelectionBase]
     [DisallowMultipleComponent]
-    //[RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody))]
     [AddComponentMenu("XR/XR Grab Interactable")]
     public class XRGrabInteractable : XRBaseInteractable
     {
@@ -182,7 +182,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                     }
                     break;
                 //
-                // during Dynamic update we want to perform any GameObject based manipulation (eg: Instantaneous)
+                // during Dynamic update we want to perform any GameObject based manipulation (eg: Instantaneous) 
                 // the call to MoveToTarget will perform the correct the type of update depending on the update phase
                 //
                 case XRInteractionUpdateOrder.UpdatePhase.Dynamic:
@@ -199,7 +199,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
                     }
                     break;
                 //
-                // during OnBeforeUpdate we want to perform any last minute GameObject position changes before rendering. (eg: Instantaneous)
+                // during OnBeforeUpdate we want to perform any last minute GameObject position changes before rendering. (eg: Instantaneous) 
                 // the call to MoveToTarget will perform the correct the type of update depending on the update phase
                 //
                 case XRInteractionUpdateOrder.UpdatePhase.OnBeforeRender:
@@ -376,7 +376,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             var attachOffset = m_RigidBody.worldCenterOfMass - attachPosition;
             var localAttachOffset = attachTransform.InverseTransformDirection(attachOffset);
 
-            var inverseLocalScale = interactor.attachTransform.lossyScale;
+            var inverseLocalScale = interactor.attachTransform.lossyScale;            
             inverseLocalScale = new Vector3(1f / inverseLocalScale.x, 1f / inverseLocalScale.y, 1f / inverseLocalScale.z);
             localAttachOffset.Scale(inverseLocalScale);
 
@@ -384,7 +384,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             m_InteractorLocalRotation = Quaternion.Inverse(Quaternion.Inverse(m_RigidBody.rotation) * attachTransform.rotation);
         }
 
-        /// <summary>This method is called by the interaction manager
+        /// <summary>This method is called by the interaction manager 
         /// when the interactor first initiates selection of an interactable.</summary>
         /// <param name="interactor">Interactor that is initiating the selection.</param>
 		protected internal override void OnSelectEnter(XRBaseInteractor interactor)
@@ -406,18 +406,18 @@ namespace UnityEngine.XR.Interaction.Toolkit
             m_CurrentMovementType = (interactor.selectedInteractableMovementTypeOverride != null) ? interactor.selectedInteractableMovementTypeOverride.Value : m_MovementType;
 
             // remember RigidBody settings and setup to move
-            m_WasKinematic = m_RigidBody.isKinematic;
+            m_WasKinematic = m_RigidBody.isKinematic;               
             m_UsedGravity = m_RigidBody.useGravity;
             m_RigidBody.isKinematic = (m_CurrentMovementType == XRBaseInteractable.MovementType.Kinematic);
             m_RigidBody.useGravity = false;
             m_RigidBody.drag = 0f;
             m_RigidBody.angularDrag = 0f;
-
+ 
             // forget if we have previous detach velocities
             m_DetachVelocity = m_DetachAngularVelocity = Vector3.zero;
 
             UpdateInteractorLocalPose(interactor);
-
+            
             var teleportOnSelect = false;
             if (teleportOnSelect)
                 Teleport(m_SelectingInteractor.attachTransform);
@@ -431,7 +431,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             SmoothVelocityStart();
         }
 
-        /// <summary>This method is called by the interaction manager
+        /// <summary>This method is called by the interaction manager 
         /// when the interactor ends selection of an interactable.</summary>
         /// <param name="interactor">Interactor that is ending the selection.</param>
 		protected internal override void OnSelectExit(XRBaseInteractor interactor)
@@ -456,8 +456,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
         /// </summary>
         /// <param name="interactor">Interactor to check for a valid hover state with.</param>
         /// <returns>True if hovering is valid this frame, False if not.</returns>
-        public override bool IsHoverableBy(XRBaseInteractor interactor)
-        {
+        public override bool IsHoverableBy(XRBaseInteractor interactor) 
+        { 
             return true;
         }
 
@@ -494,10 +494,10 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 return;
             m_ThrowSmoothingFrameTimes[m_ThrowSmoothingCurrentFrame] = Time.time;
             m_ThrowSmoothingVelocityFrames[m_ThrowSmoothingCurrentFrame] = (m_SelectingInteractor.attachTransform.position - m_LastPosition) / Time.deltaTime;
-
+            
             Quaternion VelocityDiff = (m_SelectingInteractor.attachTransform.rotation * Quaternion.Inverse(m_LastRotation));
             m_ThrowSmoothingAngularVelocityFrames[m_ThrowSmoothingCurrentFrame] = (new Vector3(Mathf.DeltaAngle(0, VelocityDiff.eulerAngles.x), Mathf.DeltaAngle(0, VelocityDiff.eulerAngles.y), Mathf.DeltaAngle(0, VelocityDiff.eulerAngles.z))
-                / Time.deltaTime) * Mathf.Deg2Rad;
+                / Time.deltaTime) * Mathf.Deg2Rad;            
 
             m_ThrowSmoothingCurrentFrame = (m_ThrowSmoothingCurrentFrame + 1) % k_ThrowSmoothingFrameCount;
             m_LastPosition = m_SelectingInteractor.attachTransform.position;
