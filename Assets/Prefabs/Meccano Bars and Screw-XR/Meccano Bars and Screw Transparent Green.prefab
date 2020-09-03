@@ -822,8 +822,8 @@ GameObject:
   - component: {fileID: 488564975821374599}
   - component: {fileID: 6936083467194001221}
   - component: {fileID: 8256671931118479953}
-  - component: {fileID: 1937033402977076427}
   - component: {fileID: 7895622075681306075}
+  - component: {fileID: 1184607606806250041}
   m_Layer: 0
   m_Name: 3" Bar (1)
   m_TagString: Untagged
@@ -892,7 +892,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1937033402977076427
+--- !u!65 &7895622075681306075
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895622075681306074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07620296, y: 0.025400013, z: 0.003810001}
+  m_Center: {x: -0.00000006146729, y: -0.000000059604645, z: -0.000000029802322}
+--- !u!114 &1184607606806250041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -927,16 +940,3 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
---- !u!65 &7895622075681306075
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7895622075681306074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.07620296, y: 0.025400013, z: 0.003810001}
-  m_Center: {x: -0.00000006146729, y: -0.000000059604645, z: -0.000000029802322}
