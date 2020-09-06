@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Bowling Template.unity
     guid: 064a6ac3633be475f9f8acd41f852a84
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Snappable Grid.unity
     guid: c37ed1ddda5e24617b3a7040a27f7f08
+  - enabled: 1
+    path: Assets/Scenes/base snapping.unity
+    guid: e3e1820964aca447ebaba1a16a518d9a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2bcd0c57514674568b0789b42421d5ae,
       type: 2}
