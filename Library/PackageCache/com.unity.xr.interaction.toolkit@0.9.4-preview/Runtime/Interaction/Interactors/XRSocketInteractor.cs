@@ -74,16 +74,16 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (m_InteractableHoverMeshMaterial == null)
             {
                 // create of default transparent shader
-                var m_InteractableHoverMeshMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                var m_InteractableHoverMeshMaterial = new Material(Shader.Find("Standard"));
                 if (m_InteractableHoverMeshMaterial)
                 {
-                    // m_InteractableHoverMeshMaterial.SetFloat("_Mode", 2);
-                    // m_InteractableHoverMeshMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                    // m_InteractableHoverMeshMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                    // m_InteractableHoverMeshMaterial.SetInt("_ZWrite", 0);
-                    // m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHATEST_ON");
-                    // m_InteractableHoverMeshMaterial.EnableKeyword("_ALPHABLEND_ON");
-                    // m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    m_InteractableHoverMeshMaterial.SetFloat("_Mode", 2);
+                    m_InteractableHoverMeshMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                    m_InteractableHoverMeshMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    m_InteractableHoverMeshMaterial.SetInt("_ZWrite", 0);
+                    m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHATEST_ON");
+                    m_InteractableHoverMeshMaterial.EnableKeyword("_ALPHABLEND_ON");
+                    m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                     m_InteractableHoverMeshMaterial.SetColor("_Color", new Color(0.0f, 0.0f, 1.0f, 0.6f));
                 }
                 else
@@ -111,7 +111,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             base.OnSelectExit(interactable);
             m_LastRemoveTime = Time.time;
         }
-
+        
         public override void ProcessInteractor(XRInteractionUpdateOrder.UpdatePhase updatePhase)
         {
             base.ProcessInteractor(updatePhase);
@@ -142,7 +142,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             if (interactable.attachTransform != null)
             {
                 interactableLocalPosition = interactable.attachTransform.localPosition;
-                interactableLocalRotation = interactable.attachTransform.localRotation;
+                interactableLocalRotation = interactable.attachTransform.localRotation; 
                 interactableScale = interactable.attachTransform.lossyScale;
             }
 
