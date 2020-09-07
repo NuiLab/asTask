@@ -71,20 +71,20 @@ namespace UnityEngine.XR.Interaction.Toolkit
             base.Awake();
 
             m_InteractableSortComparison = InteractableSortComparison;
-             if (m_InteractableHoverMeshMaterial == null)
+            if (m_InteractableHoverMeshMaterial == null)
             {
                 // create of default transparent shader
                 var m_InteractableHoverMeshMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 if (m_InteractableHoverMeshMaterial)
                 {
-                  /*  m_InteractableHoverMeshMaterial.SetFloat("_Mode", 2);
-                    m_InteractableHoverMeshMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                    m_InteractableHoverMeshMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                    m_InteractableHoverMeshMaterial.SetInt("_ZWrite", 0);
-                    m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHATEST_ON");
-                    m_InteractableHoverMeshMaterial.EnableKeyword("_ALPHABLEND_ON");
-                    m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                  */
+                    /*  m_InteractableHoverMeshMaterial.SetFloat("_Mode", 2);
+                      m_InteractableHoverMeshMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                      m_InteractableHoverMeshMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                      m_InteractableHoverMeshMaterial.SetInt("_ZWrite", 0);
+                      m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHATEST_ON");
+                      m_InteractableHoverMeshMaterial.EnableKeyword("_ALPHABLEND_ON");
+                      m_InteractableHoverMeshMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    */
                     m_InteractableHoverMeshMaterial.SetColor("_Color", new Color(0.0f, 0.0f, 1.0f, 0.6f));
                 }
                 else
@@ -96,7 +96,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
         {
             base.OnHoverEnter(interactable);
             MeshFilter[] interactableMeshFilters = interactable.GetComponentsInChildren<MeshFilter>();
-            if(interactableMeshFilters.Length > 0)
+            if (interactableMeshFilters.Length > 0)
             {
                 m_MeshFilterCache.Add(interactable, interactableMeshFilters);
             }
