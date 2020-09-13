@@ -98,7 +98,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/base snapping.unity:
+    Assets/Scenes/Large Cube Testing.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -1352,5 +1352,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/base snapping.unity
-  playerPath: /Users/ethanholen/Dropbox/Unity/future-of-work/Builds/base-snapping.apk
+  - Assets/Scenes/Large Cube Testing.unity
+  playerPath: /Users/ethanholen/Dropbox/Unity/future-of-work/Builds/Large-Cubes.apk
