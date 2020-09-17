@@ -120,6 +120,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
+    - Class: 59
+      Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
@@ -809,7 +811,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 87ab24a40b4645e48882b596e5136923
+      Hash: acc36d3bc132dd34d0d98b46466f3238
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CubeUnitManager
