@@ -14,8 +14,6 @@ public class CubeUnitManager : MonoBehaviour
     public Transform spawnPoint3;
 
     // Keep track of the colliders
-    //private List<Collider> colliders = new List<Collider>();
-    //public List<Collider> GetColliders() { return colliders; }
     private GameObject spawnedItem1;
     private GameObject spawnedItem2;
     private GameObject spawnedItem3;
@@ -30,52 +28,55 @@ public class CubeUnitManager : MonoBehaviour
         
     }
 
-    private int interval = 10;
+    private int interval = 100;
 
 
     private void Update()
     {
-        //if (Time.frameCount % interval == 0)
-        //{
-            if (spawnedItem1.transform.position != spawnPoint1.position)
-            {
-                spawnedItem1.transform.position = spawnPoint1.position;
-                //spawnedItem1.transform.position = spawnPoint1.position;
-                Debug.Log("Item 1 Repositioned!!!");
-            }
-            if (spawnedItem2.transform.position != spawnPoint2.position)
-            {
-                spawnedItem2.transform.position = spawnPoint2.position;
-                //spawnedItem2.transform.position = spawnPoint2.position;
-                Debug.Log("Item 2 Repositioned!!!");
-            }
-            if (spawnedItem3.transform.position != spawnPoint3.position)
-            {
-                spawnedItem3.transform.position = spawnPoint3.position;
-                //spawnedItem3.transform.position = spawnPoint3.position;
-                Debug.Log("Item 3 Repositioned!!!");
-            }
-        //}
-
-}
-
-
-
-
-
-
-    void Destroy_Blocks()
-    {
-        
-        Destroy(spawnedItem1);
-        
-        Destroy(spawnedItem2);
-
-        Destroy(spawnedItem3);
-        
-        
+        if (Time.frameCount % interval == 0)
+        {
+            Check_Blocks();
+        }
 
     }
+
+
+    void Check_Blocks()
+    {
+        if (spawnedItem1.transform.position != spawnPoint1.position)
+        {
+            spawnedItem1.transform.position = spawnPoint1.position;
+
+            //Destroy(spawnedItem1);
+
+            //Debug.Log("Item 1 Destroyed!!!");
+
+      
+        }
+        if (spawnedItem2.transform.position != spawnPoint2.position)
+        {
+            spawnedItem2.transform.position = spawnPoint2.position;
+
+            //Destroy(spawnedItem2);
+
+            //Debug.Log("Item 2 Destroyed!!!");
+
+        }
+        if (spawnedItem3.transform.position != spawnPoint3.position)
+        {
+            spawnedItem3.transform.position = spawnPoint3.position;
+
+            //Destroy(spawnedItem3);
+
+            //Debug.Log("Item 3 Destroyed!!!");
+
+        }
+    }
+
+
+
+
+
 
 
     public void Spawn_Blocks()
