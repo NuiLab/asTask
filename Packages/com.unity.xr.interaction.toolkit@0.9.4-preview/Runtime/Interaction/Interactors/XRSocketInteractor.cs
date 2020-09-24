@@ -77,7 +77,8 @@ namespace UnityEngine.XR.Interaction.Toolkit
                 var m_InteractableHoverMeshMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 if (m_InteractableHoverMeshMaterial)
                 {
-                  /*  m_InteractableHoverMeshMaterial.SetFloat("_Mode", 2);
+                  /*
+                    m_InteractableHoverMeshMaterial.SetFloat("_Mode", 2);
                     m_InteractableHoverMeshMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                     m_InteractableHoverMeshMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
                     m_InteractableHoverMeshMaterial.SetInt("_ZWrite", 0);
@@ -160,6 +161,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
             for (int i = 0; i < m_HoverTargets.Count; i++)
             {
                 var hoverTarget = m_HoverTargets[i] as XRGrabInteractable;
+
                 if (hoverTarget == null || hoverTarget == selectTarget)
                     continue;
 

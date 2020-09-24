@@ -28,17 +28,17 @@ public class CubeUnitManager : MonoBehaviour
         
     }
 
-    private int interval = 100;
+    private int interval = 200;
 
 
-    private void Update()
-    {
-        if (Time.frameCount % interval == 0)
-        {
-            Check_Blocks();
-        }
+    //private void Update()
+    //{
+    //    if (Time.frameCount % interval == 0)
+    //    {
+    //        Check_Blocks();
+    //    }
 
-    }
+    //}
 
 
     void Check_Blocks()

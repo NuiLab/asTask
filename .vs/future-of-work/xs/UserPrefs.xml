@@ -1,17 +1,25 @@
 ﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CubeUnitManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/cubeHelper.cs">
     <Files>
       <File FileName="Assets/Scripts/ItemSpawner.cs" Line="11" Column="94" />
-      <File FileName="Assets/Scripts/CubeUnitManager.cs" Line="16" Column="35" />
-      <File FileName="Packages/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRSocketInteractor.cs" />
+      <File FileName="Assets/Scripts/CubeUnitManager.cs" Line="31" Column="5" />
+      <File FileName="Packages/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRSocketInteractor.cs" Line="1" Column="1" />
+      <File FileName="Assets/gridManager.cs" Line="33" Column="12" />
+      <File FileName="Assets/cubeHelper.cs" Line="22" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="CubeUnitManager.cs" selected="True" />
+              <Node name="Scripts" expanded="True" />
+              <Node name="cubeHelper.cs" selected="True" />
+            </Node>
+            <Node name="Packages" expanded="True">
+              <Node name="com.unity.xr.interaction.toolkit@0.9.4-preview" expanded="True">
+                <Node name="Documentation~" expanded="True" />
+                <Node name="Editor" expanded="True" />
+                <Node name="Runtime" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -21,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8126a10b-56d1-45df-9f6c-90d87cb19e9c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6a2e9fc2-4d62-4a85-a821-c67785edd814" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
