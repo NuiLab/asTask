@@ -2,14 +2,11 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ContinuousMovement
-    - CubeUnitManager
-    - GridManager
+    - CustomSocket
     - Gun
     - HandPresence
-    - ItemSpawner
     - LocomotionController
     - XROffsetGrabInteractable
-    - cubeHelper
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -50,8 +47,6 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.Interaction.Toolkit.SnapTurnProvider
     - UnityEngine.XR.Interaction.Toolkit.TeleportationArea
     - UnityEngine.XR.Interaction.Toolkit.TeleportationProvider
-    - UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster
-    - UnityEngine.XR.Interaction.Toolkit.UI.XRUIInputModule
     - UnityEngine.XR.Interaction.Toolkit.XRController
     - UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor
     - UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable
@@ -86,7 +81,6 @@ ScriptsOnlyBuild:
     UnityEngine.SpatialTracking.dll:
     - UnityEngine.SpatialTracking.TrackedPoseDriver
     UnityEngine.UI.dll:
-    - UnityEngine.EventSystems.EventSystem
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
@@ -101,7 +95,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/Large Cube Testing.unity:
+    Assets/Scenes/Custom Socket.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -121,8 +115,6 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 54
-      Script: {instanceID: 0}
-    - Class: 59
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
@@ -185,97 +177,85 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12412}
+      Script: {instanceID: 12302}
     - Class: 114
-      Script: {instanceID: 12458}
+      Script: {instanceID: 12414}
     - Class: 114
-      Script: {instanceID: 12526}
+      Script: {instanceID: 12460}
     - Class: 114
-      Script: {instanceID: 12674}
+      Script: {instanceID: 12528}
     - Class: 114
-      Script: {instanceID: 12798}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 12820}
+      Script: {instanceID: 12992}
     - Class: 114
-      Script: {instanceID: 12990}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 13048}
+      Script: {instanceID: 13092}
     - Class: 114
-      Script: {instanceID: 13090}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13152}
+      Script: {instanceID: 13278}
     - Class: 114
-      Script: {instanceID: 13276}
+      Script: {instanceID: 13284}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13584}
     - Class: 114
-      Script: {instanceID: 13496}
+      Script: {instanceID: 13616}
     - Class: 114
-      Script: {instanceID: 13582}
+      Script: {instanceID: 13706}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13716}
     - Class: 114
-      Script: {instanceID: 13686}
+      Script: {instanceID: 13938}
     - Class: 114
-      Script: {instanceID: 13704}
+      Script: {instanceID: 14008}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 14030}
     - Class: 114
-      Script: {instanceID: 13936}
+      Script: {instanceID: 14130}
     - Class: 114
-      Script: {instanceID: 14006}
+      Script: {instanceID: 14162}
     - Class: 114
-      Script: {instanceID: 14020}
+      Script: {instanceID: 14192}
     - Class: 114
-      Script: {instanceID: 14028}
+      Script: {instanceID: 14202}
     - Class: 114
-      Script: {instanceID: 14128}
+      Script: {instanceID: 14276}
     - Class: 114
-      Script: {instanceID: 14160}
+      Script: {instanceID: 14542}
     - Class: 114
-      Script: {instanceID: 14190}
+      Script: {instanceID: 14608}
     - Class: 114
-      Script: {instanceID: 14200}
+      Script: {instanceID: 14660}
     - Class: 114
-      Script: {instanceID: 14274}
+      Script: {instanceID: 14760}
     - Class: 114
-      Script: {instanceID: 14540}
+      Script: {instanceID: 14854}
     - Class: 114
-      Script: {instanceID: 14606}
+      Script: {instanceID: 14962}
     - Class: 114
-      Script: {instanceID: 14658}
+      Script: {instanceID: 15066}
     - Class: 114
-      Script: {instanceID: 14758}
+      Script: {instanceID: 15120}
     - Class: 114
-      Script: {instanceID: 14850}
+      Script: {instanceID: 15236}
     - Class: 114
-      Script: {instanceID: 14958}
+      Script: {instanceID: 15252}
     - Class: 114
-      Script: {instanceID: 15062}
+      Script: {instanceID: 15356}
     - Class: 114
-      Script: {instanceID: 15116}
+      Script: {instanceID: 15358}
     - Class: 114
-      Script: {instanceID: 15232}
+      Script: {instanceID: 15368}
     - Class: 114
-      Script: {instanceID: 15248}
+      Script: {instanceID: 15400}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15416}
     - Class: 114
-      Script: {instanceID: 15354}
+      Script: {instanceID: 15542}
     - Class: 114
-      Script: {instanceID: 15364}
-    - Class: 114
-      Script: {instanceID: 15396}
-    - Class: 114
-      Script: {instanceID: 15412}
-    - Class: 114
-      Script: {instanceID: 15448}
-    - Class: 114
-      Script: {instanceID: 15538}
-    - Class: 114
-      Script: {instanceID: 15544}
-    - Class: 114
-      Script: {instanceID: 25554}
+      Script: {instanceID: 15548}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -287,8 +267,6 @@ ScriptsOnlyBuild:
     - Class: 136
       Script: {instanceID: 0}
     - Class: 137
-      Script: {instanceID: 0}
-    - Class: 138
       Script: {instanceID: 0}
     - Class: 143
       Script: {instanceID: 0}
@@ -635,6 +613,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomSocket
   - hash:
       serializedVersion: 2
       Hash: 52bcb9c2a78bdd8d98a59e915c346e75
@@ -1111,6 +1095,12 @@ ScriptsOnlyBuild:
     className: LiftGammaGain
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: cubeHelper
+  - hash:
+      serializedVersion: 2
       Hash: 893dbdbfe611d62e230a686ea89f1efd
     assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
     namespaceName: UnityEngine.XR.LegacyInputHelpers
@@ -1373,13 +1363,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: cubeHelper
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Large Cube Testing.unity
-  playerPath: /Users/ethanholen/Dropbox/Unity/future-of-work/Builds/Large-Cube.apk
+  - Assets/Scenes/Custom Socket.unity
+  playerPath: /Users/ethanholen/Dropbox/Unity/future-of-work/Builds/custom-socket.apk
