@@ -4,44 +4,47 @@ using UnityEngine;
 
 public class CustomSocket : MonoBehaviour
 {
-    //private bool is_connected;
 
+    private bool object_snapped = false;
+    private Collider update_obj;
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    // Update is called once per frame
-
-    
-    //void Update()
-    //{
-    
-    //}
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-        
-    //}
-    private void OnTriggerStay(Collider other)
+    void Update()
     {
-        if (other.tag == "block")
+        // Every frame check if there is an object
+        // attatched and  call the snap_object_here_function
+        if (object_snapped)
         {
-            Debug.Log("Hi im " + other.name);
-
-            snap_object_here(other);
+            snap_object_here(update_obj);
         }
 
     }
 
-    private void OnTriggerExit(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "block")
         {
+            // When a new object enters the snap zone
+            // and its tag is "block"
+
+            if (!object_snapped)
+            {
+                update_obj = other;
+                object_snapped = true;
+            }
+
+        }
+
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.tag == "bar")
+        {
             Debug.Log("I'm " + other.name + " and im leaving");
+            object_snapped = false;
         }
     }
 
@@ -54,3 +57,6 @@ public class CustomSocket : MonoBehaviour
         obj.transform.rotation = this.transform.rotation;
     }
 }
+
+
+// https://www.youtube.com/watch?v=Q1xZGt41N80
