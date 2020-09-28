@@ -3,7 +3,6 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - ContinuousMovement
     - CustomSocket
-    - Gun
     - HandPresence
     - LocomotionController
     - XROffsetGrabInteractable
@@ -49,7 +48,6 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.Interaction.Toolkit.TeleportationProvider
     - UnityEngine.XR.Interaction.Toolkit.XRController
     - UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor
-    - UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable
     - UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
     - UnityEngine.XR.Interaction.Toolkit.XRInteractorLineVisual
     - UnityEngine.XR.Interaction.Toolkit.XRRayInteractor
@@ -161,8 +159,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11650}
     - Class: 114
-      Script: {instanceID: 11804}
-    - Class: 114
       Script: {instanceID: 11816}
     - Class: 114
       Script: {instanceID: 11844}
@@ -212,8 +208,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14008}
     - Class: 114
       Script: {instanceID: 14030}
-    - Class: 114
-      Script: {instanceID: 14130}
     - Class: 114
       Script: {instanceID: 14162}
     - Class: 114
