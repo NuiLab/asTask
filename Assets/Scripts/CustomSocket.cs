@@ -9,7 +9,7 @@ public class CustomSocket : MonoBehaviour {
 
     void FixedUpdate () {
         // Every frame check if there is an object
-        // attatched and  call the snap_object_here_function
+        // attached and  call the snap_object_here_function
         if (object_snapped) {
             snap_object_here (update_obj);
         }
@@ -47,6 +47,7 @@ public class CustomSocket : MonoBehaviour {
     void snap_object_here (Collider obj) {
 
         // TODO: Check if the object rotation dosent have to be set and fix the rotation problem?
+
         obj.transform.position = this.transform.position;
         obj.transform.rotation = this.transform.rotation;
     }
