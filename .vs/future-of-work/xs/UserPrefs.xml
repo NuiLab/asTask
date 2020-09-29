@@ -1,24 +1,21 @@
-﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CustomSocket.cs">
+﻿<Properties StartupConfiguration="{0FAF8F1C-D1BA-66A5-F283-E3C7892E405D}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CustomSocket.cs">
     <Files>
       <File FileName="Assets/Scripts/ItemSpawner.cs" Line="11" Column="94" />
       <File FileName="Assets/Scripts/CubeUnitManager.cs" />
       <File FileName="Packages/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRSocketInteractor.cs" />
-      <File FileName="Assets/CustomSocket.cs" Line="27" Column="21" />
+      <File FileName="Assets/Scripts/cubeHelper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CustomSocket.cs" Line="53" Column="60" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
-              <Node name="CustomSocket.cs" selected="True" />
-            </Node>
-            <Node name="Packages" expanded="True">
-              <Node name="com.unity.xr.interaction.toolkit@0.9.4-preview" expanded="True">
-                <Node name="Documentation~" expanded="True" />
-                <Node name="Editor" expanded="True" />
-                <Node name="Runtime" expanded="True" />
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="CustomSocket.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -26,6 +23,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7c0c329c-2860-46ec-b412-8b25a08dd39f" />

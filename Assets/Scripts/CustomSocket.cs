@@ -25,6 +25,7 @@ public class CustomSocket : MonoBehaviour {
             // if the socket is empty
             if (!object_snapped) {
                 //set the object to the current object being snapped
+                Debug.Log(this.name + " is snapping to " + other.name);
                 update_obj = other;
                 object_snapped = true;
             }
@@ -49,7 +50,7 @@ public class CustomSocket : MonoBehaviour {
         // TODO: Check if the object rotation dosent have to be set and fix the rotation problem?
 
         obj.transform.position = this.transform.position;
-        obj.transform.rotation = this.transform.rotation;
+        //obj.transform.rotation = this.transform.rotation;
     }
 }
 
