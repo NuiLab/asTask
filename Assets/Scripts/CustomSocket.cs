@@ -5,9 +5,10 @@ using UnityEngine;
 public class CustomSocket : MonoBehaviour {
 
     private bool object_snapped = false;
-    private Collider update_obj;
+    private Collider attatched_cube;
     private Vector3 socket_position;
-    //bool rotation_frozen = false;
+    private GameObject attatched_cube_reset_position;
+    bool rotation_frozen = false;
 
     private void Start()
     {
@@ -19,8 +20,9 @@ public class CustomSocket : MonoBehaviour {
         // attached and  call the snap_object_here_function
         if (object_snapped)
         {
-            snap_object_here (update_obj);
+            snap_object_to_socket (attatched_cube);
         }
+        
 
         //Debug.Log("NAME: " + update_obj.name + "ROTATION: " + update_obj.attachedRigidbody.freezeRotation);
 
@@ -37,10 +39,15 @@ public class CustomSocket : MonoBehaviour {
 
             // if the socket is empty
             if (!object_snapped) {
+
                 //set the object to the current object being snapped
                 // TODO: make this log into the record somehow.
                 Debug.Log(this.name + " is snapping to " + other.name);
-                update_obj = other;
+                attatched_cube = other;
+
+                attatched_cube_reset_position = other.gameObject;
+
+
                 object_snapped = true;
             }
 
@@ -57,37 +64,43 @@ public class CustomSocket : MonoBehaviour {
             // release the current object from the socket
             object_snapped = false;
 
+
             // stop freezing its rotation
-            //if (rotation_frozen)
-            //    un_freeze_rotation(update_obj);
+            if (rotation_frozen)
+                un_freeze_rotation(attatched_cube);
         }
     }
 
     // Sets the position of the object and is called by fixed update
     // every 20ms
-    void snap_object_here (Collider obj) {
+    void snap_object_to_socket (Collider obj) {
 
-        // TODO: Check if the object rotation dosent have to be set and fix the rotation problem?
 
         obj.transform.position = socket_position;
+
+        //obj.transform.rotation = reset_position.transform.rotation;
 
         //obj.transform.rotation = Quaternion.Euler(0, obj.transform.rotation.y, obj.transform.rotation.z);
 
         obj.attachedRigidbody.freezeRotation = true;
-        //rotation_frozen = true;
+        rotation_frozen = true;
     }
 
 
 
 
-    //void un_freeze_rotation(Collider obj)
-    //{
+    void un_freeze_rotation(Collider obj)
+    {
 
-    //    obj.attachedRigidbody.freezeRotation = false;
-    //    rotation_frozen = false;
+        obj.attachedRigidbody.freezeRotation = false;
+
+        obj.transform.position = attatched_cube_reset_position.transform.position;
+        obj.transform.rotation = attatched_cube_reset_position.transform.rotation;
+
+        rotation_frozen = false;
 
 
-    //}
+    }
 }
 
 // https://www.youtube.com/watch?v=Q1xZGt41N80
