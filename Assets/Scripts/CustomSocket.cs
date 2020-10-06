@@ -7,12 +7,14 @@ public class CustomSocket : MonoBehaviour {
     private bool object_snapped = false;
     private Collider attatched_cube;
     private Vector3 socket_position;
-    private GameObject attatched_cube_reset_position;
-    bool rotation_frozen = false;
+    private Quaternion socket_rotation;
+    //private GameObject attatched_cube_reset_position;
+    //bool rotation_frozen = false;
 
     private void Start()
     {
         socket_position = this.transform.position;
+        socket_rotation = this.transform.rotation;
     }
 
     void FixedUpdate () {
@@ -23,8 +25,6 @@ public class CustomSocket : MonoBehaviour {
             snap_object_to_socket (attatched_cube);
         }
         
-
-        //Debug.Log("NAME: " + update_obj.name + "ROTATION: " + update_obj.attachedRigidbody.freezeRotation);
 
     }
 
@@ -45,9 +45,6 @@ public class CustomSocket : MonoBehaviour {
                 Debug.Log(this.name + " is snapping to " + other.name);
                 attatched_cube = other;
 
-                attatched_cube_reset_position = other.gameObject;
-
-
                 object_snapped = true;
             }
 
@@ -65,9 +62,6 @@ public class CustomSocket : MonoBehaviour {
             object_snapped = false;
 
 
-            // stop freezing its rotation
-            if (rotation_frozen)
-                un_freeze_rotation(attatched_cube);
         }
     }
 
@@ -78,29 +72,20 @@ public class CustomSocket : MonoBehaviour {
 
         obj.transform.position = socket_position;
 
+        obj.transform.rotation = socket_rotation;
+
         //obj.transform.rotation = reset_position.transform.rotation;
 
         //obj.transform.rotation = Quaternion.Euler(0, obj.transform.rotation.y, obj.transform.rotation.z);
 
-        obj.attachedRigidbody.freezeRotation = true;
-        rotation_frozen = true;
+        //obj.attachedRigidbody.freezeRotation = true;
+       
     }
 
 
 
 
-    void un_freeze_rotation(Collider obj)
-    {
-
-        obj.attachedRigidbody.freezeRotation = false;
-
-        obj.transform.position = attatched_cube_reset_position.transform.position;
-        obj.transform.rotation = attatched_cube_reset_position.transform.rotation;
-
-        rotation_frozen = false;
-
-
-    }
+  
 }
 
 // https://www.youtube.com/watch?v=Q1xZGt41N80
