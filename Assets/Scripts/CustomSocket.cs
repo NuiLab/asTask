@@ -17,13 +17,15 @@ public class CustomSocket : MonoBehaviour {
         socket_rotation = this.transform.rotation;
     }
 
-    void FixedUpdate () {
+    void OnTriggerStay () {
         // Every frame check if there is an object
         // attached and  call the snap_object_here_function
+
         if (object_snapped)
         {
             snap_object_to_socket (attatched_cube);
         }
+        
         
 
     }
@@ -73,6 +75,8 @@ public class CustomSocket : MonoBehaviour {
         obj.transform.position = socket_position;
 
         obj.transform.rotation = socket_rotation;
+
+        //object_snapped = true;
 
         //obj.transform.rotation = reset_position.transform.rotation;
 
