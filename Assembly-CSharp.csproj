@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ContinuousMovement.cs" />
-    <Compile Include="Assets\Scripts\CubeUnitManager.cs" />
     <Compile Include="Assets\Scripts\CustomSocket.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="Assets\Scripts\LocomotionController.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\XROffsetGrabInteractable.cs" />
-    <Compile Include="Assets\Scripts\cubeHelper.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2019.4.0f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
