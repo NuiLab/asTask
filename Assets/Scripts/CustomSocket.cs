@@ -76,13 +76,6 @@ public class CustomSocket : MonoBehaviour {
 
         obj.transform.rotation = socket_rotation;
 
-        //object_snapped = true;
-
-        //obj.transform.rotation = reset_position.transform.rotation;
-
-        //obj.transform.rotation = Quaternion.Euler(0, obj.transform.rotation.y, obj.transform.rotation.z);
-
-        //obj.attachedRigidbody.freezeRotation = true;
        
     }
 
@@ -92,4 +85,4 @@ public class CustomSocket : MonoBehaviour {
   
 }
 
-// https://www.youtube.com/watch?v=Q1xZGt41N80
+
