@@ -8,6 +8,7 @@ public class CustomSocket : MonoBehaviour {
     private Collider attatched_cube;
     private Vector3 socket_position;
     private Quaternion socket_rotation;
+    
     //private GameObject attatched_cube_reset_position;
     //bool rotation_frozen = false;
 
@@ -42,6 +43,9 @@ public class CustomSocket : MonoBehaviour {
             // if the socket is empty
             if (!object_snapped) {
 
+                
+
+
                 //set the object to the current object being snapped
                 // TODO: make this log into the record somehow.
                 Debug.Log(this.name + " is snapping to " + other.name);
@@ -75,6 +79,8 @@ public class CustomSocket : MonoBehaviour {
         obj.transform.position = socket_position;
 
         obj.transform.rotation = socket_rotation;
+
+        
 
        
     }
