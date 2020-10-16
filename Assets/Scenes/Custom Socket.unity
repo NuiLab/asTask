@@ -3915,7 +3915,6 @@ GameObject:
   - component: {fileID: 1362124238}
   - component: {fileID: 1362124237}
   - component: {fileID: 1362124236}
-  - component: {fileID: 1362124240}
   m_Layer: 0
   m_Name: Cube- block
   m_TagString: block
@@ -3997,18 +3996,6 @@ Transform:
   m_Father: {fileID: 1388706774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1362124240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362124235}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e59d5cd35f0e64c78abdf2d2dba286d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1388706768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,7 +4011,7 @@ GameObject:
   - component: {fileID: 1388706770}
   - component: {fileID: 1388706769}
   m_Layer: 0
-  m_Name: Cube - trigger
+  m_Name: Cube - bar
   m_TagString: bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4188,7 +4175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388706768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.363, y: 1.951, z: 1.25}
+  m_LocalPosition: {x: -0.293, y: 1.951, z: 1.25}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 1362124239}

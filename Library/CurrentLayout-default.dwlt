@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 644
     height: 368
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 303, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 99
+  controlID: 172
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 550
     height: 1705
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 303, y: 442}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 73
+  controlID: 146
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 811, y: 492}
   m_MaxSize: {x: 22006, y: 14042}
   vertical: 0
-  controlID: 72
+  controlID: 145
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 163
+  controlID: 82
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -530,7 +530,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 55
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -570,20 +570,20 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/ethanholen/Dropbox/Unity/future-of-work
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a8430000
-    m_LastClickedID: 17320
-    m_ExpandedIDs: 000000004a3d000066430000684300006a43000000ca9a3b
+    m_SelectedIDs: 7a420000
+    m_LastClickedID: 17018
+    m_ExpandedIDs: 000000004c3d00003a4200003c4200003e42000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -611,7 +611,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: a26e0000
     m_LastClickedID: 28322
-    m_ExpandedIDs: 000000004a3d000066430000684300006a430000
+    m_ExpandedIDs: 000000004c3d00003a4200003c4200003e420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -795,9 +795,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.015175998, y: 2.0834866, z: 1.9275091}
+    m_Target: {x: 0.45531535, y: 1.3889754, z: 0.6627116}
     speed: 2
-    m_Value: {x: -0.015175998, y: 2.0834866, z: 1.9275091}
+    m_Value: {x: 0.45531535, y: 1.3889754, z: 0.6627116}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -843,17 +843,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.16503415, y: 0.09040035, z: -0.015192262, w: -0.98201895}
+    m_Target: {x: -0.19159743, y: -0.083511844, z: 0.016364396, w: -0.9777782}
     speed: 2
-    m_Value: {x: -0.1650341, y: 0.09040033, z: -0.015192258, w: -0.9820187}
+    m_Value: {x: -0.19159727, y: -0.08351178, z: 0.016364383, w: -0.97777736}
   m_Size:
-    m_Target: 2.7569969
+    m_Target: 1.0740557
     speed: 2
-    m_Value: 2.7569969
+    m_Value: 1.0740557
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1.5
     m_SpeedNormalized: 0.73
@@ -903,9 +903,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: de520000
-      m_LastClickedID: 21214
-      m_ExpandedIDs: a0eaffff6eebffff60fbffff30400000a8400000de520000
+      m_SelectedIDs: 7a390100
+      m_LastClickedID: 80250
+      m_ExpandedIDs: de94ffff8695ffff8895fffff49affff9c9bffff9e9bffff529dfffffa9dffff4e9fffffa2adffff4aaeffff9eafffff7cb4ffff32f1fffff0f5fffffef7fffff2f8ffff68fbffff7a3f00005a600000a29700004c9b000036170100f0340100f4340100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
