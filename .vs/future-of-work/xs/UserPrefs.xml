@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/KeepParentWithChild.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CustomSocket.cs">
     <Files>
       <File FileName="Assets/Scripts/ItemSpawner.cs" Line="11" Column="94" />
       <File FileName="Packages/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactors/XRSocketInteractor.cs" />
-      <File FileName="Assets/Scripts/CustomSocket.cs" Line="83" Column="9" />
+      <File FileName="Assets/Scripts/CustomSocket.cs" Line="76" Column="48" />
       <File FileName="Assets/KeepParentWithChild.cs" Line="9" Column="10" />
     </Files>
     <Pads>
@@ -11,8 +11,9 @@
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
-              <Node name="KeepParentWithChild.cs" selected="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="CustomSocket.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
