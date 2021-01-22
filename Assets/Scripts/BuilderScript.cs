@@ -106,13 +106,15 @@ public class BuilderScript : MonoBehaviour
 
                     
 
+                    
+
                 }
-                if (a_pressed && placed && !snapPoint.getBuilt())
-                {
-                    Instantiate(foundation, other.transform.position, other.transform.rotation * Quaternion.Euler(0f, 0f, 90f));
-                    snapPoint.setBuilt(true);
-                    break;
-                }
+                //if (a_pressed && placed && !snapPoint.getBuilt())
+                //{
+                //    Instantiate(foundation, other.transform.position, other.transform.rotation * Quaternion.Euler(0f, 0f, 90f));
+                //    snapPoint.setBuilt(true);
+                //    break;
+                //}
 
 
 
