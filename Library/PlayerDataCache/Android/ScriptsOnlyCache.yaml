@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BuildOffset
     - BuilderScript
     - ContinuousMovement
     - HandPresence
@@ -266,6 +267,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15536}
     - Class: 114
       Script: {instanceID: 15542}
+    - Class: 114
+      Script: {instanceID: 18388}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1355,6 +1358,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 0dab133d0b1e84d57164c63a90206577
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BuildOffset
   platform: 13
   scenePathNames:
   - Assets/Scenes/Build System Bars.unity
