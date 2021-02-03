@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: SnapPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.008
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3859605596932338606
 MonoBehaviour:
@@ -57,3 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5745f74b23c2a804a9bc94cca0d84ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0

@@ -25,8 +25,14 @@ public class BuildOffset : MonoBehaviour
     private bool placed = false;
 
 
+    public bool is_even = false;
+
+
     private Quaternion offset_90 = Quaternion.Euler(0f, 0f, 90f);
     private Vector3 offset = new Vector3(0f, 0f, 0.076188f);
+    private Vector3 pos_even_offset = new Vector3(0f, 0f, 0.03807f);
+    private Vector3 neg_even_offset = new Vector3(0f, 0f, -0.03807f);
+    private Vector3 current_even_offset;
 
 
     // Debugging
@@ -52,13 +58,47 @@ public class BuildOffset : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        bool is_negative = distance_from_center < 0;
+        int offset_distance_center = 0;
+
+        if (is_even)
+        {
+            if (!is_negative)
+            {
+                current_even_offset = pos_even_offset;
+                offset_distance_center = -1;
+                
+            }
+            else
+            {
+                current_even_offset = neg_even_offset;
+                offset_distance_center = 1;
+                
+            }
+        }
+        else
+        {
+            current_even_offset = new Vector3(0f, 0f, 0f);
+        }
+
 
         if (other.tag == tagISnapTo)
         {
 
             if (!placed)
             {
-                preview_clone = Instantiate(bar_preview, other.transform.position + (offset * distance_from_center), other.transform.rotation * offset_90);
+
+                if (is_even)
+                {
+                    preview_clone = Instantiate(bar_preview, other.transform.position + (offset * (distance_from_center + offset_distance_center)) + current_even_offset, other.transform.rotation * offset_90);
+                }
+                else
+                {
+                    preview_clone = Instantiate(bar_preview, other.transform.position + (offset * distance_from_center), other.transform.rotation * offset_90);
+
+                }
+                
+                
                 placed = true;
                 Debug0.text = "Placed";
             }

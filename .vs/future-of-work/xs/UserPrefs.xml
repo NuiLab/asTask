@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BuilderScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BuildOffset.cs">
     <Files>
       <File FileName="Assets/Scripts/buildChecker.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/BuildOffset.cs" Line="36" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/BuildOffset.cs" Line="62" Column="42" NotebookId="1" />
     </Files>
     <FloatingWindows>
-      <FloatingWindow WindowId="1" X="1440" Y="425" Width="1680" Height="1837">
+      <FloatingWindow WindowId="1" X="1120" Y="25" Width="1440" Height="1387">
         <Files>
           <File FileName="Assets/Scripts/BuilderScript.cs" Line="25" Column="9" />
         </Files>
@@ -15,10 +15,8 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="BuilderScript.cs" selected="True" />
-              </Node>
+            <Node name="Assets" expanded="True" selected="True">
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -28,7 +26,7 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="12e40d9b-9543-4c52-bfb1-ac7b39d94ca3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="33466e4d-7a6a-4ee1-8595-20c2dfc244f4" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
