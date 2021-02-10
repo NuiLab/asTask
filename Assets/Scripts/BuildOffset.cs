@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class BuildOffset : MonoBehaviour
 {
@@ -42,22 +43,59 @@ public class BuildOffset : MonoBehaviour
 
 
 
+    // input devices
+    private List<InputDevice> leftHandDevices = new List<InputDevice>();
+    private List<InputDevice> rightHandDevices = new List<InputDevice>();
+
+    // Buttons
+    private bool a_pressed = false;
+    private bool x_pressed = false;
 
 
 
+    
+    void Update()
+    {
 
 
-    // later for buttons
-    //void Update()
-    //{
-        
-    //}
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
 
+        a_pressed = false;
+        x_pressed = false;
+
+        if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out a_pressed) && a_pressed)
+        {
+
+            //Debug0.text = "right: " + a_pressed.ToString();
+
+        }
+        if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out x_pressed) && x_pressed)
+        {
+
+            //Debug1.text = "left: " + x_pressed.ToString();
+
+        }
+        else
+        {
+            Debug.Log("No Devices found");
+        }
+
+        Debug0.text = "right: " + a_pressed.ToString();
+        Debug1.text = "left: " + x_pressed.ToString();
+
+
+    }
 
 
     private void OnTriggerStay(Collider other)
-    {
+    { 
+
+        buildChecker snapPoint = other.gameObject.GetComponent<buildChecker>();
+
+        bool already_built = snapPoint.getBuilt();
+        
         bool is_negative = distance_from_center < 0;
         int offset_distance_center = 0;
 
@@ -88,6 +126,7 @@ public class BuildOffset : MonoBehaviour
             if (!placed)
             {
 
+                // preview bar
                 if (is_even)
                 {
                     preview_clone = Instantiate(bar_preview, other.transform.position + (offset * (distance_from_center + offset_distance_center)) + current_even_offset, other.transform.rotation * offset_90);
@@ -95,6 +134,24 @@ public class BuildOffset : MonoBehaviour
                 else
                 {
                     preview_clone = Instantiate(bar_preview, other.transform.position + (offset * distance_from_center), other.transform.rotation * offset_90);
+
+                }
+
+                //Debug1.text =  " != initial a: " + initial_a.ToString();
+
+                Debug2.text = "already built: " + (!already_built).ToString();
+
+
+
+                // Build bar
+                if (a_pressed && !already_built)
+                {
+                    Instantiate(bar, preview_clone.transform.position, preview_clone.transform.rotation);
+                    snapPoint.setBuilt(true);
+                    already_built = true;
+                    Destroy(preview_clone);
+                    //Destroy(this.transform.parent.gameObject);
+                    Destroy(transform.root.gameObject);
 
                 }
                 
