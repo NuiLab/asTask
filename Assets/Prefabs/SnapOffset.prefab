@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.008
+  m_Radius: 0.004
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6245057661451958753
 MonoBehaviour:
@@ -60,6 +60,7 @@ MonoBehaviour:
   bar: {fileID: 0}
   bar_preview: {fileID: 0}
   distance_from_center: 0
+  is_even: 1
   Debug0: {fileID: 0}
   Debug1: {fileID: 0}
   Debug2: {fileID: 0}

@@ -264,6 +264,17 @@ namespace UnityEngine.XR.Interaction.Toolkit
             m_OnSelectExit?.Invoke(interactor);
         }
 
+
+        /// <summary>This method was added by Ethan to enable dropping of objects 
+        /// when we need to do it in code (e.g. at level end or when exhausted)
+        /// </summary>
+        /// <param name="interactor">Usually the player's hand</param>
+        public void CustomForceDrop(XRBaseInteractor interactor)
+        {
+            OnSelectExit(interactor);
+        }
+
+
         /// <summary>This method is called by the interaction manager 
         /// when the interactor sends an activation event down to an interactable.</summary>
         /// <param name="interactor">Interactor that is sending the activation event.</param>
