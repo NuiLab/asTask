@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BuilderScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BuildOffset.cs">
     <Files>
-      <File FileName="Assets/Scripts/buildChecker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BuilderScript.cs" Line="107" Column="21" />
+      <File FileName="Assets/Scripts/BuilderScript.cs" Line="11" Column="38" />
+      <File FileName="Assets/Scripts/buildChecker.cs" />
+      <File FileName="Assets/Scripts/BuildOffset.cs" Line="132" Column="1" />
+      <File FileName="Assets/XROffsetGrabInteractable.cs" />
+      <File FileName="Packages/com.unity.xr.interaction.toolkit@0.9.4-preview/Runtime/Interaction/Interactables/XRBaseInteractable.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="BuilderScript.cs" selected="True" />
-              </Node>
+            <Node name="Assets" expanded="True" selected="True">
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -21,7 +22,7 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bcf01f89-68c8-4d1f-a3ee-1676d5244bfe" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="07311704-e6ea-42e9-bf83-a63b27e696af" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

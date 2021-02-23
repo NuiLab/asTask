@@ -22,7 +22,7 @@ public class BuilderScript : MonoBehaviour
 
     public List<string> tagsISnapTo = new List<string>();
 
-
+        
     
     public bool isFoundation = true;
     private bool placed = false;
@@ -142,8 +142,6 @@ public class BuilderScript : MonoBehaviour
                 Destroy(preview_clone);
                 
                 placed = false;
-                // ChangeColor();
-                //isSnapped = false;
                 Debug2.text = "Exited";
             }
         }
