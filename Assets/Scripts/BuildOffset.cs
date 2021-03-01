@@ -214,7 +214,7 @@ public class BuildOffset : MonoBehaviour
 
     private void BuildBar()
     {
-        Instantiate(bar, preview_clone.transform.position, preview_clone.transform.rotation)
+        Instantiate(bar, preview_clone.transform.position, preview_clone.transform.rotation);
         if (snapPoint)
         {
             snapPoint.setBuilt(true);
