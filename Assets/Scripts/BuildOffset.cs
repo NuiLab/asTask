@@ -7,6 +7,9 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
+//https://github.com/Unity-Technologies/XR-Interaction-Toolkit-Examples/issues/29
+
+
 
 
 public class BuildOffset : MonoBehaviour
@@ -82,11 +85,7 @@ public class BuildOffset : MonoBehaviour
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-        if (GetComponent<XRGrabInteractable>())
-        {
-            bar_being_held = GetComponent<XRGrabInteractable>();
-            hand_holding_bar = bar_being_held.selectingInteractor;
-        }
+        
         
 
         bool a_pressed = false;
@@ -95,7 +94,7 @@ public class BuildOffset : MonoBehaviour
 
 
 
-        Debug2.text = bar_being_held.name + " being held by " + hand_holding_bar.name;
+        //Debug2.text = bar_being_held.ToString() + " being held by " + hand_holding_bar.ToString();
 
 
 
@@ -200,9 +199,6 @@ public class BuildOffset : MonoBehaviour
                 if (!ready_to_build && !already_built)
                 {
                     ready_to_build = true;
-                    //BuildBar();
-                    //RemoveClone();
-
                 }
 
 
@@ -221,10 +217,11 @@ public class BuildOffset : MonoBehaviour
         {
             snapPoint.setBuilt(true);
         }
-            
+
+        Debug2.text = "hi im in buildbar";
 
         RemoveCloneAndBar();
-        Debug2.text = "hi im in buildbar";
+        
 
         
         
@@ -232,12 +229,27 @@ public class BuildOffset : MonoBehaviour
 
     private void RemoveCloneAndBar()
     {
-        
-        Destroy(preview_clone);
-        bar_being_held.CustomForceDrop(hand_holding_bar);
+
+        XRGrabInteractable bar_held = this.transform.root.gameObject.GetComponent<XRGrabInteractable>();
+        XRBaseInteractor held_by = bar_held.selectingInteractor;
+
+        bar_held.CustomForceDrop(held_by);
+        this.transform.root.gameObject.SetActive(false);
+
+        //bar_being_held = GetComponent<XRGrabInteractable>();
+        //hand_holding_bar = bar_being_held.selectingInteractor;
+
+        //bar_being_held.CustomForceDrop(hand_holding_bar);
+        //bar_being_held.setActive(false);
+        Debug0.text = this.transform.root.gameObject.name;
         Destroy(this.transform.root.gameObject);
+
+        
         //Destroy(this.transform.parent.gameObject);
         //Destroy(transform.root.gameObject);
+        Destroy(preview_clone);
+        
+        
     }
 
 
