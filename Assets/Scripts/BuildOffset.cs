@@ -53,17 +53,18 @@ public class BuildOffset : MonoBehaviour
     // input devices
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
-    XRGrabInteractable bar_being_held;
-    XRBaseInteractor hand_holding_bar;
+    
 
     // state
     private bool ready_to_build = false;
-    
+
 
 
 
     // Release hand stuff
-    XRGrabInteractable current_interactable;
+    private XRGrabInteractable current_interactable;
+    private XRGrabInteractable bar_being_held;
+    private XRBaseInteractor hand_holding_bar;
 
 
 
@@ -93,8 +94,8 @@ public class BuildOffset : MonoBehaviour
         bool x_pressed = false;
 
 
-        
-        //Debug2.text = bar_being_held.name + " being held by " + hand_holding_bar.name;
+
+        Debug2.text = bar_being_held.name + " being held by " + hand_holding_bar.name;
 
 
 
@@ -131,8 +132,9 @@ public class BuildOffset : MonoBehaviour
 
 
 
-        Debug0.text = "ready_to_build: " + ready_to_build;
-        Debug1.text = "A pressed: " + a_pressed;
+
+        //Debug0.text = "ready_to_build: " + ready_to_build;
+        //Debug1.text = "A pressed: " + a_pressed;
 
 
 
@@ -214,7 +216,7 @@ public class BuildOffset : MonoBehaviour
 
     private void BuildBar()
     {
-        Instantiate(bar, preview_clone.transform.position, preview_clone.transform.rotation)
+        Instantiate(bar, preview_clone.transform.position, preview_clone.transform.rotation);
         if (snapPoint)
         {
             snapPoint.setBuilt(true);
