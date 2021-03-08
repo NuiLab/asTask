@@ -239,10 +239,11 @@ public class BuildOffset : MonoBehaviour
         //XRBaseInteractor held_by = bar_held.selectingInteractor;
 
         //bar_held.CustomForceDrop(held_by);
+        this.transform.parent.gameObject.tag = "cleanable";
         this.transform.parent.gameObject.SetActive(false);
         Destroy(preview_clone);
 
-        this.transform.parent.gameObject.tag = "cleanable";
+        
         //StartCoroutine(Wait(3));
 
         //Destroy(this.transform.parent.gameObject);

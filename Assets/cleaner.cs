@@ -32,6 +32,10 @@ public class cleaner : MonoBehaviour
 
         var objects = GameObject.FindGameObjectsWithTag("cleanable");
         var objectCount = objects.Length;
+
+        debug4.text = "r:" + r_grip_pressed + "l:" + l_grip_pressed + "len:" + objectCount;
+
+
         foreach (var obj in objects)
         {
             if(!r_grip_pressed && !l_grip_pressed)

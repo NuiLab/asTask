@@ -1,20 +1,21 @@
 ﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/cleaner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BuildOffset.cs">
     <Files>
       <File FileName="Assets/Scripts/BuilderScript.cs" Line="11" Column="38" />
       <File FileName="Assets/Scripts/buildChecker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BuildOffset.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/BuildOffset.cs" Line="257" Column="51" />
       <File FileName="Assets/XROffsetGrabInteractable.cs" Line="1" Column="1" />
-      <File FileName="Assets/debuggingSnaps.cs" Line="33" Column="1" />
-      <File FileName="Assets/cleaner.cs" Line="1" Column="1" />
+      <File FileName="Assets/debuggingSnaps.cs" Line="48" Column="59" />
+      <File FileName="Assets/cleaner.cs" Line="36" Column="91" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
-              <Node name="cleaner.cs" selected="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="BuildOffset.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
