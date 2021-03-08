@@ -7,6 +7,9 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
+//https://github.com/Unity-Technologies/XR-Interaction-Toolkit-Examples/issues/29
+
+
 
 
 public class BuildOffset : MonoBehaviour
@@ -17,6 +20,7 @@ public class BuildOffset : MonoBehaviour
     public GameObject bar;
     public GameObject bar_preview;
     private GameObject preview_clone;
+
 
 
     public float distance_from_center;
@@ -49,21 +53,21 @@ public class BuildOffset : MonoBehaviour
     public Text Debug2;
 
 
-
     // input devices
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
-    XRGrabInteractable bar_being_held;
-    XRBaseInteractor hand_holding_bar;
+
 
     // state
     private bool ready_to_build = false;
-    
+
 
 
 
     // Release hand stuff
-    XRGrabInteractable current_interactable;
+    private XRGrabInteractable current_interactable;
+    private XRGrabInteractable bar_being_held;
+    private XRBaseInteractor hand_holding_bar;
 
 
 
@@ -75,26 +79,22 @@ public class BuildOffset : MonoBehaviour
     void Update()
     {
 
-        
+
 
 
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-        if (GetComponent<XRGrabInteractable>())
-        {
-            bar_being_held = GetComponent<XRGrabInteractable>();
-            hand_holding_bar = bar_being_held.selectingInteractor;
-        }
-        
+
+
 
         bool a_pressed = false;
-        
+
         bool x_pressed = false;
 
 
-        
-        //Debug2.text = bar_being_held.name + " being held by " + hand_holding_bar.name;
+
+        //Debug2.text = bar_being_held.ToString() + " being held by " + hand_holding_bar.ToString();
 
 
 
@@ -109,7 +109,7 @@ public class BuildOffset : MonoBehaviour
             if (a_pressed && ready_to_build)
             {
                 BuildBar();
-                
+
                 //bar_being_held.CustomForceDrop(hand_holding_bar);
 
             }
@@ -119,6 +119,11 @@ public class BuildOffset : MonoBehaviour
         {
 
             //Debug1.text = "left: " + x_pressed.ToString();
+
+            //if (x_pressed)
+            //{
+            //    RemoveCloneAndBar();
+            //}
 
         }
         else
@@ -131,8 +136,9 @@ public class BuildOffset : MonoBehaviour
 
 
 
-        Debug0.text = "ready_to_build: " + ready_to_build;
-        Debug1.text = "A pressed: " + a_pressed;
+
+        //Debug0.text = "ready_to_build: " + ready_to_build;
+        //Debug1.text = "A pressed: " + a_pressed;
 
 
 
@@ -198,14 +204,11 @@ public class BuildOffset : MonoBehaviour
                 if (!ready_to_build && !already_built)
                 {
                     ready_to_build = true;
-                    //BuildBar();
-                    //RemoveClone();
-
                 }
 
 
                 placed = true;
-                
+
             }
 
         }
@@ -219,24 +222,56 @@ public class BuildOffset : MonoBehaviour
         {
             snapPoint.setBuilt(true);
         }
-            
 
-        RemoveCloneAndBar();
         Debug2.text = "hi im in buildbar";
 
-        
-        
+        RemoveCloneAndBar();
+
+
+
+
     }
 
     private void RemoveCloneAndBar()
     {
-        
+
+        //XRGrabInteractable bar_held = this.transform.root.gameObject.GetComponent<XRGrabInteractable>();
+        //XRBaseInteractor held_by = bar_held.selectingInteractor;
+
+        //bar_held.CustomForceDrop(held_by);
+        this.transform.parent.gameObject.tag = "cleanable";
+        this.transform.parent.gameObject.SetActive(false);
         Destroy(preview_clone);
-        bar_being_held.CustomForceDrop(hand_holding_bar);
-        Destroy(this.transform.root.gameObject);
+
+        
+        //StartCoroutine(Wait(3));
+
+        //Destroy(this.transform.parent.gameObject);
+
+        //bar_being_held = GetComponent<XRGrabInteractable>();
+        //hand_holding_bar = bar_being_held.selectingInteractor;
+
+        //bar_being_held.CustomForceDrop(hand_holding_bar);
+        //bar_being_held.setActive(false);
+        Debug0.text = this.transform.root.gameObject.name;
+        //Destroy(this.transform.root.gameObject);
+
+
         //Destroy(this.transform.parent.gameObject);
         //Destroy(transform.root.gameObject);
+        
+
+
     }
+
+    //IEnumerator Wait(float duration)
+    //{
+    //    //This is a coroutine
+    //    Debug.Log("Start Wait() function. The time is: " + Time.time);
+    //    Debug.Log("Float duration = " + duration);
+    //    yield return new WaitForSeconds(duration);   //Wait
+    //    Debug.Log("End Wait() function and the time is: " + Time.time);
+    //}
 
 
 
