@@ -22,6 +22,7 @@ public class BuildOffset : MonoBehaviour
     private GameObject preview_clone;
 
 
+
     public float distance_from_center;
     //private float offset = 0.255f * distance_from_center;
 
@@ -52,11 +53,10 @@ public class BuildOffset : MonoBehaviour
     public Text Debug2;
 
 
-
     // input devices
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
-    
+
 
     // state
     private bool ready_to_build = false;
@@ -79,17 +79,17 @@ public class BuildOffset : MonoBehaviour
     void Update()
     {
 
-        
+
 
 
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-        
-        
+
+
 
         bool a_pressed = false;
-        
+
         bool x_pressed = false;
 
 
@@ -109,7 +109,7 @@ public class BuildOffset : MonoBehaviour
             if (a_pressed && ready_to_build)
             {
                 BuildBar();
-                
+
                 //bar_being_held.CustomForceDrop(hand_holding_bar);
 
             }
@@ -119,6 +119,11 @@ public class BuildOffset : MonoBehaviour
         {
 
             //Debug1.text = "left: " + x_pressed.ToString();
+
+            //if (x_pressed)
+            //{
+            //    RemoveCloneAndBar();
+            //}
 
         }
         else
@@ -203,7 +208,7 @@ public class BuildOffset : MonoBehaviour
 
 
                 placed = true;
-                
+
             }
 
         }
@@ -221,20 +226,26 @@ public class BuildOffset : MonoBehaviour
         Debug2.text = "hi im in buildbar";
 
         RemoveCloneAndBar();
-        
 
-        
-        
+
+
+
     }
 
     private void RemoveCloneAndBar()
     {
 
-        XRGrabInteractable bar_held = this.transform.root.gameObject.GetComponent<XRGrabInteractable>();
-        XRBaseInteractor held_by = bar_held.selectingInteractor;
+        //XRGrabInteractable bar_held = this.transform.root.gameObject.GetComponent<XRGrabInteractable>();
+        //XRBaseInteractor held_by = bar_held.selectingInteractor;
 
-        bar_held.CustomForceDrop(held_by);
-        this.transform.root.gameObject.SetActive(false);
+        //bar_held.CustomForceDrop(held_by);
+        this.transform.parent.gameObject.SetActive(false);
+        Destroy(preview_clone);
+
+        this.transform.parent.gameObject.tag = "cleanable";
+        //StartCoroutine(Wait(3));
+
+        //Destroy(this.transform.parent.gameObject);
 
         //bar_being_held = GetComponent<XRGrabInteractable>();
         //hand_holding_bar = bar_being_held.selectingInteractor;
@@ -242,15 +253,24 @@ public class BuildOffset : MonoBehaviour
         //bar_being_held.CustomForceDrop(hand_holding_bar);
         //bar_being_held.setActive(false);
         Debug0.text = this.transform.root.gameObject.name;
-        Destroy(this.transform.root.gameObject);
+        //Destroy(this.transform.root.gameObject);
 
-        
+
         //Destroy(this.transform.parent.gameObject);
         //Destroy(transform.root.gameObject);
-        Destroy(preview_clone);
         
-        
+
+
     }
+
+    //IEnumerator Wait(float duration)
+    //{
+    //    //This is a coroutine
+    //    Debug.Log("Start Wait() function. The time is: " + Time.time);
+    //    Debug.Log("Float duration = " + duration);
+    //    yield return new WaitForSeconds(duration);   //Wait
+    //    Debug.Log("End Wait() function and the time is: " + Time.time);
+    //}
 
 
 
