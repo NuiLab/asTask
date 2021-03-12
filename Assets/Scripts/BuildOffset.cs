@@ -15,278 +15,201 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BuildOffset : MonoBehaviour
 {
 
-
-
-    public GameObject bar;
-    public GameObject bar_preview;
-    private GameObject preview_clone;
-
-
-
-    public float distance_from_center;
-    //private float offset = 0.255f * distance_from_center;
-
-
-
-    // Might need to be changed to
-    // public later
-    private string tagISnapTo = "Bar_SP";
-
-    private bool placed = false;
-
-
-    public bool is_even = false;
-
-
-    private Quaternion offset_90 = Quaternion.Euler(0f, 0f, 90f);
-    private Vector3 offset = new Vector3(0f, 0f, 0.076188f);
-    private Vector3 pos_even_offset = new Vector3(0f, 0f, 0.03807f);
-    private Vector3 neg_even_offset = new Vector3(0f, 0f, -0.03807f);
-    private Vector3 current_even_offset;
-
-    buildChecker snapPoint;
-
-
-    // Debugging
+    // Debuggers
     public Text Debug0;
     public Text Debug1;
     public Text Debug2;
+    public Text Debug3;
+    public Text Debug4;
 
 
+
+
+    // Public Variables
+    public GameObject bar;
+    public GameObject barPreview;
+    public bool isEven;
+    public int distanceFromCenter;
+
+
+
+
+
+    // Globals
+    private GameObject previewClone;
+    private bool readyToBuild = false;
+    private buildChecker snapPoint;
+    private string TagISnapTo = "Bar_SP";
+    bool placed = false;
+
+
+
+
+    // XR
     // input devices
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
 
 
-    // state
-    private bool ready_to_build = false;
 
 
-
-
-    // Release hand stuff
-    private XRGrabInteractable current_interactable;
-    private XRGrabInteractable bar_being_held;
-    private XRBaseInteractor hand_holding_bar;
-
-
-
-
-
-
-
-
+    // Update is called once per frame
     void Update()
     {
 
-
-
-
+        // button presses
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-
-
-
         bool a_pressed = false;
-
         bool x_pressed = false;
-
-
-
-        //Debug2.text = bar_being_held.ToString() + " being held by " + hand_holding_bar.ToString();
-
-
-
-
-
-
 
         if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out a_pressed) && a_pressed)
         {
-
-            //Debug0.text = "right: " + a_pressed.ToString();
-            if (a_pressed && ready_to_build)
+            if (a_pressed && readyToBuild)
             {
                 BuildBar();
-
-                //bar_being_held.CustomForceDrop(hand_holding_bar);
-
             }
-
         }
         if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out x_pressed) && x_pressed)
         {
-
-            //Debug1.text = "left: " + x_pressed.ToString();
-
-            //if (x_pressed)
-            //{
-            //    RemoveCloneAndBar();
-            //}
-
+            if (x_pressed && readyToBuild)
+            {
+                BuildBar();
+            }
         }
         else
         {
             Debug.Log("No Devices found");
         }
+    }
 
+    private void BuildBar()
+    {
+        
+        Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
+        if (snapPoint)
+            snapPoint.setBuilt(true);
 
+        Cleanup();
 
+    }
 
-
-
-
-        //Debug0.text = "ready_to_build: " + ready_to_build;
-        //Debug1.text = "A pressed: " + a_pressed;
-
-
-
-
-        //Debug0.text = current_interactable.ToString();
-
-
-
-
-
-
+    private void Cleanup()
+    {
+        this.transform.parent.gameObject.tag = "cleanable";
+        this.transform.parent.gameObject.SetActive(false);
+        Destroy(previewClone);
 
     }
 
 
     private void OnTriggerStay(Collider other)
     {
-        snapPoint = other.gameObject.GetComponent<buildChecker>();
-        bool already_built = snapPoint.getBuilt();
 
-        bool is_negative = distance_from_center < 0;
-        int offset_distance_center = 0;
 
-        if (is_even)
+        // Generate Bar Previews
+        if (TagISnapTo == other.tag)
         {
-            if (!is_negative)
+            if (!placed)
             {
-                current_even_offset = pos_even_offset;
-                offset_distance_center = -1;
+                // Set variables
+                Vector3 positionOffset;
+                Quaternion rotationOffset = Quaternion.Euler(0f, 0f, 90f);
+                bool alreadyBuilt = AlreadyBuilt(other);
+                bool rotated = BarIsRotataed(other);
+
+                // Determine Offset
+                positionOffset = DeterminePosition(rotated);
+
+                previewClone = Instantiate(barPreview, other.transform.position + positionOffset, other.transform.rotation * rotationOffset);
+                placed = true;
+
+                // tell build bar we are ready to build
+                if (!alreadyBuilt && !readyToBuild)
+                    readyToBuild = true;
+            } 
+        }
+    }
+
+    private bool AlreadyBuilt(Collider other)
+    {
+        snapPoint = other.gameObject.GetComponent<buildChecker>();
+        return snapPoint.getBuilt();
+
+    }
+
+    private bool BarIsRotataed(Collider other)
+    {
+
+        float zRotation = other.transform.parent.gameObject.transform.rotation.z;
+
+        Debug0.text = "zRotation: " + zRotation.ToString();
+
+        if (zRotation == 0)
+            return false;
+
+
+        return true;
+
+    }
+
+    private Vector3 DeterminePosition(bool rotated)
+    {
+        float offsetFloat = 0.076188f;
+        float evenAdjustmentFloat;
+
+        Vector3 offset;
+
+
+        if (distanceFromCenter < 0)
+            evenAdjustmentFloat = 0.03807f;
+        else
+            evenAdjustmentFloat = -0.03807f;
+
+        if (rotated)
+        {
+            if (isEven)
+            {
+                offset = new Vector3(evenAdjustmentFloat + (offsetFloat * distanceFromCenter), 0f, 0f);
 
             }
             else
             {
-                current_even_offset = neg_even_offset;
-                offset_distance_center = 1;
-
+                offset = new Vector3((offsetFloat * distanceFromCenter), 0f, 0f);
             }
+
         }
         else
         {
-            current_even_offset = new Vector3(0f, 0f, 0f);
-        }
-
-
-        if (other.tag == tagISnapTo)
-        {
-
-            if (!placed)
+            if (isEven)
             {
-
-                // preview bar
-                if (is_even)
-                {
-                    preview_clone = Instantiate(bar_preview, other.transform.position + (offset * (distance_from_center + offset_distance_center)) + current_even_offset, other.transform.rotation * offset_90);
-                }
-                else
-                {
-                    preview_clone = Instantiate(bar_preview, other.transform.position + (offset * distance_from_center), other.transform.rotation * offset_90);
-
-                }
-
-                // Build bar
-                if (!ready_to_build && !already_built)
-                {
-                    ready_to_build = true;
-                }
-
-
-                placed = true;
-
+                offset = new Vector3(0f, 0f, evenAdjustmentFloat + (offsetFloat * distanceFromCenter));
+            }
+            else
+            {
+                offset = new Vector3(0f, 0f, (offsetFloat * distanceFromCenter));
             }
 
         }
 
-    }
-
-    private void BuildBar()
-    {
-        Instantiate(bar, preview_clone.transform.position, preview_clone.transform.rotation);
-        if (snapPoint)
-        {
-            snapPoint.setBuilt(true);
-        }
-
-        Debug2.text = "hi im in buildbar";
-
-        RemoveCloneAndBar();
-
-
-
+        return offset;
 
     }
-
-    private void RemoveCloneAndBar()
-    {
-
-        //XRGrabInteractable bar_held = this.transform.root.gameObject.GetComponent<XRGrabInteractable>();
-        //XRBaseInteractor held_by = bar_held.selectingInteractor;
-
-        //bar_held.CustomForceDrop(held_by);
-        this.transform.parent.gameObject.tag = "cleanable";
-        this.transform.parent.gameObject.SetActive(false);
-        Destroy(preview_clone);
-
-        
-        //StartCoroutine(Wait(3));
-
-        //Destroy(this.transform.parent.gameObject);
-
-        //bar_being_held = GetComponent<XRGrabInteractable>();
-        //hand_holding_bar = bar_being_held.selectingInteractor;
-
-        //bar_being_held.CustomForceDrop(hand_holding_bar);
-        //bar_being_held.setActive(false);
-        Debug0.text = this.transform.root.gameObject.name;
-        //Destroy(this.transform.root.gameObject);
-
-
-        //Destroy(this.transform.parent.gameObject);
-        //Destroy(transform.root.gameObject);
-        
-
-
-    }
-
-    //IEnumerator Wait(float duration)
-    //{
-    //    //This is a coroutine
-    //    Debug.Log("Start Wait() function. The time is: " + Time.time);
-    //    Debug.Log("Float duration = " + duration);
-    //    yield return new WaitForSeconds(duration);   //Wait
-    //    Debug.Log("End Wait() function and the time is: " + Time.time);
-    //}
-
-
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == tagISnapTo)
+        if (other.tag == TagISnapTo)
         {
-            Destroy(preview_clone);
+            Destroy(previewClone);
 
             placed = false;
-            ready_to_build = false;
+            readyToBuild = false;
 
-            //Debug0.text = "Not Placed";
+            
 
         }
 
     }
+
 }
