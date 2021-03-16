@@ -142,19 +142,21 @@ public class BuildOffset : MonoBehaviour
     private bool BarIsRotataed(Collider other)
     {
 
-        float z = other.transform.parent.gameObject.transform.rotation.z;
+        int z = (int)(other.transform.parent.gameObject.transform.localRotation.z * 100);
+        
+
 
         Debug1.text = "z: " + z;
 
-        float zRotation = z % 180f;
+        int zRotation = Mathf.Abs(z);
 
         Debug0.text = "zRotation: " + zRotation.ToString();
 
-        if (zRotation == 0)
-            return false;
+        if (zRotation == 50)
+            return true;
 
 
-        return true;
+        return false;
 
     }
 
