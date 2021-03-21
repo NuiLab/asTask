@@ -141,6 +141,10 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 11338}
+    - Class: 114
+      Script: {instanceID: 11340}
+    - Class: 114
       Script: {instanceID: 11342}
     - Class: 114
       Script: {instanceID: 11344}
@@ -153,119 +157,115 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11354}
+      Script: {instanceID: 11396}
     - Class: 114
-      Script: {instanceID: 11356}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11400}
+      Script: {instanceID: 11626}
     - Class: 114
-      Script: {instanceID: 11508}
+      Script: {instanceID: 11650}
     - Class: 114
-      Script: {instanceID: 11630}
+      Script: {instanceID: 11818}
     - Class: 114
-      Script: {instanceID: 11654}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 11822}
+      Script: {instanceID: 11892}
     - Class: 114
-      Script: {instanceID: 11850}
+      Script: {instanceID: 11898}
     - Class: 114
-      Script: {instanceID: 11896}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11902}
+      Script: {instanceID: 11976}
     - Class: 114
-      Script: {instanceID: 11934}
+      Script: {instanceID: 12078}
     - Class: 114
-      Script: {instanceID: 11980}
+      Script: {instanceID: 12414}
     - Class: 114
-      Script: {instanceID: 12082}
+      Script: {instanceID: 12460}
     - Class: 114
-      Script: {instanceID: 12418}
+      Script: {instanceID: 12528}
     - Class: 114
-      Script: {instanceID: 12464}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 12532}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 12680}
+      Script: {instanceID: 12822}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 12826}
+      Script: {instanceID: 13092}
     - Class: 114
-      Script: {instanceID: 13054}
+      Script: {instanceID: 13110}
     - Class: 114
-      Script: {instanceID: 13096}
+      Script: {instanceID: 13156}
     - Class: 114
-      Script: {instanceID: 13114}
-    - Class: 114
-      Script: {instanceID: 13160}
+      Script: {instanceID: 13282}
     - Class: 114
       Script: {instanceID: 13288}
     - Class: 114
-      Script: {instanceID: 13294}
+      Script: {instanceID: 13586}
     - Class: 114
-      Script: {instanceID: 13592}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 13706}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 13716}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13938}
     - Class: 114
-      Script: {instanceID: 13946}
+      Script: {instanceID: 14008}
     - Class: 114
-      Script: {instanceID: 14016}
+      Script: {instanceID: 14022}
     - Class: 114
       Script: {instanceID: 14030}
     - Class: 114
-      Script: {instanceID: 14038}
+      Script: {instanceID: 14162}
     - Class: 114
-      Script: {instanceID: 14170}
+      Script: {instanceID: 14192}
     - Class: 114
-      Script: {instanceID: 14200}
+      Script: {instanceID: 14202}
     - Class: 114
-      Script: {instanceID: 14210}
+      Script: {instanceID: 14260}
     - Class: 114
-      Script: {instanceID: 14268}
+      Script: {instanceID: 14278}
     - Class: 114
-      Script: {instanceID: 14286}
+      Script: {instanceID: 14544}
     - Class: 114
-      Script: {instanceID: 14552}
+      Script: {instanceID: 14610}
     - Class: 114
-      Script: {instanceID: 14618}
+      Script: {instanceID: 14662}
     - Class: 114
-      Script: {instanceID: 14670}
+      Script: {instanceID: 14762}
     - Class: 114
-      Script: {instanceID: 14770}
+      Script: {instanceID: 14854}
     - Class: 114
-      Script: {instanceID: 14862}
+      Script: {instanceID: 14962}
     - Class: 114
-      Script: {instanceID: 14970}
+      Script: {instanceID: 15066}
     - Class: 114
-      Script: {instanceID: 15074}
+      Script: {instanceID: 15120}
     - Class: 114
-      Script: {instanceID: 15128}
+      Script: {instanceID: 15236}
     - Class: 114
-      Script: {instanceID: 15244}
+      Script: {instanceID: 15252}
     - Class: 114
-      Script: {instanceID: 15260}
+      Script: {instanceID: 15350}
+    - Class: 114
+      Script: {instanceID: 15356}
     - Class: 114
       Script: {instanceID: 15358}
     - Class: 114
-      Script: {instanceID: 15364}
+      Script: {instanceID: 15368}
     - Class: 114
-      Script: {instanceID: 15366}
+      Script: {instanceID: 15400}
     - Class: 114
-      Script: {instanceID: 15376}
+      Script: {instanceID: 15416}
     - Class: 114
-      Script: {instanceID: 15408}
+      Script: {instanceID: 15448}
     - Class: 114
-      Script: {instanceID: 15424}
+      Script: {instanceID: 15540}
     - Class: 114
-      Script: {instanceID: 15456}
-    - Class: 114
-      Script: {instanceID: 15548}
-    - Class: 114
-      Script: {instanceID: 15554}
+      Script: {instanceID: 15546}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -805,12 +805,6 @@ ScriptsOnlyBuild:
     className: XRControllerRecording
   - hash:
       serializedVersion: 2
-      Hash: 766c556806ccc61affe770d3c5917627
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: cleaner
-  - hash:
-      serializedVersion: 2
       Hash: 5e1eefcd5106de6c2e85908a3b2d3f04
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -875,12 +869,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ColorLookup
-  - hash:
-      serializedVersion: 2
-      Hash: 83029a12cdfc86c45cd9952bcd15b7e1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: debuggingSnaps
   - hash:
       serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
