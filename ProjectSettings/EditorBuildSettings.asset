@@ -6,17 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Bowling Template.unity
-    guid: 064a6ac3633be475f9f8acd41f852a84
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Build System Basic.unity
-    guid: f735e3e298cfd41c6865c240b1a160c1
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Build System Bars.unity
     guid: e1342472f87af47f79043cbbe255e329
+  - enabled: 0
+    path: Assets/Scenes/Shape_A.unity
+    guid: 26f9dc9bc8bc24030b97c9f2192620a2
+  - enabled: 1
+    path: Assets/Scenes/Shape_C.unity
+    guid: 579094738848d4ce4b2d460aa34ad636
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2bcd0c57514674568b0789b42421d5ae,
       type: 2}

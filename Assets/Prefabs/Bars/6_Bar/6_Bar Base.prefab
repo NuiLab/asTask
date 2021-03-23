@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801586991889386089}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.343, y: 0.839, z: 1.045}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
@@ -43,7 +43,7 @@ Transform:
   - {fileID: 7847344033903554453}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!33 &6476660156662951044
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -158,6 +158,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPoint(Base) (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
 --- !u!4 &7847344033903554453 stripped
@@ -232,6 +237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapPoint(Base) (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
@@ -308,6 +318,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPoint(Base) (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
 --- !u!4 &5535441006828809441 stripped
@@ -382,6 +397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapPoint(Base) (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
@@ -458,6 +478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPoint(Base)
       objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
 --- !u!4 &2440369835651076760 stripped
@@ -532,6 +557,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapPoint(Base) (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
@@ -608,6 +638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPoint(Base) (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
 --- !u!4 &3892341776824597413 stripped
@@ -682,6 +717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapPoint(Base) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
@@ -758,6 +798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPoint(Base) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
 --- !u!4 &371157242680713651 stripped
@@ -832,6 +877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapPoint(Base) (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
@@ -908,6 +958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPoint(Base) (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}
 --- !u!4 &204456719998615863 stripped
@@ -982,6 +1037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapPoint(Base) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9131874034638313225, guid: 2bd4b908708ee4e1fbee97e96d064343,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bar_SP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd4b908708ee4e1fbee97e96d064343, type: 3}

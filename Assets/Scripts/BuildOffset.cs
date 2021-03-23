@@ -16,11 +16,11 @@ public class BuildOffset : MonoBehaviour
 {
 
     // Debuggers
-    public Text Debug0;
-    public Text Debug1;
-    public Text Debug2;
-    public Text Debug3;
-    public Text Debug4;
+    //public Text Debug0;
+    //public Text Debug1;
+    //public Text Debug2;
+    //public Text Debug3;
+    //public Text Debug4;
 
 
 
@@ -146,11 +146,11 @@ public class BuildOffset : MonoBehaviour
         
 
 
-        Debug1.text = "z: " + z;
+        //Debug1.text = "z: " + z;
 
         int zRotation = Mathf.Abs(z);
 
-        Debug0.text = "zRotation: " + zRotation.ToString();
+        //Debug0.text = "zRotation: " + zRotation.ToString();
 
         if (zRotation == 50)
             return true;

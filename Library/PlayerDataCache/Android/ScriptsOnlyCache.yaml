@@ -92,6 +92,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -99,7 +100,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/Build System Bars.unity:
+    Assets/Scenes/Shape_C.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -206,6 +207,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13586}
     - Class: 114
       Script: {instanceID: 13618}
+    - Class: 114
+      Script: {instanceID: 13630}
     - Class: 114
       Script: {instanceID: 13706}
     - Class: 114
@@ -763,7 +766,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: c4954481a752e93285e5b2e3e67a718e
+      Hash: 9f919656c15e44c936636867de1fdcdc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BuildOffset
@@ -1369,5 +1372,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Build System Bars.unity
-  playerPath: /Users/ethanholen/Documents/code/Research/future-of-work/Builds/build-system-bars.apk
+  - Assets/Scenes/Shape_C.unity
+  playerPath: /Users/ethanholen/Documents/code/Research/future-of-work/Builds/shapeC.apk
