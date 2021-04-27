@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6707997236529288068}
   - component: {fileID: 5033400936977532489}
   m_Layer: 0
-  m_Name: SnapPoint (5)
+  m_Name: SnapPoint(3_Base):3
   m_TagString: Bar_SP
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1465087429375756821}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6707997236529288068
 SphereCollider:
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 5334506091740380253}
   - component: {fileID: 5965674729936054672}
   m_Layer: 0
-  m_Name: SnapPoint
+  m_Name: SnapPoint(3_Base):-2
   m_TagString: Bar_SP
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1465087429375756821}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5334506091740380253
 SphereCollider:
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 9067373347105661536}
   - component: {fileID: 7284682955922388909}
   m_Layer: 0
-  m_Name: SnapPoint (2)
+  m_Name: SnapPoint(3_Base):-1
   m_TagString: Bar_SP
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1465087429375756821}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &9067373347105661536
 SphereCollider:
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 490066408548852704}
   - component: {fileID: 2161934823745959469}
   m_Layer: 0
-  m_Name: SnapPoint (3)
+  m_Name: 'SnapPoint(3_Base):1 '
   m_TagString: Bar_SP
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1465087429375756821}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &490066408548852704
 SphereCollider:
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 3644517844441419180}
   - component: {fileID: 3052949213274675297}
   m_Layer: 0
-  m_Name: SnapPoint (4)
+  m_Name: SnapPoint(3_Base):-3
   m_TagString: Bar_SP
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -262,7 +262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1465087429375756821}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &3644517844441419180
 SphereCollider:
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 4193986347379040347}
   - component: {fileID: 2520226702925690262}
   m_Layer: 0
-  m_Name: SnapPoint (1)
+  m_Name: SnapPoint(3_Base):2
   m_TagString: Bar_SP
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 6259623183774540924}
   m_Layer: 0
   m_Name: 3_ Bar Base
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,12 +377,12 @@ Transform:
   m_LocalPosition: {x: -2.299, y: 0.84, z: 1.0408119}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
-  - {fileID: 732067259960844668}
-  - {fileID: 8798663753469197690}
-  - {fileID: 4466130784053149505}
   - {fileID: 5107709252749278913}
-  - {fileID: 8267702807549677709}
+  - {fileID: 8798663753469197690}
   - {fileID: 2105641456153530021}
+  - {fileID: 4466130784053149505}
+  - {fileID: 732067259960844668}
+  - {fileID: 8267702807549677709}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}

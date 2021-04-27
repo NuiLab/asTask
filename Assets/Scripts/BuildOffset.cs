@@ -10,8 +10,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 //https://github.com/Unity-Technologies/XR-Interaction-Toolkit-Examples/issues/29
 
 
-
-
 public class BuildOffset : MonoBehaviour
 {
 
@@ -22,18 +20,11 @@ public class BuildOffset : MonoBehaviour
     //public Text Debug3;
     //public Text Debug4;
 
-
-
-
     // Public Variables
     public GameObject bar;
     public GameObject barPreview;
     public bool isEven;
     public int distanceFromCenter;
-
-
-
-
 
     // Globals
     private GameObject previewClone;
@@ -41,9 +32,6 @@ public class BuildOffset : MonoBehaviour
     private buildChecker snapPoint;
     private string TagISnapTo = "Bar_SP";
     bool placed = false;
-
-
-
 
     // XR
     // input devices
@@ -66,6 +54,7 @@ public class BuildOffset : MonoBehaviour
 
         if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out a_pressed) && a_pressed)
         {
+
             if (a_pressed && readyToBuild)
             {
                 BuildBar();
@@ -86,7 +75,7 @@ public class BuildOffset : MonoBehaviour
 
     private void BuildBar()
     {
-        
+
         Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
         if (snapPoint)
             snapPoint.setBuilt(true);
@@ -111,6 +100,11 @@ public class BuildOffset : MonoBehaviour
         // Generate Bar Previews
         if (TagISnapTo == other.tag)
         {
+            // TODO: Output these to a file to record
+            // which point connects to which
+            //Debug0.text = other.gameObject.name;
+            //Debug1.text = this.gameObject.name;
+
             if (!placed)
             {
                 // Set variables
@@ -128,7 +122,7 @@ public class BuildOffset : MonoBehaviour
                 // tell build bar we are ready to build
                 if (!alreadyBuilt && !readyToBuild)
                     readyToBuild = true;
-            } 
+            }
         }
     }
 
@@ -143,7 +137,7 @@ public class BuildOffset : MonoBehaviour
     {
 
         int z = (int)(other.transform.parent.gameObject.transform.localRotation.z * 100);
-        
+
 
 
         //Debug1.text = "z: " + z;
@@ -165,7 +159,7 @@ public class BuildOffset : MonoBehaviour
         float offsetFloat = 0.076188f;
         float evenAdjustmentFloat;
 
-        Vector3 offset; 
+        Vector3 offset;
 
 
         if (distanceFromCenter < 0)
@@ -211,11 +205,6 @@ public class BuildOffset : MonoBehaviour
 
             placed = false;
             readyToBuild = false;
-
-            
-
         }
-
     }
-
 }

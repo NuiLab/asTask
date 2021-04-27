@@ -22,9 +22,10 @@ public class BuilderScript : MonoBehaviour
 
     public List<string> tagsISnapTo = new List<string>();
 
-        
-    
+
+
     public bool isFoundation = true;
+
     private bool placed = false;
 
     // buttons
@@ -49,7 +50,7 @@ public class BuilderScript : MonoBehaviour
 
 
         bool pressed;
-        
+
 
         if (rightHandDevices.Count >= 1)
         {
@@ -78,7 +79,7 @@ public class BuilderScript : MonoBehaviour
         Debug0.text = "A pressed: " + a_pressed.ToString();
         Debug1.text = "X pressed: " + x_pressed.ToString();
 
-  
+
 
     }
 
@@ -88,7 +89,7 @@ public class BuilderScript : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        
+
 
 
         for (int i = 0; i < tagsISnapTo.Count; i++)
@@ -104,9 +105,9 @@ public class BuilderScript : MonoBehaviour
                     preview_clone = (GameObject) Instantiate(preview, other.transform.position, other.transform.rotation * Quaternion.Euler(0f, 0f, 90f));
                     placed = true;
 
-                    
 
-                    
+
+
 
                 }
                 //if (a_pressed && placed && !snapPoint.getBuilt())
@@ -138,9 +139,9 @@ public class BuilderScript : MonoBehaviour
 
             if (other.tag == CurrentTag)
             {
-                
+
                 Destroy(preview_clone);
-                
+
                 placed = false;
                 Debug2.text = "Exited";
             }

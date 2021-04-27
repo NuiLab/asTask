@@ -56,14 +56,6 @@ public class BuildOffsetOld : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
     void Update()
     {
 
@@ -81,15 +73,6 @@ public class BuildOffsetOld : MonoBehaviour
         bool x_pressed = false;
 
 
-
-        //Debug2.text = bar_being_held.ToString() + " being held by " + hand_holding_bar.ToString();
-
-
-
-
-
-
-
         if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out a_pressed) && a_pressed)
         {
 
@@ -98,46 +81,18 @@ public class BuildOffsetOld : MonoBehaviour
             {
                 BuildBar();
 
-                //bar_being_held.CustomForceDrop(hand_holding_bar);
-
             }
 
         }
         if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out x_pressed) && x_pressed)
         {
 
-            //Debug1.text = "left: " + x_pressed.ToString();
-
-            //if (x_pressed)
-            //{
-            //    RemoveCloneAndBar();
-            //}
 
         }
         else
         {
             Debug.Log("No Devices found");
         }
-
-
-
-
-
-
-
-        //Debug0.text = "ready_to_build: " + ready_to_build;
-        //Debug1.text = "A pressed: " + a_pressed;
-
-
-
-
-        //Debug0.text = current_interactable.ToString();
-
-
-
-
-
-
 
     }
 
@@ -146,6 +101,10 @@ public class BuildOffsetOld : MonoBehaviour
     {
         snapPoint = other.gameObject.GetComponent<buildChecker>();
         bool already_built = snapPoint.getBuilt();
+
+        // get the name
+        Debug0.text = other.gameObject.name;
+        Debug1.text = this.gameObject.name;
 
         bool is_negative = distance_from_center < 0;
         int offset_distance_center = 0;
@@ -223,45 +182,12 @@ public class BuildOffsetOld : MonoBehaviour
     private void RemoveCloneAndBar()
     {
 
-        //XRGrabInteractable bar_held = this.transform.root.gameObject.GetComponent<XRGrabInteractable>();
-        //XRBaseInteractor held_by = bar_held.selectingInteractor;
-
-        //bar_held.CustomForceDrop(held_by);
         this.transform.parent.gameObject.tag = "cleanable";
         this.transform.parent.gameObject.SetActive(false);
         Destroy(preview_clone);
 
-
-        //StartCoroutine(Wait(3));
-
-        //Destroy(this.transform.parent.gameObject);
-
-        //bar_being_held = GetComponent<XRGrabInteractable>();
-        //hand_holding_bar = bar_being_held.selectingInteractor;
-
-        //bar_being_held.CustomForceDrop(hand_holding_bar);
-        //bar_being_held.setActive(false);
         Debug0.text = this.transform.root.gameObject.name;
-        //Destroy(this.transform.root.gameObject);
-
-
-        //Destroy(this.transform.parent.gameObject);
-        //Destroy(transform.root.gameObject);
-
-
-
     }
-
-    //IEnumerator Wait(float duration)
-    //{
-    //    //This is a coroutine
-    //    Debug.Log("Start Wait() function. The time is: " + Time.time);
-    //    Debug.Log("Float duration = " + duration);
-    //    yield return new WaitForSeconds(duration);   //Wait
-    //    Debug.Log("End Wait() function and the time is: " + Time.time);
-    //}
-
-
 
     private void OnTriggerExit(Collider other)
     {
@@ -271,8 +197,6 @@ public class BuildOffsetOld : MonoBehaviour
 
             placed = false;
             ready_to_build = false;
-
-            //Debug0.text = "Not Placed";
 
         }
 
