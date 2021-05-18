@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using System.IO;
 
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -14,6 +15,7 @@ public class BuildOffset : MonoBehaviour
 {
 
     // Debuggers
+    // These can be atached to text boxes in the scene for debugging the oculus quest without an output console
     //public Text Debug0;
     //public Text Debug1;
     //public Text Debug2;
@@ -32,12 +34,29 @@ public class BuildOffset : MonoBehaviour
     private buildChecker snapPoint;
     private string TagISnapTo = "Bar_SP";
     bool placed = false;
+    private string fname;
+    private string fpath;
+
+
 
     // XR
     // input devices
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
 
+
+
+    private void Start()
+    {
+        fname = "participantData.csv";
+        fpath = Path.Combine(Application.persistentDataPath, fname);
+
+
+        if (!File.Exists(fpath))
+        {
+            File.WriteAllText(fpath, "Participant data:\n\n");
+        }
+    }
 
 
 
@@ -54,6 +73,7 @@ public class BuildOffset : MonoBehaviour
 
         if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out a_pressed) && a_pressed)
         {
+            // main build button (Right Hand)
 
             if (a_pressed && readyToBuild)
             {
@@ -62,6 +82,8 @@ public class BuildOffset : MonoBehaviour
         }
         if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out x_pressed) && x_pressed)
         {
+            // main build button (Right Hand)
+
             if (x_pressed && readyToBuild)
             {
                 BuildBar();
@@ -72,6 +94,8 @@ public class BuildOffset : MonoBehaviour
             Debug.Log("No Devices found");
         }
     }
+
+
 
     private void BuildBar()
     {
@@ -104,6 +128,8 @@ public class BuildOffset : MonoBehaviour
             // which point connects to which
             //Debug0.text = other.gameObject.name;
             //Debug1.text = this.gameObject.name;
+
+            File.AppendAllText(fpath, other.gameObject.name + " CONNECTS TO " + this.gameObject.name + "\n");
 
             if (!placed)
             {
