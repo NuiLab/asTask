@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - HandPresence
     - LocomotionController
     - SceneDirector
+    - UIScript
     - XROffsetGrabInteractable
     - buildChecker
     Unity.RenderPipelines.Core.Runtime.dll:
@@ -652,6 +653,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15402}
     - Class: 114
       Script: {instanceID: 15450}
+    - Class: 114
+      Script: {instanceID: 38904}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1159,12 +1162,6 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: a034c5226fff58c90a3a58a7c948d940
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BuildOffsetOld
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
@@ -1423,7 +1420,7 @@ ScriptsOnlyBuild:
     className: RenderObjects
   - hash:
       serializedVersion: 2
-      Hash: 1ac993e391fda74a1040d55c450c8824
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneDirector
@@ -1757,6 +1754,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 4aa135f0a1f28d3cc7fdc8718acdca41
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity

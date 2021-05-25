@@ -1,18 +1,22 @@
 ﻿<Properties StartupConfiguration="{95E7C950-88A5-7A84-27CD-D70961AE056E}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BuildOffset.cs">
     <Files>
-      <File FileName="Assets/Scripts/BuildOffset.cs" Line="26" Column="27" />
+      <File FileName="Assets/Scripts/BuildOffset.cs" Line="33" Column="5" />
       <File FileName="Assets/Scripts/BuilderScript.cs" />
       <File FileName="Assets/Scripts/buildChecker.cs" />
       <File FileName="Assets/XROffsetGrabInteractable.cs" />
-      <File FileName="Assets/Scripts/BuildOffsetOld.cs" />
       <File FileName="Assets/Scripts/SceneDirector.cs" />
+      <File FileName="Assets/Scripts/UIScript.cs" Line="27" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="future-of-work" expanded="True">
-            <Node name="Assets" expanded="True" selected="True" />
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="BuildOffset.cs" selected="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -20,7 +24,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6bdced82-0a9c-4258-bef6-0710be1dc8f9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7540d4d9-9fdc-40db-a409-55a2642d6bcd" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

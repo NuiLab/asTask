@@ -48,3 +48,9 @@ The bars themselves are made up of three separate components:
 The **base** is the immovable part which starts the building process, one of these has to be put down in every scene to start off the building process. The second bar, the **builder**, is where the main interaction happens with the user. It is the grabbable piece that can be used to hover near the base and trigger the **preview** which generate from the base at certain offsets.
 
 The preview is triggered by the **snap offsets** (orange spheres) making contact with the **snap points** (blue diamonds) on the base. The script behind this interaction is called `BuildOffset.cs`
+
+
+
+## Data Recording
+
+<!-- TODO: Document the data recording process -->

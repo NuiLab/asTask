@@ -36,6 +36,7 @@ public class BuildOffset : MonoBehaviour
     bool placed = false;
     private string fname;
     private string fpath;
+    private string currentConnectedPointName;
 
 
 
@@ -54,13 +55,13 @@ public class BuildOffset : MonoBehaviour
 
         if (!File.Exists(fpath))
         {
-            File.WriteAllText(fpath, "Participant data:\n\n");
+            File.WriteAllText(fpath, "Base Point, Builder Point, Time Placed\n");
         }
     }
 
 
 
-    // Update is called once per frame
+
     void Update()
     {
 
@@ -68,23 +69,23 @@ public class BuildOffset : MonoBehaviour
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-        bool a_pressed = false;
-        bool x_pressed = false;
+        bool rightTrigger = false;
+        bool leftTrigger = false;
 
-        if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out a_pressed) && a_pressed)
+        if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
         {
             // main build button (Right Hand)
 
-            if (a_pressed && readyToBuild)
+            if (rightTrigger && readyToBuild)
             {
                 BuildBar();
             }
         }
-        if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out x_pressed) && x_pressed)
+        if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
         {
-            // main build button (Right Hand)
+            // main build button (Left Hand)
 
-            if (x_pressed && readyToBuild)
+            if (leftTrigger && readyToBuild)
             {
                 BuildBar();
             }
@@ -95,10 +96,11 @@ public class BuildOffset : MonoBehaviour
         }
     }
 
-
-
+    // Creates a new base bar at the location of the current preview.
     private void BuildBar()
     {
+
+        File.AppendAllText(fpath, currentConnectedPointName + ", " + this.gameObject.name + ", " + System.DateTime.Now +"\n");
 
         Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
         if (snapPoint)
@@ -108,6 +110,7 @@ public class BuildOffset : MonoBehaviour
 
     }
 
+    // Removes the builder and the preview from the scene
     private void Cleanup()
     {
         this.transform.parent.gameObject.tag = "cleanable";
@@ -117,19 +120,32 @@ public class BuildOffset : MonoBehaviour
     }
 
 
+
+    /*
+     * This is the main logic of the program:
+     * Triggered when the snapOffset on a builder
+     * bar stays inside of the snapPoint of a base
+     * 
+     * Determines the position of the snapPoint and
+     * then offsets itself by its own snapOffset from
+     * that point. Once this is determined the preview
+     * is instantiated at that offset, and it sets the
+     * readytobuild bool to true. This is then read in
+     * the update function whenever a button is pressed.
+     * 
+     */
+
     private void OnTriggerStay(Collider other)
     {
 
 
         // Generate Bar Previews
         if (TagISnapTo == other.tag)
-        {
-            // TODO: Output these to a file to record
-            // which point connects to which
-            //Debug0.text = other.gameObject.name;
-            //Debug1.text = this.gameObject.name;
+        {            
 
-            File.AppendAllText(fpath, other.gameObject.name + " CONNECTS TO " + this.gameObject.name + "\n");
+            currentConnectedPointName = other.gameObject.name;
+
+
 
             if (!placed)
             {
@@ -152,12 +168,17 @@ public class BuildOffset : MonoBehaviour
         }
     }
 
+
+    // Method for checking if the snap point already has a bar attached to it
+    // and therfore cant be filled.
     private bool AlreadyBuilt(Collider other)
     {
         snapPoint = other.gameObject.GetComponent<buildChecker>();
         return snapPoint.getBuilt();
 
     }
+
+
 
     private bool BarIsRotataed(Collider other)
     {
@@ -180,6 +201,9 @@ public class BuildOffset : MonoBehaviour
 
     }
 
+
+    // Determine the float value to offset the preview from
+    // the current base bar.
     private Vector3 DeterminePosition(bool rotated)
     {
         float offsetFloat = 0.076188f;
@@ -223,6 +247,8 @@ public class BuildOffset : MonoBehaviour
 
     }
 
+
+    //Destroys preview and resets variables
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == TagISnapTo)

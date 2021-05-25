@@ -8,8 +8,8 @@ public class SceneDirector : MonoBehaviour
 {
 
 
-    public Text RemainingBars;
-    public Text totalBarsDebug;
+    //public Text RemainingBars;
+    //public Text totalBarsDebug;
 
     private int sceneBars;
 
@@ -19,7 +19,7 @@ public class SceneDirector : MonoBehaviour
 
         sceneBars = bars.Length;
 
-        totalBarsDebug.text = sceneBars.ToString();
+        //totalBarsDebug.text = sceneBars.ToString();
 
     }
 
@@ -29,14 +29,14 @@ public class SceneDirector : MonoBehaviour
 
         GameObject[] bars = GameObject.FindGameObjectsWithTag("Builder");
 
-        RemainingBars.text = "Bars Remaining: " + bars.Length;
+        //RemainingBars.text = "Bars Remaining: " + bars.Length;
 
 
         if (bars.Length < sceneBars)
         {
             ClearPreviews();
             sceneBars -= 1;
-            totalBarsDebug.text = sceneBars.ToString();
+            //totalBarsDebug.text = sceneBars.ToString();
         }
 
 
