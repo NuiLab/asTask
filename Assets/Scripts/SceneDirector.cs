@@ -75,4 +75,25 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex: 3);
     }
 
+    public void OpenShapeAFinalProduct()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 4);
+
+    }
+
+
+    public void OpenShapeAStepbyStep()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 5);
+
+    }
+
+    public void OpenShapeAFullyGuided()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 6);
+
+    }
+
+
+
 }
