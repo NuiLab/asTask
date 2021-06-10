@@ -67,16 +67,29 @@ public class ShapeAGuideScript : MonoBehaviour
         {
             removeAllIndicators();
 
-            DisplayIndicatorsAtLocation("SnapPoint(8_Base):7", "SnapOffset(Builder) (-2)");
+            DisplayIndicatorsAtLocations("SnapPoint(8_Base):7", "SnapOffset(7_Builder) (-2)");
 
         }
 
-        if (currentIdex == 1)
+        if (currentIndex == 1)
         {
             removeAllIndicators();
 
-            DisplayIndicatorsAtLocation("", "");
+            DisplayIndicatorsAtLocations("SnapPoint(7_Base):7", "SnapOffset(6_Builder) (-3)");
 
+        }
+
+        if (currentIndex == 2)
+        {
+            removeAllIndicators();
+
+            DisplayIndicatorsAtLocations("SnapPoint(6_Base):6", "SnapOffset(8_Builder) (3)");
+
+        }
+
+        if (currentIndex == 3)
+        {
+            removeAllIndicators();
         }
 
 
@@ -88,7 +101,7 @@ public class ShapeAGuideScript : MonoBehaviour
 
     }
 
-    void DisplayIndicatorsAtLocation(string BaselocationName, string BuilderlocationName)
+    void DisplayIndicatorsAtLocations(string BaselocationName, string BuilderlocationName)
     {
         if (!BaseIndicatorPlaced)
         {
