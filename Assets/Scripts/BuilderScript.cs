@@ -16,6 +16,7 @@ public class BuilderScript : MonoBehaviour
     public Text Debug0;
     public Text Debug1;
     public Text Debug2;
+    
 
 
     //private BuildSystem buildSytem;

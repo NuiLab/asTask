@@ -34,7 +34,7 @@ public class ShapeAGuideScript : MonoBehaviour
 
     private bool BaseIndicatorPlaced = false;
     private bool BuilderIndicatorPlaced = false;
-
+    
 
 
     void Start()
