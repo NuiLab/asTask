@@ -94,6 +94,11 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenShapeAAnimated()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 7);
+
+    }
 
 
 }

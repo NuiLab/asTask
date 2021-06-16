@@ -64,7 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AnimationControllerScript.cs" />
     <Compile Include="Assets\Scripts\Basic Scripts\ContinuousMovement.cs" />
     <Compile Include="Assets\Scripts\Basic Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\Basic Scripts\HandPresence.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="Assets\Scripts\BuilderScript.cs" />
     <Compile Include="Assets\Scripts\SceneDirector.cs" />
     <Compile Include="Assets\Scripts\ShapeAGuideScript.cs" />
+    <Compile Include="Assets\Scripts\ShapeAnimatorScript.cs" />
     <Compile Include="Assets\Scripts\UIScript.cs" />
     <Compile Include="Assets\Scripts\buildChecker.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
