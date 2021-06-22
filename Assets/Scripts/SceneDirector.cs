@@ -58,47 +58,97 @@ public class SceneDirector : MonoBehaviour
 
     }
 
-    public void OpenShapeA()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 1);
 
-    }
-
-    public void OpenShapeC()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 2);
-
-    }
 
     public void OpenTestArea()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 3);
-    }
-
-    public void OpenShapeAFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 4);
-
+        SceneManager.LoadScene(sceneBuildIndex: 1);
     }
 
 
-    public void OpenShapeAStepbyStep()
+
+    // SHAPE A
+    public void OpenShapeAAnimated()
     {
         SceneManager.LoadScene(sceneBuildIndex: 5);
 
     }
 
+    public void OpenShapeAStepbyStep()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 3);
+
+    }
+
     public void OpenShapeAFullyGuided()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 4);
+
+    }
+
+    public void OpenShapeAFinalProduct()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 2);
+
+    }
+
+
+    // SHAPE B
+    public void OpenShapeBAnimated()
     {
         SceneManager.LoadScene(sceneBuildIndex: 6);
 
     }
 
-    public void OpenShapeAAnimated()
+    public void OpenShapeBStepbyStep()
     {
         SceneManager.LoadScene(sceneBuildIndex: 7);
 
     }
+
+    public void OpenShapeBFullyGuided()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 8);
+
+    }
+
+    public void OpenShapeBFinalProduct()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 9);
+
+    }
+
+
+
+    // SHAPE C
+    public void OpenShapeCAnimated()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 10);
+
+    }
+
+    public void OpenShapeCStepbyStep()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 11);
+
+    }
+
+    public void OpenShapeCFullyGuided()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 12);
+
+    }
+
+    public void OpenShapeCFinalProduct()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 13);
+
+    }
+
+
+
+
+
 
 
 }

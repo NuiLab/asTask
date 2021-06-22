@@ -22,6 +22,7 @@ public class BuildOffset : MonoBehaviour
     //public Text Debug3;
     //public Text Debug4;
 
+
     // Public Variables
     public GameObject bar;
     public GameObject barPreview;

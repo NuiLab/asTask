@@ -404,9 +404,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Next
-
-'
+  m_Text: Next Task
 --- !u!222 &128928666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -855,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a995364cc53543ee97592198a11a371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAnimation: 1
+  startAnimation: 0
   StartPoint: {fileID: 1665065621}
   bars:
   - {fileID: 8876228802474504360, guid: d770a46c9d7fc47af82abc33b3dc9e09, type: 3}
@@ -1725,8 +1723,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 498105589}
-        m_MethodName: StartAnimation
+      - m_Target: {fileID: 1302078536}
+        m_MethodName: OpenShapeAStepbyStep
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
