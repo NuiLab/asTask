@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1924,7 +1924,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4964741db3be3487097a9c0751b047b1, type: 2}
+  - {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2224,6 +2224,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1104498666098295336, guid: 7a252bc6939184b53a40ca367eeb6248,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c09a2685328ce4cc29935309921e0299, type: 2}
     - target: {fileID: 1943237444902570619, guid: 7a252bc6939184b53a40ca367eeb6248,
         type: 3}
       propertyPath: m_Name

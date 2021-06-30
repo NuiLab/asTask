@@ -22,7 +22,7 @@ public class FullGuidanceScript : MonoBehaviour
     private GameObject PlacementIndicator;
 
 
-    public bool pointsCurrentlyHighlighted = false;
+    private bool pointsCurrentlyHighlighted = false;
 
     public int numBuilders;
     public int currentIndex = 0;

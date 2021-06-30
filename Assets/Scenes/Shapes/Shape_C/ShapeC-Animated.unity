@@ -479,7 +479,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f04fbf67d45e6434c9001f423deaf1c5, type: 2}
+      objectReference: {fileID: 2100000, guid: 14a27a67eeaef48128f81848678ef794, type: 2}
     - target: {fileID: 919132149155446097, guid: f93f72d7cca9c466b811b643864495d9,
         type: 3}
       propertyPath: m_Name
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a995364cc53543ee97592198a11a371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAnimation: 1
+  startAnimation: 0
   StartPoint: {fileID: 1665065621}
   bars:
   - {fileID: 8876228802474504360, guid: d770a46c9d7fc47af82abc33b3dc9e09, type: 3}
@@ -1822,7 +1822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4964741db3be3487097a9c0751b047b1, type: 2}
+  - {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

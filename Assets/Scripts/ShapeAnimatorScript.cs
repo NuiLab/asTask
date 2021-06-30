@@ -37,6 +37,7 @@ public class ShapeAnimatorScript : MonoBehaviour
     private GameObject currentBar;
     private GameObject targetBar;
     private bool pauseComplete = false;
+    private Color StartingBarColor = new Color(27f/255f, 101f/255f, 94f/255f);
 
 
 
@@ -52,6 +53,11 @@ public class ShapeAnimatorScript : MonoBehaviour
                 barSpawned = true;
                 currentBar = Instantiate(bars[barval(steps[currentIndex])], StartPoint.position, StartPoint.rotation);
                 targetBar = GameObject.Find(currentIndex.ToString());
+
+                if (currentIndex == 0)
+                {
+                    currentBar.GetComponent<Renderer>().material.color = StartingBarColor;
+                }
             }
 
             if (!pauseComplete)
