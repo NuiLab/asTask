@@ -31,8 +31,8 @@ public class SceneDirector : MonoBehaviour
 
         //RemainingBars.text = "Bars Remaining: " + bars.Length;
 
-        Debug.Log("sceneBars: " + sceneBars);
-        Debug.Log("bars.length: " + bars.Length);
+        
+        
 
 
         if (bars.Length < sceneBars)
@@ -93,6 +93,11 @@ public class SceneDirector : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 2);
 
+    }
+
+    public void OpenShapeABuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 34);
     }
 
 
@@ -223,6 +228,58 @@ public class SceneDirector : MonoBehaviour
     public void OpenShapeFFinalProduct()
     {
         SceneManager.LoadScene(sceneBuildIndex: 25);
+
+    }
+
+
+
+    // SHAPE G
+    public void OpenShapeGAnimated()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 26);
+
+    }
+
+    public void OpenShapeGStepbyStep()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 27);
+
+    }
+
+    public void OpenShapeGFullyGuided()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 28);
+
+    }
+
+    public void OpenShapeGFinalProduct()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 29);
+
+    }
+
+    // SHAPE H
+    public void OpenShapeHAnimated()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 30);
+
+    }
+
+    public void OpenShapeHStepbyStep()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 31);
+
+    }
+
+    public void OpenShapeHFullyGuided()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 32);
+
+    }
+
+    public void OpenShapeHFinalProduct()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 33);
 
     }
 

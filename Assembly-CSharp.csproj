@@ -72,11 +72,13 @@
     <Compile Include="Assets\Scripts\BuildGuidanceScript.cs" />
     <Compile Include="Assets\Scripts\BuildOffset.cs" />
     <Compile Include="Assets\Scripts\BuilderScript.cs" />
+    <Compile Include="Assets\Scripts\DataStorage.cs" />
     <Compile Include="Assets\Scripts\FullGuidanceScript.cs" />
     <Compile Include="Assets\Scripts\SceneDirector.cs" />
     <Compile Include="Assets\Scripts\ShapeAnimatorScript.cs" />
     <Compile Include="Assets\Scripts\UIScript.cs" />
     <Compile Include="Assets\Scripts\buildChecker.cs" />
+    <Compile Include="Assets\ShapeCheckerScript.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\XROffsetGrabInteractable.cs" />
     <Reference Include="UnityEngine">

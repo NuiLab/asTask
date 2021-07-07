@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 461435403}
-        m_MethodName: OpenShapeAFullyGuided
+        m_MethodName: OpenShapeHAnimated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -967,7 +967,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 461435403}
-        m_MethodName: OpenShapeAStepbyStep
+        m_MethodName: OpenShapeGAnimated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4644,7 +4644,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 461435403}
-        m_MethodName: OpenShapeAFinalProduct
+        m_MethodName: OpenShapeFAnimated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
