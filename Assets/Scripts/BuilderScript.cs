@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
+
+    // This is an old version of BuildOffset.cs, its not neccessary anymore
+
 public class BuilderScript : MonoBehaviour
 {
     public GameObject foundation;

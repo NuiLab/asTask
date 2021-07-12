@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4620343242456138345}
   - component: {fileID: 6417923161281249127}
   - component: {fileID: 8301935843162519807}
+  - component: {fileID: -6439418036008432530}
   m_Layer: 0
   m_Name: 3_ Bar Builder
   m_TagString: Builder
@@ -250,6 +251,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07620295, y: 0.025400005, z: 0.003810001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6439418036008432530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794338618473693466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d5c6db1d2b54413bb7d513ac65e50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8703734110419227361
 GameObject:
   m_ObjectHideFlags: 0

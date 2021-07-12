@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 1465087429375756821}
   - component: {fileID: 6503209405567133984}
   - component: {fileID: 6259623183774540924}
+  - component: {fileID: -1101706749358232431}
   m_Layer: 0
   m_Name: 3_ Bar Base
   m_TagString: Base
@@ -433,3 +434,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-1101706749358232431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876228802474504360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ab6fa3ada7a4209b8f87a12aef13e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

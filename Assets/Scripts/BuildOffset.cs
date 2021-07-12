@@ -103,6 +103,11 @@ public class BuildOffset : MonoBehaviour
 
         File.AppendAllText(fpath, currentConnectedPointName + ", " + this.gameObject.name + ", " + System.DateTime.Now +"\n");
 
+        DataStorage.CurrentBasePoint = currentConnectedPointName;
+        DataStorage.CurrentBuilderPoint = this.gameObject.name;
+        DataStorage.LastbuildTime = System.DateTime.Now.ToString();
+
+
         Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
         if (snapPoint)
             snapPoint.setBuilt(true);

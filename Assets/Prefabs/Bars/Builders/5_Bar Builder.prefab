@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3636170972986568710}
   - component: {fileID: 5270890336299452120}
   - component: {fileID: 3647869494898287430}
+  - component: {fileID: -1678859576634702115}
   m_Layer: 0
   m_Name: 5_Bar Builder
   m_TagString: Builder
@@ -176,6 +177,18 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
+--- !u!114 &-1678859576634702115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636170972986568711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d5c6db1d2b54413bb7d513ac65e50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &497771169166639014
 PrefabInstance:
   m_ObjectHideFlags: 0
