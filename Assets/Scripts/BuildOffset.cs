@@ -101,7 +101,7 @@ public class BuildOffset : MonoBehaviour
     private void BuildBar()
     {
 
-        File.AppendAllText(fpath, currentConnectedPointName + ", " + this.gameObject.name + ", " + System.DateTime.Now +"\n");
+        File.AppendAllText(fpath, currentConnectedPointName + ", " + this.gameObject.name + ", " + System.DateTime.Now + "\n");
 
         DataStorage.CurrentBasePoint = currentConnectedPointName;
         DataStorage.CurrentBuilderPoint = this.gameObject.name;
@@ -131,14 +131,14 @@ public class BuildOffset : MonoBehaviour
      * This is the main logic of the program:
      * Triggered when the snapOffset on a builder
      * bar stays inside of the snapPoint of a base
-     * 
+     *
      * Determines the position of the snapPoint and
      * then offsets itself by its own snapOffset from
      * that point. Once this is determined the preview
      * is instantiated at that offset, and it sets the
      * readytobuild bool to true. This is then read in
      * the update function whenever a button is pressed.
-     * 
+     *
      */
 
     private void OnTriggerStay(Collider other)
@@ -147,7 +147,7 @@ public class BuildOffset : MonoBehaviour
 
         // Generate Bar Previews
         if (TagISnapTo == other.tag)
-        {            
+        {
 
             currentConnectedPointName = other.gameObject.name;
 

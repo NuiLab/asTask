@@ -38,7 +38,7 @@ public class DataOutput : MonoBehaviour
         string titleLineText = "ParticipantID, ";
 
         string[] shapes = { "A", "B", "C", "D", "E", "F", "G", "H" };
-        int[] piecesPerShape = { 4, 2, 3, 4, 5, 6, 7, 8 };
+        int[] piecesPerShape = { 4, 4, 7, 9, 8, 9, 11, 8 };
 
         for (int i = 0; i < shapes.Length; i++)
         {

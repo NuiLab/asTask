@@ -5,12 +5,12 @@ using UnityEngine;
 public class BuilderManagerScript : MonoBehaviour
 {
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag != "base" || other.gameObject.tag != "builder")
-        {
-            DataStorage.LastgrabTime = System.DateTime.Now.ToString();
-        }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.tag != "Base" || other.gameObject.tag != "Builder" || other.gameObject.tag != "Preview")
+    //     {
+    //         DataStorage.LastgrabTime = System.DateTime.Now.ToString();
+    //     }
 
-    }
+    // }
 }

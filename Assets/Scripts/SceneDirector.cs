@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class SceneDirector : MonoBehaviour
 {
 
-
+    bool resetBarGrabbing = true;
     //public Text RemainingBars;
     //public Text totalBarsDebug;
+
+    // Input Devices to check for grabbing
+    private List<InputDevice> leftHandDevices = new List<InputDevice>();
+    private List<InputDevice> rightHandDevices = new List<InputDevice>();
 
     private int sceneBars;
 
@@ -27,19 +32,41 @@ public class SceneDirector : MonoBehaviour
     private void Update()
     {
 
+
+        // Delete previews when builders decrease
         GameObject[] bars = GameObject.FindGameObjectsWithTag("Builder");
-
-        //RemainingBars.text = "Bars Remaining: " + bars.Length;
-
-        
-        
-
 
         if (bars.Length < sceneBars)
         {
             ClearPreviews();
             sceneBars -= 1;
-            //totalBarsDebug.text = sceneBars.ToString();
+            resetBarGrabbing = true;
+        }
+
+
+        // Register when a bar is grabbed
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
+
+        bool rightGrip = false;
+        bool leftGrip = false;
+
+        if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out rightGrip))
+        {
+            if (resetBarGrabbing && rightGrip)
+            {
+                DataStorage.LastgrabTime = System.DateTime.Now.ToString();
+                resetBarGrabbing = false;
+            }
+
+        }
+        if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out leftGrip))
+        {
+            if (resetBarGrabbing && leftGrip)
+            {
+                DataStorage.LastgrabTime = System.DateTime.Now.ToString();
+                resetBarGrabbing = false;
+            }
         }
 
 

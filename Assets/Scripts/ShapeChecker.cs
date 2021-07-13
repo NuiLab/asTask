@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+// using UnityEngine.UI;
 
 
 public class ShapeChecker : MonoBehaviour
@@ -21,8 +21,8 @@ public class ShapeChecker : MonoBehaviour
 
 
 
-    [SerializeField]
-    private Text[] textDebuggers;
+    // [SerializeField]
+    // private Text[] textDebuggers;
 
 
     private GameObject[] bases;
@@ -54,10 +54,10 @@ public class ShapeChecker : MonoBehaviour
     void Update()
     {
 
-        for (int i = 0; i < SHAPEARRAYSIZE; i++)
-        {
-            textDebuggers[i].text = ShapeArray[i].placedCorrectly.ToString();
-        }
+        // for (int i = 0; i < SHAPEARRAYSIZE; i++)
+        // {
+        //     textDebuggers[i].text = ShapeArray[i].placedCorrectly.ToString();
+        // }
 
 
 
