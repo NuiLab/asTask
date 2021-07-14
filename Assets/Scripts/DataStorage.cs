@@ -11,6 +11,7 @@ public static class DataStorage
     private static string currentBuilderPoint = "NULL";
     private static string lastbuildTime = "NULL";
     private static string lastgrabTime = "NULL";
+    private static int experimentVersion = 0;
 
 
     public static string CurrentBasePoint
@@ -18,6 +19,7 @@ public static class DataStorage
         get
         {
             return currentBasePoint;
+
         }
         set
         {
@@ -49,7 +51,7 @@ public static class DataStorage
         }
     }
 
-    
+
 
     public static string LastgrabTime
     {
@@ -60,6 +62,18 @@ public static class DataStorage
         set
         {
             lastgrabTime = value;
+        }
+    }
+
+    public static int ExperimentVersion
+    {
+        get
+        {
+            return experimentVersion;
+        }
+        set
+        {
+            experimentVersion = value;
         }
     }
 

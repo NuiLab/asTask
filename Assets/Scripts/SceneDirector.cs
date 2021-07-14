@@ -88,13 +88,20 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenParticipantIDScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 42);
+    }
 
+    public void OpenExperimentVersion()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 43);
+    }
 
     public void OpenTestArea()
     {
         SceneManager.LoadScene(sceneBuildIndex: 1);
     }
-
 
 
     // SHAPE A
@@ -152,6 +159,10 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex: 9);
 
     }
+    public void OpenShapeBBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 35);
+    }
 
 
 
@@ -178,6 +189,28 @@ public class SceneDirector : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 13);
 
+    }
+    public void OpenShapeCBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 36);
+    }
+
+    public void ConditionalOpenC()
+    {
+        switch (DataStorage.ExperimentVersion)
+        {
+            case 1:
+                OpenShapeCStepbyStep();
+                break;
+            case 2:
+                OpenShapeCFullyGuided();
+                break;
+            case 3:
+                OpenShapeCFinalProduct();
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -206,6 +239,11 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenShapeDBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 37);
+    }
+
 
     // SHAPE E
     public void OpenShapeEAnimated()
@@ -232,6 +270,29 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenShapeEBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 38);
+    }
+
+    public void ConditionalOpenE()
+    {
+        switch (DataStorage.ExperimentVersion)
+        {
+            case 1:
+                OpenShapeEStepbyStep();
+                break;
+            case 2:
+                OpenShapeEFullyGuided();
+                break;
+            case 3:
+                OpenShapeEFinalProduct();
+                break;
+            default:
+                break;
+        }
+    }
+
 
     // SHAPE F
     public void OpenShapeFAnimated()
@@ -256,6 +317,11 @@ public class SceneDirector : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 25);
 
+    }
+
+    public void OpenShapeFBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 39);
     }
 
 
@@ -285,6 +351,29 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenShapeGBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 40);
+    }
+
+    public void ConditionalOpenG()
+    {
+        switch (DataStorage.ExperimentVersion)
+        {
+            case 1:
+                OpenShapeGStepbyStep();
+                break;
+            case 2:
+                OpenShapeGFullyGuided();
+                break;
+            case 3:
+                OpenShapeGFinalProduct();
+                break;
+            default:
+                break;
+        }
+    }
+
     // SHAPE H
     public void OpenShapeHAnimated()
     {
@@ -308,6 +397,11 @@ public class SceneDirector : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 33);
 
+    }
+
+    public void OpenShapeHBuild()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 41);
     }
 
 

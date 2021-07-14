@@ -25,9 +25,16 @@ public class DataOutput : MonoBehaviour
             writeTitleLine();
         }
 
-        writeID();
+        writeIDandVersion();
 
-        writeShapeA();
+        writeShape(DataStorage.ShapeA);
+        writeShape(DataStorage.ShapeB);
+        writeShape(DataStorage.ShapeC);
+        writeShape(DataStorage.ShapeD);
+        writeShape(DataStorage.ShapeE);
+        writeShape(DataStorage.ShapeF);
+        writeShape(DataStorage.ShapeG);
+        writeShape(DataStorage.ShapeH);
 
 
     }
@@ -35,7 +42,7 @@ public class DataOutput : MonoBehaviour
 
     void writeTitleLine()
     {
-        string titleLineText = "ParticipantID, ";
+        string titleLineText = "ParticipantID, ExperimentType, ";
 
         string[] shapes = { "A", "B", "C", "D", "E", "F", "G", "H" };
         int[] piecesPerShape = { 4, 4, 7, 9, 8, 9, 11, 8 };
@@ -65,16 +72,16 @@ public class DataOutput : MonoBehaviour
 
     }
 
-    void writeID()
+    void writeIDandVersion()
     {
-        File.AppendAllText(FilePath, "\nFAKEID, ");
+        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + DataStorage.ExperimentVersion + ", ");
     }
 
 
-    void writeShapeA()
+    void writeShape(BuildData[] ShapeArray)
     {
 
-        foreach (var dataStore in DataStorage.ShapeA)
+        foreach (var dataStore in ShapeArray)
         {
             File.AppendAllText(FilePath, dataStore.baseName + ", "
                                     + dataStore.builderName + ", "
@@ -84,6 +91,7 @@ public class DataOutput : MonoBehaviour
         }
 
     }
+
 
 
 

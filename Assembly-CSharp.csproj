@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\BuilderManagerScript.cs" />
+     <Compile Include="Assets\NumberPadScript.cs" />
      <Compile Include="Assets\Scripts\BaseManager.cs" />
      <Compile Include="Assets\Scripts\Basic Scripts\ContinuousMovement.cs" />
      <Compile Include="Assets\Scripts\Basic Scripts\Gun.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Scripts\UIScript.cs" />
      <Compile Include="Assets\Scripts\buildChecker.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\VersionRecorderScript.cs" />
      <Compile Include="Assets\XROffsetGrabInteractable.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.0f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

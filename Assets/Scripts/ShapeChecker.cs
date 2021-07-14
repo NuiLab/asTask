@@ -19,19 +19,7 @@ public class ShapeChecker : MonoBehaviour
 
 
 
-
-
-    // [SerializeField]
-    // private Text[] textDebuggers;
-
-
     private GameObject[] bases;
-
-    //private bool[] placedPieces;
-
-
-
-
 
 
     // Start is called before the first frame update
