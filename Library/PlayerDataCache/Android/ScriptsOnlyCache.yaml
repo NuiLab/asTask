@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - BuilderManagerScript
     - ContinuousMovement
     - DataOutput
+    - HandColliderScript
     - HandPresence
     - LocomotionController
     - NumberPadScript
@@ -725,6 +726,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15382}
     - Class: 114
       Script: {instanceID: 15414}
+    - Class: 114
+      Script: {instanceID: 105106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1296,6 +1299,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15382}
     - Class: 114
       Script: {instanceID: 15414}
+    - Class: 114
+      Script: {instanceID: 105106}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -6395,6 +6400,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandColliderScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity

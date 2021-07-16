@@ -27,6 +27,10 @@ public class ShapeChecker : MonoBehaviour
     {
         //placedPieces = new bool[InvisibleShape.transform.childCount];
 
+        DataStorage.CurrentBasePoint = "NULL";
+        DataStorage.CurrentBuilderPoint = "NULL";
+
+
         ShapeArray = new BuildData[SHAPEARRAYSIZE];
 
         for (int i = 0; i < SHAPEARRAYSIZE; i++)

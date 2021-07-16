@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 403821002}
   - component: {fileID: 403821001}
   - component: {fileID: 403821000}
+  - component: {fileID: 403821003}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -528,6 +529,18 @@ MonoBehaviour:
   m_AnimateModel: 0
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
+--- !u!114 &403821003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403820998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb40fc084cd64ec3a391e44551493eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &405542707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1259,6 +1272,7 @@ GameObject:
   - component: {fileID: 704405234}
   - component: {fileID: 704405236}
   - component: {fileID: 704405235}
+  - component: {fileID: 704405238}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -1415,6 +1429,18 @@ Transform:
   m_Father: {fileID: 773953281}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704405238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704405233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb40fc084cd64ec3a391e44551493eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &722329022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1748,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5

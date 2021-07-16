@@ -2231,7 +2231,7 @@ GameObject:
   - component: {fileID: 1197271130}
   - component: {fileID: 1197271132}
   - component: {fileID: 1197271131}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2543,7 +2543,7 @@ GameObject:
   - component: {fileID: 1446068050}
   - component: {fileID: 1446068052}
   - component: {fileID: 1446068051}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Text (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3089,7 +3089,7 @@ GameObject:
   - component: {fileID: 1646542977}
   - component: {fileID: 1646542979}
   - component: {fileID: 1646542978}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Text (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3167,7 +3167,7 @@ GameObject:
   - component: {fileID: 1651205620}
   - component: {fileID: 1651205622}
   - component: {fileID: 1651205621}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: ID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3922,7 +3922,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
@@ -4549,7 +4549,7 @@ GameObject:
   - component: {fileID: 2040024673}
   - component: {fileID: 2040024672}
   - component: {fileID: 2040024671}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Start Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -45,29 +45,29 @@ public class SceneDirector : MonoBehaviour
 
 
         // Register when a bar is grabbed
-        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
-        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
+        // InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
+        // InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-        bool rightGrip = false;
-        bool leftGrip = false;
+        // bool rightGrip = false;
+        // bool leftGrip = false;
 
-        if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out rightGrip))
-        {
-            if (resetBarGrabbing && rightGrip)
-            {
-                DataStorage.LastgrabTime = System.DateTime.Now.ToString();
-                resetBarGrabbing = false;
-            }
+        // if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out rightGrip))
+        // {
+        //     if (resetBarGrabbing && rightGrip)
+        //     {
+        //         DataStorage.LastgrabTime = System.DateTime.Now.ToString();
+        //         resetBarGrabbing = false;
+        //     }
 
-        }
-        if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out leftGrip))
-        {
-            if (resetBarGrabbing && leftGrip)
-            {
-                DataStorage.LastgrabTime = System.DateTime.Now.ToString();
-                resetBarGrabbing = false;
-            }
-        }
+        // }
+        // if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out leftGrip))
+        // {
+        //     if (resetBarGrabbing && leftGrip)
+        //     {
+        //         DataStorage.LastgrabTime = System.DateTime.Now.ToString();
+        //         resetBarGrabbing = false;
+        //     }
+        // }
 
 
     }

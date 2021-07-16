@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\BuilderManagerScript.cs" />
+     <Compile Include="Assets\HandColliderScript.cs" />
      <Compile Include="Assets\NumberPadScript.cs" />
      <Compile Include="Assets\Scripts\BaseManager.cs" />
      <Compile Include="Assets\Scripts\Basic Scripts\ContinuousMovement.cs" />
