@@ -93,7 +93,7 @@ public class BuildOffset : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Devices found");
+            // Debug.Log("No Devices found");
         }
     }
 
