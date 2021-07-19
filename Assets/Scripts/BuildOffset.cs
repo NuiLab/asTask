@@ -50,7 +50,7 @@ public class BuildOffset : MonoBehaviour
 
     private void Start()
     {
-        fname = "participantData.csv";
+        fname = "FOW-DataLog.csv";
         fpath = Path.Combine(Application.persistentDataPath, fname);
 
 

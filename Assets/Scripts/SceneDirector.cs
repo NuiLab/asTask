@@ -8,10 +8,6 @@ using UnityEngine.XR;
 public class SceneDirector : MonoBehaviour
 {
 
-    bool resetBarGrabbing = true;
-    //public Text RemainingBars;
-    //public Text totalBarsDebug;
-
     // Input Devices to check for grabbing
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
@@ -23,8 +19,6 @@ public class SceneDirector : MonoBehaviour
         GameObject[] bars = GameObject.FindGameObjectsWithTag("Builder");
 
         sceneBars = bars.Length;
-
-        //totalBarsDebug.text = sceneBars.ToString();
 
     }
 
@@ -40,34 +34,9 @@ public class SceneDirector : MonoBehaviour
         {
             ClearPreviews();
             sceneBars -= 1;
-            resetBarGrabbing = true;
+
+            DataStorage.BarGrabReset = true;
         }
-
-
-        // Register when a bar is grabbed
-        // InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
-        // InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
-
-        // bool rightGrip = false;
-        // bool leftGrip = false;
-
-        // if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out rightGrip))
-        // {
-        //     if (resetBarGrabbing && rightGrip)
-        //     {
-        //         DataStorage.LastgrabTime = System.DateTime.Now.ToString();
-        //         resetBarGrabbing = false;
-        //     }
-
-        // }
-        // if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out leftGrip))
-        // {
-        //     if (resetBarGrabbing && leftGrip)
-        //     {
-        //         DataStorage.LastgrabTime = System.DateTime.Now.ToString();
-        //         resetBarGrabbing = false;
-        //     }
-        // }
 
 
     }
@@ -85,6 +54,12 @@ public class SceneDirector : MonoBehaviour
     public void OpenMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
+
+    }
+
+    public void OpenEndScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 44);
 
     }
 

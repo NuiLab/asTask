@@ -30,6 +30,11 @@ public class ShapeChecker : MonoBehaviour
         DataStorage.CurrentBasePoint = "NULL";
         DataStorage.CurrentBuilderPoint = "NULL";
 
+        DataStorage.LastgrabTime = "NULL";
+        DataStorage.LastbuildTime = "NULL";
+
+        DataStorage.BarGrabReset = true;
+
 
         ShapeArray = new BuildData[SHAPEARRAYSIZE];
 
@@ -45,17 +50,7 @@ public class ShapeChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // for (int i = 0; i < SHAPEARRAYSIZE; i++)
-        // {
-        //     textDebuggers[i].text = ShapeArray[i].placedCorrectly.ToString();
-        // }
-
-
-
         bases = GameObject.FindGameObjectsWithTag("Base");
-
-
 
 
         foreach (GameObject bas in bases)
@@ -72,7 +67,6 @@ public class ShapeChecker : MonoBehaviour
                 {
                     baseManager.setChecked(true);
                     barIsCorrectlyPlaced = true;
-
 
                     ShapeArray[currentStep].placedCorrectly = true;
                     ShapeArray[currentStep].baseName = DataStorage.CurrentBasePoint;

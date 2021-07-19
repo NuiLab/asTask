@@ -12,6 +12,7 @@ public static class DataStorage
     private static string lastbuildTime = "NULL";
     private static string lastgrabTime = "NULL";
     private static int experimentVersion = 0;
+    private static bool barGrabReset = true;
 
 
     public static string CurrentBasePoint
@@ -74,6 +75,18 @@ public static class DataStorage
         set
         {
             experimentVersion = value;
+        }
+    }
+
+    public static bool BarGrabReset
+    {
+        get
+        {
+            return barGrabReset;
+        }
+        set
+        {
+            barGrabReset = value;
         }
     }
 
