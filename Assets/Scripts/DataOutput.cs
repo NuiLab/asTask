@@ -81,13 +81,35 @@ public class DataOutput : MonoBehaviour
     void writeShape(BuildData[] ShapeArray)
     {
 
-        foreach (var dataStore in ShapeArray)
+        // foreach (var dataStore in ShapeArray)
+        // {
+        //     File.AppendAllText(FilePath, dataStore.baseName + ", "
+        //                             + dataStore.builderName + ", "
+        //                             + dataStore.timeGrabbed + ", "
+        //                             + dataStore.timePlaced + ", "
+        //                             + dataStore.placedCorrectly + ", ");
+        // }
+
+        for (int i = 0; i < ShapeArray.Length; i++)
         {
-            File.AppendAllText(FilePath, dataStore.baseName + ", "
-                                    + dataStore.builderName + ", "
-                                    + dataStore.timeGrabbed + ", "
-                                    + dataStore.timePlaced + ", "
-                                    + dataStore.placedCorrectly + ", ");
+            if (i == 0)
+            {
+
+                File.AppendAllText(FilePath, "NULL" + ", "
+                                    + "NULL" + ", "
+                                    + "NULL" + ", "
+                                    + "NULL" + ", "
+                                    + ShapeArray[i].placedCorrectly + ", ");
+
+            }
+            else
+            {
+                File.AppendAllText(FilePath, ShapeArray[i].baseName + ", "
+                                    + ShapeArray[i].builderName + ", "
+                                    + ShapeArray[i].timeGrabbed + ", "
+                                    + ShapeArray[i].timePlaced + ", "
+                                    + ShapeArray[i].placedCorrectly + ", ");
+            }
         }
 
     }

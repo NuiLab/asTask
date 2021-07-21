@@ -92,7 +92,7 @@ public static class DataStorage
 
 
     // variables to print out at the end
-    private static string participantID;
+    private static string participantID = "NULL";
 
 
     private static BuildData[] shapeA = new BuildData[3];

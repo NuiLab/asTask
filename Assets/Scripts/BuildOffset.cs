@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -56,7 +57,7 @@ public class BuildOffset : MonoBehaviour
 
         if (!File.Exists(fpath))
         {
-            File.WriteAllText(fpath, "Base Point, Builder Point, Time Placed\n");
+            File.WriteAllText(fpath, "Scene Name, Participant ID, Base Point, Builder Point, Time Placed\n");
         }
     }
 
@@ -91,17 +92,15 @@ public class BuildOffset : MonoBehaviour
                 BuildBar();
             }
         }
-        else
-        {
-            // Debug.Log("No Devices found");
-        }
+
     }
 
     // Creates a new base bar at the location of the current preview.
     private void BuildBar()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
 
-        File.AppendAllText(fpath, currentConnectedPointName + ", " + this.gameObject.name + ", " + System.DateTime.Now + "\n");
+        File.AppendAllText(fpath, sceneName + ", " + DataStorage.ParticipantID + ", " + currentConnectedPointName + ", " + this.gameObject.name + ", " + System.DateTime.Now + "\n");
 
         DataStorage.CurrentBasePoint = currentConnectedPointName;
         DataStorage.CurrentBuilderPoint = this.gameObject.name;
