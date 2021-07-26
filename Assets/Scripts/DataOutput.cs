@@ -108,8 +108,10 @@ public class DataOutput : MonoBehaviour
 
     void writeShape(ShapeData shapeData)
     {
-        TextDebugger.LogString(shapeData.ToString());
+        //TextDebugger.LogString(shapeData.ToString());
 
+        Debug.Log("TOSTRING: " + shapeData.ToString());
+        Debug.Log("!TOSTRING: " + shapeData);
 
         File.AppendAllText(FilePath, shapeData.ToString());
 

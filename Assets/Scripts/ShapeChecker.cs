@@ -15,7 +15,10 @@ public class ShapeChecker : MonoBehaviour
     [SerializeField]
     private GameObject InvisibleShape;
 
+
+    ShapeData shapeData;
     BuildData[] ShapeArray;
+    
 
 
 
@@ -35,8 +38,11 @@ public class ShapeChecker : MonoBehaviour
 
         DataStorage.BarGrabReset = true;
 
-
+        shapeData = new ShapeData();
         ShapeArray = new BuildData[SHAPEARRAYSIZE];
+
+        shapeData.buildData = ShapeArray;
+        
 
         for (int i = 0; i < SHAPEARRAYSIZE; i++)
         {
@@ -68,11 +74,11 @@ public class ShapeChecker : MonoBehaviour
                     baseManager.setChecked(true);
                     barIsCorrectlyPlaced = true;
 
-                    ShapeArray[currentStep].placedCorrectly = true;
-                    ShapeArray[currentStep].baseName = DataStorage.CurrentBasePoint;
-                    ShapeArray[currentStep].builderName = DataStorage.CurrentBuilderPoint;
-                    ShapeArray[currentStep].timeGrabbed = DataStorage.LastgrabTime;
-                    ShapeArray[currentStep].timePlaced = DataStorage.LastbuildTime;
+                    shapeData.buildData[currentStep].placedCorrectly = true;
+                    shapeData.buildData[currentStep].baseName = DataStorage.CurrentBasePoint;
+                    shapeData.buildData[currentStep].builderName = DataStorage.CurrentBuilderPoint;
+                    shapeData.buildData[currentStep].timeGrabbed = DataStorage.LastgrabTime;
+                    shapeData.buildData[currentStep].timePlaced = DataStorage.LastbuildTime;
 
                     SaveShapeArray();
 
@@ -85,11 +91,11 @@ public class ShapeChecker : MonoBehaviour
             {
                 baseManager.setChecked(true);
 
-                ShapeArray[currentStep].placedCorrectly = false;
-                ShapeArray[currentStep].baseName = DataStorage.CurrentBasePoint;
-                ShapeArray[currentStep].builderName = DataStorage.CurrentBuilderPoint;
-                ShapeArray[currentStep].timeGrabbed = DataStorage.LastgrabTime;
-                ShapeArray[currentStep].timePlaced = DataStorage.LastbuildTime;
+                shapeData.buildData[currentStep].placedCorrectly = false;
+                shapeData.buildData[currentStep].baseName = DataStorage.CurrentBasePoint;
+                shapeData.buildData[currentStep].builderName = DataStorage.CurrentBuilderPoint;
+                shapeData.buildData[currentStep].timeGrabbed = DataStorage.LastgrabTime;
+                shapeData.buildData[currentStep].timePlaced = DataStorage.LastbuildTime;
 
                 SaveShapeArray();
 
@@ -111,28 +117,28 @@ public class ShapeChecker : MonoBehaviour
         switch (upperShapeLetter)
         {
             case "A":
-                DataStorage.ShapeA.buildData = ShapeArray;
+                DataStorage.ShapeA = shapeData;
                 break;
             case "B":
-                DataStorage.ShapeB.buildData = ShapeArray;
+                DataStorage.ShapeB = shapeData;
                 break;
             case "C":
-                DataStorage.ShapeC.buildData = ShapeArray;
+                DataStorage.ShapeC = shapeData;
                 break;
             case "D":
-                DataStorage.ShapeD.buildData = ShapeArray;
+                DataStorage.ShapeD = shapeData;
                 break;
             case "E":
-                DataStorage.ShapeE.buildData = ShapeArray;
+                DataStorage.ShapeE = shapeData;
                 break;
             case "F":
-                DataStorage.ShapeF.buildData = ShapeArray;
+                DataStorage.ShapeF = shapeData;
                 break;
             case "G":
-                DataStorage.ShapeG.buildData = ShapeArray;
+                DataStorage.ShapeG = shapeData;
                 break;
             case "H":
-                DataStorage.ShapeH.buildData = ShapeArray;
+                DataStorage.ShapeH = shapeData;
                 break;
 
             default:
