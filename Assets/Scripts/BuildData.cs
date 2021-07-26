@@ -26,11 +26,90 @@ public class BuildData
 
     public override string ToString()
     {
-        return "Placed Correctly: " + placedCorrectly.ToString() +
-               "\nBuilderName: " + builderName +
-               "\nBaseName: " + baseName +
-               "\timeGrabbed: " + timeGrabbed +
-               "\nBaseName: " + timePlaced;
+
+        string output = ""
+                        + builderName + ", "
+                        + baseName + ", "
+                        + timeGrabbed + ", "
+                        + timePlaced + ", "
+                        + placedCorrectly.ToString() + ", ";
+
+
+
+        return output;
+    }
+
+}
+
+
+
+public class ShapeData
+{
+    public string shapeName { get; set; }
+    public string sceneStartTime { get; set; }
+    public string sceneEndTime { get; set; }
+
+    public BuildData[] buildData { get; set; }
+
+
+    public ShapeData()
+    {
+        shapeName = "NULL";
+        sceneStartTime = "NULL";
+        sceneEndTime = "NULL";
+
+    }
+
+
+    public override string ToString()
+    {
+
+        double percentCorrect = CalculatePercentCorrect(buildData);
+
+        string output = ""
+                        + sceneStartTime + ", "
+                        + sceneEndTime + ", "
+                        + percentCorrect + ", "
+                        ;
+
+        for (int i = 0; i < buildData.Length; i++)
+        {
+            if (i != 0)
+                output += buildData[i].ToString();
+        }
+
+
+        return output;
+
+
+
+
+    }
+
+
+    private double CalculatePercentCorrect(BuildData[] ShapeArray)
+    {
+        double numberCorrect = 0;
+
+        for (int i = 0; i < ShapeArray.Length; i++)
+        {
+            if (ShapeArray[i].placedCorrectly && i != 0)
+            {
+                numberCorrect += 1;
+            }
+
+        }
+
+        double arrayLength = ShapeArray.Length - 1;
+
+        double percentCorrect = numberCorrect / arrayLength;
+
+        // TextDebugger.LogString(numberCorrect.ToString() + "/" + arrayLength.ToString() + " = " + percentCorrect.ToString());
+
+        return percentCorrect * 100;
+
+
+
     }
 
 }

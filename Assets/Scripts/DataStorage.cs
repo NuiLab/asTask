@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -91,18 +91,36 @@ public static class DataStorage
     }
 
 
+    //TIME Variables
+
+    private static string experimentStartTime = "NULL";
+    private static string experimentEndTime = "NULL";
+
+
+
+
+
+
     // variables to print out at the end
     private static string participantID = "NULL";
 
 
-    private static BuildData[] shapeA = new BuildData[3];
-    private static BuildData[] shapeB;
-    private static BuildData[] shapeC;
-    private static BuildData[] shapeD;
-    private static BuildData[] shapeE;
-    private static BuildData[] shapeF;
-    private static BuildData[] shapeG;
-    private static BuildData[] shapeH;
+
+    private static ShapeData shapeA;
+
+    private static ShapeData shapeB;
+
+    private static ShapeData shapeC;
+
+    private static ShapeData shapeD;
+
+    private static ShapeData shapeE;
+
+    private static ShapeData shapeF;
+
+    private static ShapeData shapeG;
+
+    private static ShapeData shapeH;
 
 
     public static string ParticipantID
@@ -117,7 +135,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeA
+    public static ShapeData ShapeA
     {
         get
         {
@@ -129,7 +147,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeB
+    public static ShapeData ShapeB
     {
         get
         {
@@ -141,7 +159,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeC
+    public static ShapeData ShapeC
     {
         get
         {
@@ -153,7 +171,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeD
+    public static ShapeData ShapeD
     {
         get
         {
@@ -165,7 +183,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeE
+    public static ShapeData ShapeE
     {
         get
         {
@@ -177,7 +195,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeF
+    public static ShapeData ShapeF
     {
         get
         {
@@ -189,7 +207,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeG
+    public static ShapeData ShapeG
     {
         get
         {
@@ -201,7 +219,7 @@ public static class DataStorage
         }
     }
 
-    public static BuildData[] ShapeH
+    public static ShapeData ShapeH
     {
         get
         {

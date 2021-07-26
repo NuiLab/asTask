@@ -111,28 +111,28 @@ public class ShapeChecker : MonoBehaviour
         switch (upperShapeLetter)
         {
             case "A":
-                DataStorage.ShapeA = ShapeArray;
+                DataStorage.ShapeA.buildData = ShapeArray;
                 break;
             case "B":
-                DataStorage.ShapeB = ShapeArray;
+                DataStorage.ShapeB.buildData = ShapeArray;
                 break;
             case "C":
-                DataStorage.ShapeC = ShapeArray;
+                DataStorage.ShapeC.buildData = ShapeArray;
                 break;
             case "D":
-                DataStorage.ShapeD = ShapeArray;
+                DataStorage.ShapeD.buildData = ShapeArray;
                 break;
             case "E":
-                DataStorage.ShapeE = ShapeArray;
+                DataStorage.ShapeE.buildData = ShapeArray;
                 break;
             case "F":
-                DataStorage.ShapeF = ShapeArray;
+                DataStorage.ShapeF.buildData = ShapeArray;
                 break;
             case "G":
-                DataStorage.ShapeG = ShapeArray;
+                DataStorage.ShapeG.buildData = ShapeArray;
                 break;
             case "H":
-                DataStorage.ShapeH = ShapeArray;
+                DataStorage.ShapeH.buildData = ShapeArray;
                 break;
 
             default:

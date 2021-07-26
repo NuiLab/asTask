@@ -27,6 +27,8 @@ public class DataOutput : MonoBehaviour
 
         writeIDandVersion();
 
+        TextDebugger.LogString(DataStorage.ShapeA.ToString());
+
         writeShape(DataStorage.ShapeA);
         writeShape(DataStorage.ShapeB);
         writeShape(DataStorage.ShapeC);
@@ -35,7 +37,6 @@ public class DataOutput : MonoBehaviour
         writeShape(DataStorage.ShapeF);
         writeShape(DataStorage.ShapeG);
         writeShape(DataStorage.ShapeH);
-
 
     }
 
@@ -52,15 +53,24 @@ public class DataOutput : MonoBehaviour
             string currentShape = shapes[i];
             int numberOfSteps = piecesPerShape[i];
 
+            titleLineText += ("Shape" + currentShape + "-sceneStartTime, "
+                            + "Shape" + currentShape + "-sceneEndTime, "
+                            + "Shape" + currentShape + "-percentCorrect, "
+                            );
+
             for (int j = 0; j < numberOfSteps; j++)
             {
-                int currentIndex = j + 1;
 
-                titleLineText += "Shape" + currentShape + currentIndex + "-basePoint, "
-                                + "Shape" + currentShape + currentIndex + "-BuilderPoint, "
-                                + "Shape" + currentShape + currentIndex + "-timeGrabbed, "
-                                + "Shape" + currentShape + currentIndex + "-timePlaced, "
-                                + "Shape" + currentShape + currentIndex + "-placedCorrectly, ";
+                if (j != 0)
+                {
+                    titleLineText += ""
+                                    + "Shape" + currentShape + j + "-BuilderPoint, "
+                                    + "Shape" + currentShape + j + "-basePoint, "
+                                    + "Shape" + currentShape + j + "-timeGrabbed, "
+                                    + "Shape" + currentShape + j + "-timePlaced, "
+                                    + "Shape" + currentShape + j + "-placedCorrectly, ";
+                }
+
 
             }
 
@@ -74,45 +84,39 @@ public class DataOutput : MonoBehaviour
 
     void writeIDandVersion()
     {
-        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + DataStorage.ExperimentVersion + ", ");
+        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + versionName(DataStorage.ExperimentVersion) + ", ");
     }
 
-
-    void writeShape(BuildData[] ShapeArray)
+    string versionName(int version)
     {
-
-        // foreach (var dataStore in ShapeArray)
-        // {
-        //     File.AppendAllText(FilePath, dataStore.baseName + ", "
-        //                             + dataStore.builderName + ", "
-        //                             + dataStore.timeGrabbed + ", "
-        //                             + dataStore.timePlaced + ", "
-        //                             + dataStore.placedCorrectly + ", ");
-        // }
-
-        for (int i = 0; i < ShapeArray.Length; i++)
+        switch (version)
         {
-            if (i == 0)
-            {
-
-                File.AppendAllText(FilePath, "NULL" + ", "
-                                    + "NULL" + ", "
-                                    + "NULL" + ", "
-                                    + "NULL" + ", "
-                                    + ShapeArray[i].placedCorrectly + ", ");
-
-            }
-            else
-            {
-                File.AppendAllText(FilePath, ShapeArray[i].baseName + ", "
-                                    + ShapeArray[i].builderName + ", "
-                                    + ShapeArray[i].timeGrabbed + ", "
-                                    + ShapeArray[i].timePlaced + ", "
-                                    + ShapeArray[i].placedCorrectly + ", ");
-            }
+            case 1:
+                return "1: Final Product";
+            case 2:
+                return "2: Fully Guided";
+            case 3:
+                return "3: Step By Step";
+            default:
+                return "UNKNOWN";
         }
 
+
+
     }
+
+
+    void writeShape(ShapeData shapeData)
+    {
+        TextDebugger.LogString(shapeData.ToString());
+
+
+        File.AppendAllText(FilePath, shapeData.ToString());
+
+    }
+
+
+
 
 
 
