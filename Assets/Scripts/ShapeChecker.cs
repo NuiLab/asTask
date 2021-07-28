@@ -18,7 +18,7 @@ public class ShapeChecker : MonoBehaviour
 
     ShapeData shapeData;
     BuildData[] ShapeArray;
-    
+
 
 
 
@@ -41,8 +41,10 @@ public class ShapeChecker : MonoBehaviour
         shapeData = new ShapeData();
         ShapeArray = new BuildData[SHAPEARRAYSIZE];
 
+        shapeData.sceneStartTime = System.DateTime.Now.ToString();
+
         shapeData.buildData = ShapeArray;
-        
+
 
         for (int i = 0; i < SHAPEARRAYSIZE; i++)
         {
@@ -106,6 +108,15 @@ public class ShapeChecker : MonoBehaviour
 
 
     }
+
+    public void LogTime()
+    {
+        shapeData.timeElapsed = Time.timeSinceLevelLoad.ToString();
+        shapeData.sceneEndTime = System.DateTime.Now.ToLongTimeString();
+
+        SaveShapeArray();
+    }
+
 
 
     private void SaveShapeArray()

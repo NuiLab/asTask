@@ -27,8 +27,6 @@ public class DataOutput : MonoBehaviour
 
         writeIDandVersion();
 
-        TextDebugger.LogString(DataStorage.ShapeA.ToString());
-
         writeShape(DataStorage.ShapeA);
         writeShape(DataStorage.ShapeB);
         writeShape(DataStorage.ShapeC);
@@ -55,6 +53,7 @@ public class DataOutput : MonoBehaviour
 
             titleLineText += ("Shape" + currentShape + "-sceneStartTime, "
                             + "Shape" + currentShape + "-sceneEndTime, "
+                            + "Shape" + currentShape + "-timeElapsed(seconds), "
                             + "Shape" + currentShape + "-percentCorrect, "
                             );
 
@@ -84,7 +83,7 @@ public class DataOutput : MonoBehaviour
 
     void writeIDandVersion()
     {
-        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + versionName(DataStorage.ExperimentVersion) + ", ");
+        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + versionName(DataStorage.ExperimentVersion) + ", "); // TODO: add experiment times here
     }
 
     string versionName(int version)
@@ -98,7 +97,7 @@ public class DataOutput : MonoBehaviour
             case 3:
                 return "3: Step By Step";
             default:
-                return "UNKNOWN";
+                return "UNKNOWN VERSION";
         }
 
 
@@ -108,13 +107,7 @@ public class DataOutput : MonoBehaviour
 
     void writeShape(ShapeData shapeData)
     {
-        //TextDebugger.LogString(shapeData.ToString());
-
-        Debug.Log("TOSTRING: " + shapeData.ToString());
-        Debug.Log("!TOSTRING: " + shapeData);
-
         File.AppendAllText(FilePath, shapeData.ToString());
-
     }
 
 
