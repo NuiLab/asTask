@@ -14,6 +14,8 @@ public static class DataStorage
     private static int experimentVersion = 0;
     private static bool barGrabReset = true;
 
+    private static int currentTrackStep = 0;
+
 
     public static string CurrentBasePoint
     {
@@ -90,19 +92,52 @@ public static class DataStorage
         }
     }
 
+    public static int CurrentTrackStep
+    {
+        get
+        {
+            return currentTrackStep;
+        }
+        set
+        {
+            currentTrackStep = value;
+        }
+    }
+
 
     //TIME Variables
-
-    private static string experimentStartTime = "NULL";
-    private static string experimentEndTime = "NULL";
-
+    private static System.DateTime experimentStartTime = System.DateTime.MaxValue;
+    private static System.DateTime experimentEndTime = System.DateTime.MaxValue;
 
 
+    public static System.DateTime ExperimentStartTime
+    {
+        get
+        {
+            return experimentStartTime;
+        }
+        set
+        {
+            experimentStartTime = value;
+        }
+    }
+
+    public static System.DateTime ExperimentEndTime
+    {
+        get
+        {
+            return experimentEndTime;
+        }
+        set
+        {
+            experimentEndTime = value;
+        }
+    }
 
 
 
     // variables to print out at the end
-    private static string participantID = "NULL";
+    private static int participantID = -1;
 
 
 
@@ -123,7 +158,7 @@ public static class DataStorage
     private static ShapeData shapeH;
 
 
-    public static string ParticipantID
+    public static int ParticipantID
     {
         get
         {

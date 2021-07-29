@@ -51,9 +51,101 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenNextShapeInTrack()
+    {
+        int[] currentTrack = DetermineTrack();
+
+        int currentScene;
+
+
+        if (DataStorage.CurrentTrackStep < 4)
+        {
+            currentScene = currentTrack[DataStorage.CurrentTrackStep];
+        }else
+        {
+            currentScene = 4;
+        }
+
+        DataStorage.CurrentTrackStep++;
+
+
+        
+
+
+        Debug.Log("AFTER++Track step: " + DataStorage.CurrentTrackStep + ", current scene: " + currentScene);
+
+
+
+        switch (currentScene)
+        {
+            case 0:
+                ConditionalOpenA();
+                break;
+            case 1:
+                ConditionalOpenC();
+                break;
+            case 2:
+                ConditionalOpenE();
+                break;
+            case 3:
+                ConditionalOpenG();
+                break;
+            case 4:
+                OpenSaveScene();
+                break;
+
+            default:
+                OpenSaveScene();
+                break;
+        }
+
+
+
+    }
+
+    public int[] DetermineTrack()
+    {
+
+
+        int[][] possibleTracks = new int[][]
+        {
+            new int[] { 0, 1, 2, 3 },
+            new int[] { 1, 3, 0, 2 },
+            new int[] { 3, 2, 1, 0 },
+            new int[] { 2, 0, 3, 1 }
+        };
+
+        int trackIndex = DataStorage.ParticipantID % 4;
+
+        Debug.Log("Track Chosen: " + possibleTracks[trackIndex].ToString());
+        return possibleTracks[trackIndex];
+    }
+
+
+    public void LogExperimentStartTime()
+    {
+        DataStorage.ExperimentStartTime = System.DateTime.Now;
+    }
+
+    public void LogExperimentEndTime()
+    {
+        DataStorage.ExperimentEndTime = System.DateTime.Now;
+    }
+
+
+
+
+
+
     public void OpenMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
+
+    }
+
+    public void OpenSaveScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 45);
 
     }
 
@@ -107,6 +199,24 @@ public class SceneDirector : MonoBehaviour
     public void OpenShapeABuild()
     {
         SceneManager.LoadScene(sceneBuildIndex: 34);
+    }
+
+    public void ConditionalOpenA()
+    {
+        switch (DataStorage.ExperimentVersion)
+        {
+            case 1:
+                OpenShapeAStepbyStep();
+                break;
+            case 2:
+                OpenShapeAFullyGuided();
+                break;
+            case 3:
+                OpenShapeAFinalProduct();
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -187,7 +297,6 @@ public class SceneDirector : MonoBehaviour
                 break;
         }
     }
-
 
     // SHAPE D
     public void OpenShapeDAnimated()
@@ -359,7 +468,6 @@ public class SceneDirector : MonoBehaviour
     public void OpenShapeHStepbyStep()
     {
         SceneManager.LoadScene(sceneBuildIndex: 31);
-
     }
 
     public void OpenShapeHFullyGuided()

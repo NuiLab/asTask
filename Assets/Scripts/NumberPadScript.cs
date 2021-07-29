@@ -38,7 +38,7 @@ public class NumberPadScript : MonoBehaviour
 
     public void SaveID()
     {
-        DataStorage.ParticipantID = ParticipantID;
+        DataStorage.ParticipantID = int.Parse(ParticipantID);
     }
 
 

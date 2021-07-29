@@ -107,6 +107,7 @@ public class DataOutput : MonoBehaviour
 
     void writeShape(ShapeData shapeData)
     {
+        Debug.Log(shapeData.ToString());
         File.AppendAllText(FilePath, shapeData.ToString());
     }
 
