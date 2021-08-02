@@ -45,6 +45,10 @@ public class BuildData
 
 public class ShapeData
 {
+    public string instructionSceneStartTime { get; set; }
+    public string instructionSceneEndTime { get; set; }
+    public string instructionSceneElapsedTime { get; set; }
+
     public string shapeName { get; set; }
     public string sceneStartTime { get; set; }
     public string sceneEndTime { get; set; }
@@ -72,6 +76,9 @@ public class ShapeData
                         + sceneStartTime + ", "
                         + sceneEndTime + ", "
                         + timeElapsed + ", "
+                        + instructionSceneStartTime + ", "
+                        + instructionSceneEndTime + ", "
+                        + instructionSceneElapsedTime + ", "
                         + percentCorrect + ", "
                         ;
 

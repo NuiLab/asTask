@@ -20,6 +20,8 @@ public class SceneDirector : MonoBehaviour
 
         sceneBars = bars.Length;
 
+        DataStorage.MostRecentSceneStartTime = System.DateTime.Now.ToString();
+
     }
 
 
@@ -36,6 +38,7 @@ public class SceneDirector : MonoBehaviour
             sceneBars -= 1;
 
             DataStorage.BarGrabReset = true;
+
         }
 
 
@@ -61,19 +64,13 @@ public class SceneDirector : MonoBehaviour
         if (DataStorage.CurrentTrackStep < 4)
         {
             currentScene = currentTrack[DataStorage.CurrentTrackStep];
-        }else
+        }
+        else
         {
             currentScene = 4;
         }
 
         DataStorage.CurrentTrackStep++;
-
-
-        
-
-
-        Debug.Log("AFTER++Track step: " + DataStorage.CurrentTrackStep + ", current scene: " + currentScene);
-
 
 
         switch (currentScene)
@@ -117,8 +114,16 @@ public class SceneDirector : MonoBehaviour
 
         int trackIndex = DataStorage.ParticipantID % 4;
 
-        Debug.Log("Track Chosen: " + possibleTracks[trackIndex].ToString());
         return possibleTracks[trackIndex];
+    }
+
+
+    public void LogInstructionTimes()
+    {
+        DataStorage.LastInstructionSceneStartTime = DataStorage.MostRecentSceneStartTime;
+        DataStorage.LastInstructionSceneEndTime = System.DateTime.Now.ToString();
+        DataStorage.LastInstructionSceneElapsedTime = Time.timeSinceLevelLoad.ToString();
+
     }
 
 
@@ -133,9 +138,10 @@ public class SceneDirector : MonoBehaviour
     }
 
 
-
-
-
+    public void ResetTrackStep()
+    {
+        DataStorage.CurrentTrackStep = 0;
+    }
 
     public void OpenMenu()
     {
@@ -168,6 +174,12 @@ public class SceneDirector : MonoBehaviour
     public void OpenTestArea()
     {
         SceneManager.LoadScene(sceneBuildIndex: 1);
+    }
+
+    public void OpenTutorialScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 46);
+
     }
 
 

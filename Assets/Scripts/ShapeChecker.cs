@@ -114,6 +114,10 @@ public class ShapeChecker : MonoBehaviour
         shapeData.timeElapsed = Time.timeSinceLevelLoad.ToString();
         shapeData.sceneEndTime = System.DateTime.Now.ToString();
 
+        shapeData.instructionSceneStartTime = DataStorage.LastInstructionSceneStartTime;
+        shapeData.instructionSceneEndTime = DataStorage.LastInstructionSceneEndTime;
+        shapeData.instructionSceneElapsedTime = DataStorage.LastInstructionSceneElapsedTime;
+
         SaveShapeArray();
     }
 

@@ -6,6 +6,62 @@ public static class DataStorage
 {
 
     // temporary variables to store current info
+    private static string lastInstructionSceneStartTime = "NULL";
+    private static string lastInstructionSceneEndTime = "NULL";
+    private static string lastInstructionSceneElapsedTime = "NULL";
+
+    private static string mostRecentSceneStartTime = "NULL";
+
+
+    public static string LastInstructionSceneStartTime
+    {
+        get
+        {
+            return lastInstructionSceneStartTime;
+
+        }
+        set
+        {
+            lastInstructionSceneStartTime = value;
+        }
+    }
+    public static string LastInstructionSceneEndTime
+    {
+        get
+        {
+            return lastInstructionSceneEndTime;
+
+        }
+        set
+        {
+            lastInstructionSceneEndTime = value;
+        }
+    }
+    public static string LastInstructionSceneElapsedTime
+    {
+        get
+        {
+            return lastInstructionSceneElapsedTime;
+
+        }
+        set
+        {
+            lastInstructionSceneElapsedTime = value;
+        }
+    }
+    public static string MostRecentSceneStartTime
+    {
+        get
+        {
+            return mostRecentSceneStartTime;
+
+        }
+        set
+        {
+            mostRecentSceneStartTime = value;
+        }
+    }
+
 
     private static string currentBasePoint = "NULL";
     private static string currentBuilderPoint = "NULL";

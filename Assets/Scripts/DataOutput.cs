@@ -11,8 +11,6 @@ public class DataOutput : MonoBehaviour
     private string FilePath;
 
 
-
-
     public void outputDataToFile()
     {
         FilePath = Path.Combine(Application.persistentDataPath, FileName);
@@ -26,6 +24,7 @@ public class DataOutput : MonoBehaviour
         }
 
         writeIDandVersion();
+
 
         writeShape(DataStorage.ShapeA);
         writeShape(DataStorage.ShapeB);
@@ -41,7 +40,7 @@ public class DataOutput : MonoBehaviour
 
     void writeTitleLine()
     {
-        string titleLineText = "ParticipantID, ExperimentType, ";
+        string titleLineText = "ParticipantID, ExperimentType, ExperimentStartTime, ExperimentEndTime, ExperimentTimeElapsed(Minutes), ";
 
         string[] shapes = { "A", "B", "C", "D", "E", "F", "G", "H" };
         int[] piecesPerShape = { 4, 4, 7, 9, 8, 9, 11, 8 };
@@ -53,7 +52,10 @@ public class DataOutput : MonoBehaviour
 
             titleLineText += ("Shape" + currentShape + "-sceneStartTime, "
                             + "Shape" + currentShape + "-sceneEndTime, "
-                            + "Shape" + currentShape + "-timeElapsed(seconds), "
+                            + "Shape" + currentShape + "-elapsedTime(seconds), "
+                            + "Shape" + currentShape + "-instructionSceneStartTime, "
+                            + "Shape" + currentShape + "-instructionSceneEndTime, "
+                            + "Shape" + currentShape + "-instructionSceneElapsedTime, "
                             + "Shape" + currentShape + "-percentCorrect, "
                             );
 
@@ -83,7 +85,7 @@ public class DataOutput : MonoBehaviour
 
     void writeIDandVersion()
     {
-        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + versionName(DataStorage.ExperimentVersion) + ", "); // TODO: add experiment times here
+        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + versionName(DataStorage.ExperimentVersion) + ", " + DataStorage.ExperimentStartTime + ", " + DataStorage.ExperimentEndTime + ", " + timeBetween(DataStorage.ExperimentStartTime, DataStorage.ExperimentEndTime) + ", "); // TODO: add experiment times here
     }
 
     string versionName(int version)
@@ -105,9 +107,15 @@ public class DataOutput : MonoBehaviour
     }
 
 
+    double timeBetween(System.DateTime startTime, System.DateTime endTime)
+    {
+        double time = (endTime - startTime).TotalMinutes;
+        return time;
+    }
+
+
     void writeShape(ShapeData shapeData)
     {
-        Debug.Log(shapeData.ToString());
         File.AppendAllText(FilePath, shapeData.ToString());
     }
 
