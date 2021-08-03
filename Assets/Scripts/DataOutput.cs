@@ -10,6 +10,8 @@ public class DataOutput : MonoBehaviour
     private string FileName = "FutureofWorkData.csv";
     private string FilePath;
 
+    private string FinalOutput = "";
+
 
 
     public void outputDataToFile()
@@ -23,6 +25,8 @@ public class DataOutput : MonoBehaviour
         {
             writeTitleLine();
         }
+
+        FinalOutput = "";
 
         writeIDandVersion();
 
@@ -41,7 +45,7 @@ public class DataOutput : MonoBehaviour
 
     void writeTitleLine()
     {
-        string titleLineText = "ParticipantID, ExperimentType, ExperimentStartTime, ExperimentEndTime, ExperimentTimeElapsed(Minutes), ";
+        string titleLineText = "ParticipantID, ExperimentType, ExperimentStartTime, ExperimentEndTime, ExperimentTimeElapsed(Seconds), ";
 
         string[] shapes = { "A", "B", "C", "D", "E", "F", "G", "H" };
         int[] piecesPerShape = { 4, 4, 7, 9, 8, 9, 11, 8 };
@@ -78,6 +82,8 @@ public class DataOutput : MonoBehaviour
 
         }
 
+        Debug.Log(titleLineText);
+
         File.WriteAllText(FilePath, titleLineText);
 
 
@@ -86,7 +92,15 @@ public class DataOutput : MonoBehaviour
 
     void writeIDandVersion()
     {
-        File.AppendAllText(FilePath, "\n" + DataStorage.ParticipantID + ", " + versionName(DataStorage.ExperimentVersion) + ", " + DataStorage.ExperimentStartTime + ", " + DataStorage.ExperimentEndTime + ", " + timeBetween(DataStorage.ExperimentStartTime, DataStorage.ExperimentEndTime) + ", "); // TODO: add experiment times here
+        string IDandVersionText = "\n" + DataStorage.ParticipantID + ", "
+                                       + versionName(DataStorage.ExperimentVersion) + ", "
+                                       + DataStorage.ExperimentStartTime + ", "
+                                       + DataStorage.ExperimentEndTime + ", "
+                                       + timeBetween(DataStorage.ExperimentStartTime, DataStorage.ExperimentEndTime) + ", ";
+
+        FinalOutput += IDandVersionText;
+
+        File.AppendAllText(FilePath, IDandVersionText); // TODO: add experiment times here
     }
 
     string versionName(int version)
@@ -117,6 +131,8 @@ public class DataOutput : MonoBehaviour
 
     void writeShape(ShapeData shapeData)
     {
+        FinalOutput += shapeData.ToString();
+
         File.AppendAllText(FilePath, shapeData.ToString());
     }
 
