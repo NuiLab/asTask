@@ -182,6 +182,11 @@ public class SceneDirector : MonoBehaviour
 
     }
 
+    public void OpenTutorialVideoScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 47);
+
+    }
 
     // SHAPE A
     public void OpenShapeAAnimated()

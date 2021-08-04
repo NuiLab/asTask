@@ -40,6 +40,9 @@ public class DataOutput : MonoBehaviour
         writeShape(DataStorage.ShapeG);
         writeShape(DataStorage.ShapeH);
 
+
+        Debug.Log(FinalOutput);
+
     }
 
 
@@ -124,7 +127,7 @@ public class DataOutput : MonoBehaviour
 
     double timeBetween(System.DateTime startTime, System.DateTime endTime)
     {
-        double time = (endTime - startTime).TotalMinutes;
+        double time = (endTime - startTime).TotalSeconds;
         return time;
     }
 
