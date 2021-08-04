@@ -181,7 +181,11 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex: 46);
 
     }
+    public void OpenTutorialBuildScene()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 48);
 
+    }
     public void OpenTutorialVideoScene()
     {
         SceneManager.LoadScene(sceneBuildIndex: 47);
