@@ -1,6 +1,6 @@
 # Future of Work
 
-Version 0.9 (c) 2023 Ethan Holen, Francisco R. Ortega, Ben Clegg. 
+Version 0.9 (C) 2023 Ethan Holen, Francisco R. Ortega, Ben Clegg. 
 
 For non-commercial license, see: 
 
