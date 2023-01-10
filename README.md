@@ -1,5 +1,11 @@
 # Future of Work
 
+Version 0.9 (c) 2023 Ethan Holen, Francisco R. Ortega, Ben Clegg. 
+
+For non-commercial license, see: 
+
+For commercial license, please contact Dr. Ortega [NuiLab](https://nuilab.org/)
+
 Documentation for the [NuiLab](https://nuilab.org/) **Future of Work** project
 
 > *Developer: [Ethan Holen](https://github.com/EthanHolen/)*
