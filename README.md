@@ -2,7 +2,7 @@
 
 Version 0.9 (C) 2023 Ethan Holen, Francisco R. Ortega, Ben Clegg. 
 
-For non-commercial license, see: 
+For non-commercial license, we are using GPL v3 see license: 
 
 For commercial license, please contact Dr. Ortega [NuiLab](https://nuilab.org/)
 
