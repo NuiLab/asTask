@@ -34,12 +34,19 @@ public class BuildOffset : MonoBehaviour
     private GameObject previewClone;
     private bool readyToBuild = false;
     private buildChecker snapPoint;
-    private string TagISnapTo = "Bar_SP";
+
+    public GameObject cross;
+
+    [SerializeField] private string TagISnapTo = "Bar_SP";
     bool placed = false;
     private string fname;
     private string fpath;
     private string currentConnectedPointName;
 
+    public string holeNumber;
+    public string barLength;
+    public string targetHoleNumber;
+    public string targetBarLength;
 
 
     // XR
@@ -82,6 +89,10 @@ public class BuildOffset : MonoBehaviour
             {
                 BuildBar();
             }
+            if (rightTrigger && !readyToBuild)
+            {
+                WrongBar();
+            }
         }
         if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
         {
@@ -90,6 +101,10 @@ public class BuildOffset : MonoBehaviour
             if (leftTrigger && readyToBuild)
             {
                 BuildBar();
+            }
+            if (leftTrigger && !readyToBuild)
+            {
+                StartCoroutine("WrongBar");
             }
         }
 
@@ -124,6 +139,12 @@ public class BuildOffset : MonoBehaviour
 
     }
 
+    IEnumerator WrongBar()
+    {
+        GameObject cross = Instantiate(bar, this.transform.position, previewClone.transform.rotation);
+        yield return new WaitForSeconds(2f);
+        Destroy(cross);
+    }
 
 
     /*
@@ -143,15 +164,10 @@ public class BuildOffset : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-
         // Generate Bar Previews
-        if (TagISnapTo == other.tag)
+        if (other.gameObject.GetComponent<BuildOffset>() != null || TagISnapTo == other.tag)
         {
-
             currentConnectedPointName = other.gameObject.name;
-
-
-
             if (!placed)
             {
                 // Set variables
@@ -166,13 +182,15 @@ public class BuildOffset : MonoBehaviour
                 previewClone = Instantiate(barPreview, other.transform.position + positionOffset, other.transform.rotation * rotationOffset);
                 placed = true;
 
-                // tell build bar we are ready to build
-                if (!alreadyBuilt && !readyToBuild)
-                    readyToBuild = true;
+                if (targetHoleNumber == other.gameObject.GetComponent<BuildOffset>().holeNumber && targetBarLength == other.gameObject.GetComponent<BuildOffset>().barLength)
+                {
+                    // tell build bar we are ready to build
+                    if (!alreadyBuilt && !readyToBuild)
+                        readyToBuild = true;
+                }
             }
         }
     }
-
 
     // Method for checking if the snap point already has a bar attached to it
     // and therfore cant be filled.

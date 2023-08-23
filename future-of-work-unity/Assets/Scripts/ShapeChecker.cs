@@ -60,7 +60,6 @@ public class ShapeChecker : MonoBehaviour
     {
         bases = GameObject.FindGameObjectsWithTag("Base");
 
-
         foreach (GameObject bas in bases)
         {
 
