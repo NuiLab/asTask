@@ -34,7 +34,6 @@ public class BuildOffset : MonoBehaviour
     private GameObject previewClone;
     private bool readyToBuild = false;
     private buildChecker snapPoint;
-
     public GameObject cross;
 
     [SerializeField] private string TagISnapTo = "Bar_SP";
@@ -47,6 +46,10 @@ public class BuildOffset : MonoBehaviour
     public string barLength;
     public string targetHoleNumber;
     public string targetBarLength;
+    public string barColor;
+    public string targetBarColor;
+    private bool crossSpawned;
+    private GameObject tempCross;
 
 
     // XR
@@ -91,7 +94,7 @@ public class BuildOffset : MonoBehaviour
             }
             if (rightTrigger && !readyToBuild)
             {
-                WrongBar();
+                StartCoroutine("WrongBar");
             }
         }
         if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
@@ -122,7 +125,7 @@ public class BuildOffset : MonoBehaviour
         DataStorage.LastbuildTime = System.DateTime.Now.ToString();
 
 
-        Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
+        Instantiate(bar, previewClone.transform.position, Quaternion.identity);
         if (snapPoint)
             snapPoint.setBuilt(true);
 
@@ -141,9 +144,14 @@ public class BuildOffset : MonoBehaviour
 
     IEnumerator WrongBar()
     {
-        GameObject cross = Instantiate(bar, this.transform.position, previewClone.transform.rotation);
+        if (!crossSpawned)
+        {
+            tempCross = Instantiate(cross, this.transform.position, previewClone.transform.rotation);
+            crossSpawned = true;
+        }
         yield return new WaitForSeconds(2f);
-        Destroy(cross);
+        Destroy(tempCross);
+        crossSpawned = false;
     }
 
 
@@ -184,14 +192,23 @@ public class BuildOffset : MonoBehaviour
 
                 if (targetHoleNumber == other.gameObject.GetComponent<BuildOffset>().holeNumber && targetBarLength == other.gameObject.GetComponent<BuildOffset>().barLength)
                 {
+                    if (targetBarColor == other.gameObject.GetComponent<BuildOffset>().barColor && targetBarColor != null)
+                    {
+                        if (!alreadyBuilt && !readyToBuild)
+                            readyToBuild = true;
+
+                    }
                     // tell build bar we are ready to build
-                    if (!alreadyBuilt && !readyToBuild)
-                        readyToBuild = true;
+
+                    else
+                    {
+                        if (!alreadyBuilt && !readyToBuild)
+                            readyToBuild = true;
+                    }
                 }
             }
         }
     }
-
     // Method for checking if the snap point already has a bar attached to it
     // and therfore cant be filled.
     private bool AlreadyBuilt(Collider other)
@@ -201,27 +218,17 @@ public class BuildOffset : MonoBehaviour
 
     }
 
-
-
     private bool BarIsRotataed(Collider other)
     {
-
         int z = (int)(other.transform.parent.gameObject.transform.localRotation.z * 100);
-
-
-
         //Debug1.text = "z: " + z;
-
         int zRotation = Mathf.Abs(z);
-
         //Debug0.text = "zRotation: " + zRotation.ToString();
-
         if (zRotation == 50)
             return true;
 
 
         return false;
-
     }
 
 
