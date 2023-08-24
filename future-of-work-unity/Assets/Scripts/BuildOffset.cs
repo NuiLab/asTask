@@ -50,6 +50,7 @@ public class BuildOffset : MonoBehaviour
     public string targetBarColor;
     private bool crossSpawned;
     private GameObject tempCross;
+    private bool isCurrentHole = false;
 
 
     // XR
@@ -125,7 +126,7 @@ public class BuildOffset : MonoBehaviour
         DataStorage.LastbuildTime = System.DateTime.Now.ToString();
 
 
-        Instantiate(bar, previewClone.transform.position, Quaternion.identity);
+        Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
         if (snapPoint)
             snapPoint.setBuilt(true);
 
@@ -144,9 +145,9 @@ public class BuildOffset : MonoBehaviour
 
     IEnumerator WrongBar()
     {
-        if (!crossSpawned)
+        if (!crossSpawned && isCurrentHole)
         {
-            tempCross = Instantiate(cross, this.transform.position, previewClone.transform.rotation);
+            tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
             crossSpawned = true;
         }
         yield return new WaitForSeconds(2f);
@@ -189,6 +190,7 @@ public class BuildOffset : MonoBehaviour
 
                 previewClone = Instantiate(barPreview, other.transform.position + positionOffset, other.transform.rotation * rotationOffset);
                 placed = true;
+                isCurrentHole = true;
 
                 if (targetHoleNumber == other.gameObject.GetComponent<BuildOffset>().holeNumber && targetBarLength == other.gameObject.GetComponent<BuildOffset>().barLength)
                 {
@@ -284,7 +286,7 @@ public class BuildOffset : MonoBehaviour
         if (other.tag == TagISnapTo)
         {
             Destroy(previewClone);
-
+            isCurrentHole = false;
             placed = false;
             readyToBuild = false;
         }
