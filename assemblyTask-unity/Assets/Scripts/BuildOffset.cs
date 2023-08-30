@@ -41,17 +41,18 @@ public class BuildOffset : MonoBehaviour
     private string fname;
     private string fpath;
     private string currentConnectedPointName;
+    public hProps props;
 
-    public string holeNumber;
-    public string barLength;
-    public string targetHoleNumber;
-    public string targetBarLength;
-    public string barColor;
-    public string targetBarColor;
+    //public string holeNumber;
+    //public string barLength;
+    //public string targetHoleNumber;
+    //public string targetBarLength;
+    //public string barColor;
+    //public string targetBarColor;
     private bool crossSpawned;
     private GameObject tempCross;
     private bool isCurrentHole = false;
-
+    //public instructionsManager instructionsManager;
 
     // XR
     // input devices
@@ -64,6 +65,7 @@ public class BuildOffset : MonoBehaviour
     {
         fname = "FOW-DataLog.csv";
         fpath = Path.Combine(Application.persistentDataPath, fname);
+        props = this.transform.gameObject.GetComponent<hProps>();
 
 
         if (!File.Exists(fpath))
@@ -91,6 +93,7 @@ public class BuildOffset : MonoBehaviour
 
             if (rightTrigger && readyToBuild)
             {
+
                 BuildBar();
             }
             if (rightTrigger && !readyToBuild)
@@ -104,6 +107,7 @@ public class BuildOffset : MonoBehaviour
 
             if (leftTrigger && readyToBuild)
             {
+
                 BuildBar();
             }
             if (leftTrigger && !readyToBuild)
@@ -126,12 +130,30 @@ public class BuildOffset : MonoBehaviour
         DataStorage.LastbuildTime = System.DateTime.Now.ToString();
 
 
-        Instantiate(bar, previewClone.transform.position, previewClone.transform.rotation);
-        if (snapPoint)
-            snapPoint.setBuilt(true);
+        GameObject temp = Instantiate(this.transform.parent.gameObject, previewClone.transform.position, previewClone.transform.rotation);
+
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        hProps[] tempprops = temp.GetComponentsInChildren<hProps>();
+        foreach (hProps hprop in tempprops)
+        {
+            hprop.targetBarColor = null;
+            hprop.targetBarLength = null;
+            hprop.targetHoleNumber = null;
+        }
+        BuildOffset[] tempBO = temp.GetComponentsInChildren<BuildOffset>();
+
+        foreach (BuildOffset tempB in tempBO)
+        {
+            tempB.enabled = false;
+        }
+
+
+        // if (snapPoint)
+        //    snapPoint.setBuilt(true);
 
         Cleanup();
-
+        props.instructionsManager.stepComplete();
     }
 
     // Removes the builder and the preview from the scene
@@ -174,41 +196,42 @@ public class BuildOffset : MonoBehaviour
     {
 
         // Generate Bar Previews
-        if (other.gameObject.GetComponent<BuildOffset>() != null || TagISnapTo == other.tag)
+        if (other.gameObject.GetComponent<hProps>() != null || TagISnapTo == other.tag)
         {
-            currentConnectedPointName = other.gameObject.name;
-            if (!placed)
+        currentConnectedPointName = other.gameObject.name;
+        if (!placed)
+        {
+            // Set variables
+            Vector3 positionOffset;
+            Quaternion rotationOffset = Quaternion.Euler(0f, 0f, 90f);
+            //bool alreadyBuilt = AlreadyBuilt(other);
+            bool rotated = BarIsRotataed(other);
+
+            // Determine Offset
+            positionOffset = DeterminePosition(rotated);
+
+            previewClone = Instantiate(barPreview, other.transform.position + positionOffset, other.transform.rotation * rotationOffset);
+            previewClone.GetComponent<MeshRenderer>().enabled = false;
+            placed = true;
+            isCurrentHole = true;
+
+            if (props.targetHoleNumber == other.gameObject.GetComponent<hProps>().holeNumber && props.targetBarLength == other.gameObject.GetComponent<hProps>().barLength)
             {
-                // Set variables
-                Vector3 positionOffset;
-                Quaternion rotationOffset = Quaternion.Euler(0f, 0f, 90f);
-                bool alreadyBuilt = AlreadyBuilt(other);
-                bool rotated = BarIsRotataed(other);
-
-                // Determine Offset
-                positionOffset = DeterminePosition(rotated);
-
-                previewClone = Instantiate(barPreview, other.transform.position + positionOffset, other.transform.rotation * rotationOffset);
-                placed = true;
-                isCurrentHole = true;
-
-                if (targetHoleNumber == other.gameObject.GetComponent<BuildOffset>().holeNumber && targetBarLength == other.gameObject.GetComponent<BuildOffset>().barLength)
+                if (props.targetBarColor == other.gameObject.GetComponent<hProps>().barColor && props.targetBarColor != null)
                 {
-                    if (targetBarColor == other.gameObject.GetComponent<BuildOffset>().barColor && targetBarColor != null)
-                    {
-                        if (!alreadyBuilt && !readyToBuild)
-                            readyToBuild = true;
+                    if (/*!alreadyBuilt && */!readyToBuild)
+                        readyToBuild = true;
 
-                    }
-                    // tell build bar we are ready to build
+                }
+                // tell build bar we are ready to build
 
-                    else
-                    {
-                        if (!alreadyBuilt && !readyToBuild)
-                            readyToBuild = true;
-                    }
+                else
+                {
+                    if (/*!alreadyBuilt && */!readyToBuild)
+                        readyToBuild = true;
                 }
             }
+        }
         }
     }
     // Method for checking if the snap point already has a bar attached to it
@@ -285,7 +308,7 @@ public class BuildOffset : MonoBehaviour
     {
         if (other.tag == TagISnapTo)
         {
-            Destroy(previewClone);
+            //Destroy(previewClone);
             isCurrentHole = false;
             placed = false;
             readyToBuild = false;
