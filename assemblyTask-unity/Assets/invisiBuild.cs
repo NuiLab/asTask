@@ -16,9 +16,18 @@ public class invisiBuild : MonoBehaviour
     GameObject lastTouchedBar;
     //starts at 2 to when all transforms are listed, it starts at te correct one
     public Transform[] children;
+    public GameObject instructions;
+    bool crossSpawned = false;
+    public GameObject cross;
+    public GameObject check;
+    GameObject tempCross;
+    GameObject tempCheck;
+    public bool isGrabbed = false;
+    public bool checkSpawned = false;
     // Start is called before the first frame update
     void Start()
     {
+        instructions = GameObject.FindWithTag("SceneInstructions");
     }
 
     // Update is called once per frame
@@ -41,53 +50,87 @@ public class invisiBuild : MonoBehaviour
     }
     void Update()
     {
-
-        // button presses
-        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
-        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
-
-        bool rightTrigger = false;
-        bool leftTrigger = false;
-
-        if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
+        if (isGrabbed)
         {
-            // main build button (Right Hand)
+            // button presses
+            InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
+            InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-            if (rightTrigger && correctPlacement)
-            {
-                build();
+            bool rightTrigger = false;
+            bool leftTrigger = false;
 
-            }
-            if (rightTrigger && !correctPlacement)
+            if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
             {
-                StartCoroutine("WrongBar");
+                // main build button (Right Hand)
+
+                if (rightTrigger && correctPlacement)
+                {
+                    build();
+
+                }
+                if (rightTrigger && !correctPlacement)
+                {
+                    StartCoroutine("WrongBar");
+                }
             }
+            if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
+            {
+                // main build button (Left Hand)
+
+                if (leftTrigger && correctPlacement)
+                {
+
+                    build();
+                }
+                if (leftTrigger && !correctPlacement)
+                {
+                    StartCoroutine("WrongBar");
+                }
+            }
+
         }
-        if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
-        {
-            // main build button (Left Hand)
-
-            if (leftTrigger && correctPlacement)
-            {
-
-                build();
-            }
-            if (leftTrigger && !correctPlacement)
-            {
-                StartCoroutine("WrongBar");
-            }
-        }
-
     }
     void build()
     {
-        this.gameObject.transform.position = lastTouchedBar.transform.position;
-        this.gameObject.transform.rotation = lastTouchedBar.transform.rotation;
-        this.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        this.gameObject.GetComponent<MeshCollider>().enabled = false;
-        this.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
-        this.enabled = false;
+        GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
+        newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
+        //this.gameObject.transform.position = lastTouchedBar.transform.position;
+        //this.gameObject.transform.rotation = lastTouchedBar.transform.rotation;
+        newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
+        newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
+        instructions.GetComponent<invisInstructions>().nextStep();
+        this.gameObject.SetActive(false);
+
 
         //need to change this to a new instructions script
+    }
+    IEnumerator WrongBar()
+    {
+
+        if (!crossSpawned)
+        {
+            tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
+            crossSpawned = true;
+        }
+        yield return new WaitForSeconds(2f);
+        Destroy(tempCross);
+        crossSpawned = false;
+    }
+    public void SetIsGrabbed(bool value)
+    {
+        isGrabbed = value;
+    }
+     IEnumerator rightBar()
+    {
+
+        if (!checkSpawned)
+        {
+            tempCheck = Instantiate(check, this.transform.position, Quaternion.identity);
+            checkSpawned = true;
+        }
+        yield return new WaitForSeconds(2f);
+        Destroy(tempCheck);
+        checkSpawned = false;
     }
 }

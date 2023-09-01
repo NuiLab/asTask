@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7906977791277202650}
   - component: {fileID: 7906977791277202651}
   - component: {fileID: -5523539652621190654}
+  - component: {fileID: 4581003825870131383}
+  - component: {fileID: 5386011549038287941}
   m_Layer: 0
   m_Name: 7_Bar Builder
   m_TagString: Builder
@@ -157,10 +159,34 @@ MonoBehaviour:
       m_Calls: []
   m_OnActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386011549038287941}
+        m_TargetAssemblyTypeName: invisiBuild, Assembly-CSharp
+        m_MethodName: SetIsGrabbed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_OnDeactivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386011549038287941}
+        m_TargetAssemblyTypeName: invisiBuild, Assembly-CSharp
+        m_MethodName: SetIsGrabbed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
@@ -206,6 +232,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d5c6db1d2b54413bb7d513ac65e50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &4581003825870131383
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906977791277202655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1157838416277194423, guid: 411eb74330f2947fe9fa400fc9d1e101, type: 3}
+--- !u!114 &5386011549038287941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906977791277202655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0b9b55dfbb7d844820ff721838b76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctPlacement: 0
+  children: []
+  instructions: {fileID: 0}
+  cross: {fileID: 8732195396968413222, guid: a5eb2f2b4e0146841b459e6f2d815af1, type: 3}
+  check: {fileID: 8732195396968413222, guid: b9081cedd06bbf44486c406cc6d62354, type: 3}
+  isGrabbed: 0
+  checkSpawned: 0
 --- !u!1001 &643875857470323792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,6 +340,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
@@ -394,6 +471,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (-2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
@@ -521,6 +608,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (-1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
       propertyPath: bar
@@ -646,6 +743,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
@@ -773,6 +880,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
       propertyPath: bar
@@ -899,6 +1016,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (0)
       objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
       propertyPath: bar
@@ -1019,6 +1146,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SnapOffset(7_Builder) (-3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245057661451958752, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 6245057661451958753, guid: 608f14c10bc8a4ce597e3b1695d7b3c0,
         type: 3}
