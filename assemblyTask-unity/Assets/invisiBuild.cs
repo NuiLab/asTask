@@ -24,6 +24,7 @@ public class invisiBuild : MonoBehaviour
     GameObject tempCheck;
     public bool isGrabbed = false;
     public bool checkSpawned = false;
+    public int mistakes = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,33 +59,39 @@ public class invisiBuild : MonoBehaviour
 
             bool rightTrigger = false;
             bool leftTrigger = false;
-
-            if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
+            if (rightHandDevices[0] != null)
             {
-                // main build button (Right Hand)
-
-                if (rightTrigger && correctPlacement)
+                if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
                 {
-                    build();
+                    // main build button (Right Hand)
 
-                }
-                if (rightTrigger && !correctPlacement)
-                {
-                    StartCoroutine("WrongBar");
+                    if (rightTrigger && correctPlacement)
+                    {
+                        StartCoroutine("rightBar");
+                        build();
+
+                    }
+                    if (rightTrigger && !correctPlacement)
+                    {
+                        StartCoroutine("WrongBar");
+                    }
                 }
             }
-            if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
+            if (leftHandDevices[0] != null)
             {
-                // main build button (Left Hand)
-
-                if (leftTrigger && correctPlacement)
+                if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
                 {
+                    // main build button (Left Hand)
 
-                    build();
-                }
-                if (leftTrigger && !correctPlacement)
-                {
-                    StartCoroutine("WrongBar");
+                    if (leftTrigger && correctPlacement)
+                    {
+                        StartCoroutine("rightBar");
+                        build();
+                    }
+                    if (leftTrigger && !correctPlacement)
+                    {
+                        StartCoroutine("WrongBar");
+                    }
                 }
             }
 
@@ -107,7 +114,7 @@ public class invisiBuild : MonoBehaviour
     }
     IEnumerator WrongBar()
     {
-
+       instructions.GetComponent<invisInstructions>().mistakes++;
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
@@ -121,7 +128,7 @@ public class invisiBuild : MonoBehaviour
     {
         isGrabbed = value;
     }
-     IEnumerator rightBar()
+    IEnumerator rightBar()
     {
 
         if (!checkSpawned)

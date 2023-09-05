@@ -7,6 +7,7 @@ public class invisInstructions : MonoBehaviour
     public GameObject[] instructionBars;
     public Material builtMat;
     public int currentStep = 0;
+    public int mistakes;
     // Start is called before the first frame update
     void Start()
     {
