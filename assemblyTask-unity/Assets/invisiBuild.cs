@@ -39,7 +39,11 @@ public class invisiBuild : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             lastTouchedBar = other.gameObject;
-            if (distance <= 0.03f) correctPlacement = true;
+            if (distance <= 0.03f && CheckProperties(other))
+            {
+                correctPlacement = true;
+            }
+
             else correctPlacement = false;
 
             Debug.Log("Distance between objects: " + distance);
@@ -49,6 +53,27 @@ public class invisiBuild : MonoBehaviour
     {
         correctPlacement = false;
     }
+    bool CheckProperties(Collider other)
+    {
+        bool correct = true;
+        if (other.GetComponent<propCheck>().barlength != null)
+        {
+            if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
+            {
+                correct = false;
+            }
+        }
+        if (other.GetComponent<propCheck>().color != null)
+        {
+            if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
+            {
+                correct = false;
+            }
+        }
+        
+        return correct;
+    }
+
     void Update()
     {
         if (isGrabbed)
@@ -114,7 +139,7 @@ public class invisiBuild : MonoBehaviour
     }
     IEnumerator WrongBar()
     {
-       instructions.GetComponent<invisInstructions>().mistakes++;
+        instructions.GetComponent<invisInstructions>().mistakes++;
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
