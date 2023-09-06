@@ -8,10 +8,16 @@ public class invisInstructions : MonoBehaviour
     public Material builtMat;
     public int currentStep = 0;
     public int mistakes;
+    public bool stepByStep;
     // Start is called before the first frame update
     void Start()
     {
-
+        if(!stepByStep){
+            foreach (GameObject bar in instructionBars)
+            {
+                bar.SetActive(true);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -21,12 +27,15 @@ public class invisInstructions : MonoBehaviour
     }
     public void nextStep()
     {
-        instructionBars[currentStep].SetActive(false);
-        if (currentStep+1 < instructionBars.Length)
+        if (stepByStep)
         {
-            currentStep++;
-            instructionBars[currentStep].SetActive(true);
-            // need to add a check for the last step
+            instructionBars[currentStep].SetActive(false);
+            if (currentStep + 1 < instructionBars.Length)
+            {
+                currentStep++;
+                instructionBars[currentStep].SetActive(true);
+                // need to add a check for the last step
+            }
         }
     }
 }

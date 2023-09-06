@@ -56,7 +56,7 @@ public class invisiBuild : MonoBehaviour
     bool CheckProperties(Collider other)
     {
         bool correct = true;
-        if (other.GetComponent<propCheck>().barlength != null)
+        if (other.GetComponent<propCheck>().barlength != 0)
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
@@ -131,6 +131,7 @@ public class invisiBuild : MonoBehaviour
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
+        newBar.gameObject.GetComponent<invisiBuild>().enabled = false;   
         instructions.GetComponent<invisInstructions>().nextStep();
         this.gameObject.SetActive(false);
 
