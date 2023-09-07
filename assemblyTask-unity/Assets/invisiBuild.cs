@@ -141,6 +141,7 @@ public class invisiBuild : MonoBehaviour
     IEnumerator WrongBar()
     {
         instructions.GetComponent<invisInstructions>().mistakes++;
+        instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);  
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
