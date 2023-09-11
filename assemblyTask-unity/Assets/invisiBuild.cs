@@ -7,6 +7,8 @@ using System.IO;
 using UnityEngine.SceneManagement;
 
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Runtime.Remoting.Activation;
+
 public class invisiBuild : MonoBehaviour
 {
 
@@ -41,6 +43,7 @@ public class invisiBuild : MonoBehaviour
             lastTouchedBar = other.gameObject;
             if (distance <= 0.03f && CheckProperties(other))
             {
+                Debug.Log("Correct Placement");
                 correctPlacement = true;
             }
 
@@ -70,7 +73,7 @@ public class invisiBuild : MonoBehaviour
                 correct = false;
             }
         }
-        
+        Debug.Log(correct);
         return correct;
     }
 
@@ -125,13 +128,14 @@ public class invisiBuild : MonoBehaviour
     void build()
     {
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
-        newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
+        newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
+        //newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
         //this.gameObject.transform.position = lastTouchedBar.transform.position;
         //this.gameObject.transform.rotation = lastTouchedBar.transform.rotation;
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
-        newBar.gameObject.GetComponent<invisiBuild>().enabled = false;   
+        newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
         instructions.GetComponent<invisInstructions>().nextStep();
         this.gameObject.SetActive(false);
 
@@ -139,9 +143,14 @@ public class invisiBuild : MonoBehaviour
         //need to change this to a new instructions script
     }
     IEnumerator WrongBar()
-    {
+    {   
+        instructions.GetComponent<invisInstructions>().toggleHands(false);
+
+        
         instructions.GetComponent<invisInstructions>().mistakes++;
-        instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);  
+        instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);
+        instructions.GetComponent<invisInstructions>().stepPanel.SetActive(false);
+
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);

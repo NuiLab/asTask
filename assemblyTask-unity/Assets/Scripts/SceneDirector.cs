@@ -42,7 +42,23 @@ public class SceneDirector : MonoBehaviour
         }
 
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("W1A2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("Scene2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("Scene3");
+        }
+        // add more cases for other scenes
     }
+
+
+
 
     public void ClearPreviews()
     {
@@ -163,12 +179,12 @@ public class SceneDirector : MonoBehaviour
 
     public void OpenParticipantIDScene()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 42);
+        SceneManager.LoadScene("ParticipantIDScene");
     }
 
     public void OpenExperimentVersion()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 43);
+        SceneManager.LoadScene("ExperimentVersion");
     }
 
     public void OpenTestArea()
@@ -183,12 +199,12 @@ public class SceneDirector : MonoBehaviour
     }
     public void OpenTutorialBuildScene()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 48);
+        SceneManager.LoadScene("Tutorial (Build)");
 
     }
     public void OpenTutorialVideoScene()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 47);
+        SceneManager.LoadScene("Tutorial Video");
 
     }
 
@@ -508,6 +524,11 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex: 41);
     }
 
+
+    public void LoadSceneByName(string scenename)
+    {
+        SceneManager.LoadScene(scenename);
+    }
 
 
 
