@@ -530,6 +530,9 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadScene(scenename);
     }
 
+    public void quit(){
+        Application.Quit();
+    }
 
 
 

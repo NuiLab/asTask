@@ -63,7 +63,7 @@ public class invisInstructions : MonoBehaviour
         foreach (GameObject hand in hands)
         {
             hand.GetComponent<XRDirectInteractor>().enabled = temp;
-            hand.GetComponent<XRDirectInteractor>().attachTransform.gameObject.transform.parent = null;
+            
         }
     }
 }

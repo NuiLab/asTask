@@ -128,7 +128,7 @@ public class invisiBuild : MonoBehaviour
     void build()
     {
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
-        newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
+        //newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
         //newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
         //this.gameObject.transform.position = lastTouchedBar.transform.position;
         //this.gameObject.transform.rotation = lastTouchedBar.transform.rotation;
@@ -143,10 +143,10 @@ public class invisiBuild : MonoBehaviour
         //need to change this to a new instructions script
     }
     IEnumerator WrongBar()
-    {   
-        instructions.GetComponent<invisInstructions>().toggleHands(false);
-
+    {
         
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
+        instructions.GetComponent<invisInstructions>().toggleHands(false);
         instructions.GetComponent<invisInstructions>().mistakes++;
         instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);
         instructions.GetComponent<invisInstructions>().stepPanel.SetActive(false);
@@ -157,8 +157,10 @@ public class invisiBuild : MonoBehaviour
             crossSpawned = true;
         }
         yield return new WaitForSeconds(2f);
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
         Destroy(tempCross);
         crossSpawned = false;
+        
     }
     public void SetIsGrabbed(bool value)
     {

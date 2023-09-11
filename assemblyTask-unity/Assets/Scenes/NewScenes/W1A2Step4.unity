@@ -4092,8 +4092,9 @@ MonoBehaviour:
   mistakes: 0
   stepByStep: 1
   instructionPanel: {fileID: 1455078100}
-  stepPanel: {fileID: 0}
+  stepPanel: {fileID: 842084064872713634}
   builtShape: {fileID: 3954116125970588551}
+  hands: []
 --- !u!114 &1448335479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4119,7 +4120,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 842084064872713633}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 842084064872713634}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -5037,6 +5038,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 77733789ea29fc042910e37f9f177df2, type: 3}
+--- !u!1 &842084064872713634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7054117052537007167, guid: 77733789ea29fc042910e37f9f177df2,
+    type: 3}
+  m_PrefabInstance: {fileID: 842084064872713633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &964607707403166136
 PrefabInstance:
   m_ObjectHideFlags: 0

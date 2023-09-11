@@ -3881,6 +3881,9 @@ MonoBehaviour:
   instructionPanel: {fileID: 1455078100}
   stepPanel: {fileID: 0}
   builtShape: {fileID: 3954116125970588551}
+  hands:
+  - {fileID: 403820998}
+  - {fileID: 704405233}
 --- !u!114 &1448335479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,7 +3909,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 842084064872713633}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 842084064872713634}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -4824,6 +4827,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 77733789ea29fc042910e37f9f177df2, type: 3}
+--- !u!1 &842084064872713634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7054117052537007167, guid: 77733789ea29fc042910e37f9f177df2,
+    type: 3}
+  m_PrefabInstance: {fileID: 842084064872713633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &964607707403166136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4897,8 +4906,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6531752826637233983, guid: 112365bac2a0aee4db06af006ce14b05,
+        type: 3}
+      propertyPath: stepPanel
+      value: 
+      objectReference: {fileID: 842084064872713634}
+    - target: {fileID: 6531752826637233983, guid: 112365bac2a0aee4db06af006ce14b05,
+        type: 3}
+      propertyPath: builtShape
+      value: 
+      objectReference: {fileID: 3954116125970588551}
+    - target: {fileID: 6531752826637233983, guid: 112365bac2a0aee4db06af006ce14b05,
+        type: 3}
+      propertyPath: instructionPanel
+      value: 
+      objectReference: {fileID: 1455078100}
+    - target: {fileID: 6531752826637233983, guid: 112365bac2a0aee4db06af006ce14b05,
+        type: 3}
+      propertyPath: hands.Array.data[0]
+      value: 
+      objectReference: {fileID: 403820998}
+    - target: {fileID: 6531752826637233983, guid: 112365bac2a0aee4db06af006ce14b05,
+        type: 3}
+      propertyPath: instructionTexts.Array.data[2]
+      value: Perform the next step
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4049239756533922038, guid: 112365bac2a0aee4db06af006ce14b05, type: 3}
+    - {fileID: 6531752826637233983, guid: 112365bac2a0aee4db06af006ce14b05, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

@@ -4094,6 +4094,9 @@ MonoBehaviour:
   instructionPanel: {fileID: 1455078100}
   stepPanel: {fileID: 0}
   builtShape: {fileID: 3954116125970588551}
+  hands:
+  - {fileID: 403820998}
+  - {fileID: 704405233}
 --- !u!114 &1448335479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5111,7 +5114,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4049239756533922038, guid: 112365bac2a0aee4db06af006ce14b05, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
