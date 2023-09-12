@@ -530,7 +530,13 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadScene(scenename);
     }
 
-    public void quit(){
+    public void quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
         Application.Quit();
     }
 

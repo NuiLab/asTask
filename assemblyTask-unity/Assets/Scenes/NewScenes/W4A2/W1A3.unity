@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 6
-  color: 
+  color: Blue
 --- !u!1 &237797528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 200238176650204823, guid: f85de004ba56c2943bbf1c19cbe60ad1,
@@ -383,6 +383,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 390684912}
+    - targetCorrespondingSourceObject: {fileID: 4423802096150810001, guid: d974ab38e51704b8cb69a4a693ac3206,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d974ab38e51704b8cb69a4a693ac3206, type: 3}
 --- !u!1 &390684911 stripped
 GameObject:
@@ -403,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 8
-  color: 
+  color: yellow
 --- !u!114 &392351282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +820,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1399047505}
+    - targetCorrespondingSourceObject: {fileID: 4423802096150810001, guid: d974ab38e51704b8cb69a4a693ac3206,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d974ab38e51704b8cb69a4a693ac3206, type: 3}
 --- !u!1001 &442919040
 PrefabInstance:
@@ -893,6 +901,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 442919042}
+    - targetCorrespondingSourceObject: {fileID: 4423802096150810001, guid: d974ab38e51704b8cb69a4a693ac3206,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d974ab38e51704b8cb69a4a693ac3206, type: 3}
 --- !u!1 &442919041 stripped
 GameObject:
@@ -913,7 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 8
-  color: 
+  color: red
 --- !u!1 &535511728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1143,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: WaitingRoom
+          m_StringArgument: W1A2Step2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1833441946}
@@ -1260,6 +1272,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 576471526}
+    - targetCorrespondingSourceObject: {fileID: 3000463390969724602, guid: 3cfbff4ae195f4a708942bece8d4c371,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3cfbff4ae195f4a708942bece8d4c371, type: 3}
 --- !u!1 &576471525 stripped
 GameObject:
@@ -1280,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 7
-  color: 
+  color: red
 --- !u!1 &621874728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1585,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 647453781}
+    - targetCorrespondingSourceObject: {fileID: 4423802096150810001, guid: d974ab38e51704b8cb69a4a693ac3206,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d974ab38e51704b8cb69a4a693ac3206, type: 3}
 --- !u!1 &647453780 stripped
 GameObject:
@@ -1589,7 +1609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 8
-  color: 
+  color: green
 --- !u!1 &659570899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 7
-  color: 
+  color: Blue
 --- !u!1001 &686265603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1807,6 +1827,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 681381545}
+    - targetCorrespondingSourceObject: {fileID: 3000463390969724602, guid: 3cfbff4ae195f4a708942bece8d4c371,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3cfbff4ae195f4a708942bece8d4c371, type: 3}
 --- !u!1 &704405233
 GameObject:
@@ -2444,6 +2468,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 758907745}
+    - targetCorrespondingSourceObject: {fileID: 3000463390969724602, guid: 3cfbff4ae195f4a708942bece8d4c371,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3cfbff4ae195f4a708942bece8d4c371, type: 3}
 --- !u!1 &758907744 stripped
 GameObject:
@@ -2464,7 +2492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 7
-  color: 
+  color: green
 --- !u!1 &773953280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,6 +2661,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 827700452}
+    - targetCorrespondingSourceObject: {fileID: 5685488619906391417, guid: e2231704cab6a44a1a9898e6bcddd99e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e2231704cab6a44a1a9898e6bcddd99e, type: 3}
 --- !u!1 &827700451 stripped
 GameObject:
@@ -2653,7 +2685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 6
-  color: 
+  color: yellow
 --- !u!1001 &952925547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2730,6 +2762,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 952925549}
+    - targetCorrespondingSourceObject: {fileID: 5685488619906391417, guid: e2231704cab6a44a1a9898e6bcddd99e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e2231704cab6a44a1a9898e6bcddd99e, type: 3}
 --- !u!1 &952925548 stripped
 GameObject:
@@ -2750,7 +2786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 6
-  color: 
+  color: green
 --- !u!1 &1008298980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,6 +3764,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 68018855040361745, guid: f85de004ba56c2943bbf1c19cbe60ad1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 200238176650204823, guid: f85de004ba56c2943bbf1c19cbe60ad1,
         type: 3}
       insertIndex: -1
@@ -3854,6 +3894,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1175364795}
+    - targetCorrespondingSourceObject: {fileID: 5685488619906391417, guid: e2231704cab6a44a1a9898e6bcddd99e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e2231704cab6a44a1a9898e6bcddd99e, type: 3}
 --- !u!1 &1175364794 stripped
 GameObject:
@@ -3874,7 +3918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 6
-  color: 
+  color: red
 --- !u!1 &1252385909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,7 +4104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 8
-  color: 
+  color: Blue
 --- !u!1 &1444284541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3241097393621758211, guid: 112365bac2a0aee4db06af006ce14b05,
@@ -4084,9 +4128,9 @@ MonoBehaviour:
   - {fileID: 1026099766}
   - {fileID: 671415074}
   instructionTexts:
-  - Perform the next step
-  - Perform the next step
-  - Perform the next step
+  - Bar with 7 holes, put Hole number 2 on the 8 bar, hole number 7
+  - Bar with 6 holes, put Hole number 1 on Hole Number 7
+  - Bar with 8 holes, put hole x on x
   builtMat: {fileID: 2100000, guid: b33beeffee99b4f3fbe3b496daf5724e, type: 2}
   currentStep: 0
   mistakes: 0
@@ -4702,6 +4746,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 108609727}
+    - targetCorrespondingSourceObject: {fileID: 5685488619906391417, guid: e2231704cab6a44a1a9898e6bcddd99e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e2231704cab6a44a1a9898e6bcddd99e, type: 3}
 --- !u!1001 &1907251206
 PrefabInstance:
@@ -4779,6 +4827,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1907251208}
+    - targetCorrespondingSourceObject: {fileID: 3000463390969724602, guid: 3cfbff4ae195f4a708942bece8d4c371,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3cfbff4ae195f4a708942bece8d4c371, type: 3}
 --- !u!1 &1907251207 stripped
 GameObject:
@@ -4799,7 +4851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barlength: 7
-  color: 
+  color: yellow
 --- !u!114 &2048932263
 MonoBehaviour:
   m_ObjectHideFlags: 0
