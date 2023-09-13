@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Runtime.Remoting.Activation;
+using System.Security;
+using System.Security.Policy;
 
 public class invisiBuild : MonoBehaviour
 {
@@ -169,7 +171,10 @@ public class invisiBuild : MonoBehaviour
     {
         isGrabbed = value;
     }
-
+    public void grabLog()
+    {
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "grabbed");
+    }
     public void dataLog(string category, string action)
     {
         manager.GetComponent<ExperimentLog>().AddData(category, action);

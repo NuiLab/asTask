@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4566d14e0eb1e98489fca4e38f64c5d6, type: 2}
+    - target: {fileID: 1442454728014382065, guid: 1078c19db85d28c409f68fd64d31ca59,
+        type: 3}
+      propertyPath: m_Name
+      value: 5_BarGreen
+      objectReference: {fileID: 0}
     - target: {fileID: 2378040475632542197, guid: 1078c19db85d28c409f68fd64d31ca59,
         type: 3}
       propertyPath: color
@@ -22,6 +27,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color
       value: green
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912501545381661368, guid: 1078c19db85d28c409f68fd64d31ca59,
+        type: 3}
+      propertyPath: m_Name
+      value: 8_BarGreen
       objectReference: {fileID: 0}
     - target: {fileID: 2912501545381661369, guid: 1078c19db85d28c409f68fd64d31ca59,
         type: 3}
@@ -38,6 +48,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4566d14e0eb1e98489fca4e38f64c5d6, type: 2}
+    - target: {fileID: 3500718581407956559, guid: 1078c19db85d28c409f68fd64d31ca59,
+        type: 3}
+      propertyPath: m_Name
+      value: 7_BarGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007781317396873864, guid: 1078c19db85d28c409f68fd64d31ca59,
+        type: 3}
+      propertyPath: m_Name
+      value: 6_BarGreen
+      objectReference: {fileID: 0}
     - target: {fileID: 4007781317396873865, guid: 1078c19db85d28c409f68fd64d31ca59,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -57,6 +77,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color
       value: green
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313516547012924424, guid: 1078c19db85d28c409f68fd64d31ca59,
+        type: 3}
+      propertyPath: m_Name
+      value: 4_BarGreen
       objectReference: {fileID: 0}
     - target: {fileID: 7313516547012924431, guid: 1078c19db85d28c409f68fd64d31ca59,
         type: 3}
@@ -118,6 +143,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4566d14e0eb1e98489fca4e38f64c5d6, type: 2}
+    - target: {fileID: 8717054520507707141, guid: 1078c19db85d28c409f68fd64d31ca59,
+        type: 3}
+      propertyPath: m_Name
+      value: 3_BarGreen
+      objectReference: {fileID: 0}
     - target: {fileID: 9070872541127053999, guid: 1078c19db85d28c409f68fd64d31ca59,
         type: 3}
       propertyPath: color

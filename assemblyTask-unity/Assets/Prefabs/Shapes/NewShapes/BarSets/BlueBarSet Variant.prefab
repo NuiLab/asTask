@@ -8,11 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 990747055710282684, guid: 0b5e9210ea8601e49874506e42637e95,
+        type: 3}
+      propertyPath: m_Name
+      value: 5_BarBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 990747055710282685, guid: 0b5e9210ea8601e49874506e42637e95,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d058ade9fab44ecbb83bf0424cfb675, type: 2}
+    - target: {fileID: 2967444293577301506, guid: 0b5e9210ea8601e49874506e42637e95,
+        type: 3}
+      propertyPath: m_Name
+      value: 7_BarBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 2967444293577301507, guid: 0b5e9210ea8601e49874506e42637e95,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -23,11 +33,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d058ade9fab44ecbb83bf0424cfb675, type: 2}
+    - target: {fileID: 3325072711794959045, guid: 0b5e9210ea8601e49874506e42637e95,
+        type: 3}
+      propertyPath: m_Name
+      value: 6_BarBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 3589438606479026932, guid: 0b5e9210ea8601e49874506e42637e95,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d058ade9fab44ecbb83bf0424cfb675, type: 2}
+    - target: {fileID: 3589438606479026933, guid: 0b5e9210ea8601e49874506e42637e95,
+        type: 3}
+      propertyPath: m_Name
+      value: 8_BarBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 3989595079825144061, guid: 0b5e9210ea8601e49874506e42637e95,
         type: 3}
       propertyPath: color
@@ -57,6 +77,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlueBarSet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008240088380493640, guid: 0b5e9210ea8601e49874506e42637e95,
+        type: 3}
+      propertyPath: m_Name
+      value: 3_ BarBlue
       objectReference: {fileID: 0}
     - target: {fileID: 7230882523716809442, guid: 0b5e9210ea8601e49874506e42637e95,
         type: 3}
@@ -123,6 +148,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d058ade9fab44ecbb83bf0424cfb675, type: 2}
+    - target: {fileID: 8990771801242268741, guid: 0b5e9210ea8601e49874506e42637e95,
+        type: 3}
+      propertyPath: m_Name
+      value: 4_BarBlue
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

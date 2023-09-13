@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedBarSet Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2357136781200695137, guid: 096bba469ef0ea648897ddfb84a32d84,
+        type: 3}
+      propertyPath: m_Name
+      value: 3_BarRed
+      objectReference: {fileID: 0}
     - target: {fileID: 2714895468803105483, guid: 096bba469ef0ea648897ddfb84a32d84,
         type: 3}
       propertyPath: color
@@ -88,21 +93,46 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 76d155b6cd60044b89edf0868bc62433, type: 2}
+    - target: {fileID: 4409548511760032876, guid: 096bba469ef0ea648897ddfb84a32d84,
+        type: 3}
+      propertyPath: m_Name
+      value: 4_BarRed
+      objectReference: {fileID: 0}
     - target: {fileID: 5497674008357499796, guid: 096bba469ef0ea648897ddfb84a32d84,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 76d155b6cd60044b89edf0868bc62433, type: 2}
+    - target: {fileID: 5497674008357499797, guid: 096bba469ef0ea648897ddfb84a32d84,
+        type: 3}
+      propertyPath: m_Name
+      value: 5_BarRed
+      objectReference: {fileID: 0}
     - target: {fileID: 7555356340240289322, guid: 096bba469ef0ea648897ddfb84a32d84,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 76d155b6cd60044b89edf0868bc62433, type: 2}
+    - target: {fileID: 7555356340240289323, guid: 096bba469ef0ea648897ddfb84a32d84,
+        type: 3}
+      propertyPath: m_Name
+      value: 7_BarRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057351298406281964, guid: 096bba469ef0ea648897ddfb84a32d84,
+        type: 3}
+      propertyPath: m_Name
+      value: 6_BarRed
+      objectReference: {fileID: 0}
     - target: {fileID: 8057351298406281965, guid: 096bba469ef0ea648897ddfb84a32d84,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 76d155b6cd60044b89edf0868bc62433, type: 2}
+    - target: {fileID: 8080655332678482652, guid: 096bba469ef0ea648897ddfb84a32d84,
+        type: 3}
+      propertyPath: m_Name
+      value: 8_BarRed
+      objectReference: {fileID: 0}
     - target: {fileID: 8080655332678482653, guid: 096bba469ef0ea648897ddfb84a32d84,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
