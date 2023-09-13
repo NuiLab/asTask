@@ -4,9 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Security;
 
 public class invisInstructions : MonoBehaviour
 {
+    public ExperimentLog manager;
     public GameObject[] instructionBars;
     public string[] instructionTexts;
     public Material builtMat;
@@ -20,6 +22,8 @@ public class invisInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindWithTag("manager").GetComponent<ExperimentLog>();
+        manager.AddData("Experiment", "started");
         instructionPanel.text = instructionTexts[currentStep];
         if (!stepByStep)
         {
@@ -35,6 +39,11 @@ public class invisInstructions : MonoBehaviour
     {
 
     }
+    public void dataLog(string category, string action)
+    {
+        manager.AddData(category, action, currentStep.ToString());
+    }
+
     public void nextStep()
     {
         if (stepByStep)
@@ -63,7 +72,7 @@ public class invisInstructions : MonoBehaviour
         foreach (GameObject hand in hands)
         {
             hand.GetComponent<XRDirectInteractor>().enabled = temp;
-            
+
         }
     }
 }

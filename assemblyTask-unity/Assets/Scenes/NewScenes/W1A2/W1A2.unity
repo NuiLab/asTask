@@ -850,18 +850,6 @@ MonoBehaviour:
           m_StringArgument: W1A2Step2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1833441946}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: LogTime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &547383368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1754,6 +1742,7 @@ GameObject:
   - component: {fileID: 822627779}
   - component: {fileID: 822627778}
   - component: {fileID: 822627780}
+  - component: {fileID: 822627781}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1798,6 +1787,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c1a2831a85774e698d2af68e975910f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &822627781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822627777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07310710d93613a42990f72f11c33693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1008298980
@@ -3493,6 +3494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a241e711f4cc0ec4c91213cbd6d6ffa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   instructionBars:
   - {fileID: 200238177630682850}
   - {fileID: 3648916334356638862}

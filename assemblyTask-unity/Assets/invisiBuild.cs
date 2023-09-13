@@ -27,10 +27,12 @@ public class invisiBuild : MonoBehaviour
     public bool isGrabbed = false;
     public bool checkSpawned = false;
     public int mistakes = 0;
+    GameObject manager;
     // Start is called before the first frame update
     void Start()
     {
         instructions = GameObject.FindWithTag("SceneInstructions");
+        manager = GameObject.FindWithTag("Manager");
     }
 
     // Update is called once per frame
@@ -127,6 +129,7 @@ public class invisiBuild : MonoBehaviour
     }
     void build()
     {
+
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
         //newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
         //newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
@@ -144,7 +147,7 @@ public class invisiBuild : MonoBehaviour
     }
     IEnumerator WrongBar()
     {
-        
+        instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         instructions.GetComponent<invisInstructions>().toggleHands(false);
         instructions.GetComponent<invisInstructions>().mistakes++;
@@ -160,15 +163,21 @@ public class invisiBuild : MonoBehaviour
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
         Destroy(tempCross);
         crossSpawned = false;
-        
+
     }
     public void SetIsGrabbed(bool value)
     {
         isGrabbed = value;
     }
+
+    public void dataLog(string category, string action)
+    {
+        manager.GetComponent<ExperimentLog>().AddData(category, action);
+    }
+
     IEnumerator rightBar()
     {
-
+        instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         if (!checkSpawned)
         {
             tempCheck = Instantiate(check, this.transform.position, Quaternion.identity);

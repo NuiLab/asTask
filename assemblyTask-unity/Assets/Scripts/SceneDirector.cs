@@ -42,15 +42,15 @@ public class SceneDirector : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
         {
             SceneManager.LoadScene("W1A2");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
         {
             SceneManager.LoadScene("Scene2");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
         {
             SceneManager.LoadScene("Scene3");
         }
@@ -150,7 +150,7 @@ public class SceneDirector : MonoBehaviour
 
     public void LogExperimentEndTime()
     {
-        DataStorage.ExperimentEndTime = System.DateTime.Now;
+        this.GetComponent<ExperimentLog>().AddData("Trial", "ended");
     }
 
 
