@@ -19,6 +19,7 @@ public class invisInstructions : MonoBehaviour
     public GameObject stepPanel;
     public GameObject builtShape;
     public GameObject[] hands;
+    public bool isAdaptive;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,8 @@ public class invisInstructions : MonoBehaviour
             {
                 currentStep++;
                 instructionBars[currentStep].SetActive(true);
-                instructionPanel.text = instructionTexts[currentStep];
+                setText();
+
                 // need to add a check for the last step
             }
             else
@@ -74,5 +76,18 @@ public class invisInstructions : MonoBehaviour
             hand.GetComponent<XRDirectInteractor>().enabled = temp;
 
         }
+    }
+    void setText()
+    {
+        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 7)
+        {
+            instructionPanel.text = "Step " + currentStep;
+        }
+        else
+            instructionPanel.text = instructionTexts[currentStep];
+    }
+    public void SetCurrentStepText()
+    {
+        instructionPanel.text = instructionTexts[currentStep];
     }
 }

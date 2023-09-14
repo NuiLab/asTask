@@ -13,6 +13,7 @@ public class SceneDirector : MonoBehaviour
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
 
     private int sceneBars;
+    public int trialNumber = 1;
 
     private void Start()
     {

@@ -153,6 +153,7 @@ public class invisiBuild : MonoBehaviour
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         instructions.GetComponent<invisInstructions>().toggleHands(false);
         instructions.GetComponent<invisInstructions>().mistakes++;
+        instructions.GetComponent<invisInstructions>().SetCurrentStepText();
         instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);
         instructions.GetComponent<invisInstructions>().stepPanel.SetActive(false);
 

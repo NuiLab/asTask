@@ -49,14 +49,14 @@ public class ExperimentLog : MonoBehaviour
         //sceneChanged = false;
         foreach (var independentData in independentCSVData)
         {
-            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + independentData);
+            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_f") + "," + time_s + "," + independentData);
         }
         independentCSVData.Clear();
     }
     public void SetParticipantNumber(int pNum)
     {
         participantNumber = pNum;
-        filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssfff") + ".csv";
+        filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         using (writer = File.CreateText(filePath))
         {
             writer.WriteLine("Participant_Number,Scene,Timestamp,Time_s,Category,Action,Step");
