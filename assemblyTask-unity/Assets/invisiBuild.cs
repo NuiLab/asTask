@@ -149,7 +149,7 @@ public class invisiBuild : MonoBehaviour
     }
     IEnumerator WrongBar()
     {
-        instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
+        //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         instructions.GetComponent<invisInstructions>().toggleHands(false);
         instructions.GetComponent<invisInstructions>().mistakes++;
@@ -182,7 +182,7 @@ public class invisiBuild : MonoBehaviour
 
     IEnumerator rightBar()
     {
-        instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
+        //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         if (!checkSpawned)
         {
             tempCheck = Instantiate(check, this.transform.position, Quaternion.identity);

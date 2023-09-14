@@ -22,7 +22,7 @@ public class invisInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.FindWithTag("manager").GetComponent<ExperimentLog>();
+        manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
         manager.AddData("Experiment", "started");
         instructionPanel.text = instructionTexts[currentStep];
         if (!stepByStep)
