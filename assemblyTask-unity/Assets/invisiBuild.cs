@@ -30,17 +30,23 @@ public class invisiBuild : MonoBehaviour
     public bool checkSpawned = false;
     public int mistakes = 0;
     GameObject manager;
+    bool tookPos = false;
+    Vector3 startPos;
+  
+
+
     // Start is called before the first frame update
     void Start()
     {
         instructions = GameObject.FindWithTag("SceneInstructions");
         manager = GameObject.FindWithTag("Manager");
+
     }
 
     // Update is called once per frame
-
     void OnTriggerStay(Collider other)
     {
+
         if (other.CompareTag("instruction"))
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
@@ -59,6 +65,7 @@ public class invisiBuild : MonoBehaviour
     void OnTriggerExit()
     {
         correctPlacement = false;
+
     }
     bool CheckProperties(Collider other)
     {
@@ -85,6 +92,11 @@ public class invisiBuild : MonoBehaviour
     {
         if (isGrabbed)
         {
+            if (!tookPos)
+            {
+                startPos = this.transform.position;
+                tookPos = true;
+            }
             // button presses
             InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
             InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
@@ -133,6 +145,7 @@ public class invisiBuild : MonoBehaviour
     {
 
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
+
         //newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
         //newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
         //this.gameObject.transform.position = lastTouchedBar.transform.position;
@@ -142,13 +155,16 @@ public class invisiBuild : MonoBehaviour
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
         instructions.GetComponent<invisInstructions>().nextStep();
-        this.gameObject.SetActive(false);
+        this.transform.position = startPos;
+        //this.gameObject.SetActive(false);
+
 
 
         //need to change this to a new instructions script
     }
     IEnumerator WrongBar()
     {
+
         //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         instructions.GetComponent<invisInstructions>().toggleHands(false);
@@ -163,9 +179,11 @@ public class invisiBuild : MonoBehaviour
             crossSpawned = true;
         }
         yield return new WaitForSeconds(2f);
+        shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
         Destroy(tempCross);
         crossSpawned = false;
+
 
     }
     public void SetIsGrabbed(bool value)
@@ -183,6 +201,8 @@ public class invisiBuild : MonoBehaviour
 
     IEnumerator rightBar()
     {
+
+
         //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         if (!checkSpawned)
         {
@@ -190,7 +210,9 @@ public class invisiBuild : MonoBehaviour
             checkSpawned = true;
         }
         yield return new WaitForSeconds(2f);
+
         Destroy(tempCheck);
         checkSpawned = false;
     }
 }
+
