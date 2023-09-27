@@ -32,7 +32,8 @@ public class invisiBuild : MonoBehaviour
     GameObject manager;
     bool tookPos = false;
     Vector3 startPos;
-  
+    bool canBeBuilt = true;
+    Quaternion originalRotation;
 
 
     // Start is called before the first frame update
@@ -90,62 +91,69 @@ public class invisiBuild : MonoBehaviour
 
     void Update()
     {
-        if (isGrabbed)
+        if (canBeBuilt)
         {
-            if (!tookPos)
+            if (isGrabbed)
             {
-                startPos = this.transform.position;
-                tookPos = true;
-            }
-            // button presses
-            InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
-            InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
-
-            bool rightTrigger = false;
-            bool leftTrigger = false;
-            if (rightHandDevices[0] != null)
-            {
-                if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
+                if (!tookPos)
                 {
-                    // main build button (Right Hand)
+                    startPos = this.transform.position;
+                    originalRotation = transform.rotation;
+                    tookPos = true;
+                }
+                // button presses
+                InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
+                InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
 
-                    if (rightTrigger && correctPlacement)
+                bool rightTrigger = false;
+                bool leftTrigger = false;
+                if (rightHandDevices[0] != null)
+                {
+                    if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
                     {
-                        StartCoroutine("rightBar");
-                        build();
+                        // main build button (Right Hand)
 
-                    }
-                    if (rightTrigger && !correctPlacement)
-                    {
-                        StartCoroutine("WrongBar");
+                        if (rightTrigger && correctPlacement)
+                        {
+                            canBeBuilt = false;
+                            StartCoroutine("rightBar");
+                            build();
+
+                        }
+                        if (rightTrigger && !correctPlacement)
+                        {
+                            canBeBuilt = false;
+                            StartCoroutine("WrongBar");
+                        }
                     }
                 }
-            }
-            if (leftHandDevices[0] != null)
-            {
-                if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
+                if (leftHandDevices[0] != null)
                 {
-                    // main build button (Left Hand)
+                    if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
+                    {
+                        // main build button (Left Hand)
 
-                    if (leftTrigger && correctPlacement)
-                    {
-                        StartCoroutine("rightBar");
-                        build();
-                    }
-                    if (leftTrigger && !correctPlacement)
-                    {
-                        StartCoroutine("WrongBar");
+                        if (leftTrigger && correctPlacement)
+                        {
+                            canBeBuilt = false;
+                            StartCoroutine("rightBar");
+                            build();
+                        }
+                        if (leftTrigger && !correctPlacement)
+                        {
+                            canBeBuilt = false;
+                            StartCoroutine("WrongBar");
+                        }
                     }
                 }
-            }
 
+            }
         }
     }
     void build()
     {
 
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
-
         //newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
         //newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
         //this.gameObject.transform.position = lastTouchedBar.transform.position;
@@ -156,6 +164,8 @@ public class invisiBuild : MonoBehaviour
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
+        this.transform.rotation = originalRotation;
+        StartCoroutine("resetCanBeBuilt");
         //this.gameObject.SetActive(false);
 
 
@@ -179,11 +189,11 @@ public class invisiBuild : MonoBehaviour
             crossSpawned = true;
         }
         yield return new WaitForSeconds(2f);
-        shouldNotify = true;
+        //shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
         Destroy(tempCross);
         crossSpawned = false;
-
+        StartCoroutine("resetCanBeBuilt");
 
     }
     public void SetIsGrabbed(bool value)
@@ -201,8 +211,7 @@ public class invisiBuild : MonoBehaviour
 
     IEnumerator rightBar()
     {
-
-
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         if (!checkSpawned)
         {
@@ -210,9 +219,14 @@ public class invisiBuild : MonoBehaviour
             checkSpawned = true;
         }
         yield return new WaitForSeconds(2f);
-
         Destroy(tempCheck);
         checkSpawned = false;
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
+    }
+    IEnumerator resetCanBeBuilt()
+    {
+        yield return new WaitForSeconds(1f);
+        canBeBuilt = true;
     }
 }
 
