@@ -18,14 +18,14 @@ public class HandPresence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TryInitialize();  
+        TryInitialize();
     }
 
 
     void TryInitialize()
     {
         List<InputDevice> devices = new List<InputDevice>();
-        
+
         InputDevices.GetDevicesWithCharacteristics(ControllerCharacteristics, devices);
 
         // foreach (var item in devices)
@@ -49,28 +49,31 @@ public class HandPresence : MonoBehaviour
             }
 
             spawnedHandModel = Instantiate(handModelPrefab, transform);
-            handAnimator =  spawnedHandModel.GetComponent<Animator>();
+            handAnimator = spawnedHandModel.GetComponent<Animator>();
         }
     }
 
     void UpdateHandAnimation()
     {
-        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+        if (handAnimator != null)
         {
-            handAnimator.SetFloat("Trigger", triggerValue);
-        }
-        else
-        {
-            handAnimator.SetFloat("Trigger", 0);
-        }
+            if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+            {
+                handAnimator.SetFloat("Trigger", triggerValue);
+            }
+            else
+            {
+                handAnimator.SetFloat("Trigger", 0);
+            }
 
-        if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
-        {
-            handAnimator.SetFloat("Grip", gripValue);
-        }
-        else
-        {
-            handAnimator.SetFloat("Grip", 0);
+            if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
+            {
+                handAnimator.SetFloat("Grip", gripValue);
+            }
+            else
+            {
+                handAnimator.SetFloat("Grip", 0);
+            }
         }
     }
 
@@ -90,10 +93,10 @@ public class HandPresence : MonoBehaviour
         }
         else
         {
-            spawnedHandModel.SetActive(true);
-            spawnedController.SetActive(false);
+            if (spawnedHandModel != null) spawnedHandModel.SetActive(true);
+            if (spawnedController != null) spawnedController.SetActive(false);
             UpdateHandAnimation();
         }
-        
+
     }
 }

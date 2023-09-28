@@ -26,14 +26,16 @@ public class ExperimentLog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         var rnd = new System.Random();
-        filePath = Application.persistentDataPath + "/Records";
+        filePath = Application.dataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
+       
         DontDestroyOnLoad(transform.gameObject);
-
+        csvData = new StringBuilder();
+        SetParticipantNumber(rnd.Next(1000, 9999));
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -47,7 +49,7 @@ public class ExperimentLog : MonoBehaviour
         //sceneChanged = false;
         foreach (var independentData in independentCSVData)
         {
-            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_f") + "," + time_s + "," + independentData);
+            csvData.AppendLine(participantNumber + ";" + DateTime.Now.ToString("yyyyMMdd_HHmmss_f") + ";" + time_s + ";" + independentData);
         }
         independentCSVData.Clear();
     }
@@ -57,20 +59,21 @@ public class ExperimentLog : MonoBehaviour
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number,Scene,Timestamp,Time_s,Category,Action,Step");
+            writer.WriteLine("Participant_Number;Scene;Timestamp;Time_s;Category;Action;Step");
         }
-        csvData = new StringBuilder();
+
     }
     public void AddData(string category = "n/a", string action = "n/a", string step = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
+        string sceneName = scene.name;
         /*
          * status (0=n/a; 1=start; 2=end)
          */
         /* if (sceneChanged)
             independentCSVData.Add(category + "," + action);
         else */
-        csvData.AppendLine(participantNumber + "," + scene + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + category + "," + action + "," + step);
+        csvData.AppendLine(participantNumber + ";" + sceneName + ";" + DateTime.Now.ToString("HHmmss_ff") + ";" + time_s + ";" + category + ";" + action + ";" + step);
         if (csvData.Length >= FlushAfter)
         {
             FlushData();

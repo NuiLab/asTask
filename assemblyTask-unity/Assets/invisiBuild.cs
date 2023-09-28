@@ -29,19 +29,19 @@ public class invisiBuild : MonoBehaviour
     public bool isGrabbed = false;
     public bool checkSpawned = false;
     public int mistakes = 0;
-    GameObject manager;
+    public GameObject manager;
     bool tookPos = false;
     Vector3 startPos;
     bool canBeBuilt = true;
     Quaternion originalRotation;
-
+    invisInstructions inst;
 
     // Start is called before the first frame update
     void Start()
     {
         instructions = GameObject.FindWithTag("SceneInstructions");
         manager = GameObject.FindWithTag("Manager");
-
+        inst = instructions.GetComponent<invisInstructions>();
     }
 
     // Update is called once per frame
@@ -162,7 +162,7 @@ public class invisiBuild : MonoBehaviour
         newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
-        instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "Correct placement");
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
         this.transform.rotation = originalRotation;
@@ -178,12 +178,13 @@ public class invisiBuild : MonoBehaviour
 
         //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
-        instructions.GetComponent<invisInstructions>().toggleHands(false);
-        instructions.GetComponent<invisInstructions>().mistakes++;
-        instructions.GetComponent<invisInstructions>().SetCurrentStepText();
-        instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);
-        instructions.GetComponent<invisInstructions>().stepPanel.SetActive(false);
-        instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement");
+        inst.toggleHands(false);
+        inst.mistakes++;
+        inst.SetCurrentStepText();
+        inst.builtShape.SetActive(true);
+        inst.stepPanel.SetActive(false);
+        //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Incorrect placement", inst.currentStep.ToString());
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
