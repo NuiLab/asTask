@@ -27,8 +27,6 @@ public class ExperimentLog : MonoBehaviour
     void Start()
     {
         var rnd = new System.Random();
-
-
         filePath = Application.persistentDataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);

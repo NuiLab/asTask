@@ -162,6 +162,7 @@ public class invisiBuild : MonoBehaviour
         newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
+        instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "Correct placement");
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
         this.transform.rotation = originalRotation;
@@ -182,7 +183,7 @@ public class invisiBuild : MonoBehaviour
         instructions.GetComponent<invisInstructions>().SetCurrentStepText();
         instructions.GetComponent<invisInstructions>().builtShape.SetActive(true);
         instructions.GetComponent<invisInstructions>().stepPanel.SetActive(false);
-
+        instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement");
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
