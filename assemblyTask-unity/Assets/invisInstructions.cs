@@ -8,10 +8,9 @@ using System.Security;
 
 public class invisInstructions : MonoBehaviour
 {
-    public ExperimentLog manager;
+ ExperimentLog manager;
     public GameObject[] instructionBars;
     public string[] instructionTexts;
-    public Material builtMat;
     public int currentStep = 0;
     public int mistakes;
     public bool stepByStep;
@@ -20,11 +19,13 @@ public class invisInstructions : MonoBehaviour
     public GameObject builtShape;
     public GameObject[] hands;
     public bool isAdaptive;
+    public GameObject button;
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
-        manager.AddData("Experiment", "started");
+        if (manager == null) manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
+        Debug.Log(manager);
+        
         instructionPanel.text = instructionTexts[currentStep];
         if (!stepByStep)
         {
@@ -33,6 +34,8 @@ public class invisInstructions : MonoBehaviour
                 bar.SetActive(true);
             }
         }
+        //dataLog("Experiment", "started");
+        StartCoroutine(wait(1));
     }
 
     // Update is called once per frame
@@ -52,6 +55,7 @@ public class invisInstructions : MonoBehaviour
             instructionBars[currentStep].SetActive(false);
             if (currentStep + 1 < instructionBars.Length)
             {
+                dataLog("Step", "completed");
                 currentStep++;
                 instructionBars[currentStep].SetActive(true);
                 setText();
@@ -61,6 +65,7 @@ public class invisInstructions : MonoBehaviour
             else
             {
                 instructionPanel.text = "You have completed the instructions!";
+                button.SetActive(true);
             }
         }
     }
@@ -89,5 +94,10 @@ public class invisInstructions : MonoBehaviour
     public void SetCurrentStepText()
     {
         instructionPanel.text = instructionTexts[currentStep];
+    }
+    IEnumerator wait(float time)
+    {
+        yield return new WaitForSeconds(time);
+        dataLog("Experiment", "started");
     }
 }

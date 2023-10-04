@@ -11,12 +11,12 @@ using UnityEngine.SceneManagement;
 
 public class ExperimentLog : MonoBehaviour
 {
-    string filePath;
+    public string filePath;
     GameObject currGlobalRecordsGO;
     bool sceneChanged = false;
     List<string> independentCSVData = new List<string>();
     int participantNumber = 0;
-    private StringBuilder csvData;
+    //public StringBuilder csvData;
     StreamWriter writer;
     float time_s = 0;
     #region Consts to modify
@@ -26,14 +26,13 @@ public class ExperimentLog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         var rnd = new System.Random();
         filePath = Application.dataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
        
         DontDestroyOnLoad(transform.gameObject);
-        csvData = new StringBuilder();
+        //csvData = new StringBuilder();
         SetParticipantNumber(rnd.Next(1000, 9999));
     }
     // Update is called once per frame
@@ -49,7 +48,7 @@ public class ExperimentLog : MonoBehaviour
         //sceneChanged = false;
         foreach (var independentData in independentCSVData)
         {
-            csvData.AppendLine(participantNumber + ";" + DateTime.Now.ToString("yyyyMMdd_HHmmss_f") + ";" + time_s + ";" + independentData);
+            //csvData.AppendLine(participantNumber + ";" + DateTime.Now.ToString("yyyyMMdd_HHmmss_f") + ";" + time_s + ";" + independentData);
         }
         independentCSVData.Clear();
     }
@@ -73,14 +72,27 @@ public class ExperimentLog : MonoBehaviour
         /* if (sceneChanged)
             independentCSVData.Add(category + "," + action);
         else */
-        csvData.AppendLine(participantNumber + ";" + sceneName + ";" + DateTime.Now.ToString("HHmmss_ff") + ";" + time_s + ";" + category + ";" + action + ";" + step);
-        if (csvData.Length >= FlushAfter)
+        string newLine = participantNumber.ToString();
+        newLine += ";" + sceneName;
+        newLine += ";" + DateTime.Now.ToString("HHmmss_ff");
+        newLine += ";" + time_s;
+        newLine += ";" + category;
+        newLine += ";" + action;
+        newLine += ";" + step;
+        Debug.Log(filePath);
+        using (writer = File.AppendText(filePath))
         {
-            FlushData();
+            writer.WriteLine(newLine);
         }
+       // csvData.AppendLine(newLine);
+        //csvData.AppendLine(participantNumber + ";" + sceneName + ";" + DateTime.Now.ToString("HHmmss_ff") + ";" + time_s + ";" + category + ";" + action + ";" + step);
+       // if (csvData.Length >= FlushAfter)
+        //{
+        //    FlushData();
+        //}
     }
 
-    void FlushData()
+    /* void FlushData()
     {
         using (var csvWriter = new StreamWriter(filePath, true))
         {
@@ -105,5 +117,5 @@ public class ExperimentLog : MonoBehaviour
     private void OnDestroy()
     {
         EndCSV();
-    }
+    } */
 }

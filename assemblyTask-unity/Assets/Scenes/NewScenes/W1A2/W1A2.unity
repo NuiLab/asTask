@@ -803,7 +803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &547383366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -877,19 +877,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: W1A2Step2
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneDirector, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Enter next step here
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &547383368
@@ -3720,7 +3708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a241e711f4cc0ec4c91213cbd6d6ffa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   instructionBars:
   - {fileID: 1386998031}
   - {fileID: 1386998030}
@@ -3733,7 +3720,6 @@ MonoBehaviour:
   - Step 3
   - Step 4
   - Step 5
-  builtMat: {fileID: 2100000, guid: b33beeffee99b4f3fbe3b496daf5724e, type: 2}
   currentStep: 0
   mistakes: 0
   stepByStep: 1
@@ -3744,6 +3730,7 @@ MonoBehaviour:
   - {fileID: 403820998}
   - {fileID: 704405233}
   isAdaptive: 0
+  button: {fileID: 547383365}
 --- !u!1 &3954116125970588551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5042972372600628638, guid: d53f8ca7a322db04f9ac2fd2e7f42aec,
