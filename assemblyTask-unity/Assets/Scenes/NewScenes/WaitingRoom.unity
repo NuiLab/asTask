@@ -2337,6 +2337,7 @@ MonoBehaviour:
   - Bar with 7 holes, put Hole number 2 on the 8 bar, hole number 7
   - Bar with 6 holes, put Hole number 1 on Hole Number 7
   - Bar with 8 holes, put hole x on x
+  previewBars: []
   currentStep: 0
   mistakes: 0
   stepByStep: 1
@@ -2948,7 +2949,7 @@ PrefabInstance:
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
       propertyPath: m_text
-      value: Please tell the experimenter that you have finished the current task.
+      value: Please talk to the experimenter.
       objectReference: {fileID: 0}
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
@@ -2964,6 +2965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_enableAutoSizing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3913894780385566142, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class SceneDirector : MonoBehaviour
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
 
     private int sceneBars;
+    private Scene tempScene;
     public int trialNumber = 1;
 
     private void Start()
@@ -29,18 +31,6 @@ public class SceneDirector : MonoBehaviour
     private void Update()
     {
 
-
-        // Delete previews when builders decrease
-        GameObject[] bars = GameObject.FindGameObjectsWithTag("Builder");
-
-        if (bars.Length < sceneBars)
-        {
-            ClearPreviews();
-            sceneBars -= 1;
-
-            DataStorage.BarGrabReset = true;
-
-        }
 
 
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
@@ -526,11 +516,32 @@ public class SceneDirector : MonoBehaviour
     }
 
 
+    public void LoadNextTrialScene()
+    {
+        if (trialNumber >= 7)
+        {
+            trialNumber = 1;
+            SceneManager.LoadScene("WaitingRoom");
+        }
+        if (trialNumber >= 6)
+        {
+            tempScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene("WaitingRoomTrial");
+        }
+        trialNumber++;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
     public void LoadSceneByName(string scenename)
     {
         SceneManager.LoadScene(scenename);
     }
 
+    public void LoadTempScene()
+    {
+        trialNumber++;
+        SceneManager.LoadScene(tempScene.name);
+    }
     public void quit()
     {
 #if UNITY_EDITOR

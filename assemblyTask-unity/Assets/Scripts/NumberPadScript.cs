@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class NumberPadScript : MonoBehaviour
 {
+    GameObject managerObject;
+    ExperimentLog manager;
+    // Start is called before the first frame update
 
     private string ParticipantID = "";
 
@@ -21,7 +24,12 @@ public class NumberPadScript : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        if (manager == null) manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
+        if (managerObject == null) managerObject = GameObject.FindWithTag("Manager");
 
+    }
     public void AddNumber(string inputNumber)
     {
         string tempID = ParticipantID + inputNumber;
@@ -38,6 +46,7 @@ public class NumberPadScript : MonoBehaviour
 
     public void SaveID()
     {
+        manager.SetParticipantNumber(int.Parse(ParticipantID));
         DataStorage.ParticipantID = int.Parse(ParticipantID);
     }
 

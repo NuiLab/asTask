@@ -8,9 +8,10 @@ using System.Security;
 
 public class invisInstructions : MonoBehaviour
 {
- ExperimentLog manager;
+    ExperimentLog manager;
     public GameObject[] instructionBars;
     public string[] instructionTexts;
+    public GameObject[] previewBars;
     public int currentStep = 0;
     public int mistakes;
     public bool stepByStep;
@@ -25,7 +26,7 @@ public class invisInstructions : MonoBehaviour
     {
         if (manager == null) manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
         Debug.Log(manager);
-        
+
         instructionPanel.text = instructionTexts[currentStep];
         if (!stepByStep)
         {
@@ -53,6 +54,7 @@ public class invisInstructions : MonoBehaviour
         if (stepByStep)
         {
             instructionBars[currentStep].SetActive(false);
+            if (previewBars[currentStep] != null) previewBars[currentStep].SetActive(true);
             if (currentStep + 1 < instructionBars.Length)
             {
                 dataLog("Step", "completed");
@@ -84,9 +86,10 @@ public class invisInstructions : MonoBehaviour
     }
     void setText()
     {
-        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 7)
+        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 7 && isAdaptive)
         {
             instructionPanel.text = "Step " + currentStep;
+            // this is the adaptive part, depending on the trial number, it removes the scaffold
         }
         else
             instructionPanel.text = instructionTexts[currentStep];
