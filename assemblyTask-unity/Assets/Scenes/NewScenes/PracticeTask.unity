@@ -1955,6 +1955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842810402408527573, guid: 24276d499fffa4b4da6bf052ce9ed1f1,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842810402408527573, guid: 24276d499fffa4b4da6bf052ce9ed1f1,
+        type: 3}
       propertyPath: m_TagString
       value: instruction
       objectReference: {fileID: 0}
