@@ -33,9 +33,9 @@ public class SceneDirector : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
         {
-            SceneManager.LoadScene("W1A2");
+            SceneManager.LoadScene("WA_A2_AT");
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
         {
