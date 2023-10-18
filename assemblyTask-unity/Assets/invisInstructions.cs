@@ -54,9 +54,9 @@ public class invisInstructions : MonoBehaviour
         if (stepByStep)
         {
             instructionBars[currentStep].SetActive(false);
-            if (previewBars[currentStep] != null) previewBars[currentStep].SetActive(true);
             if (currentStep + 1 < instructionBars.Length)
             {
+                if (previewBars[currentStep] != null) previewBars[currentStep].SetActive(true);
                 dataLog("Step", "completed");
                 currentStep++;
                 instructionBars[currentStep].SetActive(true);

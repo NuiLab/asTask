@@ -33,7 +33,7 @@ public class ExperimentLog : MonoBehaviour
        
         DontDestroyOnLoad(transform.gameObject);
         //csvData = new StringBuilder();
-        //SetParticipantNumber(rnd.Next(1000, 9999));
+        SetParticipantNumber(rnd.Next(1000, 9999));
     }
     // Update is called once per frame
     void Update()

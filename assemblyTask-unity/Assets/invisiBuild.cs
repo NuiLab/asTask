@@ -78,7 +78,7 @@ public class invisiBuild : MonoBehaviour
                 correct = false;
             }
         }
-        if (other.GetComponent<propCheck>().color != null)
+        if (other.GetComponent<propCheck>().color != "")
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
