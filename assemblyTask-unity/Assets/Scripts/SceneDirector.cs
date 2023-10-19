@@ -8,7 +8,7 @@ using UnityEngine.XR;
 
 public class SceneDirector : MonoBehaviour
 {
-
+    private static SceneDirector instance;
     // Input Devices to check for grabbing
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
@@ -16,6 +16,17 @@ public class SceneDirector : MonoBehaviour
     private int sceneBars;
     private Scene tempScene;
     public int trialNumber = 1;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -30,20 +41,37 @@ public class SceneDirector : MonoBehaviour
 
     private void Update()
     {
-
-
-
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
         {
             SceneManager.LoadScene("WA_A2_AT");
         }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B))
         {
-            SceneManager.LoadScene("Scene2");
+            SceneManager.LoadScene("WB_A2_AT");
         }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
         {
-            SceneManager.LoadScene("Scene3");
+            SceneManager.LoadScene("WC_A2_AT");
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
+        {
+            SceneManager.LoadScene("WD_A2_AT");
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene("WE_A2_AT");
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene("WF_A2_AT");
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.G))
+        {
+            SceneManager.LoadScene("WG_A2_AT");
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("WH_A2_AT");
         }
         // add more cases for other scenes
     }

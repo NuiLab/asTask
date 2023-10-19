@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class Shapes : MonoBehaviour
 {
-    public GameObject[] previewBars;
+    public invisInstructions inst;
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject instructions = GameObject.FindWithTag("SceneInstructions");
+        inst = instructions.GetComponent<invisInstructions>();
     }
 
     // Update is called once per frame
@@ -18,9 +20,9 @@ public class Shapes : MonoBehaviour
     }
     public void hide()
     {
-        previewBars[4].SetActive(false);
-        previewBars[1].SetActive(false);
-        previewBars[2].SetActive(false);
-        previewBars[3].SetActive(false);
+        foreach (GameObject previewBar in inst.previewBars)
+        {
+            previewBar.SetActive(false);
+        }
     }
 }

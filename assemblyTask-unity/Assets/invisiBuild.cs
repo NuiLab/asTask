@@ -180,7 +180,7 @@ public class invisiBuild : MonoBehaviour
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         inst.toggleHands(false);
         inst.mistakes++;
-        inst.SetCurrentStepText();
+        inst.SetTempText();
         inst.builtShape.SetActive(true);
         inst.stepPanel.SetActive(false);
         //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());

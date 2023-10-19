@@ -21,6 +21,7 @@ public class invisInstructions : MonoBehaviour
     public GameObject[] hands;
     public bool isAdaptive;
     public GameObject button;
+    string tempText;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,10 +87,12 @@ public class invisInstructions : MonoBehaviour
     }
     void setText()
     {
-        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 7 && isAdaptive)
+
+        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 7)
         {
-            instructionPanel.text = "Step " + currentStep;
-            // this is the adaptive part, depending on the trial number, it removes the scaffold
+            tempText = instructionTexts[currentStep];
+            instructionPanel.text = "Please perform Step " + currentStep;
+            // this is the part where the scaffold is removed, it still needs to be made adaptive
         }
         else
             instructionPanel.text = instructionTexts[currentStep];
@@ -97,6 +100,11 @@ public class invisInstructions : MonoBehaviour
     public void SetCurrentStepText()
     {
         instructionPanel.text = instructionTexts[currentStep];
+    }
+    public void SetTempText()
+    {
+        if (isAdaptive)
+            instructionPanel.text = tempText;
     }
     IEnumerator wait(float time)
     {
