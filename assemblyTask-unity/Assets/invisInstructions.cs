@@ -29,6 +29,7 @@ public class invisInstructions : MonoBehaviour
         Debug.Log(manager);
 
         instructionPanel.text = instructionTexts[currentStep];
+        tempText = instructionTexts[currentStep];
         if (!stepByStep)
         {
             foreach (GameObject bar in instructionBars)
@@ -87,15 +88,16 @@ public class invisInstructions : MonoBehaviour
     }
     void setText()
     {
-
-        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 7)
+        tempText = instructionTexts[currentStep];
+        Debug.Log(tempText + currentStep);
+        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 6)
         {
-            tempText = instructionTexts[currentStep];
-            instructionPanel.text = "Please perform Step " + currentStep;
+            int tempStep = currentStep +1;	
+            instructionPanel.text = "Please perform Step " + tempStep;
             // this is the part where the scaffold is removed, it still needs to be made adaptive
         }
         else
-            instructionPanel.text = instructionTexts[currentStep];
+           SetCurrentStepText();
     }
     public void SetCurrentStepText()
     {
