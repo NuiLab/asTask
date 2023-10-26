@@ -3396,12 +3396,12 @@ MonoBehaviour:
   - {fileID: 583304152}
   - {fileID: 583304151}
   instructionTexts:
-  - " Connect an 8-bar hole 1 to the basebar\u2019s hole 1. "
+  - "Connect an 8-bar hole 1 to the basebar\u2019s hole 1. "
   - "Connect another 8-bar hole 1 to the basebar\u2019s hole 7."
-  - ' Connect another 8-bar hole 7 to the previous 8-bar hole 2.'
-  - " Connect another 8-bar hole 7 to step 2\u2019s 8-bar hole 3."
-  - "Connect the final 8-bar hole 7 to step 1\u2019s 8-bar hole 6 step 2\u2019s 8-bar
-    hole 6. "
+  - Connect another 8-bar hole 7 to the previous 8-bar hole 2.
+  - "Connect another 8-bar hole 7 to step 2\u2019s 8-bar hole 3."
+  - "Connect the final 8-bar hole 1 to step 1\u2019s 8-bar hole 6  and its hole 7
+    to step 2\u2019s 8-bar hole 6. "
   previewBars:
   - {fileID: 175374763}
   - {fileID: 175374762}
@@ -3436,6 +3436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: trialNumber
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8060358695141119793, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}

@@ -11,9 +11,9 @@ public class WaitingTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (manager == null) manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
+        //if (manager == null) manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
         if (managerObject == null) managerObject = GameObject.FindWithTag("Manager");
-        StartCoroutine(LoadSceneAfterDelay(90f));
+        StartCoroutine(LoadSceneAfterDelay(4f));
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class WaitingTime : MonoBehaviour
     IEnumerator LoadSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        managerObject.GetComponent<SceneDirector>().LoadNextTrialScene();
+        Debug.Log(managerObject.GetComponent<SceneDirector>().tempSceneName);
+        managerObject.GetComponent<SceneDirector>().LoadTempScene();
     }
 }

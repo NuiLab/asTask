@@ -9,6 +9,7 @@ using System.Security;
 public class invisInstructions : MonoBehaviour
 {
     ExperimentLog manager;
+    GameObject managerObj;
     public GameObject[] instructionBars;
     public string[] instructionTexts;
     public GameObject[] previewBars;
@@ -25,10 +26,20 @@ public class invisInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (manager == null) manager = GameObject.FindWithTag("Manager").GetComponent<ExperimentLog>();
+        if (manager == null) managerObj = GameObject.FindWithTag("Manager");
+        manager = managerObj.GetComponent<ExperimentLog>();
+
         Debug.Log(manager);
 
-        instructionPanel.text = instructionTexts[currentStep];
+        if (managerObj.GetComponent<SceneDirector>().trialNumber == 6 || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        {
+            instructionPanel.text = "Please perform Step 1";
+        }
+        else
+        {
+            instructionPanel.text = instructionTexts[currentStep];
+        }
+
         tempText = instructionTexts[currentStep];
         if (!stepByStep)
         {
@@ -37,6 +48,11 @@ public class invisInstructions : MonoBehaviour
                 bar.SetActive(true);
             }
         }
+        if (managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        {
+            DisableMeshRenderersRecursive(builtShape.transform);
+        }
+
         //dataLog("Experiment", "started");
         StartCoroutine(wait(1));
     }
@@ -45,6 +61,20 @@ public class invisInstructions : MonoBehaviour
     void Update()
     {
 
+    }
+    void DisableMeshRenderersRecursive(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                meshRenderer.enabled = false;
+            }
+
+            // Recursively disable mesh renderers of children's children
+            DisableMeshRenderersRecursive(child);
+        }
     }
     public void dataLog(string category, string action)
     {
@@ -92,12 +122,12 @@ public class invisInstructions : MonoBehaviour
         Debug.Log(tempText + currentStep);
         if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 6)
         {
-            int tempStep = currentStep +1;	
+            int tempStep = currentStep + 1;
             instructionPanel.text = "Please perform Step " + tempStep;
             // this is the part where the scaffold is removed, it still needs to be made adaptive
         }
         else
-           SetCurrentStepText();
+            SetCurrentStepText();
     }
     public void SetCurrentStepText()
     {

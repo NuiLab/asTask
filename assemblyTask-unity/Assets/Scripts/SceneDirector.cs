@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -14,9 +15,15 @@ public class SceneDirector : MonoBehaviour
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
 
     private int sceneBars;
-    private Scene tempScene;
+    static Scene tempScene;
+    public string tempSceneName;
     public int trialNumber = 1;
     private void Awake()
+    {
+
+    }
+
+    private void Start()
     {
         if (instance != null && instance != this)
         {
@@ -28,19 +35,10 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        GameObject[] bars = GameObject.FindGameObjectsWithTag("Builder");
-
-        sceneBars = bars.Length;
-
-        DataStorage.MostRecentSceneStartTime = System.DateTime.Now.ToString();
-
-    }
-
 
     private void Update()
     {
+
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
         {
             SceneManager.LoadScene("WA_A2_AT");
@@ -73,7 +71,7 @@ public class SceneDirector : MonoBehaviour
         {
             SceneManager.LoadScene("WH_A2_AT");
         }
-        // add more cases for other scenes
+
     }
 
 
@@ -89,51 +87,6 @@ public class SceneDirector : MonoBehaviour
 
     }
 
-    public void OpenNextShapeInTrack()
-    {
-        int[] currentTrack = DetermineTrack();
-
-        int currentScene;
-
-
-        if (DataStorage.CurrentTrackStep < 4)
-        {
-            currentScene = currentTrack[DataStorage.CurrentTrackStep];
-        }
-        else
-        {
-            currentScene = 4;
-        }
-
-        DataStorage.CurrentTrackStep++;
-
-
-        switch (currentScene)
-        {
-            case 0:
-                ConditionalOpenA();
-                break;
-            case 1:
-                ConditionalOpenC();
-                break;
-            case 2:
-                ConditionalOpenE();
-                break;
-            case 3:
-                ConditionalOpenG();
-                break;
-            case 4:
-                OpenSaveScene();
-                break;
-
-            default:
-                OpenSaveScene();
-                break;
-        }
-
-
-
-    }
 
     public int[] DetermineTrack()
     {
@@ -178,23 +131,6 @@ public class SceneDirector : MonoBehaviour
         DataStorage.CurrentTrackStep = 0;
     }
 
-    public void OpenMenu()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 0);
-
-    }
-
-    public void OpenSaveScene()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 45);
-
-    }
-
-    public void OpenEndScene()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 44);
-
-    }
 
     public void OpenParticipantIDScene()
     {
@@ -204,16 +140,7 @@ public class SceneDirector : MonoBehaviour
     public void OpenExperimentVersion()
     {
         SceneManager.LoadScene("ExperimentVersion");
-    }
 
-    public void OpenTestArea()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 1);
-    }
-
-    public void OpenTutorialScene()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 46);
 
     }
     public void OpenTutorialBuildScene()
@@ -227,338 +154,29 @@ public class SceneDirector : MonoBehaviour
 
     }
 
-    // SHAPE A
-    public void OpenShapeAAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 5);
-
-    }
-
-    public void OpenShapeAStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 3);
-
-    }
-
-    public void OpenShapeAFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 4);
-
-    }
-
-    public void OpenShapeAFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 2);
-
-    }
-
-    public void OpenShapeABuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 34);
-    }
-
-    public void ConditionalOpenA()
-    {
-        switch (DataStorage.ExperimentVersion)
-        {
-            case 1:
-                OpenShapeAStepbyStep();
-                break;
-            case 2:
-                OpenShapeAFullyGuided();
-                break;
-            case 3:
-                OpenShapeAFinalProduct();
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    // SHAPE B
-    public void OpenShapeBAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 6);
-
-    }
-
-    public void OpenShapeBStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 7);
-
-    }
-
-    public void OpenShapeBFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 8);
-
-    }
-
-    public void OpenShapeBFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 9);
-
-    }
-    public void OpenShapeBBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 35);
-    }
-
-
-
-    // SHAPE C
-    public void OpenShapeCAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 10);
-
-    }
-
-    public void OpenShapeCStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 11);
-
-    }
-
-    public void OpenShapeCFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 12);
-
-    }
-
-    public void OpenShapeCFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 13);
-
-    }
-    public void OpenShapeCBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 36);
-    }
-
-    public void ConditionalOpenC()
-    {
-        switch (DataStorage.ExperimentVersion)
-        {
-            case 1:
-                OpenShapeCStepbyStep();
-                break;
-            case 2:
-                OpenShapeCFullyGuided();
-                break;
-            case 3:
-                OpenShapeCFinalProduct();
-                break;
-            default:
-                break;
-        }
-    }
-
-    // SHAPE D
-    public void OpenShapeDAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 14);
-
-    }
-
-    public void OpenShapeDStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 15);
-
-    }
-
-    public void OpenShapeDFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 16);
-
-    }
-
-    public void OpenShapeDFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 17);
-
-    }
-
-    public void OpenShapeDBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 37);
-    }
-
-
-    // SHAPE E
-    public void OpenShapeEAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 18);
-
-    }
-
-    public void OpenShapeEStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 19);
-
-    }
-
-    public void OpenShapeEFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 20);
-
-    }
-
-    public void OpenShapeEFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 21);
-
-    }
-
-    public void OpenShapeEBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 38);
-    }
-
-    public void ConditionalOpenE()
-    {
-        switch (DataStorage.ExperimentVersion)
-        {
-            case 1:
-                OpenShapeEStepbyStep();
-                break;
-            case 2:
-                OpenShapeEFullyGuided();
-                break;
-            case 3:
-                OpenShapeEFinalProduct();
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    // SHAPE F
-    public void OpenShapeFAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 22);
-
-    }
-
-    public void OpenShapeFStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 23);
-
-    }
-
-    public void OpenShapeFFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 24);
-
-    }
-
-    public void OpenShapeFFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 25);
-
-    }
-
-    public void OpenShapeFBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 39);
-    }
-
-
-
-    // SHAPE G
-    public void OpenShapeGAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 26);
-
-    }
-
-    public void OpenShapeGStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 27);
-
-    }
-
-    public void OpenShapeGFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 28);
-
-    }
-
-    public void OpenShapeGFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 29);
-
-    }
-
-    public void OpenShapeGBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 40);
-    }
-
-    public void ConditionalOpenG()
-    {
-        switch (DataStorage.ExperimentVersion)
-        {
-            case 1:
-                OpenShapeGStepbyStep();
-                break;
-            case 2:
-                OpenShapeGFullyGuided();
-                break;
-            case 3:
-                OpenShapeGFinalProduct();
-                break;
-            default:
-                break;
-        }
-    }
-
-    // SHAPE H
-    public void OpenShapeHAnimated()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 30);
-
-    }
-
-    public void OpenShapeHStepbyStep()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 31);
-    }
-
-    public void OpenShapeHFullyGuided()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 32);
-
-    }
-
-    public void OpenShapeHFinalProduct()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 33);
-
-    }
-
-    public void OpenShapeHBuild()
-    {
-        SceneManager.LoadScene(sceneBuildIndex: 41);
-    }
-
 
     public void LoadNextTrialScene()
     {
-        if (trialNumber >= 7)
-        {
-            trialNumber = 1;
-            SceneManager.LoadScene("WaitingRoom");
-        }
-        if (trialNumber >= 6)
-        {
-            tempScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene("WaitingRoomTrial");
-        }
         trialNumber++;
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        tempScene = SceneManager.GetActiveScene();
+        tempSceneName = tempScene.name;
+        if (trialNumber == 9)
+        {
+            SceneManager.LoadScene("WaitingRoom");
+            trialNumber = 1;
+
+        }
+        else if (trialNumber == 7)
+        {
+            Debug.Log("Loading Waiting Room");
+            Debug.Log(tempScene.name);
+            SceneManager.LoadSceneAsync("WaitingRoomTrial");
+        }
+        else
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        }
     }
     public void LoadSceneByName(string scenename)
     {
@@ -567,8 +185,10 @@ public class SceneDirector : MonoBehaviour
 
     public void LoadTempScene()
     {
+        Debug.Log("Loading Temp Scene");
+        Debug.Log(tempSceneName);
         trialNumber++;
-        SceneManager.LoadScene(tempScene.name);
+        SceneManager.LoadScene(tempSceneName);
     }
     public void quit()
     {
