@@ -21,4 +21,7 @@ public class FindSM : MonoBehaviour
     {
         sceneD.LoadNextTrialScene();
     }
+    public void LoadSceneByName(string scenename){
+        sceneD.LoadSceneByName(scenename);
+    }
 }

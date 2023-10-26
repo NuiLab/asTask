@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class NumberPadScript : MonoBehaviour
 {
     GameObject managerObject;
-    ExperimentLog manager;
+    public ExperimentLog manager;
     // Start is called before the first frame update
 
     private string ParticipantID = "";

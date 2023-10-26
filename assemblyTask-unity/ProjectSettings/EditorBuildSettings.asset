@@ -18,26 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ParticipantIDScene.unity
     guid: ca87b3bfc79f5453799e7e59b1252eff
   - enabled: 1
-    path: Assets/Scenes/PreBuiltShapes.unity
-    guid: e28c148ab254b4dc98348cecc403ce41
-  - enabled: 1
-    path: Assets/Scenes/SaveScene.unity
-    guid: 60de4621ca4ad4915a0835aff40ca33b
-  - enabled: 1
     path: Assets/Scenes/TestArea.unity
     guid: 2dabf4999fb1e4d7e91cabb84bf3b254
-  - enabled: 0
-    path: Assets/Scenes/NewScenes/WidgetA/W1A2.unity
-    guid: e67dd0233f227da418930a5fbe4aa471
-  - enabled: 0
-    path: Assets/Scenes/NewScenes/W1A2/W1A2Step2.unity
-    guid: 3ad3262f07bff424fa1448260b8ab7ad
-  - enabled: 0
-    path: Assets/Scenes/NewScenes/W1A2/W1A2Step3.unity
-    guid: 9d7e225a00c285046aa3e2dc45d3eaf8
-  - enabled: 0
-    path: Assets/Scenes/NewScenes/W1A2/W1A2Step4.unity
-    guid: 6a966d6d94817774a8b39b9fc6f068cf
   - enabled: 1
     path: Assets/Scenes/NewScenes/WaitingRoom.unity
     guid: e3a2d8d36bea5c143bf7a1bf5836e260
@@ -57,8 +39,29 @@ EditorBuildSettings:
     path: Assets/Scenes/NewScenes/WaitingRoomTrial.unity
     guid: 91e524d45bb9ef047a9cbcf1bc2b5324
   - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetA/WA_A2_AT.unity
+    guid: 23e0d61ab9ca55c4a8768503fe105899
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetB/WB_A2_AT.unity
+    guid: fe1d8f4baf179224fa0e34503f4a51e8
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetC/WC_A2_AT.unity
+    guid: 689c732f0a435a046b64f8c0f5b38e32
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetD/WD_A2_AT.unity
+    guid: 18ab63e55382ee34985941754db6ac47
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetE/WE_A2_AT.unity
+    guid: 2a72349a525186d4381fda86d43e3442
+  - enabled: 1
     path: Assets/Scenes/NewScenes/WidgetF/WF_A2_AT.unity
     guid: a4a36fa0242967c48a01aef509c192fb
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetG/WG_A2_AT.unity
+    guid: d7d41f93a4aaec44faf69d4f49a6d56b
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/WidgetH/WH_A2_AT.unity
+    guid: ab2b3adaf19d3b0489733903beca5901
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2bcd0c57514674568b0789b42421d5ae,
       type: 2}
