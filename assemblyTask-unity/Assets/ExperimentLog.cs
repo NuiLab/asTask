@@ -18,6 +18,7 @@ public class ExperimentLog : MonoBehaviour
     int participantNumber = 0;
     //public StringBuilder csvData;
     StreamWriter writer;
+    SceneDirector manager;
     float time_s = 0;
     #region Consts to modify
     private const int FlushAfter = 40;
@@ -26,19 +27,22 @@ public class ExperimentLog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = this.gameObject.GetComponent<SceneDirector>();
         var rnd = new System.Random();
         filePath = Application.dataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
-       
+
         DontDestroyOnLoad(transform.gameObject);
         //csvData = new StringBuilder();
-        //SetParticipantNumber(rnd.Next(1000, 9999));
+        if (SceneManager.GetActiveScene().name != "Menu")
+            SetParticipantNumber(rnd.Next(100, 999));
     }
     // Update is called once per frame
     void Update()
     {
         time_s += Time.deltaTime;
+        
     }
 
 
@@ -58,7 +62,7 @@ public class ExperimentLog : MonoBehaviour
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number;Scene;Timestamp;Time_s;Category;Action;Step");
+            writer.WriteLine("Participant_Number;Scene;Trial;Timestamp;Time_s;Category;Action;Step");
         }
 
     }
@@ -66,6 +70,11 @@ public class ExperimentLog : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
+        float miliS = time_s * 1000;
+        int seconds = ((int)time_s % 60);
+        int minutes = ((int)time_s / 60);
+        string timeString = string.Format ("{0:00}:{1:00}:{2:000}", minutes, seconds, miliS);
+
         /*
          * status (0=n/a; 1=start; 2=end)
          */
@@ -74,8 +83,9 @@ public class ExperimentLog : MonoBehaviour
         else */
         string newLine = participantNumber.ToString();
         newLine += ";" + sceneName;
-        newLine += ";" + DateTime.Now.ToString("HHmmss_ff");
-        newLine += ";" + time_s;
+        newLine += ";" + manager.trialNumber.ToString();
+        newLine += ";" + DateTime.Now.ToString("HH:mm.ss");
+        newLine += ";" + timeString;
         newLine += ";" + category;
         newLine += ";" + action;
         newLine += ";" + step;
@@ -84,9 +94,9 @@ public class ExperimentLog : MonoBehaviour
         {
             writer.WriteLine(newLine);
         }
-       // csvData.AppendLine(newLine);
+        // csvData.AppendLine(newLine);
         //csvData.AppendLine(participantNumber + ";" + sceneName + ";" + DateTime.Now.ToString("HHmmss_ff") + ";" + time_s + ";" + category + ";" + action + ";" + step);
-       // if (csvData.Length >= FlushAfter)
+        // if (csvData.Length >= FlushAfter)
         //{
         //    FlushData();
         //}

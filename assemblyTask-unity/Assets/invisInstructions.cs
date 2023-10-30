@@ -83,6 +83,7 @@ public class invisInstructions : MonoBehaviour
 
     public void nextStep()
     {
+        Debug.Log("Next Step");
         if (stepByStep)
         {
             instructionBars[currentStep].SetActive(false);
