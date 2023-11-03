@@ -4173,6 +4173,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Hand Presence
       objectReference: {fileID: 0}
+    - target: {fileID: 2590702358746298514, guid: 42b7bc11ff0a4437c9e1a98957b389de,
+        type: 3}
+      propertyPath: showController
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590702358746298514, guid: 42b7bc11ff0a4437c9e1a98957b389de,
+        type: 3}
+      propertyPath: controllerPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: ab26b4b0cfd481a47a2bc29e3d82a377,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6171,6 +6182,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand Presence
       objectReference: {fileID: 0}
+    - target: {fileID: 2590702358746298514, guid: 53b66892e95024a73bafbd7f03e670ed,
+        type: 3}
+      propertyPath: showController
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590702358746298514, guid: 53b66892e95024a73bafbd7f03e670ed,
+        type: 3}
+      propertyPath: controllerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 84f157e580ab19f48862814a266b6023,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

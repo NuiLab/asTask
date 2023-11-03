@@ -159,7 +159,7 @@ public class invisiBuild : MonoBehaviour
         //this.gameObject.transform.position = lastTouchedBar.transform.position;
         //this.gameObject.transform.rotation = lastTouchedBar.transform.rotation;
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
+        // newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
         manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
@@ -220,14 +220,16 @@ public class invisiBuild : MonoBehaviour
             tempCheck = Instantiate(check, this.transform.position, Quaternion.identity);
             checkSpawned = true;
         }
+        yield return new WaitForSeconds(0.1f);
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
         yield return new WaitForSeconds(2f);
         Destroy(tempCheck);
         checkSpawned = false;
-        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
+
     }
     IEnumerator resetCanBeBuilt()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
         canBeBuilt = true;
     }
 }
