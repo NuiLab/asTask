@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class FindSM : MonoBehaviour
 {
     public SceneDirector sceneD;
+    public invisInstructions instrManager;
     // Start is called before the first frame update
     void Start()
     {
         sceneD = GameObject.FindWithTag("Manager").GetComponent<SceneDirector>();
+        instrManager = GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>();   
     }
 
     // Update is called once per frame
@@ -23,5 +25,8 @@ public class FindSM : MonoBehaviour
     }
     public void LoadSceneByName(string scenename){
         sceneD.LoadSceneByName(scenename);
+    }
+    public void activateHands(){
+        instrManager.toggleHands(true);
     }
 }

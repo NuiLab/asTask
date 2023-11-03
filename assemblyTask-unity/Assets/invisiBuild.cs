@@ -35,6 +35,8 @@ public class invisiBuild : MonoBehaviour
     bool canBeBuilt = true;
     Quaternion originalRotation;
     invisInstructions inst;
+    SceneDirector sceneDirector;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class invisiBuild : MonoBehaviour
         instructions = GameObject.FindWithTag("SceneInstructions");
         manager = GameObject.FindWithTag("Manager");
         inst = instructions.GetComponent<invisInstructions>();
+        sceneDirector = manager.GetComponent<SceneDirector>();
     }
 
     // Update is called once per frame
@@ -54,13 +57,13 @@ public class invisiBuild : MonoBehaviour
             lastTouchedBar = other.gameObject;
             if (distance <= 0.06f && CheckProperties(other))
             {
-                Debug.Log("Correct Placement");
+                //Debug.Log("Correct Placement");
                 correctPlacement = true;
             }
 
             else correctPlacement = false;
 
-            Debug.Log("Distance between objects: " + distance);
+            //Debug.Log("Distance between objects: " + distance);
         }
     }
     void OnTriggerExit()
@@ -85,7 +88,7 @@ public class invisiBuild : MonoBehaviour
                 correct = false;
             }
         }
-        Debug.Log(correct);
+        //Debug.Log(correct);
         return correct;
     }
 
@@ -112,18 +115,28 @@ public class invisiBuild : MonoBehaviour
                     if (rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out rightTrigger) && rightTrigger)
                     {
                         // main build button (Right Hand)
-
-                        if (rightTrigger && correctPlacement)
+                        if (sceneDirector.trialNumber != 8)
                         {
-                            canBeBuilt = false;
-                            StartCoroutine("rightBar");
-                            build();
+                            if (rightTrigger && correctPlacement)
+                            {
+                                canBeBuilt = false;
+                                StartCoroutine("rightBar");
+                                build();
 
+                            }
+                            if (rightTrigger && !correctPlacement)
+                            {
+                                canBeBuilt = false;
+                                StartCoroutine("WrongBar");
+                            }
                         }
-                        if (rightTrigger && !correctPlacement)
+                        else
                         {
-                            canBeBuilt = false;
-                            StartCoroutine("WrongBar");
+                            if (rightTrigger)
+                            {
+                                canBeBuilt = false;
+                                StartCoroutine("buildTransfer");
+                            }
                         }
                     }
                 }
@@ -132,18 +145,29 @@ public class invisiBuild : MonoBehaviour
                     if (leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger) && leftTrigger)
                     {
                         // main build button (Left Hand)
+                        if (sceneDirector.trialNumber != 8)
+                        {
+                            if (leftTrigger && correctPlacement)
+                            {
+                                canBeBuilt = false;
+                                StartCoroutine("rightBar");
+                                build();
+                            }
+                            if (leftTrigger && !correctPlacement)
+                            {
+                                canBeBuilt = false;
+                                StartCoroutine("WrongBar");
+                            }
+                        }
+                        else
+                        {
+                            if (leftTrigger)
+                            {
+                                canBeBuilt = false;
+                                StartCoroutine("buildTransfer");
+                            }
+                        }
 
-                        if (leftTrigger && correctPlacement)
-                        {
-                            canBeBuilt = false;
-                            StartCoroutine("rightBar");
-                            build();
-                        }
-                        if (leftTrigger && !correctPlacement)
-                        {
-                            canBeBuilt = false;
-                            StartCoroutine("WrongBar");
-                        }
                     }
                 }
 
@@ -154,10 +178,6 @@ public class invisiBuild : MonoBehaviour
     {
 
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
-        //newBar.gameObject.GetComponent<Renderer>().material = this.gameObject.GetComponent<Renderer>().material;
-        //newBar.gameObject.GetComponent<Renderer>().material = instructions.GetComponent<invisInstructions>().builtMat;
-        //this.gameObject.transform.position = lastTouchedBar.transform.position;
-        //this.gameObject.transform.rotation = lastTouchedBar.transform.rotation;
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         // newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
@@ -168,10 +188,34 @@ public class invisiBuild : MonoBehaviour
         this.transform.rotation = originalRotation;
         StartCoroutine("resetCanBeBuilt");
         //this.gameObject.SetActive(false);
+    }
+    IEnumerator buildTransfer()
+    {
+        if (correctPlacement)
+        {
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
+            Debug.Log("Correct placement Log");
+        }
+        else
+        {
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Inorrect placement");
+            inst.mistakes++;
+        }
+        
+        GameObject newBar = Instantiate(this.gameObject, this.transform.position, this.transform.rotation); //this is the bar that is being built
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
+        newBar.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
+        newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
+        newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
+        instructions.GetComponent<invisInstructions>().nextStep();
+        this.transform.position = startPos;
+        this.transform.rotation = originalRotation;
+        yield return new WaitForSeconds(0.3f);
+        canBeBuilt = true;
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
 
 
-
-        //need to change this to a new instructions script
     }
     IEnumerator WrongBar()
     {

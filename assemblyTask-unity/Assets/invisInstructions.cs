@@ -29,7 +29,7 @@ public class invisInstructions : MonoBehaviour
         if (manager == null) managerObj = GameObject.FindWithTag("Manager");
         manager = managerObj.GetComponent<ExperimentLog>();
 
-        Debug.Log(manager);
+        toggleHands(false);
 
         if (managerObj.GetComponent<SceneDirector>().trialNumber == 6 || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
         {
@@ -41,7 +41,7 @@ public class invisInstructions : MonoBehaviour
         }
 
         tempText = instructionTexts[currentStep];
-        if (!stepByStep)
+        if (!stepByStep || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
         {
             foreach (GameObject bar in instructionBars)
             {
@@ -50,7 +50,7 @@ public class invisInstructions : MonoBehaviour
         }
         if (managerObj.GetComponent<SceneDirector>().trialNumber == 8)
         {
-            DisableMeshRenderersRecursive(builtShape.transform);
+            DisableMeshRenderersRecursive(builtShape.transform); // hides shape to be built in transfer trial
         }
 
         //dataLog("Experiment", "started");
@@ -100,6 +100,7 @@ public class invisInstructions : MonoBehaviour
             else
             {
                 instructionPanel.text = "You have completed the instructions!";
+                toggleHands(false);
                 button.SetActive(true);
             }
         }
