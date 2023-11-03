@@ -42,34 +42,42 @@ public class SceneDirector : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
         {
             SceneManager.LoadScene("WA_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B))
         {
             SceneManager.LoadScene("WB_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
         {
             SceneManager.LoadScene("WC_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
         {
             SceneManager.LoadScene("WD_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.E))
         {
             SceneManager.LoadScene("WE_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.F))
         {
             SceneManager.LoadScene("WF_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.G))
         {
             SceneManager.LoadScene("WG_A2_AT");
+            trialNumber = 1;
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.H))
         {
             SceneManager.LoadScene("WH_A2_AT");
+            trialNumber = 1;
         }
 
     }
