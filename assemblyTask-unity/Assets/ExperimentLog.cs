@@ -42,7 +42,7 @@ public class ExperimentLog : MonoBehaviour
     void Update()
     {
         time_s += Time.deltaTime;
-        
+
     }
 
 
@@ -62,7 +62,7 @@ public class ExperimentLog : MonoBehaviour
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number;Scene;Trial;Timestamp;Time_s;Category;Action;Step");
+            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_s;Category;Action;Step");
         }
 
     }
@@ -70,10 +70,12 @@ public class ExperimentLog : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
+        string[] splitSceneName = sceneName.Split('_');
+
         float miliS = time_s * 1000;
         int seconds = ((int)time_s % 60);
         int minutes = ((int)time_s / 60);
-        string timeString = string.Format ("{0:00}:{1:00}:{2:000}", minutes, seconds, miliS);
+        string timeString = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, miliS);
 
         /*
          * status (0=n/a; 1=start; 2=end)
@@ -82,7 +84,9 @@ public class ExperimentLog : MonoBehaviour
             independentCSVData.Add(category + "," + action);
         else */
         string newLine = participantNumber.ToString();
-        newLine += ";" + sceneName;
+        newLine += ";" + splitSceneName[0];
+        newLine += ";" + splitSceneName[1];
+        newLine += ";" + splitSceneName[2];
         newLine += ";" + manager.trialNumber.ToString();
         newLine += ";" + DateTime.Now.ToString("HH:mm.ss");
         newLine += ";" + timeString;

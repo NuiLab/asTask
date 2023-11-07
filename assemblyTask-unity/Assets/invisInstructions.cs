@@ -90,7 +90,7 @@ public class invisInstructions : MonoBehaviour
             if (currentStep + 1 < instructionBars.Length)
             {
                 if (previewBars[currentStep] != null) previewBars[currentStep].SetActive(true);
-                dataLog("Step", "completed");
+                //dataLog("Step", "completed");
                 currentStep++;
                 instructionBars[currentStep].SetActive(true);
                 setText();
@@ -100,6 +100,7 @@ public class invisInstructions : MonoBehaviour
             else
             {
                 instructionPanel.text = "You have completed the instructions!";
+                dataLog("Trial", "complete");
                 toggleHands(false);
                 button.SetActive(true);
             }
