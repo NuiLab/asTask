@@ -55,7 +55,7 @@ public class invisiBuild : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             lastTouchedBar = other.gameObject;
-            if (distance <= 0.06f && CheckProperties(other))
+            if (distance <= 0.05f && CheckProperties(other))
             {
                 //Debug.Log("Correct Placement");
                 correctPlacement = true;
