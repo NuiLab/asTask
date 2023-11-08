@@ -84,9 +84,18 @@ public class ExperimentLog : MonoBehaviour
             independentCSVData.Add(category + "," + action);
         else */
         string newLine = participantNumber.ToString();
-        newLine += ";" + splitSceneName[0];
-        newLine += ";" + splitSceneName[1];
-        newLine += ";" + splitSceneName[2];
+        if (splitSceneName.Length == 3)
+        {
+            newLine += ";" + splitSceneName[0];
+            newLine += ";" + splitSceneName[1];
+            newLine += ";" + splitSceneName[2];
+        }
+        else
+        {
+            newLine += ";" + "sceneName";
+            newLine += ";" + "n/a";
+            newLine += ";" + "n/a";
+        }
         newLine += ";" + manager.trialNumber.ToString();
         newLine += ";" + DateTime.Now.ToString("HH:mm.ss");
         newLine += ";" + timeString;
