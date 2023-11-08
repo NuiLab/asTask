@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.XR.CoreUtils;
 
 public class LocomotionController : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class LocomotionController : MonoBehaviour
     public XRRayInteractor leftInteractorRay;
     public XRRayInteractor rightInteractorRay;
 
-    public bool EnableLeftTeleport {get; set;} = true;
-    public bool EnableRightTeleport {get; set;} = true;
+    public bool EnableLeftTeleport { get; set; } = true;
+    public bool EnableRightTeleport { get; set; } = true;
 
 
     // Update is called once per frame
@@ -27,15 +28,17 @@ public class LocomotionController : MonoBehaviour
         bool validTarget = false;
 
 
-        if(leftTeleportRay)
+        if (leftTeleportRay)
         {
-            bool isLeftInteractorRayHovering = leftInteractorRay.TryGetHitInfo(ref pos, ref norm, ref index, ref validTarget);
-            leftTeleportRay.gameObject.SetActive(EnableLeftTeleport && CheckIfActivated(leftTeleportRay) && !isLeftInteractorRayHovering);
+            // XRRayInteractorHit leftHitInfo = new XRRayInteractorHit();
+            // bool isLeftInteractorRayHovering = leftInteractorRay.TryGetHitInfo(ref leftHitInfo);
+            // leftTeleportRay.gameObject.SetActive(EnableLeftTeleport && CheckIfActivated(leftTeleportRay) && !isLeftInteractorRayHovering);
         }
-        if(rightTeleportRay)
+        if (rightTeleportRay)
         {
-            bool isRightInteractorRayHovering = rightInteractorRay.TryGetHitInfo(ref pos, ref norm, ref index, ref validTarget);
-            rightTeleportRay.gameObject.SetActive(EnableRightTeleport && CheckIfActivated(rightTeleportRay) && !isRightInteractorRayHovering);
+            // XRRayInteractorHit rightHitInfo = new XRRayInteractorHit();
+            //  bool isRightInteractorRayHovering = rightInteractorRay.TryGetHitInfo(ref rightHitInfo);
+            // rightTeleportRay.gameObject.SetActive(EnableRightTeleport && CheckIfActivated(rightTeleportRay) && !isRightInteractorRayHovering);
         }
 
     }
