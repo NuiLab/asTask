@@ -182,7 +182,7 @@ public class invisiBuild : MonoBehaviour
         // newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
-        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
         this.transform.rotation = originalRotation;
@@ -193,7 +193,7 @@ public class invisiBuild : MonoBehaviour
     {
         if (correctPlacement)
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement",inst.currentStep.ToString());
             Debug.Log("Correct placement Log");
         }
         else
