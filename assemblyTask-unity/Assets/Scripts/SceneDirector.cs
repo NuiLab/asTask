@@ -79,7 +79,10 @@ public class SceneDirector : MonoBehaviour
             SceneManager.LoadScene("WH_A2_AT");
             trialNumber = 1;
         }
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            resetView();
+        }
     }
 
 
@@ -138,7 +141,15 @@ public class SceneDirector : MonoBehaviour
     {
         DataStorage.CurrentTrackStep = 0;
     }
-
+    void resetView()
+    {
+        List<InputDevice> devices = new();
+        InputDevices.GetDevices(devices);
+        if (devices.Count != 0)
+        {
+            devices[0].subsystem.TryRecenter();
+        }
+    }
 
     public void OpenParticipantIDScene()
     {

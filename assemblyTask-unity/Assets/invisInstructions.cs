@@ -27,6 +27,8 @@ public class invisInstructions : MonoBehaviour
     void Start()
     {
         if (manager == null) managerObj = GameObject.FindWithTag("Manager");
+        if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
+        instructionPanel = stepPanel.GetComponent<TMP_Text>();
         manager = managerObj.GetComponent<ExperimentLog>();
 
         toggleHands(false);
@@ -38,8 +40,10 @@ public class invisInstructions : MonoBehaviour
         else
         {
             instructionPanel.text = instructionTexts[currentStep];
-        }
 
+        }
+        stepPanel.SetActive(false);
+        
         tempText = instructionTexts[currentStep];
         if (!stepByStep || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
         {
