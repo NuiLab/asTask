@@ -43,7 +43,7 @@ public class invisInstructions : MonoBehaviour
 
         }
         stepPanel.SetActive(false);
-        
+
         tempText = instructionTexts[currentStep];
         if (!stepByStep || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
         {
@@ -52,12 +52,13 @@ public class invisInstructions : MonoBehaviour
                 bar.SetActive(true);
             }
         }
+
         if (managerObj.GetComponent<SceneDirector>().trialNumber == 8)
         {
             DisableMeshRenderersRecursive(builtShape.transform); // hides shape to be built in transfer trial
         }
 
-        //dataLog("Experiment", "started");
+
         StartCoroutine(wait(1));
     }
 
@@ -148,6 +149,6 @@ public class invisInstructions : MonoBehaviour
     IEnumerator wait(float time)
     {
         yield return new WaitForSeconds(time);
-        dataLog("Experiment", "started");
+        dataLog("Trial", "loaded");
     }
 }

@@ -19,7 +19,7 @@ public class ExperimentLog : MonoBehaviour
     //public StringBuilder csvData;
     StreamWriter writer;
     SceneDirector manager;
-    float time_s = 0;
+    public float time_s = 0;
     #region Consts to modify
     private const int FlushAfter = 40;
     #endregion

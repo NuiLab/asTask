@@ -13,7 +13,7 @@ public class SceneDirector : MonoBehaviour
     // Input Devices to check for grabbing
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
     private List<InputDevice> rightHandDevices = new List<InputDevice>();
-
+    ExperimentLog expLog;
     private int sceneBars;
     static Scene tempScene;
     public string tempSceneName;
@@ -33,6 +33,7 @@ public class SceneDirector : MonoBehaviour
         {
             instance = this;
         }
+        expLog = instance.GetComponent<ExperimentLog>();
     }
 
 
@@ -176,6 +177,7 @@ public class SceneDirector : MonoBehaviour
 
     public void LoadNextTrialScene()
     {
+        expLog.time_s = 0;
         trialNumber++;
         tempScene = SceneManager.GetActiveScene();
         tempSceneName = tempScene.name;
@@ -199,11 +201,13 @@ public class SceneDirector : MonoBehaviour
     }
     public void LoadSceneByName(string scenename)
     {
+        expLog.time_s = 0;
         SceneManager.LoadScene(scenename);
     }
 
     public void LoadTempScene()
     {
+        expLog.time_s = 0;
         Debug.Log("Loading Temp Scene");
         Debug.Log(tempSceneName);
         trialNumber++;
