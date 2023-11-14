@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Security;
+using TreeEditor;
 
 public class invisInstructions : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class invisInstructions : MonoBehaviour
         if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
         manager = managerObj.GetComponent<ExperimentLog>();
+
 
         toggleHands(false);
 
@@ -67,6 +69,7 @@ public class invisInstructions : MonoBehaviour
     {
 
     }
+    
     void DisableMeshRenderersRecursive(Transform parent)
     {
         foreach (Transform child in parent)
@@ -81,6 +84,7 @@ public class invisInstructions : MonoBehaviour
             DisableMeshRenderersRecursive(child);
         }
     }
+
     public void dataLog(string category, string action)
     {
         manager.AddData(category, action, currentStep.ToString());
