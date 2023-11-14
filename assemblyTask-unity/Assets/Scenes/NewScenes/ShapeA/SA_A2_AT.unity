@@ -1020,6 +1020,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WidgetA
       objectReference: {fileID: 0}
+    - target: {fileID: 2253931002839597415, guid: 42f53d718fe07d644849affebf9dc42f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7153545192150085349, guid: 42f53d718fe07d644849affebf9dc42f,
         type: 3}
       propertyPath: m_LocalPosition.x
