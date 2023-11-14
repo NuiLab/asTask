@@ -50,7 +50,7 @@ public class invisiBuild : MonoBehaviour
     // Update is called once per frame
     void OnTriggerStay(Collider other)
     {
-
+        Debug.Log("Triggered");
         if (other.CompareTag("instruction"))
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
@@ -63,7 +63,7 @@ public class invisiBuild : MonoBehaviour
 
             else correctPlacement = false;
 
-            //Debug.Log("Distance between objects: " + distance);
+            Debug.Log("Distance between objects: " + distance);
         }
     }
     void OnTriggerExit()

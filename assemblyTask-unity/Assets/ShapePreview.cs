@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShapePreview : MonoBehaviour
 {
     public Material newMaterial; // Define your material here
-    public bool isGray = true;
+
     public bool considerColor = false;
     public bool isPreview = false;
 
@@ -16,7 +16,6 @@ public class ShapePreview : MonoBehaviour
     {
         if (!considerColor&&isPreview)
         {
-            SetPropCheckColorToNull(this.transform);
             foreach (Transform child in transform)
             {
                 MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
@@ -26,7 +25,8 @@ public class ShapePreview : MonoBehaviour
                 }
             }
         }
-       
+        if(!considerColor)
+        SetPropCheckColorToNull(this.transform);
     }
 
     // Update is called once per frame
