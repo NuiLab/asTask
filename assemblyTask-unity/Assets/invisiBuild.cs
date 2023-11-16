@@ -38,6 +38,7 @@ public class invisiBuild : MonoBehaviour
     SceneDirector sceneDirector;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +46,14 @@ public class invisiBuild : MonoBehaviour
         manager = GameObject.FindWithTag("Manager");
         inst = instructions.GetComponent<invisInstructions>();
         sceneDirector = manager.GetComponent<SceneDirector>();
+
+
     }
 
     // Update is called once per frame
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("Triggered");
+        //Debug.Log("Triggered");
         if (other.CompareTag("instruction"))
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
@@ -78,7 +81,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
-                //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
+                Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
             }
         }
@@ -86,7 +89,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
-                //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
+                Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
             }
         }
@@ -195,7 +198,7 @@ public class invisiBuild : MonoBehaviour
     {
         if (correctPlacement)
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement",inst.currentStep.ToString());
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
             Debug.Log("Correct placement Log");
         }
         else
@@ -203,7 +206,7 @@ public class invisiBuild : MonoBehaviour
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Inorrect placement");
             inst.mistakes++;
         }
-        
+
         GameObject newBar = Instantiate(this.gameObject, this.transform.position, this.transform.rotation); //this is the bar that is being built
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
@@ -239,7 +242,7 @@ public class invisiBuild : MonoBehaviour
         yield return new WaitForSeconds(2f);
         //shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
-        Destroy(tempCross);
+        inst.cross = tempCross;
         crossSpawned = false;
         StartCoroutine("resetCanBeBuilt");
 

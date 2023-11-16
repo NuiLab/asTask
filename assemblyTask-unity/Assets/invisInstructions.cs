@@ -24,6 +24,8 @@ public class invisInstructions : MonoBehaviour
     public bool isAdaptive;
     public GameObject button;
     string tempText;
+    public bool instructionsAreSeperated = false;
+    public GameObject cross;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,12 @@ public class invisInstructions : MonoBehaviour
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
         manager = managerObj.GetComponent<ExperimentLog>();
 
+        if (instructionsAreSeperated)
+        {
+
+            stepPanel.transform.localPosition = new Vector3(-1.557f, 0.9f, 0.355f);
+            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0); // Add this line
+        }
 
         toggleHands(false);
 
@@ -69,7 +77,7 @@ public class invisInstructions : MonoBehaviour
     {
 
     }
-    
+
     void DisableMeshRenderersRecursive(Transform parent)
     {
         foreach (Transform child in parent)
@@ -127,6 +135,7 @@ public class invisInstructions : MonoBehaviour
             hand.GetComponent<XRDirectInteractor>().enabled = temp;
 
         }
+        Destroy(cross);
     }
     void setText()
     {
