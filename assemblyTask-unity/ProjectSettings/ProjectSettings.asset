@@ -155,6 +155,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.com.xrfutureofwork.FutureofWork
+    Standalone: com.com.xr-future-of-work.Future-of-Work
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -833,7 +834,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
