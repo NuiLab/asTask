@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;    
 
 public class ShapePreview : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class ShapePreview : MonoBehaviour
 
         if (isPreview)
             DisableAllColliders(this.transform);
+
+       // if (!isPreview)
+        //    DisableAllTextMeshPro(this.transform);
     }
 
     // Update is called once per frame
@@ -37,6 +41,20 @@ public class ShapePreview : MonoBehaviour
     {
 
     }
+    void DisableAllTextMeshPro(Transform parent)
+{
+    foreach (Transform child in parent)
+    {
+        TextMeshPro tmp = child.GetComponent<TextMeshPro>();
+        if (tmp != null)
+        {
+            tmp.enabled = false;
+        }
+
+        // Recursively disable TextMeshPro for children's children
+        DisableAllTextMeshPro(child);
+    }
+}
     void DisableAllColliders(Transform parent)
     {
         foreach (Transform child in parent)
