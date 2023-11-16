@@ -131,11 +131,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 72570824312980845, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: isColored
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1451631397521219215, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 964607707403166138}
+    - target: {fileID: 3461966157951884946, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: isColored
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3995838715408104240, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_Name
@@ -211,6 +221,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8287602429359275935, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: isColored
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075124377224602801, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: isColored
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1622556446396220707, guid: 29bccb021597e414b8d4000b3a67e27b, type: 3}
     m_RemovedGameObjects: []
@@ -225,6 +245,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 9002635954215448067, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 1420135736088959780, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -284,6 +308,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2109793607140622346, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1813329642571269307, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
@@ -340,6 +368,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7041375087283380694, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7339388539121689959, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
@@ -393,6 +425,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 4604908821650935566, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5817929931359877673, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1630,6 +1666,7 @@ MonoBehaviour:
   - {fileID: 581672429}
   isAdaptive: 1
   button: {fileID: 547383365}
+  instructionsAreSeperated: 0
 --- !u!1 &3954116125970588551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7065610097435842662, guid: 29bccb021597e414b8d4000b3a67e27b,
