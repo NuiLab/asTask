@@ -323,6 +323,7 @@ MonoBehaviour:
   isGrabbed: 0
   checkSpawned: 0
   mistakes: 0
+  manager: {fileID: 0}
 --- !u!64 &3532052062953334178
 MeshCollider:
   m_ObjectHideFlags: 0

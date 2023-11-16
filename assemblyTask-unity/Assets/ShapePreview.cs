@@ -14,7 +14,7 @@ public class ShapePreview : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!considerColor&&isPreview)
+        if (!considerColor && isPreview)
         {
             foreach (Transform child in transform)
             {
@@ -25,14 +25,31 @@ public class ShapePreview : MonoBehaviour
                 }
             }
         }
-        if(!considerColor)
-        SetPropCheckColorToNull(this.transform);
+        if (!considerColor)
+            SetPropCheckColorToNull(this.transform);
+
+        if (isPreview)
+            DisableAllColliders(this.transform);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    void DisableAllColliders(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            Collider collider = child.GetComponent<Collider>();
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
+
+            // Recursively disable colliders for children's children
+            DisableAllColliders(child);
+        }
     }
     void SetPropCheckColorToNull(Transform parent)
     {
