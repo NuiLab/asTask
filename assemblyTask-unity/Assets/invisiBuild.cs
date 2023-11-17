@@ -23,6 +23,7 @@ public class invisiBuild : MonoBehaviour
     public GameObject instructions;
     bool crossSpawned = false;
     public GameObject cross;
+    bool isAligned = false;
     public GameObject check;
     GameObject tempCross;
     GameObject tempCheck;
@@ -53,6 +54,10 @@ public class invisiBuild : MonoBehaviour
     // Update is called once per frame
     void OnTriggerStay(Collider other)
     {
+        if (other.CompareTag("alignment"))
+        {
+            isAligned = true;
+        }
         //Debug.Log("Triggered");
         if (other.CompareTag("instruction"))
         {
@@ -72,6 +77,7 @@ public class invisiBuild : MonoBehaviour
     void OnTriggerExit()
     {
         correctPlacement = false;
+        isAligned = false;
 
     }
     bool CheckProperties(Collider other)
@@ -122,7 +128,7 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Right Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (rightTrigger && correctPlacement)
+                            if (rightTrigger && correctPlacement && isAligned)
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
@@ -152,7 +158,7 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Left Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (leftTrigger && correctPlacement)
+                            if (leftTrigger && correctPlacement && isAligned)
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
