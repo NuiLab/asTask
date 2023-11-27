@@ -39,47 +39,151 @@ public class SceneDirector : MonoBehaviour
 
     private void Update()
     {
+        //Left Shift plus Letter loads the Adaptive Scene for that letter with NO Color and the instructions at the bench
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                LoadSceneByName("A_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                LoadSceneByName("B_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                LoadSceneByName("C_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                LoadSceneByName("D_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                LoadSceneByName("E_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LoadSceneByName("F_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                LoadSceneByName("G_A2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                LoadSceneByName("H_A2_AT");
+            }
+        }
+        // Right Shift plus Letter loads the Adaptive Scene for that letter with COLOR and the instructions at the bench
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                LoadSceneByName("A_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                LoadSceneByName("B_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                LoadSceneByName("C_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                LoadSceneByName("D_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                LoadSceneByName("E_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LoadSceneByName("F_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                LoadSceneByName("G_A3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                LoadSceneByName("H_A3_AT");
+            }
+        }
+        // S plus Letter loads the  Scene for that letter with  COLOR and the instructions offset
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                LoadSceneByName("A_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                LoadSceneByName("B_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                LoadSceneByName("C_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                LoadSceneByName("D_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                LoadSceneByName("E_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LoadSceneByName("F_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                LoadSceneByName("G_S3_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                LoadSceneByName("H_S3_AT");
+            }
+        }
+        // K plus Letter loads the  Scene for that letter with NO color and the instructions offset
+        if (Input.GetKey(KeyCode.K))
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                LoadSceneByName("A_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                LoadSceneByName("B_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                LoadSceneByName("C_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                LoadSceneByName("D_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                LoadSceneByName("E_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LoadSceneByName("F_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                LoadSceneByName("G_S2_AT");
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                LoadSceneByName("H_S2_AT");
+            }
+        }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
-        {
-            SceneManager.LoadScene("WA_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B))
-        {
-            SceneManager.LoadScene("WB_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
-        {
-            SceneManager.LoadScene("WC_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
-        {
-            SceneManager.LoadScene("WD_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.E))
-        {
-            SceneManager.LoadScene("WE_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.F))
-        {
-            SceneManager.LoadScene("WF_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.G))
-        {
-            SceneManager.LoadScene("WG_A2_AT");
-            trialNumber = 1;
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.H))
-        {
-            SceneManager.LoadScene("WH_A2_AT");
-            trialNumber = 1;
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             resetView();
