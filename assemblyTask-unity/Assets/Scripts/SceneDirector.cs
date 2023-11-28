@@ -254,6 +254,7 @@ public class SceneDirector : MonoBehaviour
         {
             devices[0].subsystem.TryRecenter();
         }
+       
     }
 
     public void OpenParticipantIDScene()
