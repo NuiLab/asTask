@@ -11,22 +11,25 @@ public class FindSM : MonoBehaviour
     void Start()
     {
         sceneD = GameObject.FindWithTag("Manager").GetComponent<SceneDirector>();
-        instrManager = GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>();   
+        if (GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>() != null)
+            instrManager = GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void nextScene()
     {
         sceneD.LoadNextTrialScene();
     }
-    public void LoadSceneByName(string scenename){
+    public void LoadSceneByName(string scenename)
+    {
         sceneD.LoadSceneByName(scenename);
     }
-    public void activateHands(){
+    public void activateHands()
+    {
         instrManager.toggleHands(true);
     }
 }
