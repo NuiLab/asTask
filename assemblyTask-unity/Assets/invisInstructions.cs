@@ -68,7 +68,6 @@ public class invisInstructions : MonoBehaviour
             DisableMeshRenderersRecursive(builtShape.transform); // hides shape to be built in transfer trial
         }
 
-
         StartCoroutine(wait(1));
     }
 
@@ -167,6 +166,7 @@ public class invisInstructions : MonoBehaviour
     IEnumerator wait(float time)
     {
         yield return new WaitForSeconds(time);
+        manager.GetComponent<SceneDirector>().resetTime();
         dataLog("Trial", "loaded");
     }
 }

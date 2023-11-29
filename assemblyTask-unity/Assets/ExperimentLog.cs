@@ -23,7 +23,7 @@ public class ExperimentLog : MonoBehaviour
     #region Consts to modify
     private const int FlushAfter = 40;
     #endregion
-
+    float tempTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +62,7 @@ public class ExperimentLog : MonoBehaviour
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_s;Category;Action;Step");
+            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_in_trial;Category;Action;Step;TimeSinceLastEvent");
         }
 
     }
@@ -76,7 +76,7 @@ public class ExperimentLog : MonoBehaviour
         int seconds = ((int)time_s % 60);
         int minutes = ((int)time_s / 60);
         string timeString = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, miliS);
-
+        float timeSinceLastEvent = time_s - tempTime;
         /*
          * status (0=n/a; 1=start; 2=end)
          */
@@ -98,21 +98,19 @@ public class ExperimentLog : MonoBehaviour
         }
         newLine += ";" + manager.trialNumber.ToString();
         newLine += ";" + DateTime.Now.ToString("HH:mm.ss");
-        newLine += ";" + timeString;
+        //newLine += ";" + timeString;
+        newLine += ";" + Mathf.Round(miliS).ToString();
         newLine += ";" + category;
         newLine += ";" + action;
         newLine += ";" + step;
+        newLine += ";" + Mathf.Round(timeSinceLastEvent).ToString();
         Debug.Log(filePath);
+        tempTime = time_s;
         using (writer = File.AppendText(filePath))
         {
             writer.WriteLine(newLine);
         }
-        // csvData.AppendLine(newLine);
-        //csvData.AppendLine(participantNumber + ";" + sceneName + ";" + DateTime.Now.ToString("HHmmss_ff") + ";" + time_s + ";" + category + ";" + action + ";" + step);
-        // if (csvData.Length >= FlushAfter)
-        //{
-        //    FlushData();
-        //}
+        
     }
 
     /* void FlushData()
