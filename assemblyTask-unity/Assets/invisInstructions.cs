@@ -135,7 +135,12 @@ public class invisInstructions : MonoBehaviour
             hand.GetComponent<XRDirectInteractor>().enabled = temp;
 
         }
-        Destroy(cross);
+
+        GameObject cross = GameObject.FindWithTag("cross");
+        if (cross != null)
+        {
+            Destroy(cross);
+        }
     }
     void setText()
     {

@@ -209,7 +209,7 @@ public class invisiBuild : MonoBehaviour
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Inorrect placement");
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Inorrect placement", inst.currentStep.ToString());
             inst.mistakes++;
         }
 
