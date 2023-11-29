@@ -18,6 +18,7 @@ public class SceneDirector : MonoBehaviour
     static Scene tempScene;
     public string tempSceneName;
     public int trialNumber = 1;
+    public int shapeNumber = 1;
     private void Awake()
     {
 
@@ -254,7 +255,7 @@ public class SceneDirector : MonoBehaviour
         {
             devices[0].subsystem.TryRecenter();
         }
-       
+
     }
 
     public void OpenParticipantIDScene()
@@ -279,7 +280,8 @@ public class SceneDirector : MonoBehaviour
 
     }
 
-    public void resetTime(){
+    public void resetTime()
+    {
         expLog.time_s = 0;
     }
     public void LoadNextTrialScene()
@@ -290,6 +292,7 @@ public class SceneDirector : MonoBehaviour
         tempSceneName = tempScene.name;
         if (trialNumber == 9)
         {
+            shapeNumber++;
             SceneManager.LoadScene("WaitingRoom");
             trialNumber = 1;
 
