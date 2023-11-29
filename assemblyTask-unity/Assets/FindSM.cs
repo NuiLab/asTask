@@ -32,4 +32,13 @@ public class FindSM : MonoBehaviour
     {
         instrManager.toggleHands(true);
     }
+    public void StartTrial()
+    {
+        instrManager.dataLog("Trial", "started");
+    }
+    public void ContinueTrial()
+    {
+        instrManager.dataLog("Trial", "continued");
+    }
+
 }

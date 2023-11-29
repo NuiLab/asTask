@@ -279,7 +279,9 @@ public class SceneDirector : MonoBehaviour
 
     }
 
-
+    public void resetTime(){
+        expLog.time_s = 0;
+    }
     public void LoadNextTrialScene()
     {
         expLog.time_s = 0;
