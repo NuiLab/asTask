@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;    
+using TMPro;
 
 public class ShapePreview : MonoBehaviour
 {
@@ -26,13 +26,22 @@ public class ShapePreview : MonoBehaviour
                 }
             }
         }
+        if (!considerColor && !isPreview)
+        {
+            Transform firstChild = transform.GetChild(0);
+            MeshRenderer meshRenderer = firstChild.GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                meshRenderer.material = newMaterial;
+            }
+        }
         if (!considerColor)
             SetPropCheckColorToNull(this.transform);
 
         if (isPreview)
             DisableAllColliders(this.transform);
 
-       // if (!isPreview)
+        // if (!isPreview)
         //    DisableAllTextMeshPro(this.transform);
     }
 
@@ -42,19 +51,19 @@ public class ShapePreview : MonoBehaviour
 
     }
     void DisableAllTextMeshPro(Transform parent)
-{
-    foreach (Transform child in parent)
     {
-        TextMeshPro tmp = child.GetComponent<TextMeshPro>();
-        if (tmp != null)
+        foreach (Transform child in parent)
         {
-            tmp.enabled = false;
-        }
+            TextMeshPro tmp = child.GetComponent<TextMeshPro>();
+            if (tmp != null)
+            {
+                tmp.enabled = false;
+            }
 
-        // Recursively disable TextMeshPro for children's children
-        DisableAllTextMeshPro(child);
+            // Recursively disable TextMeshPro for children's children
+            DisableAllTextMeshPro(child);
+        }
     }
-}
     void DisableAllColliders(Transform parent)
     {
         foreach (Transform child in parent)
