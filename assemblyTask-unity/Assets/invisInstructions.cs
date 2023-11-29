@@ -9,8 +9,9 @@ using TreeEditor;
 
 public class invisInstructions : MonoBehaviour
 {
-    ExperimentLog manager;
+    ExperimentLog log;
     GameObject managerObj;
+    SceneDirector sceneDirector;
     public GameObject[] instructionBars;
     public string[] instructionTexts;
     public GameObject[] previewBars;
@@ -26,14 +27,15 @@ public class invisInstructions : MonoBehaviour
     string tempText;
     public bool instructionsAreSeperated = false;
     public GameObject cross;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (manager == null) managerObj = GameObject.FindWithTag("Manager");
+        if (log == null) managerObj = GameObject.FindWithTag("Manager");
         if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
-        manager = managerObj.GetComponent<ExperimentLog>();
-
+        log = managerObj.GetComponent<ExperimentLog>();
+        sceneDirector = managerObj.GetComponent<SceneDirector>();
         if (instructionsAreSeperated)
         {
 
@@ -43,7 +45,7 @@ public class invisInstructions : MonoBehaviour
 
         toggleHands(false);
 
-        if (managerObj.GetComponent<SceneDirector>().trialNumber == 6 || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        if (sceneDirector.trialNumber == 6 || sceneDirector.trialNumber == 8)
         {
             instructionPanel.text = "Please perform Step 1";
         }
@@ -55,7 +57,7 @@ public class invisInstructions : MonoBehaviour
         stepPanel.SetActive(false);
 
         tempText = instructionTexts[currentStep];
-        if (!stepByStep || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        if (!stepByStep || sceneDirector.trialNumber == 8)
         {
             foreach (GameObject bar in instructionBars)
             {
@@ -63,7 +65,7 @@ public class invisInstructions : MonoBehaviour
             }
         }
 
-        if (managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        if (sceneDirector.trialNumber == 8)
         {
             DisableMeshRenderersRecursive(builtShape.transform); // hides shape to be built in transfer trial
         }
@@ -94,9 +96,12 @@ public class invisInstructions : MonoBehaviour
 
     public void dataLog(string category, string action)
     {
-        manager.AddData(category, action, currentStep.ToString());
+        log.AddData(category, action, currentStep.ToString());
     }
-
+    public void WideDataLog()
+    {
+        log.AddWideData(sceneDirector.trialNumber, mistakes);
+    }
     public void nextStep()
     {
         Debug.Log("Next Step");
@@ -117,6 +122,7 @@ public class invisInstructions : MonoBehaviour
             {
                 instructionPanel.text = "You have completed the instructions!";
                 dataLog("Trial", "complete");
+                WideDataLog();
                 toggleHands(false);
                 button.SetActive(true);
             }
@@ -125,7 +131,7 @@ public class invisInstructions : MonoBehaviour
     public void showBuiltShape()
     {
         builtShape.SetActive(true);
-        // muss hier noch alles andere ausschalten um sicherzustellen dass quasi pausiert ist
+        
     }
     public void toggleHands(bool temp)
     {
@@ -145,11 +151,11 @@ public class invisInstructions : MonoBehaviour
     {
         tempText = instructionTexts[currentStep];
         Debug.Log(tempText + currentStep);
-        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 6)
+        if (sceneDirector.trialNumber + currentStep >= 6)
         {
             int tempStep = currentStep + 1;
             instructionPanel.text = "Please perform Step " + tempStep;
-            // this is the part where the scaffold is removed, it still needs to be made adaptive
+            
         }
         else
             SetCurrentStepText();
@@ -166,7 +172,7 @@ public class invisInstructions : MonoBehaviour
     IEnumerator wait(float time)
     {
         yield return new WaitForSeconds(time);
-        manager.GetComponent<SceneDirector>().resetTime();
+        sceneDirector.resetTime();
         dataLog("Trial", "loaded");
     }
 }
