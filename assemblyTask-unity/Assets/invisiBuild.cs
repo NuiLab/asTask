@@ -37,6 +37,7 @@ public class invisiBuild : MonoBehaviour
     Quaternion originalRotation;
     invisInstructions inst;
     SceneDirector sceneDirector;
+    string errortype = "placement";
 
 
 
@@ -89,6 +90,7 @@ public class invisiBuild : MonoBehaviour
             {
                 Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
+                errortype = "length";
             }
         }
         if (other.GetComponent<propCheck>().color != null)
@@ -97,6 +99,7 @@ public class invisiBuild : MonoBehaviour
             {
                 Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
+                errortype = "color";
             }
         }
         //Debug.Log(correct);
@@ -239,12 +242,13 @@ public class invisiBuild : MonoBehaviour
         inst.builtShape.SetActive(true);
         inst.stepPanel.SetActive(false);
         //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
-        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString());
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
             crossSpawned = true;
         }
+        errortype = "placement";
         yield return new WaitForSeconds(2f);
         //shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
