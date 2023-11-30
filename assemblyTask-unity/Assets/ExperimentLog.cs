@@ -58,7 +58,7 @@ public class ExperimentLog : MonoBehaviour
         filePathW = temp + "/WideParticipant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_in_trial;Category;Action;Step;TimeSinceLastEvent");
+            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_in_trial;Category;Action;Errortype;Step;TimeSinceLastEvent");
         }
         using (writerW = File.CreateText(filePathW))
         {
@@ -70,7 +70,7 @@ public class ExperimentLog : MonoBehaviour
 
     }
 
-    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a")
+    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a",string errorType = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
@@ -106,6 +106,7 @@ public class ExperimentLog : MonoBehaviour
         newLine += ";" + Mathf.Round(miliS).ToString();
         newLine += ";" + category;
         newLine += ";" + action;
+        newLine += ";" + errorType;
         newLine += ";" + step;
         newLine += ";" + Mathf.Round(timeSinceLastEvent).ToString();
         Debug.Log(filePath);
