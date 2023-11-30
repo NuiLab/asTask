@@ -204,12 +204,12 @@ public class invisiBuild : MonoBehaviour
     {
         if (correctPlacement)
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct", inst.currentStep.ToString());
             Debug.Log("Correct placement Log");
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Inorrect placement", inst.currentStep.ToString());
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString());
             inst.mistakes++;
         }
 
@@ -239,7 +239,7 @@ public class invisiBuild : MonoBehaviour
         inst.builtShape.SetActive(true);
         inst.stepPanel.SetActive(false);
         //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
-        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Incorrect placement", inst.currentStep.ToString());
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString());
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
