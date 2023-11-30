@@ -15,12 +15,12 @@ public class ExperimentLog : MonoBehaviour
     public string filePath;
     public string filePathW;
     int participantNumber = 0;
-    //public StringBuilder csvData;
     StreamWriter writer;
     StreamWriter writerW;
     SceneDirector manager;
     public float time_s = 0;
     float tempTime = 0f;
+    int counter = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -145,8 +145,9 @@ public class ExperimentLog : MonoBehaviour
 
         string[] lines = File.ReadAllLines(filePathW);
         Debug.Log(lines);
-        lines[0] += "Participant_Number;Shape;Condition;Adaptivity;PositionInExp;Trial;TotalTime;MistakesMade";
+        lines[0] += "Participant_Number" + counter + ";Shape" + counter + ";Condition" + counter + ";Adaptivity" + counter + ";Trial" + counter + ";Timestamp" + counter + ";Time_in_trial" + counter + ";Category" + counter + ";Action" + counter + ";Step" + counter + ";TimeSinceLastEvent" + counter;
         lines[^1] += newLine;
+        counter++;
         File.WriteAllLines(filePathW, lines);
 
     }
