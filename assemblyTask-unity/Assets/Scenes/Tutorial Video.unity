@@ -812,7 +812,12 @@ PrefabInstance:
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
       propertyPath: m_text
-      value: 'Please listen to the instructions closely. '
+      value: Please tell the experimenter when you are ready to begin the introduction.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 3913894780385566142, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
