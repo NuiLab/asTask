@@ -212,7 +212,7 @@ public class invisiBuild : MonoBehaviour
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString());
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(),errortype);
             inst.mistakes++;
         }
 

@@ -63,14 +63,14 @@ public class ExperimentLog : MonoBehaviour
         using (writerW = File.CreateText(filePathW))
         {
             Debug.Log("Creating Wide File");
-           //writerW.WriteLine("Participant_Number;Shape;Condition;Adaptivity;PositionInExp;Trial;TotalTime;MistakesMade");
-           writerW.WriteLine("");
-           writerW.WriteLine("");
+            //writerW.WriteLine("Participant_Number;Shape;Condition;Adaptivity;PositionInExp;Trial;TotalTime;MistakesMade");
+            writerW.WriteLine("");
+            writerW.WriteLine("");
         }
 
     }
 
-    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a",string errorType = "n/a")
+    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
@@ -125,19 +125,19 @@ public class ExperimentLog : MonoBehaviour
         string[] splitSceneName = sceneName.Split('_');
 
         float miliSW = time_s * 1000;
-        string newLine = participantNumber.ToString();
+        string newLine = "";
 
         if (splitSceneName.Length == 3)
         {
-            newLine += ";" + splitSceneName[0];
-            newLine += ";" + splitSceneName[1];
-            newLine += ";" + splitSceneName[2];
+            newLine += splitSceneName[0];
+            newLine += splitSceneName[1];
+            newLine += splitSceneName[2];
         }
         else
         {
-            newLine += ";" + "sceneName";
-            newLine += ";" + "n/a";
-            newLine += ";" + "n/a";
+            newLine += sceneName;
+            newLine += "n/a";
+            newLine += "n/a";
         }
         newLine += ";" + manager.shapeNumber.ToString();
         newLine += ";" + trialNumber.ToString();

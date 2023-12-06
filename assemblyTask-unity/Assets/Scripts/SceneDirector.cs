@@ -41,7 +41,7 @@ public class SceneDirector : MonoBehaviour
     private void Update()
     {
         //Left Shift plus Letter loads the Adaptive Scene for that letter with NO Color and the instructions at the bench
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.Alpha2))
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -77,7 +77,7 @@ public class SceneDirector : MonoBehaviour
             }
         }
         // Right Shift plus Letter loads the Adaptive Scene for that letter with COLOR and the instructions at the bench
-        if (Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.Alpha3))
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -113,7 +113,7 @@ public class SceneDirector : MonoBehaviour
             }
         }
         // S plus Letter loads the  Scene for that letter with  COLOR and the instructions offset
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.Alpha6))
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -149,7 +149,7 @@ public class SceneDirector : MonoBehaviour
             }
         }
         // K plus Letter loads the  Scene for that letter with NO color and the instructions offset
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.Alpha4))
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
