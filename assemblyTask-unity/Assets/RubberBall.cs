@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RubberBall : MonoBehaviour
 {
+    public int bounces = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,14 @@ public class RubberBall : MonoBehaviour
     {
 
     }
+    private void OnCollisionExit(Collision other)
+    {
+        bounces++;
+    }
     IEnumerator Stop()
     {
-        yield return new WaitForSeconds(80);
+        yield return new WaitForSeconds(84f);
         this.GetComponent<Rigidbody>().isKinematic = true;
+        Debug.Log("Bounces: " + bounces);
     }
 }
