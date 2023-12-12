@@ -104,7 +104,7 @@ public class invisInstructions : MonoBehaviour
     }
     public void nextStep()
     {
-        Debug.Log("Next Step");
+//        Debug.Log("Next Step");
         if (stepByStep)
         {
             instructionBars[currentStep].SetActive(false);
@@ -150,7 +150,7 @@ public class invisInstructions : MonoBehaviour
     void setText()
     {
         tempText = instructionTexts[currentStep];
-        Debug.Log(tempText + currentStep);
+        //Debug.Log(tempText + currentStep);
         if (sceneDirector.trialNumber + currentStep >= 6)
         {
             int tempStep = currentStep + 1;
