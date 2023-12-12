@@ -29,7 +29,7 @@ public class ExperimentLog : MonoBehaviour
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
-            Debug.Log("Destroyed"+SceneManager.GetActiveScene().name);
+            //Debug.Log("Destroyed"+SceneManager.GetActiveScene().name);
         }
         else
         {
@@ -67,7 +67,7 @@ public class ExperimentLog : MonoBehaviour
         }
         using (writerW = File.CreateText(filePathW))
         {
-            Debug.Log("Creating Wide File");
+            //Debug.Log("Creating Wide File");
             writerW.WriteLine("");
             writerW.WriteLine("");
         }
@@ -116,7 +116,7 @@ public class ExperimentLog : MonoBehaviour
     }
     public void AddWideData(int trialNumber, int mistakesMade)
     {
-        Debug.Log("Adding Wide Data");
+//        Debug.Log("Adding Wide Data");
         //Participant_Number;Shape;Condition;Adaptivity;PositionInExp;Trial;TotalTime;MistakesMade";
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
