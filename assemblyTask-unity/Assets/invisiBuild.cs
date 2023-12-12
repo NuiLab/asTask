@@ -72,7 +72,7 @@ public class invisiBuild : MonoBehaviour
 
             else correctPlacement = false;
 
-            Debug.Log("Distance between objects: " + distance);
+            //Debug.Log("Distance between objects: " + distance);
         }
     }
     void OnTriggerExit()
@@ -88,7 +88,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
-                Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
+                //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
                 errortype = "length";
             }
@@ -97,7 +97,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
-                Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
+                //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
                 errortype = "color";
             }
@@ -208,7 +208,7 @@ public class invisiBuild : MonoBehaviour
         if (correctPlacement)
         {
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct", inst.currentStep.ToString());
-            Debug.Log("Correct placement Log");
+            //Debug.Log("Correct placement Log");
         }
         else
         {
