@@ -709,6 +709,11 @@ PrefabInstance:
       propertyPath: isPreview
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8035018686424310709, guid: 5960507d99978d341a3a4e96d4baadd8,
+        type: 3}
+      propertyPath: considerColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5713645150723490045, guid: 5960507d99978d341a3a4e96d4baadd8, type: 3}
@@ -1645,11 +1650,11 @@ MonoBehaviour:
   - {fileID: 957100392}
   - {fileID: 957100391}
   instructionTexts:
-  - 1. Connect a medium bar hole 1 to the base bar hole 3.
-  - 2. Connect a small bar hole 2 to the previous bar hole 4.
-  - 3. Connect a large bar hole 2 to the previous bar hole 3.
-  - 4. Connect a large bar hole 6 to the previous bar hole 5.
-  - "5. Connect a small bar hole 1 to the previous bar hole 7.\_"
+  - 1. Connect a red medium bar hole 1 to the base bar hole 3.
+  - 2. Connect a blue small bar hole 2 to the previous bar hole 4.
+  - 3. Connect a red large bar hole 2 to the previous bar hole 3.
+  - 4. Connect a green large bar hole 6 to the previous bar hole 5.
+  - "5. Connect a yellow small bar hole 1 to the previous bar hole 7.\_"
   previewBars:
   - {fileID: 651004304}
   - {fileID: 651004303}
