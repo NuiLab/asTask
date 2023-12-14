@@ -6,6 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     public AudioClip tutorialAudio;
     public GameObject nextButton;
+    bool tutoStarted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +18,21 @@ public class Tutorial : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-              StartCoroutine(StartTutorial());
+            StartCoroutine(StartTutorial());
         }
     }
 
     IEnumerator StartTutorial()
     {
-        AudioSource.PlayClipAtPoint(tutorialAudio, transform.position);
-        yield return new WaitForSeconds(tutorialAudio.length);
-        nextButton.SetActive(true);
+
+        if (!tutoStarted)
+        {
+            tutoStarted = true;
+            AudioSource.PlayClipAtPoint(tutorialAudio, transform.position);
+            yield return new WaitForSeconds(tutorialAudio.length);
+            nextButton.SetActive(true);
+            
+        }
+
     }
 }
