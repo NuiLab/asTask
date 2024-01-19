@@ -8,35 +8,44 @@ using System.Threading.Tasks;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEditor.Build.Content;
 
 public class ExperimentLog : MonoBehaviour
 {
+    public static ExperimentLog instance;
     public string filePath;
-    GameObject currGlobalRecordsGO;
-    bool sceneChanged = false;
-    List<string> independentCSVData = new List<string>();
+    public string filePathW;
     int participantNumber = 0;
-    //public StringBuilder csvData;
     StreamWriter writer;
+    StreamWriter writerW;
     SceneDirector manager;
-    float time_s = 0;
-    #region Consts to modify
-    private const int FlushAfter = 40;
-    #endregion
+    public float time_s = 0;
+    float tempTime = 0f;
+    int counter = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            //Debug.Log("Destroyed"+SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            instance = this;
+        }
+
         manager = this.gameObject.GetComponent<SceneDirector>();
         var rnd = new System.Random();
         filePath = Application.dataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
 
-        DontDestroyOnLoad(transform.gameObject);
-        //csvData = new StringBuilder();
-        if (SceneManager.GetActiveScene().name != "Menu")
-            SetParticipantNumber(rnd.Next(100, 999));
+        if (instance == this) DontDestroyOnLoad(transform.gameObject);
+
+        /* if (SceneManager.GetActiveScene().name == "Tutorial Video")
+            SetParticipantNumber(0); */
     }
     // Update is called once per frame
     void Update()
@@ -45,28 +54,27 @@ public class ExperimentLog : MonoBehaviour
 
     }
 
-
-    public void SetCurrGlobalRecordsGO(GameObject currObject)
-    {
-        currGlobalRecordsGO = currObject;
-        //sceneChanged = false;
-        foreach (var independentData in independentCSVData)
-        {
-            //csvData.AppendLine(participantNumber + ";" + DateTime.Now.ToString("yyyyMMdd_HHmmss_f") + ";" + time_s + ";" + independentData);
-        }
-        independentCSVData.Clear();
-    }
     public void SetParticipantNumber(int pNum)
     {
+
         participantNumber = pNum;
+        string temp = filePath;
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
+        filePathW = temp + "/WideParticipant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_s;Category;Action;Step");
+            writer.WriteLine("Participant_Number;Shape;Condition;Adaptivity;Trial;Timestamp;Time_in_trial;Category;Action;Errortype;Step;TimeSinceLastEvent");
+        }
+        using (writerW = File.CreateText(filePathW))
+        {
+            //Debug.Log("Creating Wide File");
+            writerW.WriteLine("");
+            writerW.WriteLine("");
         }
 
     }
-    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a")
+
+    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
@@ -76,60 +84,83 @@ public class ExperimentLog : MonoBehaviour
         int seconds = ((int)time_s % 60);
         int minutes = ((int)time_s / 60);
         string timeString = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, miliS);
+        float timeSinceLastEvent = miliS - tempTime;
 
-        /*
-         * status (0=n/a; 1=start; 2=end)
-         */
-        /* if (sceneChanged)
-            independentCSVData.Add(category + "," + action);
-        else */
         string newLine = participantNumber.ToString();
-        newLine += ";" + splitSceneName[0];
-        newLine += ";" + splitSceneName[1];
-        newLine += ";" + splitSceneName[2];
+        if (splitSceneName.Length == 3)
+        {
+            newLine += ";" + splitSceneName[0];
+            newLine += ";" + splitSceneName[1];
+            newLine += ";" + splitSceneName[2];
+        }
+        else
+        {
+            newLine += ";" + sceneName;
+            newLine += ";" + "n/a";
+            newLine += ";" + "n/a";
+        }
         newLine += ";" + manager.trialNumber.ToString();
         newLine += ";" + DateTime.Now.ToString("HH:mm.ss");
-        newLine += ";" + timeString;
+        newLine += ";" + Mathf.Round(miliS).ToString();
         newLine += ";" + category;
         newLine += ";" + action;
+        newLine += ";" + errorType;
         newLine += ";" + step;
-        Debug.Log(filePath);
+        newLine += ";" + Mathf.Round(timeSinceLastEvent).ToString();
+        tempTime = miliS;
         using (writer = File.AppendText(filePath))
         {
             writer.WriteLine(newLine);
         }
-        // csvData.AppendLine(newLine);
-        //csvData.AppendLine(participantNumber + ";" + sceneName + ";" + DateTime.Now.ToString("HHmmss_ff") + ";" + time_s + ";" + category + ";" + action + ";" + step);
-        // if (csvData.Length >= FlushAfter)
-        //{
-        //    FlushData();
-        //}
+
+    }
+    public void AddWideData(int trialNumber, int mistakesMade)
+    {
+//        Debug.Log("Adding Wide Data");
+        //Participant_Number;Shape;Condition;Adaptivity;PositionInExp;Trial;TotalTime;MistakesMade";
+        Scene scene = SceneManager.GetActiveScene();
+        string sceneName = scene.name;
+        string[] splitSceneName = sceneName.Split('_');
+        string newLine = "";
+        float miliSW = time_s * 1000;
+        if (counter == 1)
+        {
+            newLine = participantNumber.ToString() + ";";
+        }
+
+        if (splitSceneName.Length == 3)
+        {
+            newLine += splitSceneName[0];
+            newLine += ";" + splitSceneName[1];
+            newLine += ";" + splitSceneName[2];
+        }
+        else
+        {
+            newLine += sceneName;
+            newLine += ";" + "n/a";
+            newLine += ";" + "n/a";
+        }
+        newLine += ";" + manager.shapeNumber.ToString();
+        newLine += ";" + trialNumber.ToString();
+        newLine += ";" + Mathf.Round(miliSW).ToString();
+        newLine += ";" + mistakesMade.ToString() + ";";
+
+        string[] lines = File.ReadAllLines(filePathW);
+
+        if (counter == 1)
+        {
+            lines[0] += "Participant_Number;Shape" + counter + ";Condition" + counter + ";Adaptivity" + counter + ";PositionInExp" + counter + ";Trial" + counter + ";TotalTime" + counter + ";MistakesMade" + counter + ";";
+            Debug.Log("Added Lines");
+        }
+        else
+        {
+            lines[0] += "Shape" + counter + ";Condition" + counter + ";Adaptivity" + counter + ";PositionInExp" + counter + ";Trial" + counter + ";TotalTime" + counter + ";MistakesMade" + counter + ";";
+            Debug.Log("Added Lines 2");
+        }
+        lines[^1] += newLine;
+        counter++;
+        File.WriteAllLines(filePathW, lines);
+
     }
 
-    /* void FlushData()
-    {
-        using (var csvWriter = new StreamWriter(filePath, true))
-        {
-            csvWriter.Write(csvData.ToString());
-        }
-        csvData.Clear();
-    }
-
-    public void EndCSV()
-    {
-        if (csvData == null)
-        {
-            return;
-        }
-        using (var csvWriter = new StreamWriter(filePath, true))
-        {
-            csvWriter.Write(csvData.ToString());
-        }
-        csvData = null;
-    }
-
-    private void OnDestroy()
-    {
-        EndCSV();
-    } */
 }

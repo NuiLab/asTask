@@ -5,11 +5,13 @@ using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Security;
+using TreeEditor;
 
 public class invisInstructions : MonoBehaviour
 {
-    ExperimentLog manager;
+    ExperimentLog log;
     GameObject managerObj;
+    SceneDirector sceneDirector;
     public GameObject[] instructionBars;
     public string[] instructionTexts;
     public GameObject[] previewBars;
@@ -23,37 +25,52 @@ public class invisInstructions : MonoBehaviour
     public bool isAdaptive;
     public GameObject button;
     string tempText;
+    public bool instructionsAreSeperated = false;
+    public GameObject cross;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (manager == null) managerObj = GameObject.FindWithTag("Manager");
-        manager = managerObj.GetComponent<ExperimentLog>();
+        if (log == null) managerObj = GameObject.FindWithTag("Manager");
+        if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
+        instructionPanel = stepPanel.GetComponent<TMP_Text>();
+        log = managerObj.GetComponent<ExperimentLog>();
+        sceneDirector = managerObj.GetComponent<SceneDirector>();
+        if (instructionsAreSeperated)
+        {
+
+            stepPanel.transform.localPosition = new Vector3(-1.557f, 0.9f, 0.355f);
+            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0); // Add this line
+            instructionPanel.fontSize = 1.5f;
+        }
 
         toggleHands(false);
 
-        if (managerObj.GetComponent<SceneDirector>().trialNumber == 6 || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        if (sceneDirector.trialNumber == 6 || sceneDirector.trialNumber == 8)
         {
             instructionPanel.text = "Please perform Step 1";
         }
         else
         {
             instructionPanel.text = instructionTexts[currentStep];
+
         }
+        stepPanel.SetActive(false);
 
         tempText = instructionTexts[currentStep];
-        if (!stepByStep || managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+        if (!stepByStep || sceneDirector.trialNumber == 8)
         {
             foreach (GameObject bar in instructionBars)
             {
                 bar.SetActive(true);
             }
         }
-        if (managerObj.GetComponent<SceneDirector>().trialNumber == 8)
+
+        if (sceneDirector.trialNumber == 8)
         {
             DisableMeshRenderersRecursive(builtShape.transform); // hides shape to be built in transfer trial
         }
 
-        //dataLog("Experiment", "started");
         StartCoroutine(wait(1));
     }
 
@@ -62,6 +79,7 @@ public class invisInstructions : MonoBehaviour
     {
 
     }
+
     void DisableMeshRenderersRecursive(Transform parent)
     {
         foreach (Transform child in parent)
@@ -76,14 +94,18 @@ public class invisInstructions : MonoBehaviour
             DisableMeshRenderersRecursive(child);
         }
     }
+
     public void dataLog(string category, string action)
     {
-        manager.AddData(category, action, currentStep.ToString());
+        log.AddData(category, action, currentStep.ToString());
     }
-
+    public void WideDataLog()
+    {
+        log.AddWideData(sceneDirector.trialNumber, mistakes);
+    }
     public void nextStep()
     {
-        Debug.Log("Next Step");
+//        Debug.Log("Next Step");
         if (stepByStep)
         {
             instructionBars[currentStep].SetActive(false);
@@ -101,6 +123,7 @@ public class invisInstructions : MonoBehaviour
             {
                 instructionPanel.text = "You have completed the instructions!";
                 dataLog("Trial", "complete");
+                WideDataLog();
                 toggleHands(false);
                 button.SetActive(true);
             }
@@ -109,7 +132,7 @@ public class invisInstructions : MonoBehaviour
     public void showBuiltShape()
     {
         builtShape.SetActive(true);
-        // muss hier noch alles andere ausschalten um sicherzustellen dass quasi pausiert ist
+        
     }
     public void toggleHands(bool temp)
     {
@@ -118,16 +141,22 @@ public class invisInstructions : MonoBehaviour
             hand.GetComponent<XRDirectInteractor>().enabled = temp;
 
         }
+
+        GameObject cross = GameObject.FindWithTag("cross");
+        if (cross != null)
+        {
+            Destroy(cross);
+        }
     }
     void setText()
     {
         tempText = instructionTexts[currentStep];
-        Debug.Log(tempText + currentStep);
-        if (manager.GetComponent<SceneDirector>().trialNumber + currentStep >= 6)
+        //Debug.Log(tempText + currentStep);
+        if (sceneDirector.trialNumber + currentStep >= 6)
         {
             int tempStep = currentStep + 1;
             instructionPanel.text = "Please perform Step " + tempStep;
-            // this is the part where the scaffold is removed, it still needs to be made adaptive
+            
         }
         else
             SetCurrentStepText();
@@ -144,6 +173,7 @@ public class invisInstructions : MonoBehaviour
     IEnumerator wait(float time)
     {
         yield return new WaitForSeconds(time);
-        dataLog("Experiment", "started");
+        sceneDirector.resetTime();
+        dataLog("Trial", "loaded");
     }
 }

@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 4823749419374349465}
   - component: {fileID: 6537755166141081892}
   - component: {fileID: 3160566869218655732}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: VR Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4097655139063476019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4097655139063476019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0d728ddcc9974d14bf046cf8b83c9de, type: 3}
   m_Name: 
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4097655139063476019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5667965f56b444d41a9dc89ec8374f01, type: 3}
   m_Name: 
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4097655139063476019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc4f2c0214c9b494fa7eb5b8b2c02885, type: 3}
   m_Name: 
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_SelectUsage: 3
   m_ActivateUsage: 2
   m_UIPressUsage: 6
-  m_AxisToPressThreshold: 0.1
+  m_AxisToPressThreshold: 0.2
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
   m_AnimateModel: 0
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_SelectUsage: 3
   m_ActivateUsage: 2
   m_UIPressUsage: 6
-  m_AxisToPressThreshold: 0.1
+  m_AxisToPressThreshold: 0.2
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
   m_AnimateModel: 0

@@ -6,69 +6,125 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/EndScene.unity
-    guid: 638e64429b05e4eb6b8abed061dfe895
+    path: Assets/Scenes/NewScenes/Tutorial Video.unity
+    guid: a6c8d19284858474597b8d5401e43f15
   - enabled: 1
-    path: Assets/Scenes/ExperimentVersion.unity
-    guid: d0781c0e076464c5ca6fed7a708a11ef
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: e1342472f87af47f79043cbbe255e329
-  - enabled: 1
-    path: Assets/Scenes/ParticipantIDScene.unity
+    path: Assets/Scenes/NewScenes/ParticipantIDScene.unity
     guid: ca87b3bfc79f5453799e7e59b1252eff
-  - enabled: 1
-    path: Assets/Scenes/TestArea.unity
-    guid: 2dabf4999fb1e4d7e91cabb84bf3b254
   - enabled: 1
     path: Assets/Scenes/NewScenes/WaitingRoom.unity
     guid: e3a2d8d36bea5c143bf7a1bf5836e260
   - enabled: 1
-    path: Assets/Scenes/Shapes/Tutorial/Tutorial.unity
-    guid: a8e6b31f897f14f158f2764520ec1cb5
-  - enabled: 1
-    path: Assets/Scenes/Shapes/Tutorial/Tutorial (Build).unity
-    guid: 7046d960e5c861b4c94a8fae5048241e
-  - enabled: 1
-    path: Assets/Scenes/Tutorial Video.unity
-    guid: a6c8d19284858474597b8d5401e43f15
-  - enabled: 1
-    path: Assets/Scenes/Shapes/Tutorial/Video Recording Scene.unity
-    guid: 56ba4125c309eea4f8a7c7e2d3c398fc
-  - enabled: 1
     path: Assets/Scenes/NewScenes/WaitingRoomTrial.unity
     guid: 91e524d45bb9ef047a9cbcf1bc2b5324
   - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetA/WA_A2_AT.unity
-    guid: 23e0d61ab9ca55c4a8768503fe105899
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetB/WB_A2_AT.unity
-    guid: fe1d8f4baf179224fa0e34503f4a51e8
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetC/WC_A2_AT.unity
-    guid: 689c732f0a435a046b64f8c0f5b38e32
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetD/WD_A2_AT.unity
-    guid: 18ab63e55382ee34985941754db6ac47
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetE/WE_A2_AT.unity
-    guid: 2a72349a525186d4381fda86d43e3442
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetF/WF_A2_AT.unity
-    guid: a4a36fa0242967c48a01aef509c192fb
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetG/WG_A2_AT.unity
-    guid: d7d41f93a4aaec44faf69d4f49a6d56b
-  - enabled: 1
-    path: Assets/Scenes/NewScenes/WidgetH/WH_A2_AT.unity
-    guid: ab2b3adaf19d3b0489733903beca5901
-  - enabled: 1
     path: Assets/Scenes/NewScenes/Practice.unity
     guid: 306685ea4eda4234e923ad7cba68bd5f
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeA/A_A2_AT.unity
+    guid: 73e8119d200e56f41a41b6ed63e85437
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeA/A_A3_AT.unity
+    guid: e39670aa60e215e499d45578d3a43245
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeA/A_S2_AT.unity
+    guid: 8cb43e4a8f163cf44b49491ce4eba9cc
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeA/A_S3_AT.unity
+    guid: 647bac571e17450438177382de57af42
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeB/B_A2_AT.unity
+    guid: f81778e59afeac84da4ac08c3c4d1f56
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeB/B_A3_AT.unity
+    guid: f83dda1c7a49d964c9304d588d5a532d
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeB/B_S2_AT.unity
+    guid: 21b8ac285e09bc74db0d81f5c9ecc44f
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeB/B_S3_AT.unity
+    guid: d9405a3cd4862de438be1d81ce6c25eb
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeC/C_A2_AT.unity
+    guid: 4aee1f713cfbb7f4cbc2833bfe59e0a6
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeC/C_A3_AT.unity
+    guid: 179021720cd4f744bb86f2cf0f6fa456
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeC/C_S2_AT.unity
+    guid: a81ec53ae9305ea4d84ed30cc50f8119
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeC/C_S3_AT.unity
+    guid: 4dcf64fb996ed43409cb86c97b9c611e
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeD/D_A2_AT.unity
+    guid: 5d16bfa436ee36e4186a981f0c2cfbd3
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeD/D_A3_AT.unity
+    guid: f95f82da45a455e4a853cda138b5f759
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeD/D_S2_AT.unity
+    guid: e719328bef8cc714082d67ce76959f14
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeD/D_S3_AT.unity
+    guid: 2cd31811c5387f9499d85dfaf4184a47
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeE/E_A2_AT.unity
+    guid: e55c487c4815d874eac7e9295d0e4272
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeE/E_A3_AT.unity
+    guid: f8a84fd03a6a785478ed9c8f5b235bae
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeE/E_S2_AT.unity
+    guid: d9ae32968e17d5a46a990df3e7662689
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeE/E_S3_AT.unity
+    guid: 4a4392f1a69b93c4f8fd9259ee16cbc9
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeF/F_A2_AT.unity
+    guid: eab712be63b4f404699b1ab4cd058411
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeF/F_A3_AT.unity
+    guid: c5aae997a64b011419078cd43860af40
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeF/F_S2_AT.unity
+    guid: a60f24b226a2e6946b4ec74afeb0e223
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeF/F_S3_AT.unity
+    guid: 4450ce641af7ba34680eb6c4b02b3853
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeG/G_A2_AT.unity
+    guid: 7b7023b2cf2344d4c894c3d0095851ae
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeG/G_A3_AT.unity
+    guid: 28c712797b5a29b459bd2e28bd0ed1fe
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeG/G_S2_AT.unity
+    guid: 4a7d9a7fb9741d84f919c0754d0f7fa9
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeG/G_S3_AT.unity
+    guid: 3ade6b2ce7356f24e9b48ec7cfbc4782
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeH/H_A2_AT.unity
+    guid: 8a2821ba0f8dc4d4a80ef373fd77703f
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeH/H_A3_AT.unity
+    guid: 6708a0d86f630cd449b916111d1fb22b
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeH/H_S2_AT.unity
+    guid: 6474c2455d0f1cd4a939cbe92fc832fc
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/ShapeH/H_S3_AT.unity
+    guid: c15619a8f27a2254d81bee04d8a51de4
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/PracticeColor.unity
+    guid: ab1a67f3079c1e145ba35cb7463c0a69
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2bcd0c57514674568b0789b42421d5ae,
       type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 688c29266099f4cc5830dace97a01a4f,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4b9bf8f93b9494acfb1303bc97486ea9,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 776ca5861cec5ea46b068c6f092a8308,
       type: 2}

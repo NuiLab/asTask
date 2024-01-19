@@ -23,6 +23,7 @@ public class invisiBuild : MonoBehaviour
     public GameObject instructions;
     bool crossSpawned = false;
     public GameObject cross;
+    bool isAligned = false;
     public GameObject check;
     GameObject tempCross;
     GameObject tempCheck;
@@ -36,6 +37,8 @@ public class invisiBuild : MonoBehaviour
     Quaternion originalRotation;
     invisInstructions inst;
     SceneDirector sceneDirector;
+    string errortype = "placement";
+
 
 
     // Start is called before the first frame update
@@ -45,17 +48,23 @@ public class invisiBuild : MonoBehaviour
         manager = GameObject.FindWithTag("Manager");
         inst = instructions.GetComponent<invisInstructions>();
         sceneDirector = manager.GetComponent<SceneDirector>();
+
+
     }
 
     // Update is called once per frame
     void OnTriggerStay(Collider other)
     {
-
+        if (other.CompareTag("alignment"))
+        {
+            isAligned = true;
+        }
+        //Debug.Log("Triggered");
         if (other.CompareTag("instruction"))
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             lastTouchedBar = other.gameObject;
-            if (distance <= 0.06f && CheckProperties(other))
+            if (distance <= 0.05f && CheckProperties(other))
             {
                 //Debug.Log("Correct Placement");
                 correctPlacement = true;
@@ -69,6 +78,7 @@ public class invisiBuild : MonoBehaviour
     void OnTriggerExit()
     {
         correctPlacement = false;
+        isAligned = false;
 
     }
     bool CheckProperties(Collider other)
@@ -78,14 +88,18 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
+                //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
+                errortype = "length";
             }
         }
-        if (other.GetComponent<propCheck>().color != "")
+        if (other.GetComponent<propCheck>().color != null)
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
+                //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
+                errortype = "color";
             }
         }
         //Debug.Log(correct);
@@ -117,7 +131,7 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Right Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (rightTrigger && correctPlacement)
+                            if (rightTrigger && correctPlacement && isAligned)
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
@@ -147,7 +161,7 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Left Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (leftTrigger && correctPlacement)
+                            if (leftTrigger && correctPlacement && isAligned)
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
@@ -182,7 +196,7 @@ public class invisiBuild : MonoBehaviour
         // newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
-        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
         this.transform.rotation = originalRotation;
@@ -193,15 +207,15 @@ public class invisiBuild : MonoBehaviour
     {
         if (correctPlacement)
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement");
-            Debug.Log("Correct placement Log");
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct", inst.currentStep.ToString());
+            //Debug.Log("Correct placement Log");
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Inorrect placement");
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(),errortype);
             inst.mistakes++;
         }
-        
+
         GameObject newBar = Instantiate(this.gameObject, this.transform.position, this.transform.rotation); //this is the bar that is being built
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
@@ -228,16 +242,17 @@ public class invisiBuild : MonoBehaviour
         inst.builtShape.SetActive(true);
         inst.stepPanel.SetActive(false);
         //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
-        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Incorrect placement", inst.currentStep.ToString());
+        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
         if (!crossSpawned)
         {
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
             crossSpawned = true;
         }
+        errortype = "placement";
         yield return new WaitForSeconds(2f);
         //shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
-        Destroy(tempCross);
+        inst.cross = tempCross;
         crossSpawned = false;
         StartCoroutine("resetCanBeBuilt");
 
