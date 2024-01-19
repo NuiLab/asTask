@@ -10,6 +10,7 @@ using UnityEngine.TextCore.Text;
 
 public class invisInstructions : MonoBehaviour
 {
+    // This script is pretty much the bread and butter of the entire project. It handles the entire instruction part. It is used in every trial, and is used to display the instructions to the user. It also handles the step by step instructions, and the adaptive instructions. It also handles the data logging for the instructions.
     ExperimentLog log;
     GameObject managerObj;
     SceneDirector sceneDirector;
@@ -84,7 +85,7 @@ public class invisInstructions : MonoBehaviour
     {
 
     }
-
+    // This is used to disable all bars in the preview. 
     void DisableMeshRenderersRecursive(Transform parent)
     {
         foreach (Transform child in parent)
@@ -100,6 +101,7 @@ public class invisInstructions : MonoBehaviour
         }
     }
 
+// these functions create data log entries
     public void dataLog(string category, string action)
     {
         log.AddData(category, action, currentStep.ToString());
@@ -108,6 +110,8 @@ public class invisInstructions : MonoBehaviour
     {
         log.AddWideData(sceneDirector.trialNumber, mistakes);
     }
+
+    // This calls the next step in the instructions. It also handles the data logging for the instructions.
     public void nextStep()
     {
 //        Debug.Log("Next Step");
@@ -139,6 +143,7 @@ public class invisInstructions : MonoBehaviour
         builtShape.SetActive(true);
         
     }
+    //used to turn the hands off when a mistake was made or the trial is started
     public void toggleHands(bool temp)
     {
         foreach (GameObject hand in hands)

@@ -18,6 +18,8 @@ public class NoColor : MonoBehaviour
     {
 
     }
+
+    //This is used to control if the bars should be built colorful or not
     void changeAllMaterials(Transform parent)
     {
         if (!isColored)

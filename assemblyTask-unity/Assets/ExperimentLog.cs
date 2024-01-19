@@ -26,6 +26,7 @@ public class ExperimentLog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Ensure that only one instance of ExperimentLog exists.
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -42,6 +43,7 @@ public class ExperimentLog : MonoBehaviour
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
 
+        // Make this GameObject persistent across scene loads.
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
 
         /* if (SceneManager.GetActiveScene().name == "Tutorial Video")
@@ -53,7 +55,7 @@ public class ExperimentLog : MonoBehaviour
         time_s += Time.deltaTime;
 
     }
-
+    // This method sets the participant number and initializes the log files.
     public void SetParticipantNumber(int pNum)
     {
 
@@ -73,7 +75,7 @@ public class ExperimentLog : MonoBehaviour
         }
 
     }
-
+    // This method adds a new line to the log file.
     public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -114,9 +116,10 @@ public class ExperimentLog : MonoBehaviour
         }
 
     }
+    // This method adds a new line to the wide log file. Francisco wanted this as a sort of summary of the experiment data.
     public void AddWideData(int trialNumber, int mistakesMade)
     {
-//        Debug.Log("Adding Wide Data");
+        //        Debug.Log("Adding Wide Data");
         //Participant_Number;Shape;Condition;Adaptivity;PositionInExp;Trial;TotalTime;MistakesMade";
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;

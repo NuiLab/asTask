@@ -6,7 +6,7 @@ using System.IO;
 public class DataOutput : MonoBehaviour
 {
 
-
+    // This entire script is leftover from ethan, and is not used in the current version of the experiment. If you disable it, it might break things though so just leave it enabled
     private string FileName = "FutureofWorkData.csv";
     private string FilePath;
 
