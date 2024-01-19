@@ -41,8 +41,8 @@ public class invisInstructions : MonoBehaviour
 
             stepPanel.transform.localPosition = new Vector3(-1.557f, 0.9f, 0.355f);
             stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0); // Add this line
-            instructionPanel.minSize = 0.75f;
-            instructionPanel.maxSize = 0.75f;
+            instructionPanel.fontSizeMin = 0.75f;
+            instructionPanel.fontSizeMax = 0.75f;
         }
 
         toggleHands(false);
