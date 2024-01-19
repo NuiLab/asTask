@@ -44,6 +44,11 @@ public class ShapePreview : MonoBehaviour
         // if (!isPreview)
         //    DisableAllTextMeshPro(this.transform);
     }
+    void OnEnable()
+    {
+        if (isPreview)
+            StartCoroutine(disappear());
+    }
 
     // Update is called once per frame
     void Update()
@@ -91,5 +96,10 @@ public class ShapePreview : MonoBehaviour
             // Recursively set color to null for children's children
             SetPropCheckColorToNull(child);
         }
+    }
+    IEnumerator disappear()
+    {
+        yield return new WaitForSeconds(10f);
+        this.gameObject.SetActive(false);
     }
 }

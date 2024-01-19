@@ -12,7 +12,9 @@ public class Shapes : MonoBehaviour
         GameObject instructions = GameObject.FindWithTag("SceneInstructions");
         inst = instructions.GetComponent<invisInstructions>();
     }
-
+    private void Awake() {
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -25,4 +27,5 @@ public class Shapes : MonoBehaviour
             previewBar.SetActive(false);
         }
     }
+    
 }
