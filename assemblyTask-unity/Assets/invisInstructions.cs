@@ -6,6 +6,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Security;
 using TreeEditor;
+using UnityEngine.TextCore.Text;
 
 public class invisInstructions : MonoBehaviour
 {
@@ -27,20 +28,23 @@ public class invisInstructions : MonoBehaviour
     string tempText;
     public bool instructionsAreSeperated = false;
     public GameObject cross;
+    TMP_FontAsset badFont;
 
     // Start is called before the first frame update
     void Start()
     {
+        badFont = Resources.Load<TMP_FontAsset>("BadLibSans");
         if (log == null) managerObj = GameObject.FindWithTag("Manager");
         if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
         log = managerObj.GetComponent<ExperimentLog>();
         sceneDirector = managerObj.GetComponent<SceneDirector>();
-        if (instructionsAreSeperated)
+        if (instructionsAreSeperated) // This causes the instructions to be set to high extraneous load. In this case it decreases font size and changes the location to be offset. Also changes font to different asset with poor contrast. This is done to make the instructions harder to read.
         {
 
             stepPanel.transform.localPosition = new Vector3(-1.557f, 0.9f, 0.355f);
-            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0); // Add this line
+            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0); 
+            instructionPanel.font = badFont;
             instructionPanel.fontSizeMin = 0.75f;
             instructionPanel.fontSizeMax = 0.75f;
         }
