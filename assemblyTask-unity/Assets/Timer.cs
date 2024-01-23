@@ -5,8 +5,15 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public enum Options
+    {
+        WaitingRoom,
+        Shape
+    }
+    [SerializeField]
+    public Options dropdown;
     public TextMeshPro progress;
-    public float waitingTime = 10f;
+    public float waitingTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +29,25 @@ public class Timer : MonoBehaviour
     {
         while (waitingTime >= 0)
         {
-            progress.text = waitingTime.ToString() + " s";
+
             yield return new WaitForSeconds(1f);
             waitingTime--;
+            if (dropdown == Options.WaitingRoom)
+            {
+                progress.text = "Please wait for " + waitingTime.ToString() + " seconds";
+            }
+            else if (dropdown == Options.Shape)
+            {
+                progress.text = waitingTime.ToString() + " s";
+            }
         }
-        progress.enabled = false;
+        if (dropdown == Options.WaitingRoom)
+        {
+            progress.text = "Please talk to the experimenter.";
+        }
+        else if (dropdown == Options.Shape)
+        {
+            progress.enabled = false;
+        }
     }
 }
