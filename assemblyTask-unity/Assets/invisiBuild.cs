@@ -10,6 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using System.Runtime.Remoting.Activation;
 using System.Security;
 using System.Security.Policy;
+using System.Linq;
 
 public class invisiBuild : MonoBehaviour
 {
@@ -200,6 +201,7 @@ public class invisiBuild : MonoBehaviour
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
         this.transform.rotation = originalRotation;
+        instructions.GetComponent<invisInstructions>().builtBars.Append(this.gameObject);
         StartCoroutine("resetCanBeBuilt");
         //this.gameObject.SetActive(false);
     }

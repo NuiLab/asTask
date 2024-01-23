@@ -31,6 +31,8 @@ public class invisInstructions : MonoBehaviour
     public GameObject cross;
     TMP_FontAsset badFont;
 
+    public GameObject[] builtBars;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class invisInstructions : MonoBehaviour
         {
 
             stepPanel.transform.localPosition = new Vector3(-1.557f, 0.9f, 0.355f);
-            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0); 
+            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0);
             instructionPanel.font = badFont;
             instructionPanel.fontSizeMin = 0.75f;
             instructionPanel.fontSizeMax = 0.75f;
@@ -101,7 +103,7 @@ public class invisInstructions : MonoBehaviour
         }
     }
 
-// these functions create data log entries
+    // these functions create data log entries
     public void dataLog(string category, string action)
     {
         log.AddData(category, action, currentStep.ToString());
@@ -114,7 +116,7 @@ public class invisInstructions : MonoBehaviour
     // This calls the next step in the instructions. It also handles the data logging for the instructions.
     public void nextStep()
     {
-//        Debug.Log("Next Step");
+        //        Debug.Log("Next Step");
         if (stepByStep)
         {
             instructionBars[currentStep].SetActive(false);
@@ -135,13 +137,14 @@ public class invisInstructions : MonoBehaviour
                 WideDataLog();
                 toggleHands(false);
                 button.SetActive(true);
+                StartCoroutine(disableShape());
             }
         }
     }
     public void showBuiltShape()
     {
         builtShape.SetActive(true);
-        
+
     }
     //used to turn the hands off when a mistake was made or the trial is started
     public void toggleHands(bool temp)
@@ -166,7 +169,7 @@ public class invisInstructions : MonoBehaviour
         {
             int tempStep = currentStep + 1;
             instructionPanel.text = "Please perform Step " + tempStep;
-            
+
         }
         else
             SetCurrentStepText();
@@ -185,5 +188,13 @@ public class invisInstructions : MonoBehaviour
         yield return new WaitForSeconds(time);
         sceneDirector.resetTime();
         dataLog("Trial", "loaded");
+    }
+    IEnumerator disableShape()
+    {
+        yield return new WaitForSeconds(5f);
+        foreach (GameObject bar in builtBars)
+        {
+            bar.SetActive(false);
+        }
     }
 }
