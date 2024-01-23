@@ -81,7 +81,7 @@ public class invisInstructions : MonoBehaviour
 
         StartCoroutine(wait(1));
     }
-
+    
     // Update is called once per frame
     void Update()
     {
