@@ -39,6 +39,7 @@ public class invisiBuild : MonoBehaviour
     invisInstructions inst;
     SceneDirector sceneDirector;
     string errortype = "placement";
+    bool IsCloseToWorkbench = false;
 
 
 
@@ -80,6 +81,14 @@ public class invisiBuild : MonoBehaviour
     {
         correctPlacement = false;
         isAligned = false;
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WorkbenchTest"))
+        {
+            IsCloseToWorkbench = true;
+        }
 
     }
     bool CheckProperties(Collider other)
@@ -214,7 +223,7 @@ public class invisiBuild : MonoBehaviour
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(),errortype);
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
             inst.mistakes++;
         }
 
@@ -250,7 +259,8 @@ public class invisiBuild : MonoBehaviour
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
             crossSpawned = true;
         }
-        errortype = "placement";
+        if (IsCloseToWorkbench) errortype = "placement";
+        else errortype = "distance";
         yield return new WaitForSeconds(2f);
         //shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
