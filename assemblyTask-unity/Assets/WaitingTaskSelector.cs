@@ -31,7 +31,7 @@ public class WaitingTaskSelector : MonoBehaviour
         }
         else
         {
-            instructionText.text = "Please take apart this shape before you and lay the pieces out on the table.";
+            instructionText.text = "Please take apart this shape before you. Put them on the black plate to the side.";
         }
         foreach (GameObject obj in normalObjects) // This is used to toggle the objects that are used in the normal task.
         {
@@ -63,5 +63,9 @@ public class WaitingTaskSelector : MonoBehaviour
             yield return new WaitForSeconds(1f);
             waitingTime--;
         }
+    }
+    public void LoadNextScene()
+    {
+        managerObject.GetComponent<SceneDirector>().LoadTempScene();
     }
 }

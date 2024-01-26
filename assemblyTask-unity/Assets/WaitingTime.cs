@@ -41,4 +41,8 @@ public class WaitingTime : MonoBehaviour
             waitingTime--;
         }
     }
+    public void LoadNextScene()
+    {
+        managerObject.GetComponent<SceneDirector>().LoadTempScene();
+    }
 }
