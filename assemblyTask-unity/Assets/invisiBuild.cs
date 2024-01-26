@@ -40,7 +40,8 @@ public class invisiBuild : MonoBehaviour
     SceneDirector sceneDirector;
     string errortype = "placement";
     bool IsCloseToWorkbench = false;
-
+    string expectedValue;
+    string actualValue;
 
 
     // Start is called before the first frame update
@@ -100,6 +101,8 @@ public class invisiBuild : MonoBehaviour
             {
                 //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
+                expectedValue = other.GetComponent<propCheck>().barlength.ToString();
+                actualValue = this.gameObject.GetComponent<propCheck>().barlength.ToString();
                 errortype = "length";
             }
         }
@@ -109,6 +112,8 @@ public class invisiBuild : MonoBehaviour
             {
                 //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
+                expectedValue = other.GetComponent<propCheck>().color.ToString();
+                actualValue = this.gameObject.GetComponent<propCheck>().color.ToString();
                 errortype = "color";
             }
         }
@@ -223,7 +228,7 @@ public class invisiBuild : MonoBehaviour
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
+            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype, expectedValue, actualValue);
             inst.mistakes++;
         }
 
