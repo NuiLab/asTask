@@ -3406,6 +3406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRQuestionnaireToolkit
       objectReference: {fileID: 0}
+    - target: {fileID: 8697000387260259617, guid: 93494b0f3d397d74ba1458871f004384,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8697000387260259618, guid: 93494b0f3d397d74ba1458871f004384,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
