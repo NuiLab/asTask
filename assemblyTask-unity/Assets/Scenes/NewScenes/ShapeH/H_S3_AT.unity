@@ -484,6 +484,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4285429961050902583, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 29bccb021597e414b8d4000b3a67e27b, type: 3}
 --- !u!1001 &176368909
 PrefabInstance:
@@ -1766,8 +1770,9 @@ MonoBehaviour:
   - {fileID: 581672429}
   isAdaptive: 1
   button: {fileID: 547383365}
-  instructionsAreSeperated: 0
+  instructionsAreSeperated: 1
   cross: {fileID: 0}
+  builtBars: []
 --- !u!1 &3954116125970588551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7065610097435842662, guid: 29bccb021597e414b8d4000b3a67e27b,
