@@ -464,6 +464,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4285429961050902583, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 29bccb021597e414b8d4000b3a67e27b, type: 3}
 --- !u!1 &58756182 stripped
 GameObject:
@@ -1581,11 +1585,26 @@ MonoBehaviour:
   - {fileID: 1903263221}
   - {fileID: 1903263220}
   instructionTexts:
-  - 1. Connect a medium bar hole 1 to the base bar hole 2.
-  - 2. Connect a medium bar hole 4 to the previous bar hole 4.
-  - 3. Connect a small bar hole 2 to the previous bar hole 5.
-  - "4. Connect a large bar hole 1 to the previous bar hole 3.\_"
-  - "5. Connect a small bar hole 2 to the previous bar hole 4.\_"
+  - 1. You will need to find a bar that is medium in size, and then count to the
+    first hole along the bar. The next step is to align the first hole of the bar
+    with the second hole of the base bar, and then join the two bars together in
+    that spot.
+  - 2. You will need to find a bar that is medium in size, and then count to the
+    fourth hole along the bar. The next step is to align the fourth hole of the bar
+    with the fourth hole of the previous bar, and then join the two bars together
+    in that spot.
+  - 3. You will need to find a bar that is small in size, and then count to the second
+    hole along the bar. The next step is to align the second hole of the bar with
+    the fifth hole of the previous bar, and then join the two bars together in that
+    spot.
+  - 4. You will need to find a bar that is large in size, and then count to the first
+    hole along the bar. The next step is to align the first hole of the bar with
+    the third hole of the previous bar, and then join the two bars together in that
+    spot.
+  - 5. You will need to find a bar that is small in size, and then count to the second
+    hole along the bar. The next step is to align the second hole of the bar with
+    the fourth hole of the previous bar, and then join the two bars together in that
+    spot.
   previewBars:
   - {fileID: 361743212}
   - {fileID: 361743211}
@@ -1604,6 +1623,7 @@ MonoBehaviour:
   button: {fileID: 547383365}
   instructionsAreSeperated: 1
   cross: {fileID: 0}
+  builtBars: []
 --- !u!1 &3954116125970588551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7065610097435842662, guid: 29bccb021597e414b8d4000b3a67e27b,

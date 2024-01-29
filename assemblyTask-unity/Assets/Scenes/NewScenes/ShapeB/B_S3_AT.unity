@@ -499,6 +499,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4285429961050902583, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 29bccb021597e414b8d4000b3a67e27b, type: 3}
 --- !u!1 &58756182 stripped
 GameObject:
@@ -1346,11 +1350,26 @@ MonoBehaviour:
   - {fileID: 4611108768449559927}
   - {fileID: 4611108768449559926}
   instructionTexts:
-  - "1. Connect a red small bar hole 1 to the base bar hole 7.\u200B"
-  - "2. Connect a red medium bar hole 4 to the previous bar hole 3.\u200B"
-  - 3. Connect a green small bar hole 1 to the previous bar hole 2.
-  - 4. Connect a green medium bar hole 2 to the previous bar hole 3.
-  - 5. Connect a blue large bar hole 2 to the previous bar hole 3.
+  - 1. You will need to find a bar that is small in size and red in color, and then
+    count to the first hole along the bar. The next step is to align the first hole
+    of the bar with the seventh hole of the base bar, and then join the two bars
+    together in that spot.
+  - 2. You will need to find a bar that is medium in size and red in color, and then
+    count to the fourth hole along the bar. The next step is to align the fourth
+    hole of the bar with the third hole of the previous bar, and then join the two
+    bars together in that spot.
+  - 3. You will need to find a bar that is small in size and green in color, and
+    then count to the first hole along the bar. The next step is to align the first
+    hole of the bar with the second hole of the previous bar, and then join the two
+    bars together in that spot.
+  - 4. You will need to find a bar that is medium in size and green in color, and
+    then count to the fourth hole along the bar. The next step is to align the fourth
+    hole of the bar with the third hole of the previous bar, and then join the two
+    bars together in that spot.
+  - 5. You will need to find a bar that is large in size and blue in color, and then
+    count to the second hole along the bar. The next step is to align the second
+    hole of the bar with the third hole of the previous bar, and then join the two
+    bars together in that spot.
   previewBars:
   - {fileID: 700916162}
   - {fileID: 700916161}
@@ -1369,6 +1388,7 @@ MonoBehaviour:
   button: {fileID: 547383365}
   instructionsAreSeperated: 1
   cross: {fileID: 0}
+  builtBars: []
 --- !u!1 &3954116125970588551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7065610097435842662, guid: 29bccb021597e414b8d4000b3a67e27b,
