@@ -146,6 +146,11 @@ PrefabInstance:
       propertyPath: isColored
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3667100785547616113, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3995838715408104240, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_Name
@@ -1086,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 6591949187556196661, guid: 9b861ef3652b0b949a5ec5df7aa8cc69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.162
+      value: -0.043
       objectReference: {fileID: 0}
     - target: {fileID: 6591949187556196661, guid: 9b861ef3652b0b949a5ec5df7aa8cc69,
         type: 3}
