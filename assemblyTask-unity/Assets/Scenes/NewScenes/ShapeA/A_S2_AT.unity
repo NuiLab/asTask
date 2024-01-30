@@ -2053,26 +2053,25 @@ MonoBehaviour:
   - {fileID: 714402724}
   - {fileID: 714402723}
   instructionTexts:
-  - "1.\tYou will need to find a bar that is medium in size, and then count to the
+  - 1. You will need to find a bar that is medium in size, and then count to the
     third hole along the bar. The next step is to align the third hole of the bar
     with the third hole of the base bar, and then join the two bars together in that
-    spot."
-  - "2.\tYou will need to find a bar that is small in size, and then count to the
-    first hole along the bar. The next step is to align the first hole of the bar
-    with the fourth hole of the previous bar, and then join the two bars together
-    in that spot."
-  - "3.\tYou will need to find a bar that is large in size, and then count to the
-    second hole along the bar. The next step is to align the second hole of the bar
-    with the fourth hole of the previous bar, and then join the two bars together
-    in that spot."
-  - "4.\tYou will need to find a bar that is large in size, and then count to the
-    fourth hole along the bar. The next step is to align the fourth hole of the bar
-    with the seventh hole of the previous bar, and then join the two bars together
-    in that spot."
-  - "5.\tYou will need to find a bar that is small in size, and then count to the
-    second hole along the bar. The next step is to align the second hole of the bar
-    with the sixth hole of the base bar, and then join the two bars together in that
-    spot."
+    spot.
+  - 2. You will need to find a bar that is small in size, and then count to the first
+    hole along the bar. The next step is to align the first hole of the bar with
+    the fourth hole of the previous bar, and then join the two bars together in that
+    spot.
+  - 3. You will need to find a bar that is large in size, and then count to the second
+    hole along the bar. The next step is to align the second hole of the bar with
+    the third hole of the previous bar, and then join the two bars together in that
+    spot.
+  - 4. You will need to find a bar that is large in size, and then count to the fourth
+    hole along the bar. The next step is to align the fourth hole of the bar with
+    the seventh hole of the previous bar, and then join the two bars together in
+    that spot.
+  - 5. You will need to find a bar that is small in size, and then count to the second
+    hole along the bar. The next step is to align the second hole of the bar with
+    the sixth hole of the base bar, and then join the two bars together in that spot.
   previewBars:
   - {fileID: 917788779}
   - {fileID: 917788778}
