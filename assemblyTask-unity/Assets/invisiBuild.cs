@@ -205,19 +205,18 @@ public class invisiBuild : MonoBehaviour
     }
     void build()
     {
+        // when a bar is placed, it goes back to the original position and a new bar is created instead that cannot be picked up again.
 
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        // newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
         manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
         instructions.GetComponent<invisInstructions>().nextStep();
         this.transform.position = startPos;
         this.transform.rotation = originalRotation;
-        instructions.GetComponent<invisInstructions>().builtBars.Append(this.gameObject);
+        instructions.GetComponent<invisInstructions>().builtBars.Append(newBar.gameObject);
         StartCoroutine("resetCanBeBuilt");
-        //this.gameObject.SetActive(false);
     }
     IEnumerator buildTransfer()
     {
@@ -257,6 +256,8 @@ public class invisiBuild : MonoBehaviour
         inst.SetTempText();
         inst.builtShape.SetActive(true);
         inst.stepPanel.SetActive(false);
+        if (IsCloseToWorkbench) errortype = "placement";
+        else errortype = "distance";
         //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
         manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
         if (!crossSpawned)
@@ -264,8 +265,6 @@ public class invisiBuild : MonoBehaviour
             tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
             crossSpawned = true;
         }
-        if (IsCloseToWorkbench) errortype = "placement";
-        else errortype = "distance";
         yield return new WaitForSeconds(2f);
         //shouldNotify = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;

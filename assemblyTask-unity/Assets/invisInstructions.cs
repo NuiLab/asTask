@@ -36,19 +36,32 @@ public class invisInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        badFont = Resources.Load<TMP_FontAsset>("BadLibSans");
+
         if (log == null) managerObj = GameObject.FindWithTag("Manager");
         if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
-        log = managerObj.GetComponent<ExperimentLog>();
+        if (managerObj.GetComponent<ExperimentLog>() != null) log = managerObj.GetComponent<ExperimentLog>();
         sceneDirector = managerObj.GetComponent<SceneDirector>();
         if (instructionsAreSeperated) // This causes the instructions to be set to high extraneous load. In this case it decreases font size and changes the location to be offset. Also changes font to different asset with poor contrast. This is done to make the instructions harder to read.
         {
-            stepPanel.transform.localPosition = new Vector3(-1.557f, 0.9f, 0.355f);
-            stepPanel.transform.rotation = Quaternion.Euler(13, -90, 0);
+            // Gets the two Quads from the stepPanel and sets the first one to be inactive and the second one to be active. This is done to change the background of the wordy instructions.
+            Transform firstChild = stepPanel.transform.GetChild(0);
+            if (firstChild != null)
+            {
+                firstChild.gameObject.SetActive(false);
+            }
+
+            // Get the second child of stepPanel and activate it
+            Transform secondChild = stepPanel.transform.GetChild(1);
+            if (secondChild != null)
+            {
+                secondChild.gameObject.SetActive(true);
+            }
+            stepPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(24f, 5f);
+            stepPanel.transform.localPosition = new Vector3(-1.557f, 1.4f, 0.355f);
+            stepPanel.transform.rotation = Quaternion.Euler(0, -90, 0);
             //instructionPanel.font = badFont;
-            instructionPanel.fontSizeMin = 1.65f;
-            instructionPanel.fontSizeMax = 1.65f;
+
         }
 
         toggleHands(false);
@@ -80,7 +93,7 @@ public class invisInstructions : MonoBehaviour
 
         StartCoroutine(wait(1));
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -127,7 +140,7 @@ public class invisInstructions : MonoBehaviour
                 instructionBars[currentStep].SetActive(true);
                 setText();
 
-                // need to add a check for the last step
+
             }
             else
             {

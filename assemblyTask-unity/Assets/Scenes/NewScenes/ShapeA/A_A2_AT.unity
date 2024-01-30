@@ -156,6 +156,11 @@ PrefabInstance:
       propertyPath: isColored
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3667100785547616113, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3995838715408104240, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_Name
@@ -169,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 4435789568391469540, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4435789568391469540, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
@@ -258,11 +263,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1832183676099524273, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 558603029}
     - targetCorrespondingSourceObject: {fileID: 1832183676099524273, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 558603029}
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 9002635954215448067, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
@@ -587,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 2462640049076780697, guid: 347a2a1d293a55048a0bb833b301f274,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.219
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462640049076780697, guid: 347a2a1d293a55048a0bb833b301f274,
         type: 3}
@@ -2117,11 +2122,11 @@ MonoBehaviour:
   - {fileID: 714402724}
   - {fileID: 714402723}
   instructionTexts:
-  - 'Connect a medium bar hole 3 to the base bar hole 3. '
-  - 'Connect a small bar hole 1 to the previous bar hole 4. '
-  - 'Connect a large bar hole 2 to the previous bar hole 3. '
-  - 'Connect a large bar hole 4 to the previous bar hole 7. '
-  - 'Connect a small bar hole 2 to the previous bar hole 6. '
+  - '1. Connect a medium bar hole 3 to the base bar hole 3. '
+  - '2. Connect a small bar hole 1 to the previous bar hole 4. '
+  - '3. Connect a large bar hole 2 to the previous bar hole 3. '
+  - '4. Connect a large bar hole 4 to the previous bar hole 7. '
+  - '5. Connect a small bar hole 2 to the previous bar hole 6. '
   previewBars:
   - {fileID: 917788779}
   - {fileID: 917788778}

@@ -3678,7 +3678,7 @@ PrefabInstance:
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
       propertyPath: m_text
-      value: Please talk to the experimenter.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
@@ -3983,7 +3983,7 @@ Transform:
   m_GameObject: {fileID: 6204069321329688105}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19, y: 0.007, z: 1.078}
+  m_LocalPosition: {x: 0, y: 0.007, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -159,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 4435789568391469540, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4435789568391469540, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
@@ -583,7 +583,7 @@ PrefabInstance:
     - target: {fileID: 2462640049076780697, guid: 347a2a1d293a55048a0bb833b301f274,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.219
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2462640049076780697, guid: 347a2a1d293a55048a0bb833b301f274,
         type: 3}
@@ -1362,10 +1362,10 @@ MonoBehaviour:
     then count to the first hole along the bar. The next step is to align the first
     hole of the bar with the second hole of the previous bar, and then join the two
     bars together in that spot.
-  - 4. You will need to find a bar that is medium in size and green in color, and
-    then count to the fourth hole along the bar. The next step is to align the fourth
-    hole of the bar with the third hole of the previous bar, and then join the two
-    bars together in that spot.
+  - 4. You will need to find a bar that is medium in size, and then count to the
+    second hole along the bar. The next step is to align the second hole of the bar
+    with the third hole of the previous bar, and then join the two bars together
+    in that spot.
   - 5. You will need to find a bar that is large in size and blue in color, and then
     count to the second hole along the bar. The next step is to align the second
     hole of the bar with the third hole of the previous bar, and then join the two
