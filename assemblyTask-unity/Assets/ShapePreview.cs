@@ -100,7 +100,7 @@ public class ShapePreview : MonoBehaviour
     IEnumerator disappear()
     {
         yield return new WaitForSeconds(10f);
-        this.gameObject.transform.parent.parent.gameObject.SetActive(false);//turns off the grandparent object
+        this.gameObject.transform.parent.gameObject.SetActive(false);//turns off the grandparent object
 
     }
 }

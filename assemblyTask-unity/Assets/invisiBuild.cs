@@ -255,6 +255,7 @@ public class invisiBuild : MonoBehaviour
         inst.mistakes++;
         inst.SetTempText();
         inst.builtShape.SetActive(true);
+        inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
         inst.stepPanel.SetActive(false);
         if (IsCloseToWorkbench) errortype = "placement";
         else errortype = "distance";
