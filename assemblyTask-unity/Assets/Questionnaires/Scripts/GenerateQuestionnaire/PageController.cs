@@ -178,6 +178,7 @@ namespace VRQuestionnaireToolkit
                 if (_pageFactory.PageList.Count - 1 == _pageFactory.CurrentPage)
                 {
                     _export.GetComponent<ExportToCSV>().Save();
+                    //This is where the End Event is fired
                 }
             }
             else

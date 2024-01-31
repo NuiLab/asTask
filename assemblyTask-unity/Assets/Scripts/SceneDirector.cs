@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using VRQuestionnaireToolkit;
 
 public class SceneDirector : MonoBehaviour
 {
@@ -293,6 +294,7 @@ public class SceneDirector : MonoBehaviour
         if (trialNumber == 9)
         {
             shapeNumber++;
+            //.Condition = tempSceneName;
             SceneManager.LoadScene("WaitingRoom");
             trialNumber = 1;
 
@@ -332,7 +334,13 @@ public class SceneDirector : MonoBehaviour
 #endif
         Application.Quit();
     }
-
+    string getCurrentShape()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        string sceneName = scene.name;
+        string[] splitSceneName = sceneName.Split('_');
+        return splitSceneName[0];
+    }
 
 
 }

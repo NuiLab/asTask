@@ -15,7 +15,7 @@ public class ExperimentLog : MonoBehaviour
     public static ExperimentLog instance;
     public string filePath;
     public string filePathW;
-    int participantNumber = 0;
+    public int participantNumber = 0;
     StreamWriter writer;
     StreamWriter writerW;
     SceneDirector manager;

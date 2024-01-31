@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4189962114100853205}
   - component: {fileID: 7470778423861357886}
   - component: {fileID: 1348949931793526915}
+  - component: {fileID: 1375340187497624477}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Manager
@@ -46,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe78668bfdb04466f9ecaa972e1be7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempSceneName: 
+  trialNumber: 1
+  shapeNumber: 1
 --- !u!114 &7470778423861357886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,3 +74,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07310710d93613a42990f72f11c33693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filePath: 
+  filePathW: 
+  time_s: 0
+--- !u!114 &1375340187497624477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928196741364219697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee11621122ea8c4494a09afde842dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionnaire: {fileID: 0}
+  firstLaunch: 1
