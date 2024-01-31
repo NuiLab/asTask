@@ -31,7 +31,7 @@ public class invisInstructions : MonoBehaviour
     public GameObject cross;
     TMP_FontAsset badFont;
 
-    public GameObject[] builtBars;
+    public List<GameObject> builtBars;
 
     // Start is called before the first frame update
     void Start()

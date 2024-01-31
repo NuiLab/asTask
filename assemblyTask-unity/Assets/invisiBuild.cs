@@ -207,7 +207,8 @@ public class invisiBuild : MonoBehaviour
     {
         // when a bar is placed, it goes back to the original position and a new bar is created instead that cannot be picked up again.
 
-        GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation); //this is the bar that is being built
+        GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation);
+        instructions.GetComponent<invisInstructions>().builtBars.Add(newBar); //this is the bar that is being built
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
