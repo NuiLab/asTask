@@ -1217,7 +1217,7 @@ PrefabInstance:
     - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}
       propertyPath: tempSceneName
-      value: A_A2_AT
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8060358695141119793, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}
@@ -3089,7 +3089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1708445550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3471,175 +3471,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e9fde6d509180f4bb5b407543ec9752, type: 3}
---- !u!1001 &2090115265
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8697000387260259616, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259617, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_Name
-      value: VRQuestionnaireToolkit
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259617, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259618, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.986
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.128
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.791
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259619, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259645, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259645, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: JsonInputPath_1
-      value: Assets/Questionnaires/Data/Questions/NASA_TLX
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259645, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: JsonInputPath_2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000387260259645, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: positionOfQuestionnaire
-      value: 
-      objectReference: {fileID: 1388736131}
-    - target: {fileID: 8697000387260259646, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1670826378}
-    - target: {fileID: 8697000388396706263, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: Delimiter
-      value: ;
-      objectReference: {fileID: 0}
-    - target: {fileID: 8697000388396706263, guid: 93494b0f3d397d74ba1458871f004384,
-        type: 3}
-      propertyPath: StorePath
-      value: /Records/TLX
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8697000387260259644, guid: 93494b0f3d397d74ba1458871f004384, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 93494b0f3d397d74ba1458871f004384, type: 3}
 --- !u!1001 &2100741454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3777,7 +3608,7 @@ PrefabInstance:
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
       propertyPath: m_text
-      value: Please tell the experimenter if you are ready to begin the experiment.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2361052004123083522, guid: 77733789ea29fc042910e37f9f177df2,
         type: 3}
@@ -4112,6 +3943,5 @@ SceneRoots:
   - {fileID: 2100741454}
   - {fileID: 1830137384}
   - {fileID: 1708445551}
-  - {fileID: 2090115265}
   - {fileID: 1388736132}
   - {fileID: 666365760}
