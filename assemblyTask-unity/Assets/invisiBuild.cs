@@ -42,6 +42,7 @@ public class invisiBuild : MonoBehaviour
     bool IsCloseToWorkbench = false;
     string expectedValue;
     string actualValue;
+    AudioClip transferSound;
 
 
     // Start is called before the first frame update
@@ -51,8 +52,7 @@ public class invisiBuild : MonoBehaviour
         manager = GameObject.FindWithTag("Manager");
         inst = instructions.GetComponent<invisInstructions>();
         sceneDirector = manager.GetComponent<SceneDirector>();
-
-
+        transferSound = Resources.Load<AudioClip>("transferSound");
     }
 
     // Update is called once per frame
@@ -206,7 +206,6 @@ public class invisiBuild : MonoBehaviour
     void build()
     {
         // when a bar is placed, it goes back to the original position and a new bar is created instead that cannot be picked up again.
-
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation);
         instructions.GetComponent<invisInstructions>().builtBars.Add(newBar); //this is the bar that is being built
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -221,18 +220,25 @@ public class invisiBuild : MonoBehaviour
     }
     IEnumerator buildTransfer()
     {
-        if (correctPlacement)
+        if (correctPlacement && isAligned)
         {
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct", inst.currentStep.ToString());
-            //Debug.Log("Correct placement Log");
         }
         else
         {
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype, expectedValue, actualValue);
             inst.mistakes++;
         }
+        AudioSource.PlayClipAtPoint(transferSound, this.transform.position);//play a confirm sound when something is placed
 
-        GameObject newBar = Instantiate(this.gameObject, this.transform.position, this.transform.rotation); //this is the bar that is being built
+        GameObject newBar = Instantiate(this.gameObject, this.transform.position, this.transform.rotation);
+
+        if (correctPlacement && isAligned)
+        {
+            newBar.transform.position = lastTouchedBar.transform.position;
+            newBar.transform.rotation = lastTouchedBar.transform.rotation;
+        } //this is the bar that is being built
+
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -244,9 +250,8 @@ public class invisiBuild : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canBeBuilt = true;
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
-
-
     }
+
     IEnumerator WrongBar()
     {
 
@@ -258,8 +263,10 @@ public class invisiBuild : MonoBehaviour
         inst.builtShape.SetActive(true);
         inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
         inst.stepPanel.SetActive(false);
-        if (IsCloseToWorkbench) errortype = "placement";
-        else errortype = "distance";
+        if (errortype == "placement")
+        {
+            if (!IsCloseToWorkbench) errortype = "distance";
+        }
         //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
         manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
         if (!crossSpawned)
@@ -308,6 +315,7 @@ public class invisiBuild : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         canBeBuilt = true;
+        errortype = "placement";
     }
 }
 
