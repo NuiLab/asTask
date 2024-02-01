@@ -20,6 +20,11 @@ public class Tutorial : MonoBehaviour
         {
             StartCoroutine(StartTutorial());
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            nextButton.SetActive(true);
+        }
     }
 
     IEnumerator StartTutorial()

@@ -20,6 +20,7 @@ public class SceneDirector : MonoBehaviour
     public string tempSceneName;
     public int trialNumber = 1;
     public int shapeNumber = 1;
+    public bool firstWait = true;
     private void Awake()
     {
 
