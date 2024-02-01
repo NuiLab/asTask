@@ -14,10 +14,15 @@ public class Timer : MonoBehaviour
     public Options dropdown;
     public TextMeshPro progress;
     public float waitingTime;
+    GameObject managerObj;
+    SceneDirector sceneDirector;
     // Start is called before the first frame update
     void Start()
     {
+        managerObj = GameObject.FindWithTag("Manager");
+        sceneDirector = managerObj.GetComponent<SceneDirector>();
         StartCoroutine(updateBar());
+        
     }
 
     // Update is called once per frame
@@ -27,7 +32,11 @@ public class Timer : MonoBehaviour
     }
     IEnumerator updateBar()
     {
-        while (waitingTime >= 0)
+        if (sceneDirector.firstWait) {
+            waitingTime = 0f;
+            sceneDirector.firstWait = false;
+        }
+        while (waitingTime > 0)
         {
 
             yield return new WaitForSeconds(1f);
