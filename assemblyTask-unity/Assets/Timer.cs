@@ -19,9 +19,9 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
         StartCoroutine(updateBar());
-        
+
     }
 
     // Update is called once per frame
@@ -34,7 +34,14 @@ public class Timer : MonoBehaviour
         managerObj = GameObject.FindWithTag("Manager");
         sceneDirector = managerObj.GetComponent<SceneDirector>();
 
-        while (waitingTime >= 0 && !sceneDirector.firstWait)
+        if (sceneDirector.firstWait && dropdown == Options.WaitingRoom)
+        {
+            progress.text = "Please talk to the experimenter.";
+            sceneDirector.firstWait = false;
+            yield break;
+        }
+
+        while (waitingTime >= 0)
         {
 
             yield return new WaitForSeconds(1f);
@@ -48,9 +55,9 @@ public class Timer : MonoBehaviour
                 progress.text = waitingTime.ToString() + " s";
             }
         }
+
         if (dropdown == Options.WaitingRoom)
         {
-            sceneDirector.firstWait = false;
             progress.text = "Please talk to the experimenter.";
         }
         else if (dropdown == Options.Shape)
