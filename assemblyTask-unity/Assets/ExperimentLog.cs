@@ -45,9 +45,9 @@ public class ExperimentLog : MonoBehaviour
 
         // Make this GameObject persistent across scene loads.
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
-
-        if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this)
-            SetParticipantNumber(rnd.Next(1000, 9999)); 
+// activate this for testing
+        //if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this)
+          //  SetParticipantNumber(rnd.Next(1000, 9999)); 
     }
     // Update is called once per frame
     void Update()
