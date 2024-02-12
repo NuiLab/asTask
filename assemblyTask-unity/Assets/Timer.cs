@@ -31,6 +31,11 @@ public class Timer : MonoBehaviour
     }
     IEnumerator updateBar()
     {
+        if(dropdown == Options.Shape)
+        {
+           progress.text = waitingTime.ToString() + " s";
+        }
+        
         managerObj = GameObject.FindWithTag("Manager");
         sceneDirector = managerObj.GetComponent<SceneDirector>();
 
@@ -62,6 +67,7 @@ public class Timer : MonoBehaviour
         }
         else if (dropdown == Options.Shape)
         {
+            
             progress.enabled = false;
         }
     }
