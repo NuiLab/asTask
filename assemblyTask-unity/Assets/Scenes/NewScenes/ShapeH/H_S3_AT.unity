@@ -1749,11 +1749,26 @@ MonoBehaviour:
   - {fileID: 176368911}
   - {fileID: 176368910}
   instructionTexts:
-  - 1. Connect a green small bar hole 1 to the base bar hole 2.
-  - 2. Connect a yellow large bar hole 4 to the previous bar hole 3.
-  - 3. Connect a blue large bar hole 2 to the previous bar hole 6.
-  - 4. Connect a yellow medium bar hole 1 to the previous bar hole 3.
-  - "5. Connect a blue large bar hole 4 to the previous bar hole 5.\_"
+  - 1. You will need to find a bar that is small in size and green in color, and
+    then count to the first hole along the bar. The next step is to align the first
+    hole of the bar with the second hole of the base bar, and then join the two bars
+    together in that spot.
+  - 2. You will need to find a bar that is large in size and yellow in color, and
+    then count to the fourth hole along the bar. The next step is to align the fourth
+    hole of the bar with the third hole of the previous bar, and then join the two
+    bars together in that spot.
+  - 3. You will need to find a bar that is large in size and blue in color, and then
+    count to the second hole along the bar. The next step is to align the second
+    hole of the bar with the sixth hole of the previous bar, and then join the two
+    bars together in that spot.
+  - 4. You will need to find a bar that is medium in size and yellow in color, and
+    then count to the first hole along the bar. The next step is to align the first
+    hole of the bar with the third hole of the previous bar, and then join the two
+    bars together in that spot.
+  - 5. You will need to find a bar that is large in size and blue in color, and then
+    count to the fourth hole along the bar. The next step is to align the fourth
+    hole of the bar with the fifth hole of the previous bar, and then join the two
+    bars together in that spot.
   previewBars:
   - {fileID: 457609876}
   - {fileID: 457609875}
