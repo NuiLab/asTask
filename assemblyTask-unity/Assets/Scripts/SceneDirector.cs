@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using VRQuestionnaireToolkit;
+using System.IO;
+
 
 public class SceneDirector : MonoBehaviour
 {
@@ -21,6 +23,17 @@ public class SceneDirector : MonoBehaviour
     public int trialNumber = 1;
     public int shapeNumber = 1;
     public bool firstWait = true;
+    [SerializeField]
+    public int[][] schedule;
+    public int stepCounter= 0;
+    public int participantID;
+    public ExperimentType experimentType;
+    public enum ExperimentType
+{
+    ExpA,
+    ExpB,
+    Usability
+}
     private void Awake()
     {
 
@@ -28,6 +41,7 @@ public class SceneDirector : MonoBehaviour
 
     private void Start()
     {
+
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -37,6 +51,7 @@ public class SceneDirector : MonoBehaviour
             instance = this;
         }
         expLog = instance.GetComponent<ExperimentLog>();
+
     }
 
 
@@ -193,7 +208,28 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
-
+    public int[][] ReadCsvFile(string filePath)
+    {
+        List<int[]> lines = new List<int[]>();
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] values = line.Split(',');
+                int[] numbers = new int[values.Length];
+                for (int i = 1; i < values.Length; i++)
+                {
+                    if (int.TryParse(values[i], out int number))
+                    {
+                        numbers[i] = number;
+                    }
+                }
+                lines.Add(numbers);
+            }
+        }
+        return lines.ToArray();
+    }
 
 
     public void ClearPreviews()
@@ -285,6 +321,17 @@ public class SceneDirector : MonoBehaviour
     public void resetTime()
     {
         expLog.time_s = 0;
+    }
+    public bool RepeatCheck(){
+        if (schedule[participantID][stepCounter] == 0)
+        {
+            return false;
+        }
+        else
+        {
+            schedule[participantID][stepCounter]--;
+            return true;
+        }
     }
     public void LoadNextTrialScene()
     {

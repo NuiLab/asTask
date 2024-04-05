@@ -48,7 +48,7 @@ public class ExperimentLog : MonoBehaviour
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
 // activate this for testing
         if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing)
-           SetParticipantNumber(rnd.Next(1000, 9999)); 
+           SetParticipantNumber(rnd.Next(1, 60)); 
     }
     // Update is called once per frame
     void Update()
@@ -62,6 +62,9 @@ public class ExperimentLog : MonoBehaviour
 
         participantNumber = pNum;
         string temp = filePath;
+        manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv");
+        manager.participantID = pNum;
+        Debug.Log(manager.schedule[pNum][0]);
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         filePathW = temp + "/WideParticipant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv";
         using (writer = File.CreateText(filePath))

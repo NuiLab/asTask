@@ -94,6 +94,42 @@ public class invisInstructions : MonoBehaviour
         StartCoroutine(wait(1));
     }
 
+    public void FadeInCorrectBar()
+    {
+        foreach (GameObject bar in instructionBars)
+        {
+            if (bar.activeSelf)
+            {
+
+
+                StartCoroutine(FadeInRoutine(bar, 2f));
+                Debug.Log(bar.name); // 1 second fade duration
+            }
+        }
+    }
+
+    private IEnumerator FadeInRoutine(GameObject obj, float duration)
+    {
+        Renderer renderer = obj.GetComponent<Renderer>();
+        Material material = renderer.material;
+        Color initialColor = material.color;
+        obj.GetComponent<MeshRenderer>().enabled = true;
+        
+        for (int i = 0; i < obj.transform.childCount; i++)
+        {
+            obj.transform.GetChild(i).gameObject.SetActive(true);
+        }
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            float alpha = Mathf.Lerp(initialColor.a, 1, t / duration);
+            material.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+            yield return null;
+        }
+
+        material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 1);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -129,30 +165,28 @@ public class invisInstructions : MonoBehaviour
     public void nextStep()
     {
         //        Debug.Log("Next Step");
-        if (stepByStep)
+        instructionBars[currentStep].SetActive(false);
+        if (currentStep + 1 < instructionBars.Length)
         {
-            instructionBars[currentStep].SetActive(false);
-            if (currentStep + 1 < instructionBars.Length)
-            {
-                if (previewBars[currentStep] != null) previewBars[currentStep].SetActive(true);
-                //dataLog("Step", "completed");
-                currentStep++;
-                instructionBars[currentStep].SetActive(true);
-                setText();
+            if (previewBars[currentStep] != null) previewBars[currentStep].SetActive(true);
+            //dataLog("Step", "completed");
+            currentStep++;
+            sceneDirector.stepCounter++;
+            instructionBars[currentStep].SetActive(true);
+            setText();
 
-
-            }
-            else
-            {
-                instructionPanel.text = "You have completed the instructions!";
-                dataLog("Trial", "complete");
-                WideDataLog();
-                toggleHands(false);
-                button.SetActive(true);
-                StartCoroutine(disableShape());
-            }
+        }
+        else
+        {
+            instructionPanel.text = "You have completed the instructions!";
+            dataLog("Trial", "complete");
+            WideDataLog();
+            toggleHands(false);
+            button.SetActive(true);
+            StartCoroutine(disableShape());
         }
     }
+
     public void showBuiltShape()
     {
         builtShape.SetActive(true);
