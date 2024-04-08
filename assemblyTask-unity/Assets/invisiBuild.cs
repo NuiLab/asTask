@@ -152,7 +152,7 @@ public class invisiBuild : MonoBehaviour
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
-                                build();
+                                StartCoroutine("build");
 
                             }
                             if (rightTrigger && !correctPlacement && IsCloseToWorkbench)
@@ -182,7 +182,7 @@ public class invisiBuild : MonoBehaviour
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
-                                build();
+                                StartCoroutine("build");
                             }
                             if (leftTrigger && !correctPlacement && IsCloseToWorkbench)
                             {
@@ -209,11 +209,13 @@ public class invisiBuild : MonoBehaviour
     {
         bool temp =
         sceneDirector.RepeatCheck();
+        Debug.Log("Does repeat?" + temp);
         return temp;
     }
 
-    void build()
+    IEnumerator build()
     {
+        //this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         // when a bar is placed, it goes back to the original position and a new bar is created instead that cannot be picked up again.
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation);
         instructions.GetComponent<invisInstructions>().builtBars.Add(newBar); //this is the bar that is being built
@@ -225,7 +227,10 @@ public class invisiBuild : MonoBehaviour
         if (RepeatCheck())//if step is repeated, bar fades out and they have to go again.
         {
             FadeOut(newBar.gameObject, 2f);
+            yield return new WaitForSeconds(2.0f);
+            //this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement, Repeat", inst.currentStep.ToString());
+            instructions.GetComponent<invisInstructions>().toggleHands(true);
         }
         else
         {
@@ -233,9 +238,7 @@ public class invisiBuild : MonoBehaviour
             instructions.GetComponent<invisInstructions>().nextStep();
             instructions.GetComponent<invisInstructions>().builtBars.Append(newBar.gameObject);
         }
-
         StartCoroutine("resetCanBeBuilt");
-
     }
     IEnumerator buildTransfer()
     {
@@ -285,10 +288,6 @@ public class invisiBuild : MonoBehaviour
             inst.builtShape.SetActive(true);
             inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
             inst.stepPanel.SetActive(false);
-            if (errortype == "placement")
-            {
-                if (!IsCloseToWorkbench) errortype = "distance";
-            }
             //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
             if (!crossSpawned)
@@ -303,6 +302,7 @@ public class invisiBuild : MonoBehaviour
             inst.cross = tempCross;
             crossSpawned = false;
             StartCoroutine("resetCanBeBuilt");
+            
 
         }
         else // experiment A here
@@ -352,18 +352,20 @@ public class invisiBuild : MonoBehaviour
             tempCheck = Instantiate(check, this.transform.position, Quaternion.identity);
             checkSpawned = true;
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
         yield return new WaitForSeconds(2f);
         Destroy(tempCheck);
         checkSpawned = false;
 
     }
+   
     IEnumerator resetCanBeBuilt()
     {
         yield return new WaitForSeconds(0.3f);
         canBeBuilt = true;
         errortype = "placement";
+
     }
     public void FadeOut(GameObject obj, float duration)
     {
