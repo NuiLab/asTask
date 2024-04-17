@@ -11,8 +11,13 @@ public class FindSM : MonoBehaviour
     void Start()
     {
         sceneD = GameObject.FindWithTag("Manager").GetComponent<SceneDirector>();
-        if (GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>() != null)
-            instrManager = GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>();
+        GameObject sceneInstructions = GameObject.FindWithTag("SceneInstructions");
+        if (sceneInstructions)
+        {
+            if (sceneInstructions.GetComponent<invisInstructions>() != null)
+                instrManager = GameObject.FindWithTag("SceneInstructions").GetComponent<invisInstructions>();
+        }
+
     }
 
     // Update is called once per frame
