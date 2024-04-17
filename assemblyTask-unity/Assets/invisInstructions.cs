@@ -111,7 +111,6 @@ public class invisInstructions : MonoBehaviour
     private IEnumerator FadeInRoutine(GameObject obj, float duration)
     {
         Renderer renderer = obj.GetComponent<Renderer>();
-
         // Create a new material from the existing one
         Material originalMaterial = renderer.material;
         Material newMaterial = Instantiate(originalMaterial);
@@ -157,35 +156,25 @@ public class invisInstructions : MonoBehaviour
     }
     public void FadeOutCorrectBar()
     {
-        foreach (GameObject bar in instructionBars)
+        for (int i = instructionBars.Length - 1; i >= 0; i--)
         {
+            GameObject bar = instructionBars[i];
             if (bar.activeSelf)
             {
-                StartCoroutine(FadeOutRoutine(bar, 0.5f)); // 2 second fade duration
+                StartCoroutine(FadeOutRoutine(bar, 1f));
+                DisableMeshRenderersRecursive(bar.transform); // removes numbers again
+                Debug.Log(bar.name);
+                break; // Exit the loop after finding the first active bar
             }
         }
     }
 
     private IEnumerator FadeOutRoutine(GameObject obj, float duration)
     {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        Material material = renderer.material;
-        Color initialColor = material.color;
-
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            float alpha = Mathf.Lerp(initialColor.a, 0, t / duration);
-            material.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
-            yield return null;
-        }
-
-        material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
+        yield return new WaitForSeconds(duration);
         obj.GetComponent<MeshRenderer>().enabled = false;
+       
 
-        for (int i = 0; i < obj.transform.childCount; i++)
-        {
-            obj.transform.GetChild(i).gameObject.SetActive(false);
-        }
     }
 
     // Update is called once per frame
