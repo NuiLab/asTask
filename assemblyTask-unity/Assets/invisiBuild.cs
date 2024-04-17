@@ -159,6 +159,7 @@ public class invisiBuild : MonoBehaviour
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("WrongBar");
+                                Debug.Log(errortype);
                             }
                         }
                         else
@@ -215,29 +216,38 @@ public class invisiBuild : MonoBehaviour
 
     IEnumerator build()
     {
-        //this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
+        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         // when a bar is placed, it goes back to the original position and a new bar is created instead that cannot be picked up again.
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation);
         instructions.GetComponent<invisInstructions>().builtBars.Add(newBar); //this is the bar that is being built
         newBar.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         newBar.gameObject.GetComponent<XROffsetGrabInteractable>().enabled = false;
         newBar.gameObject.GetComponent<invisiBuild>().enabled = false;
-        this.transform.position = startPos;
-        this.transform.rotation = originalRotation;
+        newBar.gameObject.GetComponent<MeshCollider>().enabled = false;
+
         if (RepeatCheck())//if step is repeated, bar fades out and they have to go again.
         {
+            yield return new WaitForSeconds(0.15f);
             FadeOut(newBar.gameObject, 2f);
+            this.transform.position = startPos;
+            this.transform.rotation = originalRotation;
             yield return new WaitForSeconds(2.0f);
-            //this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
+            this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement, Repeat", inst.currentStep.ToString());
-            instructions.GetComponent<invisInstructions>().toggleHands(true);
+            //instructions.GetComponent<invisInstructions>().toggleHands(true);
         }
         else
         {
+            yield return new WaitForSeconds(0.15f);
+            this.transform.position = startPos;
+            this.transform.rotation = originalRotation;
+            this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
             instructions.GetComponent<invisInstructions>().nextStep();
             instructions.GetComponent<invisInstructions>().builtBars.Append(newBar.gameObject);
+
         }
+
         StartCoroutine("resetCanBeBuilt");
     }
     IEnumerator buildTransfer()
@@ -302,7 +312,7 @@ public class invisiBuild : MonoBehaviour
             inst.cross = tempCross;
             crossSpawned = false;
             StartCoroutine("resetCanBeBuilt");
-            
+
 
         }
         else // experiment A here
@@ -345,21 +355,20 @@ public class invisiBuild : MonoBehaviour
 
     IEnumerator rightBar()
     {
-        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
+        //this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
         if (!checkSpawned)
         {
             tempCheck = Instantiate(check, this.transform.position, Quaternion.identity);
             checkSpawned = true;
         }
-        yield return new WaitForSeconds(0.3f);
-        this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
+
         yield return new WaitForSeconds(2f);
         Destroy(tempCheck);
         checkSpawned = false;
 
     }
-   
+
     IEnumerator resetCanBeBuilt()
     {
         yield return new WaitForSeconds(0.3f);
@@ -374,18 +383,20 @@ public class invisiBuild : MonoBehaviour
 
     private IEnumerator FadeOutRoutine(GameObject obj, float duration)
     {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        Material material = renderer.material;
-        Color initialColor = material.color;
+        obj.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
+        //Renderer renderer = obj.GetComponent<Renderer>();
+        //Material material = renderer.material;
+        //Color initialColor = material.color;
 
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
-            float alpha = Mathf.Lerp(initialColor.a, 0, t / duration);
-            material.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+           // float alpha = Mathf.Lerp(initialColor.a, 0, t / duration);
+            //material.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
             yield return null;
         }
 
-        material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
+       // material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
+        //yield return new WaitForSeconds(0.2f);
         Destroy(obj);
     }
 }
