@@ -24,16 +24,16 @@ public class SceneDirector : MonoBehaviour
     public int shapeNumber = 1;
     public bool firstWait = true;
     [SerializeField]
-    public int[][] schedule;
-    public int stepCounter= 0;
+    public int[] schedule;
+    public int stepCounter = 0;
     public int participantID;
     public ExperimentType experimentType;
     public enum ExperimentType
-{
-    ExpA,
-    ExpB,
-    Usability
-}
+    {
+        ExpA,
+        ExpB,
+        Usability
+    }
     private void Awake()
     {
 
@@ -209,27 +209,29 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
-    public int[][] ReadCsvFile(string filePath)
+    public int[] ReadCsvFile(string filePath, int participantId)
     {
-        List<int[]> lines = new List<int[]>();
         using (StreamReader reader = new StreamReader(filePath))
         {
             string line;
             while ((line = reader.ReadLine()) != null)
             {
                 string[] values = line.Split(',');
-                int[] numbers = new int[values.Length];
-                for (int i = 1; i < values.Length; i++)
+                if (values.Length > 0 && int.TryParse(values[0], out int id) && id == participantId)
                 {
-                    if (int.TryParse(values[i], out int number))
+                    int[] numbers = new int[values.Length - 1];
+                    for (int i = 1; i < values.Length; i++)
                     {
-                        numbers[i] = number;
+                        if (int.TryParse(values[i], out int number))
+                        {
+                            numbers[i - 1] = number;
+                        }
                     }
+                    return numbers;
                 }
-                lines.Add(numbers);
             }
         }
-        return lines.ToArray();
+        return null; // Return null if no matching row is found
     }
 
 
@@ -323,15 +325,17 @@ public class SceneDirector : MonoBehaviour
     {
         expLog.time_s = 0;
     }
-    public bool RepeatCheck(){
-        if (schedule[participantID][stepCounter] == 0)
+    public bool RepeatCheck()
+    {
+        if (schedule[stepCounter] == 0)
         {
+            Debug.Log("Does not repeat." + schedule[stepCounter]);
             return false;
         }
         else
         {
-            Debug.Log("number of repeats now:" + schedule[participantID][stepCounter]);
-            schedule[participantID][stepCounter]--;
+            Debug.Log("Repeats " + schedule[stepCounter] + " times.");
+            schedule[stepCounter]--;
             return true;
         }
     }

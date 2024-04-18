@@ -68,14 +68,14 @@ public class ExperimentLog : MonoBehaviour
         string temp = filePath;
         if (testing)
         {
-            manager.schedule = manager.ReadCsvFile("Assets/YokeTest.csv");
+            manager.schedule = manager.ReadCsvFile("Assets/YokeTest.csv",participantNumber);
         }
         else
         {
-            manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv");
+            manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv",participantNumber);
         }
         manager.participantID = participantNumber;
-        Debug.Log(manager.schedule[participantNumber][0]);
+        Debug.Log(manager.schedule[0]);
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         filePathW = temp + "/WideParticipant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv";
         using (writer = File.CreateText(filePath))
