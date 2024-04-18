@@ -23,10 +23,12 @@ public class ExperimentLog : MonoBehaviour
     float tempTime = 0f;
     int counter = 1;
     public bool testing = true;
+    public GameObject DebugLog;
 
     // Start is called before the first frame update
     void Start()
     {
+
         // Ensure that only one instance of ExperimentLog exists.
         if (instance != null && instance != this)
         {
@@ -46,9 +48,12 @@ public class ExperimentLog : MonoBehaviour
 
         // Make this GameObject persistent across scene loads.
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
-// activate this for testing
-        if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing)
-           SetParticipantNumber(rnd.Next(1, 60)); 
+        // activate this for testing
+        if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing){
+            SetParticipantNumber(rnd.Next(1, 60));
+            if(DebugLog)
+                DebugLog.SetActive(true);
+            }
     }
     // Update is called once per frame
     void Update()
@@ -59,12 +64,18 @@ public class ExperimentLog : MonoBehaviour
     // This method sets the participant number and initializes the log files.
     public void SetParticipantNumber(int pNum)
     {
-
         participantNumber = pNum;
         string temp = filePath;
-        manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv");
-        manager.participantID = pNum;
-        Debug.Log(manager.schedule[pNum][0]);
+        if (testing)
+        {
+            manager.schedule = manager.ReadCsvFile("Assets/YokeTest.csv");
+        }
+        else
+        {
+            manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv");
+        }
+        manager.participantID = participantNumber;
+        Debug.Log(manager.schedule[participantNumber][0]);
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         filePathW = temp + "/WideParticipant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv";
         using (writer = File.CreateText(filePath))
@@ -80,7 +91,7 @@ public class ExperimentLog : MonoBehaviour
 
     }
     // This method adds a new line to the log file.
-    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a",string expected = "n/a", string actual = "n/a")
+    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a", string expected = "n/a", string actual = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;
