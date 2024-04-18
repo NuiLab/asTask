@@ -32,7 +32,7 @@ public class invisInstructions : MonoBehaviour
     TMP_FontAsset badFont;
 
     public List<GameObject> builtBars;
-    public GameObject repeatArrow;
+     GameObject repeatArrow;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,8 @@ public class invisInstructions : MonoBehaviour
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
         if (managerObj.GetComponent<ExperimentLog>() != null) log = managerObj.GetComponent<ExperimentLog>();
         sceneDirector = managerObj.GetComponent<SceneDirector>();
+        repeatArrow = GameObject.FindWithTag("repeatArrow");
+        repeatArrow.SetActive(false);
         if (instructionsAreSeperated) // This causes the instructions to be set to high extraneous load. In this case it decreases font size and changes the location to be offset. Also changes font to different asset with poor contrast. This is done to make the instructions harder to read.
         {
             // Gets the two Quads from the stepPanel and sets the first one to be inactive and the second one to be active. This is done to change the background of the wordy instructions.
@@ -216,9 +218,11 @@ public class invisInstructions : MonoBehaviour
     }
     IEnumerator ActivateRepeatArrow()
     {
+        instructionPanel.text = "Repeat \n" + instructionPanel.text;
         repeatArrow.SetActive(true);
         yield return new WaitForSeconds(2f);
         repeatArrow.SetActive(false);
+
     }
     // these functions create data log entries
     public void dataLog(string category, string action)

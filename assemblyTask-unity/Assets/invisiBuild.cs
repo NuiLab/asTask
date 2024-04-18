@@ -72,13 +72,13 @@ public class invisiBuild : MonoBehaviour
             lastTouchedBar = other.gameObject;
             if (distance <= 0.06f && CheckProperties(other))
             {
-                Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
+                //Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
                 correctPlacement = true;
             }
             else
             {
                 correctPlacement = false;
-                Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
+                //Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
             }
             //Debug.Log("Distance between objects: " + distance);
         }
@@ -88,7 +88,7 @@ public class invisiBuild : MonoBehaviour
         if (other.CompareTag("instruction"))
         {
             correctPlacement = false;
-            Debug.Log("Exited" + other.name);
+            //Debug.Log("Exited" + other.name);
             isAligned = false;
         }
     }
@@ -101,7 +101,7 @@ public class invisiBuild : MonoBehaviour
         if (other.CompareTag("instruction"))
         {
            
-            Debug.Log("Entered" + other.name);
+            //Debug.Log("Entered" + other.name);
             
         }
 
@@ -113,7 +113,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
-                Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
+                //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
                 expectedValue = other.GetComponent<propCheck>().barlength.ToString();
                 actualValue = this.gameObject.GetComponent<propCheck>().barlength.ToString();
@@ -124,7 +124,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
-                Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
+                //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
                 expectedValue = other.GetComponent<propCheck>().color.ToString();
                 actualValue = this.gameObject.GetComponent<propCheck>().color.ToString();
@@ -162,18 +162,18 @@ public class invisiBuild : MonoBehaviour
                         {
                             if (rightTrigger && correctPlacement && isAligned && IsCloseToWorkbench)
                             {
-                                Debug.Log("placed correctly");
+                                //Debug.Log("placed correctly");
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
                                 StartCoroutine("build");
                             }
                             if (rightTrigger && !correctPlacement && IsCloseToWorkbench)
                             {
-                                Debug.Log(correctPlacement + "cp " + "workbench " + IsCloseToWorkbench);
-                                Debug.Log("aligned " + isAligned);
+                                //Debug.Log(correctPlacement + "cp " + "workbench " + IsCloseToWorkbench);
+                                //Debug.Log("aligned " + isAligned);
                                 canBeBuilt = false;
                                 StartCoroutine("WrongBar");
-                                Debug.Log(errortype);
+                                //Debug.Log(errortype);
                             }
                         }
                         else
@@ -224,7 +224,7 @@ public class invisiBuild : MonoBehaviour
     {
         bool temp =
         sceneDirector.RepeatCheck();
-        Debug.Log("Does repeat?" + temp);
+        //Debug.Log("Does repeat?" + temp);
         return temp;
     }
 
