@@ -51,6 +51,7 @@ public class SceneDirector : MonoBehaviour
             instance = this;
         }
         expLog = instance.GetComponent<ExperimentLog>();
+        participantID = expLog.participantNumber;
 
     }
 
@@ -329,6 +330,7 @@ public class SceneDirector : MonoBehaviour
         }
         else
         {
+            Debug.Log("number of repeats now:" + schedule[participantID][stepCounter]);
             schedule[participantID][stepCounter]--;
             return true;
         }

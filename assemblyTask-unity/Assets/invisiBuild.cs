@@ -63,34 +63,46 @@ public class invisiBuild : MonoBehaviour
         if (other.CompareTag("alignment"))
         {
             isAligned = true;
+            //Debug.Log("Aligned");
         }
         //Debug.Log("Triggered");
         if (other.CompareTag("instruction"))
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             lastTouchedBar = other.gameObject;
-            if (distance <= 0.05f && CheckProperties(other))
+            if (distance <= 0.06f && CheckProperties(other))
             {
-                //Debug.Log("Correct Placement");
+                Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
                 correctPlacement = true;
             }
-
-            else correctPlacement = false;
-
+            else
+            {
+                correctPlacement = false;
+                Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
+            }
             //Debug.Log("Distance between objects: " + distance);
         }
     }
-    void OnTriggerExit()
+    void OnTriggerExit(Collider other)
     {
-        correctPlacement = false;
-        isAligned = false;
-
+        if (other.CompareTag("instruction"))
+        {
+            correctPlacement = false;
+            Debug.Log("Exited" + other.name);
+            isAligned = false;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("WorkbenchTest"))
         {
             IsCloseToWorkbench = true;
+        }
+        if (other.CompareTag("instruction"))
+        {
+           
+            Debug.Log("Entered" + other.name);
+            
         }
 
     }
@@ -101,7 +113,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
-                //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
+                Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
                 expectedValue = other.GetComponent<propCheck>().barlength.ToString();
                 actualValue = this.gameObject.GetComponent<propCheck>().barlength.ToString();
@@ -112,14 +124,14 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
-                //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
+                Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
                 expectedValue = other.GetComponent<propCheck>().color.ToString();
                 actualValue = this.gameObject.GetComponent<propCheck>().color.ToString();
                 errortype = "color";
             }
         }
-        //Debug.Log(correct);
+
         return correct;
     }
 
@@ -150,13 +162,15 @@ public class invisiBuild : MonoBehaviour
                         {
                             if (rightTrigger && correctPlacement && isAligned && IsCloseToWorkbench)
                             {
+                                Debug.Log("placed correctly");
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
                                 StartCoroutine("build");
-
                             }
                             if (rightTrigger && !correctPlacement && IsCloseToWorkbench)
                             {
+                                Debug.Log(correctPlacement + "cp " + "workbench " + IsCloseToWorkbench);
+                                Debug.Log("aligned " + isAligned);
                                 canBeBuilt = false;
                                 StartCoroutine("WrongBar");
                                 Debug.Log(errortype);
@@ -227,18 +241,19 @@ public class invisiBuild : MonoBehaviour
 
         if (RepeatCheck())//if step is repeated, bar fades out and they have to go again.
         {
-            yield return new WaitForSeconds(0.15f);
+            instructions.GetComponent<invisInstructions>().ArrowRepeat();
+            yield return new WaitForSeconds(0.25f);
             FadeOut(newBar.gameObject, 2f);
             this.transform.position = startPos;
             this.transform.rotation = originalRotation;
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(.5f);
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement, Repeat", inst.currentStep.ToString());
             //instructions.GetComponent<invisInstructions>().toggleHands(true);
         }
         else
         {
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.25f);
             this.transform.position = startPos;
             this.transform.rotation = originalRotation;
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
@@ -390,12 +405,12 @@ public class invisiBuild : MonoBehaviour
 
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
-           // float alpha = Mathf.Lerp(initialColor.a, 0, t / duration);
+            // float alpha = Mathf.Lerp(initialColor.a, 0, t / duration);
             //material.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
             yield return null;
         }
 
-       // material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
+        // material.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
         //yield return new WaitForSeconds(0.2f);
         Destroy(obj);
     }

@@ -32,6 +32,7 @@ public class invisInstructions : MonoBehaviour
     TMP_FontAsset badFont;
 
     public List<GameObject> builtBars;
+    public GameObject repeatArrow;
 
     // Start is called before the first frame update
     void Start()
@@ -120,7 +121,7 @@ public class invisInstructions : MonoBehaviour
 
         // Disable the MeshRenderer and set the initial alpha to 0
         obj.GetComponent<MeshRenderer>().enabled = false;
-        
+
         newMaterial.SetFloat("_Surface", 0);
         newMaterial.SetShaderPassEnabled("SHADOWCASTER", !enabled);
         newMaterial.renderQueue = 3000;
@@ -173,7 +174,7 @@ public class invisInstructions : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         obj.GetComponent<MeshRenderer>().enabled = false;
-       
+
 
     }
 
@@ -187,6 +188,7 @@ public class invisInstructions : MonoBehaviour
         if (sceneDirector.RepeatCheck())
         {
             FadeOutCorrectBar();
+            StartCoroutine(ActivateRepeatArrow());
         }
         else
         {
@@ -208,7 +210,16 @@ public class invisInstructions : MonoBehaviour
             DisableMeshRenderersRecursive(child);
         }
     }
-
+    public void ArrowRepeat()
+    {
+        StartCoroutine(ActivateRepeatArrow());
+    }
+    IEnumerator ActivateRepeatArrow()
+    {
+        repeatArrow.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        repeatArrow.SetActive(false);
+    }
     // these functions create data log entries
     public void dataLog(string category, string action)
     {

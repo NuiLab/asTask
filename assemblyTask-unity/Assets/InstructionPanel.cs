@@ -26,13 +26,13 @@ public class InstructionPanel : MonoBehaviour
     }
     void OnBecameVisible()
     {
-        Debug.Log("Visible");
+        //Debug.Log("Visible");
         StartCoroutine(CountTime());
     }
     void OnBecameInvisible()
     {
-        Debug.Log("Invisible");
+        //Debug.Log("Invisible");
         StopCoroutine(CountTime());
-        Debug.Log(LookedAt);
+        //Debug.Log(LookedAt);
     }
 }
