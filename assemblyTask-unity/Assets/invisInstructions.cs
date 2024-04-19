@@ -18,25 +18,28 @@ public class invisInstructions : MonoBehaviour
     public string[] instructionTexts;
     public GameObject[] previewBars;
     public int currentStep = 0;
-    public int mistakes;
+    [HideInInspector] public int mistakes;
     public bool stepByStep;
     public TMP_Text instructionPanel;
     public GameObject stepPanel;
     public GameObject builtShape;
-    public GameObject[] hands;
+    [HideInInspector] public GameObject[] hands;
     public bool isAdaptive;
     public GameObject button;
     string tempText;
     public bool instructionsAreSeperated = false;
-    public GameObject cross;
+    [HideInInspector] public GameObject cross;
     TMP_FontAsset badFont;
-
+    bool putRepeatText = false;
+    [HideInInspector] public Material fadingMaterial;
     public List<GameObject> builtBars;
-     GameObject repeatArrow;
+    GameObject repeatArrow;
+    GameObject nextArrow;
 
     // Start is called before the first frame update
     void Start()
     {
+        fadingMaterial = Resources.Load<Material>("Transparent");
 
         if (log == null) managerObj = GameObject.FindWithTag("Manager");
         if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
@@ -44,7 +47,9 @@ public class invisInstructions : MonoBehaviour
         if (managerObj.GetComponent<ExperimentLog>() != null) log = managerObj.GetComponent<ExperimentLog>();
         sceneDirector = managerObj.GetComponent<SceneDirector>();
         repeatArrow = GameObject.FindWithTag("repeatArrow");
+        nextArrow = GameObject.FindWithTag("nextArrow");
         repeatArrow.SetActive(false);
+        nextArrow.SetActive(false);
         if (instructionsAreSeperated) // This causes the instructions to be set to high extraneous load. In this case it decreases font size and changes the location to be offset. Also changes font to different asset with poor contrast. This is done to make the instructions harder to read.
         {
             // Gets the two Quads from the stepPanel and sets the first one to be inactive and the second one to be active. This is done to change the background of the wordy instructions.
@@ -97,15 +102,14 @@ public class invisInstructions : MonoBehaviour
         StartCoroutine(wait(1));
     }
 
-    public void FadeInCorrectBar()
+    public void FadeInCorrectBar(float duration = 1f)
     {
         for (int i = instructionBars.Length - 1; i >= 0; i--)
         {
             GameObject bar = instructionBars[i];
             if (bar.activeSelf)
             {
-                StartCoroutine(FadeInRoutine(bar, 2f)); // 2 second fade duration
-                Debug.Log(bar.name);
+                StartCoroutine(FadeInRoutine(bar, duration)); // 2 second fade duration
                 break; // Exit the loop after finding the first active bar
             }
         }
@@ -114,71 +118,63 @@ public class invisInstructions : MonoBehaviour
     private IEnumerator FadeInRoutine(GameObject obj, float duration)
     {
         Renderer renderer = obj.GetComponent<Renderer>();
-        // Create a new material from the existing one
         Material originalMaterial = renderer.material;
-        Material newMaterial = Instantiate(originalMaterial);
+
+        // Create a new material from fadeMaterial
+        Material newMaterial = Instantiate(fadingMaterial);
+        newMaterial.color = originalMaterial.color;
         renderer.material = newMaterial;
-
-        Color initialColor = newMaterial.color;
-
-        // Disable the MeshRenderer and set the initial alpha to 0
-        obj.GetComponent<MeshRenderer>().enabled = false;
-
-        newMaterial.SetFloat("_Surface", 0);
-        newMaterial.SetShaderPassEnabled("SHADOWCASTER", !enabled);
-        newMaterial.renderQueue = 3000;
-        newMaterial.SetFloat("_DstBlend", 10);
-        newMaterial.SetFloat("_SrcBlend", 5);
-        newMaterial.SetFloat("_ZWrite", 0);
-        newMaterial.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
-        // Enable the MeshRenderer and the child objects
-        obj.GetComponent<MeshRenderer>().enabled = true;
-        for (int i = 0; i < obj.transform.childCount; i++)
-        {
-            obj.transform.GetChild(i).gameObject.SetActive(true);
-        }
-
-        // Perform the fade-in
+        renderer.enabled = true;
+        // Fade in the new material
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
             float alpha = Mathf.Lerp(0, 1, t / duration);
-            newMaterial.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+            newMaterial.color = new Color(newMaterial.color.r, newMaterial.color.g, newMaterial.color.b, alpha);
             yield return null;
         }
-
-        newMaterial.color = new Color(initialColor.r, initialColor.g, initialColor.b, 1);
-
-        // Set the surface mode to opaque
-        newMaterial.SetFloat("_Surface", 1);
-        newMaterial.SetShaderPassEnabled("SHADOWCASTER", !enabled);
-        newMaterial.renderQueue = 2000;
-        newMaterial.SetFloat("_DstBlend", 0);
-        newMaterial.SetFloat("_SrcBlend", 1);
-        newMaterial.SetFloat("_ZWrite", 1);
-
+        // Reset the material back to the original
+        renderer.material = originalMaterial;
+        SetActiveRecursively(obj, true);
     }
-    public void FadeOutCorrectBar()
+    public void FadeOutCorrectBar(float duration = 1f)
     {
         for (int i = instructionBars.Length - 1; i >= 0; i--)
         {
             GameObject bar = instructionBars[i];
             if (bar.activeSelf)
             {
-                StartCoroutine(FadeOutRoutine(bar, 1f));
-                DisableMeshRenderersRecursive(bar.transform); // removes numbers again
-                Debug.Log(bar.name);
+                StartCoroutine(FadeOutRoutine(bar, duration));
+                //DisableMeshRenderersRecursive(bar.transform); // removes numbers again
                 break; // Exit the loop after finding the first active bar
             }
         }
     }
 
+
     private IEnumerator FadeOutRoutine(GameObject obj, float duration)
     {
-        yield return new WaitForSeconds(duration);
-        obj.GetComponent<MeshRenderer>().enabled = false;
+        Renderer renderer = obj.GetComponent<Renderer>();
+        Material originalMaterial = renderer.material;
 
+        // Create a new material from fadeMaterial and set its color to the original material's color
+        Material newMaterial = Instantiate(fadingMaterial);
+        newMaterial.color = originalMaterial.color;
+        renderer.material = newMaterial;
+
+        // Fade out the new material
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            float alpha = Mathf.Lerp(1, 0, t / duration);
+            newMaterial.color = new Color(newMaterial.color.r, newMaterial.color.g, newMaterial.color.b, alpha);
+            yield return null;
+        }
+        renderer.enabled = false;
+        // Reset the material back to the original and disable the renderer
+        renderer.material = originalMaterial;
+        DisableMeshRenderersRecursive(obj.transform);
 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -189,7 +185,7 @@ public class invisInstructions : MonoBehaviour
     {
         if (sceneDirector.RepeatCheck())
         {
-            FadeOutCorrectBar();
+            FadeOutCorrectBar(0.5f);
             StartCoroutine(ActivateRepeatArrow());
         }
         else
@@ -197,15 +193,24 @@ public class invisInstructions : MonoBehaviour
             nextStep();
         }
     }
+    void SetActiveRecursively(GameObject obj, bool value)
+    {
+
+        foreach (Transform child in obj.transform)
+        {
+            child.gameObject.SetActive(value);
+        }
+
+    }
     // This is used to disable all bars in the preview. 
-    void DisableMeshRenderersRecursive(Transform parent)
+    void DisableMeshRenderersRecursive(Transform parent, bool enable = false)
     {
         foreach (Transform child in parent)
         {
             MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
             if (meshRenderer != null)
             {
-                meshRenderer.enabled = false;
+                meshRenderer.enabled = enable;
             }
 
             // Recursively disable mesh renderers of children's children
@@ -216,13 +221,26 @@ public class invisInstructions : MonoBehaviour
     {
         StartCoroutine(ActivateRepeatArrow());
     }
+    public void ArrowNext()
+    {
+        StartCoroutine(ActivateNextArrow());
+    }
     IEnumerator ActivateRepeatArrow()
     {
-        instructionPanel.text = "Repeat \n" + instructionPanel.text;
+        if (!putRepeatText)
+        {
+            instructionPanel.text = "Repeat \n" + instructionPanel.text;
+            putRepeatText = true;
+        }
         repeatArrow.SetActive(true);
         yield return new WaitForSeconds(2f);
         repeatArrow.SetActive(false);
-
+    }
+    IEnumerator ActivateNextArrow()
+    {
+        nextArrow.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        nextArrow.SetActive(false);
     }
     // these functions create data log entries
     public void dataLog(string category, string action)
@@ -237,6 +255,7 @@ public class invisInstructions : MonoBehaviour
     // This calls the next step in the instructions. It also handles the data logging for the instructions.
     public void nextStep()
     {
+        putRepeatText = false;
         //        Debug.Log("Next Step");
         instructionBars[currentStep].GetComponent<MeshCollider>().enabled = false;
         if (currentStep + 1 < instructionBars.Length)
