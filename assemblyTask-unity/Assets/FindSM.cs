@@ -45,5 +45,8 @@ public class FindSM : MonoBehaviour
     {
         instrManager.dataLog("Trial", "continued");
     }
-
+    public void wrongRepeat()
+    {
+        instrManager.WrongRepeat();
+    }
 }
