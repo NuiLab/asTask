@@ -183,15 +183,23 @@ public class invisInstructions : MonoBehaviour
     }
     public void WrongRepeat()
     {
-        if (sceneDirector.RepeatCheck())
+        if (sceneDirector.experimentType == SceneDirector.ExperimentType.ExpA)
         {
-            FadeOutCorrectBar(0.5f);
-            StartCoroutine(ActivateRepeatArrow());
+
         }
         else
         {
-            nextStep();
+            if (sceneDirector.RepeatCheck())
+            {
+                FadeOutCorrectBar(0.5f);
+                StartCoroutine(ActivateRepeatArrow());
+            }
+            else
+            {
+                nextStep();
+            }
         }
+
     }
     void SetActiveRecursively(GameObject obj, bool value)
     {
