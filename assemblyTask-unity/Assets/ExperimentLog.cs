@@ -24,6 +24,7 @@ public class ExperimentLog : MonoBehaviour
     int counter = 1;
     public bool testing = true;
     public GameObject DebugLog;
+    public bool toggleLog = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public class ExperimentLog : MonoBehaviour
         // activate this for testing
         if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing){
             SetParticipantNumber(rnd.Next(1, 60));
-            if(DebugLog)
+            if(DebugLog && toggleLog)
                 DebugLog.SetActive(true);
             }
     }
