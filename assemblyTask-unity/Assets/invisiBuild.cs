@@ -236,7 +236,7 @@ public class invisiBuild : MonoBehaviour
 
     IEnumerator build()
     {
-        
+
         this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
         // when a bar is placed, it goes back to the original position and a new bar is created instead that cannot be picked up again.
         GameObject newBar = Instantiate(this.gameObject, lastTouchedBar.transform.position, lastTouchedBar.transform.rotation);
@@ -262,7 +262,7 @@ public class invisiBuild : MonoBehaviour
         else
         {
             Debug.Log("No repeat in build");
-            inst.ArrowNext();
+            if (sceneDirector.experimentType == SceneDirector.ExperimentType.ExpB) inst.ArrowNext();
             yield return new WaitForSeconds(0.25f);
             this.transform.position = startPos;
             this.transform.rotation = originalRotation;

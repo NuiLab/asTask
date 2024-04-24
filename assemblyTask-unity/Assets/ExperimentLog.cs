@@ -50,11 +50,12 @@ public class ExperimentLog : MonoBehaviour
         // Make this GameObject persistent across scene loads.
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
         // activate this for testing
-        if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing){
+        if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing)
+        {
             SetParticipantNumber(rnd.Next(1, 60));
-            if(DebugLog && toggleLog)
+            if (DebugLog && toggleLog)
                 DebugLog.SetActive(true);
-            }
+        }
     }
     // Update is called once per frame
     void Update()
@@ -67,14 +68,20 @@ public class ExperimentLog : MonoBehaviour
     {
         participantNumber = pNum;
         string temp = filePath;
-        if (testing)
+        
+        if (manager.experimentType == SceneDirector.ExperimentType.ExpB)
         {
-            manager.schedule = manager.ReadCsvFile("Assets/YokeTest.csv",participantNumber);
+            if (testing)
+            {
+                manager.schedule = manager.ReadCsvFile("Assets/YokeTest.csv", participantNumber);
+            }
+            else
+            {
+                manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv", participantNumber);
+            }
         }
-        else
-        {
-            manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv",participantNumber);
-        }
+
+
         manager.participantID = participantNumber;
         Debug.Log(manager.schedule[0]);
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
