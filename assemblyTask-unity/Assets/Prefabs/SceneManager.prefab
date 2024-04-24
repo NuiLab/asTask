@@ -49,6 +49,11 @@ MonoBehaviour:
   tempSceneName: 
   trialNumber: 1
   shapeNumber: 1
+  firstWait: 1
+  schedule: 
+  stepCounter: 0
+  participantID: 0
+  experimentType: 1
 --- !u!114 &7470778423861357886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,3 +82,5 @@ MonoBehaviour:
   filePathW: 
   participantNumber: 0
   time_s: 0
+  testing: 1
+  DebugLog: {fileID: 0}

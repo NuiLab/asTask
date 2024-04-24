@@ -2300,6 +2300,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: experimentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8060358695141119793, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}
       propertyPath: m_LocalPosition.x

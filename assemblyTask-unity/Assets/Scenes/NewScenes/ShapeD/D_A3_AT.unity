@@ -146,6 +146,11 @@ PrefabInstance:
       propertyPath: isColored
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3667100785547616113, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3995838715408104240, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_Name
@@ -485,6 +490,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 4285429961050902583, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7645777717553113212, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7645777716691930949, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1638,6 +1651,7 @@ MonoBehaviour:
   button: {fileID: 547383365}
   instructionsAreSeperated: 0
   cross: {fileID: 0}
+  fadingMaterial: {fileID: 0}
   builtBars: []
 --- !u!1 &3954116125970588551 stripped
 GameObject:
