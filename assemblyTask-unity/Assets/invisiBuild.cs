@@ -78,9 +78,10 @@ public class invisiBuild : MonoBehaviour
             else
             {
                 correctPlacement = false;
-                //Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
+                Debug.Log("Distance between objects: " + distance);
+                Debug.Log(CheckProperties(other));
             }
-            //Debug.Log("Distance between objects: " + distance);
+            //
         }
     }
     void OnTriggerExit(Collider other)
@@ -158,7 +159,7 @@ public class invisiBuild : MonoBehaviour
                 // button presses
                 InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
                 InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
-                Debug.Log("Is correct placement:" + correctPlacement + "workbench " + IsCloseToWorkbench + " Aligned " + isAligned);
+                Debug.Log("Is correct placement:" + correctPlacement + "| workbench " + IsCloseToWorkbench + " |Aligned " + isAligned);
                 bool rightTrigger = false;
                 bool leftTrigger = false;
                 if (rightHandDevices[0] != null)
@@ -262,7 +263,7 @@ public class invisiBuild : MonoBehaviour
         else
         {
             Debug.Log("No repeat in build");
-            if (sceneDirector.experimentType == SceneDirector.ExperimentType.ExpB) inst.ArrowNext();
+            inst.ArrowNext();
             yield return new WaitForSeconds(0.25f);
             this.transform.position = startPos;
             this.transform.rotation = originalRotation;
