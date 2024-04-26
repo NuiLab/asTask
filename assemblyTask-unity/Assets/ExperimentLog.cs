@@ -84,7 +84,7 @@ public class ExperimentLog : MonoBehaviour
         if (manager.experimentType == SceneDirector.ExperimentType.Usability)
         {
             manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv", 111);
-            manager.initialType = SceneDirector.ExperimentType.ExpB;
+            
         }
 
 

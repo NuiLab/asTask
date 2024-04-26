@@ -331,7 +331,7 @@ public class SceneDirector : MonoBehaviour
     }
     public bool RepeatCheck()
     {
-        if (experimentType == ExperimentType.ExpB)
+        if (experimentType != ExperimentType.ExpA)
         {
             if (schedule[stepCounter] == 0)
             {

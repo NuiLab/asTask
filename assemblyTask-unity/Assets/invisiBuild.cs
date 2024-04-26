@@ -339,9 +339,8 @@ public class invisiBuild : MonoBehaviour
     IEnumerator WrongBar()
     {
         Debug.Log("Wrong bar");
-        if (sceneDirector.experimentType == SceneDirector.ExperimentType.ExpB)
+        if (sceneDirector.experimentType != SceneDirector.ExperimentType.ExpA)
         {
-            //instructions.GetComponent<invisInstructions>().dataLog("Bar", "Correct");
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 0;
             inst.toggleHands(false);
             if (!crossSpawned)
@@ -356,11 +355,9 @@ public class invisiBuild : MonoBehaviour
             inst.builtShape.SetActive(true);
             inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
             inst.stepPanel.SetActive(false);
-            //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
             inst.FadeInCorrectBar();
             yield return new WaitForSeconds(2f);
-            //shouldNotify = true;
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
             inst.cross = tempCross;
             crossSpawned = false;
@@ -375,8 +372,6 @@ public class invisiBuild : MonoBehaviour
             inst.builtShape.SetActive(true);
             inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
             inst.stepPanel.SetActive(false);
-
-            //instructions.GetComponent<invisInstructions>().dataLog(this.gameObject.name, "incorrect placement", instructions.GetComponent<invisInstructions>().currentStep.ToString());
             manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
             if (!crossSpawned)
             {
@@ -384,7 +379,6 @@ public class invisiBuild : MonoBehaviour
                 crossSpawned = true;
             }
             yield return new WaitForSeconds(2f);
-            //shouldNotify = true;
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
             inst.cross = tempCross;
             crossSpawned = false;
