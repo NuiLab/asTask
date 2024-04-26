@@ -19,7 +19,7 @@ public class SceneDirector : MonoBehaviour
     ExperimentLog expLog;
     private int sceneBars;
     static Scene tempScene;
-    public string tempSceneName;
+    [HideInInspector] public string tempSceneName;
     public int trialNumber = 1;
     public int shapeNumber = 1;
     public bool firstWait = true;
@@ -28,6 +28,7 @@ public class SceneDirector : MonoBehaviour
     public int stepCounter = 0;
     public int participantID;
     public ExperimentType experimentType;
+    [HideInInspector]public ExperimentType initialType;
     public enum ExperimentType
     {
         ExpA,
@@ -52,10 +53,13 @@ public class SceneDirector : MonoBehaviour
         }
         expLog = instance.GetComponent<ExperimentLog>();
         participantID = expLog.participantNumber;
-
+        initialType = experimentType;
     }
 
-
+    public void resetType()
+    {
+        experimentType = initialType;
+    }
     private void Update()
     {
         //Left Shift plus Letter loads the Adaptive Scene for that letter with NO Color and the instructions at the bench
@@ -327,16 +331,23 @@ public class SceneDirector : MonoBehaviour
     }
     public bool RepeatCheck()
     {
-        if (schedule[stepCounter] == 0)
+        if (experimentType == ExperimentType.ExpB)
         {
-            Debug.Log("Does not repeat." + schedule[stepCounter]);
-            return false;
+            if (schedule[stepCounter] == 0)
+            {
+                Debug.Log("Does not repeat." + schedule[stepCounter]);
+                return false;
+            }
+            else
+            {
+                Debug.Log("Repeats " + schedule[stepCounter] + " times.");
+                schedule[stepCounter]--;
+                return true;
+            }
         }
         else
         {
-            Debug.Log("Repeats " + schedule[stepCounter] + " times.");
-            schedule[stepCounter]--;
-            return true;
+            return false;
         }
     }
     public void LoadNextTrialScene()
@@ -388,7 +399,7 @@ public class SceneDirector : MonoBehaviour
 #endif
         Application.Quit();
     }
-    string getCurrentShape()
+    public string getCurrentShape()
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;

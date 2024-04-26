@@ -42,6 +42,7 @@ public class ExperimentLog : MonoBehaviour
         }
 
         manager = this.gameObject.GetComponent<SceneDirector>();
+        DebugLog = GameObject.FindWithTag("DebugWindow");
         var rnd = new System.Random();
         filePath = Application.dataPath + "/Records";
         if (!Directory.Exists(filePath))
@@ -68,7 +69,7 @@ public class ExperimentLog : MonoBehaviour
     {
         participantNumber = pNum;
         string temp = filePath;
-        
+
         if (manager.experimentType == SceneDirector.ExperimentType.ExpB)
         {
             if (testing)
@@ -79,6 +80,11 @@ public class ExperimentLog : MonoBehaviour
             {
                 manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv", participantNumber);
             }
+        }
+        if (manager.experimentType == SceneDirector.ExperimentType.Usability)
+        {
+            manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv", 111);
+            manager.initialType = SceneDirector.ExperimentType.ExpB;
         }
 
 

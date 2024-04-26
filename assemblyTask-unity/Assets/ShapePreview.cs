@@ -11,7 +11,7 @@ public class ShapePreview : MonoBehaviour
     public bool considerColor = false;
     public bool isPreview = false;
     public Material white;
-
+    public bool isPracticeTask = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class ShapePreview : MonoBehaviour
                 }
             }
         }
-        if (!considerColor && !isPreview)
+        if (!considerColor && !isPreview && !isPracticeTask)
         {
             Transform firstChild = transform.GetChild(0);
             MeshRenderer meshRenderer = firstChild.GetComponent<MeshRenderer>();
@@ -92,7 +92,7 @@ public class ShapePreview : MonoBehaviour
             if (propCheck1 != null)
             {
                 propCheck1.color = null;
-                child.GetComponent<MeshRenderer>().material = white;
+                if(!isPracticeTask)child.GetComponent<MeshRenderer>().material = white;
             }
 
             // Recursively set color to null for children's children

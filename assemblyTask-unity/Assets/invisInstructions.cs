@@ -231,7 +231,11 @@ public class invisInstructions : MonoBehaviour
     }
     public void ArrowNext()
     {
-        StartCoroutine(ActivateNextArrow());
+        if (sceneDirector.experimentType == SceneDirector.ExperimentType.ExpB)
+        {
+            StartCoroutine(ActivateNextArrow());
+        }
+        
     }
     IEnumerator ActivateRepeatArrow()
     {
