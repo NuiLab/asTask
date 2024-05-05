@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public AudioClip tutorialAudio;
+    public AudioClip tutorialAudioEXPA;
+    public AudioClip tutorialAudioEXPB;
     public GameObject nextButton;
     bool tutoStarted = false;
+   public GameObject sceneDirector;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -18,7 +19,14 @@ public class Tutorial : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(StartTutorial());
+            if (sceneDirector.GetComponent<SceneDirector>().experimentType == SceneDirector.ExperimentType.ExpA)
+            {
+                StartCoroutine(StartTutorial("A"));
+            }
+            if (sceneDirector.GetComponent<SceneDirector>().experimentType == SceneDirector.ExperimentType.ExpB)
+            {
+                StartCoroutine(StartTutorial("B"));
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.T))
@@ -27,16 +35,27 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    IEnumerator StartTutorial()
+    IEnumerator StartTutorial(string type)
     {
 
         if (!tutoStarted)
         {
-            tutoStarted = true;
-            AudioSource.PlayClipAtPoint(tutorialAudio, transform.position);
-            yield return new WaitForSeconds(tutorialAudio.length);
-            nextButton.SetActive(true);
-            
+            if (type == "A")
+            {
+                AudioSource.PlayClipAtPoint(tutorialAudioEXPA, transform.position);
+                tutoStarted = true;
+                yield return new WaitForSeconds(tutorialAudioEXPA.length);
+                nextButton.SetActive(true);
+            }
+            if (type == "B")
+            {
+                AudioSource.PlayClipAtPoint(tutorialAudioEXPB, transform.position);
+                tutoStarted = true;
+                yield return new WaitForSeconds(tutorialAudioEXPB.length);
+                nextButton.SetActive(true);
+            }
+
+
         }
 
     }
