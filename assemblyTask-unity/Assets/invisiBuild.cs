@@ -169,7 +169,7 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Right Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (rightTrigger && correctPlacement && isAligned && IsCloseToWorkbench)
+                            if (rightTrigger && correctPlacement  && IsCloseToWorkbench)
                             {
                                 //Debug.Log("placed correctly");
                                 canBeBuilt = false;
@@ -200,7 +200,7 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Left Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (leftTrigger && correctPlacement && isAligned && IsCloseToWorkbench)
+                            if (leftTrigger && correctPlacement  && IsCloseToWorkbench)
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
