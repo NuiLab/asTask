@@ -72,14 +72,11 @@ public class invisiBuild : MonoBehaviour
             lastTouchedBar = other.gameObject;
             if (distance <= 0.06f && CheckProperties(other))
             {
-                //Debug.Log("Correct: "+ correctPlacement+ "Alignment " + isAligned);
                 correctPlacement = true;
             }
             else
             {
                 correctPlacement = false;
-                Debug.Log("Distance between objects: " + distance);
-                Debug.Log(CheckProperties(other));
             }
             //
         }
@@ -159,7 +156,8 @@ public class invisiBuild : MonoBehaviour
                 // button presses
                 InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
                 InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
-                Debug.Log("Is correct placement:" + correctPlacement + "| workbench " + IsCloseToWorkbench + " |Aligned " + isAligned);
+                Debug.Log("Correct:" + correctPlacement + "Type:" + errortype);
+                
                 bool rightTrigger = false;
                 bool leftTrigger = false;
                 if (rightHandDevices[0] != null)
@@ -169,9 +167,9 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Right Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (rightTrigger && correctPlacement  && IsCloseToWorkbench)
+                            if (rightTrigger && correctPlacement && IsCloseToWorkbench)
                             {
-                                //Debug.Log("placed correctly");
+                               
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
                                 StartCoroutine("build");
@@ -180,7 +178,7 @@ public class invisiBuild : MonoBehaviour
                             {
                                 canBeBuilt = false;
                                 StartCoroutine("WrongBar");
-                                //Debug.Log(errortype);
+                               
                             }
                         }
                         else
@@ -200,14 +198,16 @@ public class invisiBuild : MonoBehaviour
                         // main build button (Left Hand)
                         if (sceneDirector.trialNumber != 8)
                         {
-                            if (leftTrigger && correctPlacement  && IsCloseToWorkbench)
+                            if (leftTrigger && correctPlacement && IsCloseToWorkbench)
                             {
+                                Debug.Log("Is correct placement:" + correctPlacement);
                                 canBeBuilt = false;
                                 StartCoroutine("rightBar");
                                 StartCoroutine("build");
                             }
                             if (leftTrigger && !correctPlacement && IsCloseToWorkbench)
                             {
+                                Debug.Log("Incorrect:" + correctPlacement + "Type:" + errortype);
                                 canBeBuilt = false;
                                 StartCoroutine("WrongBar");
                             }
