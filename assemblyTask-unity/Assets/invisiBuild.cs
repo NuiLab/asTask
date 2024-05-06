@@ -119,7 +119,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().barlength != other.GetComponent<propCheck>().barlength)
             {
-                //Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
+                Debug.Log(this.gameObject.GetComponent<propCheck>().barlength + " " + other.GetComponent<propCheck>().barlength);
                 correct = false;
                 expectedValue = other.GetComponent<propCheck>().barlength.ToString();
                 actualValue = this.gameObject.GetComponent<propCheck>().barlength.ToString();
@@ -130,7 +130,7 @@ public class invisiBuild : MonoBehaviour
         {
             if (this.gameObject.GetComponent<propCheck>().color != other.GetComponent<propCheck>().color)
             {
-                //Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
+                Debug.Log(this.gameObject.GetComponent<propCheck>().color + ": " + other.GetComponent<propCheck>().color);
                 correct = false;
                 expectedValue = other.GetComponent<propCheck>().color.ToString();
                 actualValue = this.gameObject.GetComponent<propCheck>().color.ToString();
@@ -157,7 +157,7 @@ public class invisiBuild : MonoBehaviour
                 InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, leftHandDevices);
                 InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, rightHandDevices);
                 Debug.Log("Correct:" + correctPlacement + "Type:" + errortype);
-                
+
                 bool rightTrigger = false;
                 bool leftTrigger = false;
                 if (rightHandDevices[0] != null)
