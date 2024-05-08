@@ -8,7 +8,7 @@ public class Tutorial : MonoBehaviour
     public AudioClip tutorialAudioEXPB;
     public GameObject nextButton;
     bool tutoStarted = false;
-   public GameObject sceneDirector;
+    public GameObject sceneDirector;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,11 @@ public class Tutorial : MonoBehaviour
             {
                 StartCoroutine(StartTutorial("A"));
             }
+            if (sceneDirector.GetComponent<SceneDirector>().experimentType == SceneDirector.ExperimentType.Usability)
+            {
+                StartCoroutine(StartTutorial("A"));
+            }
+
             if (sceneDirector.GetComponent<SceneDirector>().experimentType == SceneDirector.ExperimentType.ExpB)
             {
                 StartCoroutine(StartTutorial("B"));

@@ -24,6 +24,10 @@ public class DisplayType : MonoBehaviour
         {
             sceneDirector.experimentType = SceneDirector.ExperimentType.ExpB;
         }
+          if (Input.GetKeyDown(KeyCode.U))
+        {
+            sceneDirector.experimentType = SceneDirector.ExperimentType.Usability;
+        }
         String type = sceneDirector.experimentType.ToString();
         this.gameObject.GetComponent<TextMeshPro>().text = type;
 

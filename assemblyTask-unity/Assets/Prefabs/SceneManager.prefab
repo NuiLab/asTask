@@ -53,7 +53,8 @@ MonoBehaviour:
   schedule: 
   stepCounter: 0
   participantID: 0
-  experimentType: 1
+  experimentType: 2
+  initialType: 0
 --- !u!114 &7470778423861357886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +85,4 @@ MonoBehaviour:
   time_s: 0
   testing: 1
   DebugLog: {fileID: 0}
+  toggleLog: 0
