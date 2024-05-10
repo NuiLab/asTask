@@ -12,6 +12,7 @@ using System.IO;
 
 public class SceneDirector : MonoBehaviour
 {
+    public TextAsset csvFile;
     static SceneDirector instance;
     // Input Devices to check for grabbing
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
@@ -28,7 +29,7 @@ public class SceneDirector : MonoBehaviour
     public int stepCounter = 0;
     public int participantID;
     public ExperimentType experimentType;
-    [HideInInspector]public ExperimentType initialType;
+    [HideInInspector] public ExperimentType initialType;
     public enum ExperimentType
     {
         ExpA,
@@ -213,26 +214,26 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
-    public int[] ReadCsvFile(string filePath, int participantId)
+    public int[] GetNumbersFromCSV(bool testing, int participantId)
     {
-        using (StreamReader reader = new StreamReader(filePath))
+        if (!testing) { csvFile = Resources.Load<TextAsset>("Schedule/Yoke"); }
+        else { csvFile = Resources.Load<TextAsset>("Schedule/YokeTest"); }
+
+        string[] lines = csvFile.text.Split('\n');
+        foreach (string line in lines)
         {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            string[] values = line.Split(',');
+            if (values.Length > 0 && int.TryParse(values[0], out int id) && id == participantId)
             {
-                string[] values = line.Split(',');
-                if (values.Length > 0 && int.TryParse(values[0], out int id) && id == participantId)
+                int[] numbers = new int[values.Length - 1];
+                for (int i = 1; i < values.Length; i++)
                 {
-                    int[] numbers = new int[values.Length - 1];
-                    for (int i = 1; i < values.Length; i++)
+                    if (int.TryParse(values[i], out int number))
                     {
-                        if (int.TryParse(values[i], out int number))
-                        {
-                            numbers[i - 1] = number;
-                        }
+                        numbers[i - 1] = number;
                     }
-                    return numbers;
                 }
+                return numbers;
             }
         }
         return null; // Return null if no matching row is found

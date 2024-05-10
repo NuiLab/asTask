@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
-using UnityEditor.Build.Content;
 
 public class ExperimentLog : MonoBehaviour
 {
@@ -44,7 +43,13 @@ public class ExperimentLog : MonoBehaviour
         manager = this.gameObject.GetComponent<SceneDirector>();
         DebugLog = GameObject.FindWithTag("DebugWindow");
         var rnd = new System.Random();
+
+#if UNITY_EDITOR
         filePath = Application.dataPath + "/Records";
+#else
+        filePath = Application.persistentDataPath + "/Records";
+
+#endif
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
 
@@ -74,17 +79,17 @@ public class ExperimentLog : MonoBehaviour
         {
             if (testing)
             {
-                manager.schedule = manager.ReadCsvFile("Assets/YokeTest.csv", participantNumber);
+                manager.schedule = manager.GetNumbersFromCSV(true, participantNumber);
             }
             else
             {
-                manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv", participantNumber);
+                manager.schedule = manager.GetNumbersFromCSV(false, participantNumber);
             }
         }
         if (manager.experimentType == SceneDirector.ExperimentType.Usability)
         {
-            manager.schedule = manager.ReadCsvFile("Assets/Yoke.csv", 111);
-            
+            manager.schedule = manager.GetNumbersFromCSV(false, 111);
+
         }
 
 
