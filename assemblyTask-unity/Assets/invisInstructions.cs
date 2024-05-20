@@ -254,7 +254,7 @@ public class invisInstructions : MonoBehaviour
     // these functions create data log entries
     public void dataLog(string category, string action)
     {
-        log.AddData(category, action, currentStep.ToString());
+       // log.AddData(category, action, currentStep.ToString());
     }
     public void WideDataLog()
     {
@@ -334,7 +334,7 @@ public class invisInstructions : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         sceneDirector.resetTime();
-        dataLog("Trial", "loaded");
+    //    dataLog("Trial", "loaded");
     }
     IEnumerator disableShape()
     {

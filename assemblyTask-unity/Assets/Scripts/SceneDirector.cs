@@ -51,9 +51,15 @@ public class SceneDirector : MonoBehaviour
         else
         {
             instance = this;
+            if (csvFile != null)
+            {
+                GetNumbersFromCSV(false, participantID); //if demo read csv dfirectly
+            }
         }
         expLog = instance.GetComponent<ExperimentLog>();
-        participantID = expLog.participantNumber;
+        if (participantID != 0)
+            participantID = expLog.participantNumber; //if demo, get participant id directly from editor
+
         initialType = experimentType;
     }
 
