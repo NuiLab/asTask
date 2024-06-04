@@ -298,7 +298,7 @@ MonoBehaviour:
   m_ControllerNode: 4
   m_SelectUsage: 3
   m_ActivateUsage: 2
-  m_UIPressUsage: 6
+  m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_ControllerNode: 5
   m_SelectUsage: 3
   m_ActivateUsage: 2
-  m_UIPressUsage: 6
+  m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_ControllerNode: 5
   m_SelectUsage: 3
   m_ActivateUsage: 2
-  m_UIPressUsage: 6
+  m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_ModelPrefab: {fileID: 0}
   m_ModelTransform: {fileID: 0}
@@ -2909,7 +2909,7 @@ PrefabInstance:
     - target: {fileID: 6093199088100718238, guid: db4b9c1eb5d92cb43aa1786a5dcd441d,
         type: 3}
       propertyPath: task
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6093199088100718238, guid: db4b9c1eb5d92cb43aa1786a5dcd441d,
         type: 3}

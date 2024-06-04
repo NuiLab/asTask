@@ -22,6 +22,7 @@ public class ExperimentLog : MonoBehaviour
     public float time_s = 0;
     float tempTime = 0f;
     int counter = 1;
+    public bool testing = true;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +47,8 @@ public class ExperimentLog : MonoBehaviour
         // Make this GameObject persistent across scene loads.
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
 // activate this for testing
-        //if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this)
-          //  SetParticipantNumber(rnd.Next(1000, 9999)); 
+        if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing)
+           SetParticipantNumber(rnd.Next(1000, 9999)); 
     }
     // Update is called once per frame
     void Update()
