@@ -11,7 +11,7 @@ public class DemoScript : MonoBehaviour
     {
         sceneD = GameObject.FindWithTag("Manager").GetComponent<SceneDirector>();
         sceneD.experimentType = SceneDirector.ExperimentType.ExpB;
-        sceneD.GetNumbersFromCSV(false, 123); // sets the testing schedule for the demo
+       // sceneD.GetNumbersFromCSV(false, 123); // sets the testing schedule for the demo
         
     }
 

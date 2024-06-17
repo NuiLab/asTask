@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/NewScenes/PracticeColor.unity
+    guid: ab1a67f3079c1e145ba35cb7463c0a69
+  - enabled: 1
     path: Assets/Scenes/NewScenes/Tutorial Video.unity
     guid: a6c8d19284858474597b8d5401e43f15
   - enabled: 1
@@ -117,8 +120,8 @@ EditorBuildSettings:
     path: Assets/Scenes/NewScenes/ShapeH/H_S3_AT.unity
     guid: c15619a8f27a2254d81bee04d8a51de4
   - enabled: 1
-    path: Assets/Scenes/NewScenes/PracticeColor.unity
-    guid: ab1a67f3079c1e145ba35cb7463c0a69
+    path: Assets/Scenes/NewScenes/ShapeA/A_A2_Yoke.unity
+    guid: a8fb5a3de32f1814bb456b25086a285b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2bcd0c57514674568b0789b42421d5ae,
       type: 2}

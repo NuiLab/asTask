@@ -37,7 +37,6 @@ public class invisInstructions : MonoBehaviour
     void Start()
     {
         fadingMaterial = Resources.Load<Material>("Transparent");
-
         if (log == null) managerObj = GameObject.FindWithTag("Manager");
         if (stepPanel == null) stepPanel = GameObject.FindWithTag("InstructionPanel");
         instructionPanel = stepPanel.GetComponent<TMP_Text>();
@@ -281,7 +280,7 @@ public class invisInstructions : MonoBehaviour
         {
             instructionPanel.text = "You have completed the instructions!";
             dataLog("Trial", "complete");
-            WideDataLog();
+//            WideDataLog();
             toggleHands(false);
             button.SetActive(true);
             //StartCoroutine(disableShape());

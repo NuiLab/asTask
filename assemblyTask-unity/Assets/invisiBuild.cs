@@ -257,7 +257,7 @@ public class invisiBuild : MonoBehaviour
             this.transform.rotation = originalRotation;
             yield return new WaitForSeconds(.5f);
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement, Repeat", inst.currentStep.ToString());
+            //manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement, Repeat", inst.currentStep.ToString());
             //instructions.GetComponent<invisInstructions>().toggleHands(true);
         }
         else
@@ -268,7 +268,7 @@ public class invisiBuild : MonoBehaviour
             this.transform.position = startPos;
             this.transform.rotation = originalRotation;
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
+//            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct placement", inst.currentStep.ToString());
             inst.nextStep();
             inst.builtBars.Append(newBar.gameObject);
 
@@ -306,11 +306,11 @@ public class invisiBuild : MonoBehaviour
     {
         if (correctPlacement && isAligned)
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct", inst.currentStep.ToString());
+           // manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Correct", inst.currentStep.ToString());
         }
         else
         {
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype, expectedValue, actualValue);
+            //manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype, expectedValue, actualValue);
             inst.mistakes++;
         }
         AudioSource.PlayClipAtPoint(transferSound, this.transform.position);//play a confirm sound when something is placed
@@ -355,7 +355,7 @@ public class invisiBuild : MonoBehaviour
             inst.builtShape.SetActive(true);
             inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
             inst.stepPanel.SetActive(false);
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
+           // manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
             inst.FadeInCorrectBar();
             yield return new WaitForSeconds(2f);
             this.gameObject.GetComponent<XROffsetGrabInteractable>().interactionLayerMask = 1;
@@ -372,7 +372,7 @@ public class invisiBuild : MonoBehaviour
             inst.builtShape.SetActive(true);
             inst.builtShape.transform.GetChild(1).gameObject.SetActive(true);
             inst.stepPanel.SetActive(false);
-            manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
+            //manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "Error", inst.currentStep.ToString(), errortype);
             if (!crossSpawned)
             {
                 tempCross = Instantiate(cross, this.transform.position, Quaternion.identity);
@@ -391,11 +391,11 @@ public class invisiBuild : MonoBehaviour
     }
     public void grabLog()
     {
-        manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "grabbed");
+        //manager.GetComponent<ExperimentLog>().AddData(this.gameObject.name, "grabbed");
     }
     public void dataLog(string category, string action)
     {
-        manager.GetComponent<ExperimentLog>().AddData(category, action);
+        //manager.GetComponent<ExperimentLog>().AddData(category, action);
     }
 
     IEnumerator rightBar()

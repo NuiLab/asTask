@@ -156,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 2462640049076780697, guid: 347a2a1d293a55048a0bb833b301f274,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2462640049076780697, guid: 347a2a1d293a55048a0bb833b301f274,
         type: 3}
@@ -799,6 +799,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1348949931793526915, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348949931793526915, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
       propertyPath: participantNumber
       value: 123
       objectReference: {fileID: 0}
@@ -821,6 +826,36 @@ PrefabInstance:
         type: 3}
       propertyPath: experimentType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: schedule.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: schedule.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: schedule.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: schedule.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: schedule.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189962114100853205, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: schedule.Array.data[4]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8060358695141119793, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}
@@ -1958,11 +1993,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 3482215139603773003, guid: f8b05903c4fca8c4a84a06c1d80bedbd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4007179213730649349, guid: f8b05903c4fca8c4a84a06c1d80bedbd,
         type: 3}
