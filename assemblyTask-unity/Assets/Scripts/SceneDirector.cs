@@ -333,6 +333,10 @@ public class SceneDirector : MonoBehaviour
     {
         expLog.time_s = 0;
     }
+    public void resetSteps()
+    {
+        stepCounter = 0;
+    }
     public bool RepeatCheck()
     {
         if (experimentType != ExperimentType.ExpA)

@@ -24,6 +24,11 @@ public class FindSM : MonoBehaviour
     {
         sceneD.LoadNextTrialScene();
     }
+    public void setTrialNumber(int trialNumber)
+    {
+        sceneD.trialNumber = trialNumber;
+    }
+
     public void LoadSceneByName(string scenename)
     {
         if (scenename.Contains("Practice")) { sceneD.experimentType = SceneDirector.ExperimentType.ExpA; }
@@ -45,5 +50,9 @@ public class FindSM : MonoBehaviour
     public void wrongRepeat()
     {
         instrManager.WrongRepeat();
+    }
+    public void resetStepCounter()
+    {
+        sceneD.resetSteps();
     }
 }
