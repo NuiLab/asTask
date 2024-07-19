@@ -1131,6 +1131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1348949931793526915, guid: c65a92bbe6f45954fa115c51f76294f0,
+        type: 3}
+      propertyPath: testing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1375340187497624477, guid: c65a92bbe6f45954fa115c51f76294f0,
         type: 3}
       propertyPath: firstLaunch
@@ -2400,6 +2405,7 @@ MonoBehaviour:
   button: {fileID: 0}
   instructionsAreSeperated: 0
   cross: {fileID: 0}
+  fadingMaterial: {fileID: 0}
   builtBars: []
 --- !u!114 &1455078100 stripped
 MonoBehaviour:

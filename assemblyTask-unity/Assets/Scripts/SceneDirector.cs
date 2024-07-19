@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using VRQuestionnaireToolkit;
+using System.IO;
+
 
 public class SceneDirector : MonoBehaviour
 {
+    public TextAsset csvFile;
     static SceneDirector instance;
     // Input Devices to check for grabbing
     private List<InputDevice> leftHandDevices = new List<InputDevice>();
@@ -17,10 +20,22 @@ public class SceneDirector : MonoBehaviour
     ExperimentLog expLog;
     private int sceneBars;
     static Scene tempScene;
-    public string tempSceneName;
+    [HideInInspector] public string tempSceneName;
     public int trialNumber = 1;
     public int shapeNumber = 1;
     public bool firstWait = true;
+    [SerializeField]
+    public int[] schedule;
+    public int stepCounter = 0;
+    public int participantID;
+    public ExperimentType experimentType;
+    [HideInInspector] public ExperimentType initialType;
+    public enum ExperimentType
+    {
+        ExpA,
+        ExpB,
+        Usability
+    }
     private void Awake()
     {
 
@@ -28,6 +43,7 @@ public class SceneDirector : MonoBehaviour
 
     private void Start()
     {
+
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -37,9 +53,14 @@ public class SceneDirector : MonoBehaviour
             instance = this;
         }
         expLog = instance.GetComponent<ExperimentLog>();
+        participantID = expLog.participantNumber;
+        initialType = experimentType;
     }
 
-
+    public void resetType()
+    {
+        experimentType = initialType;
+    }
     private void Update()
     {
         //Left Shift plus Letter loads the Adaptive Scene for that letter with NO Color and the instructions at the bench
@@ -193,7 +214,30 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
+    public int[] GetNumbersFromCSV(bool testing, int participantId)
+    {
+        if (!testing) { csvFile = Resources.Load<TextAsset>("Schedule/Yoke"); }
+        else { csvFile = Resources.Load<TextAsset>("Schedule/YokeTest"); }
 
+        string[] lines = csvFile.text.Split('\n');
+        foreach (string line in lines)
+        {
+            string[] values = line.Split(',');
+            if (values.Length > 0 && int.TryParse(values[0], out int id) && id == participantId)
+            {
+                int[] numbers = new int[values.Length - 1];
+                for (int i = 1; i < values.Length; i++)
+                {
+                    if (int.TryParse(values[i], out int number))
+                    {
+                        numbers[i - 1] = number;
+                    }
+                }
+                return numbers;
+            }
+        }
+        return null; // Return null if no matching row is found
+    }
 
 
     public void ClearPreviews()
@@ -286,6 +330,27 @@ public class SceneDirector : MonoBehaviour
     {
         expLog.time_s = 0;
     }
+    public bool RepeatCheck()
+    {
+        if (experimentType != ExperimentType.ExpA)
+        {
+            if (schedule[stepCounter] == 0)
+            {
+                Debug.Log("Does not repeat." + schedule[stepCounter]);
+                return false;
+            }
+            else
+            {
+                Debug.Log("Repeats " + schedule[stepCounter] + " times.");
+                schedule[stepCounter]--;
+                return true;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
     public void LoadNextTrialScene()
     {
         expLog.time_s = 0;
@@ -335,7 +400,7 @@ public class SceneDirector : MonoBehaviour
 #endif
         Application.Quit();
     }
-    string getCurrentShape()
+    public string getCurrentShape()
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;

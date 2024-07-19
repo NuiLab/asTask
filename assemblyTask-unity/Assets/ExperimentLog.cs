@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
-using UnityEditor.Build.Content;
 
 public class ExperimentLog : MonoBehaviour
 {
@@ -23,10 +22,13 @@ public class ExperimentLog : MonoBehaviour
     float tempTime = 0f;
     int counter = 1;
     public bool testing = true;
+    public GameObject DebugLog;
+    public bool toggleLog = false;
 
     // Start is called before the first frame update
     void Start()
     {
+
         // Ensure that only one instance of ExperimentLog exists.
         if (instance != null && instance != this)
         {
@@ -39,16 +41,27 @@ public class ExperimentLog : MonoBehaviour
         }
 
         manager = this.gameObject.GetComponent<SceneDirector>();
+        DebugLog = GameObject.FindWithTag("DebugWindow");
         var rnd = new System.Random();
+
+#if UNITY_EDITOR
         filePath = Application.dataPath + "/Records";
+#else
+        filePath = Application.persistentDataPath + "/Records";
+
+#endif
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
 
         // Make this GameObject persistent across scene loads.
         if (instance == this) DontDestroyOnLoad(transform.gameObject);
-// activate this for testing
+        // activate this for testing
         if (SceneManager.GetActiveScene().name != "Tutorial Video" && instance == this && testing)
-           SetParticipantNumber(rnd.Next(1000, 9999)); 
+        {
+            SetParticipantNumber(rnd.Next(1, 60));
+            if (DebugLog && toggleLog)
+                DebugLog.SetActive(true);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -59,9 +72,29 @@ public class ExperimentLog : MonoBehaviour
     // This method sets the participant number and initializes the log files.
     public void SetParticipantNumber(int pNum)
     {
-
         participantNumber = pNum;
         string temp = filePath;
+
+        if (manager.experimentType == SceneDirector.ExperimentType.ExpB)
+        {
+            if (testing)
+            {
+                manager.schedule = manager.GetNumbersFromCSV(true, participantNumber);
+            }
+            else
+            {
+                manager.schedule = manager.GetNumbersFromCSV(false, participantNumber);
+            }
+        }
+        if (manager.experimentType == SceneDirector.ExperimentType.Usability)
+        {
+            manager.schedule = manager.GetNumbersFromCSV(false, 111);
+
+        }
+
+
+        manager.participantID = participantNumber;
+        Debug.Log(manager.schedule[0]);
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssf") + ".csv";
         filePathW = temp + "/WideParticipant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".csv";
         using (writer = File.CreateText(filePath))
@@ -77,7 +110,7 @@ public class ExperimentLog : MonoBehaviour
 
     }
     // This method adds a new line to the log file.
-    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a",string expected = "n/a", string actual = "n/a")
+    public void AddData(string category = "n/a", string action = "n/a", string step = "n/a", string errorType = "n/a", string expected = "n/a", string actual = "n/a")
     {
         Scene scene = SceneManager.GetActiveScene();
         string sceneName = scene.name;

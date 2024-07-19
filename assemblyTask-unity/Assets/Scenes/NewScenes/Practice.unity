@@ -324,6 +324,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FindSM, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3418808590501691031, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3461966157951884946, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: isColored
@@ -472,6 +477,16 @@ PrefabInstance:
     - target: {fileID: 4889592234236265117, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440020736791744248, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645777717553113212, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287602429359275935, guid: 29bccb021597e414b8d4000b3a67e27b,
@@ -742,6 +757,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 360946875}
     - targetCorrespondingSourceObject: {fileID: 4285429961050902583, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7645777717553113212, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7645777716691930949, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1336,6 +1359,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
     - target: {fileID: 3770040739224624814, guid: acb13466d1f8c9947a574c60515ccb46,
         type: 3}
       propertyPath: m_Enabled
@@ -1371,6 +1399,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6206204224016208636, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
     - target: {fileID: 6673282087429622863, guid: acb13466d1f8c9947a574c60515ccb46,
         type: 3}
       propertyPath: m_Enabled
@@ -1707,6 +1740,7 @@ MonoBehaviour:
   button: {fileID: 547383365}
   instructionsAreSeperated: 0
   cross: {fileID: 0}
+  fadingMaterial: {fileID: 0}
   builtBars: []
 --- !u!1001 &5897773746125249795
 PrefabInstance:
@@ -1826,6 +1860,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: white
+      value: 
+      objectReference: {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: isPracticeTask
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3708407036356796886, guid: acb13466d1f8c9947a574c60515ccb46,
         type: 3}
       propertyPath: m_Radius
@@ -1850,7 +1899,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ea93c25ace42fd48b13a1256b56680f, type: 2}
+      objectReference: {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
     - target: {fileID: 7337905995521961574, guid: acb13466d1f8c9947a574c60515ccb46,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

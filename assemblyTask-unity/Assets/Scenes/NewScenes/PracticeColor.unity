@@ -279,12 +279,22 @@ PrefabInstance:
     - target: {fileID: 1822299677374364258, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418808590501691031, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3461966157951884946, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: isColored
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667100785547616113, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3794363652310427341, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
@@ -434,6 +444,16 @@ PrefabInstance:
     - target: {fileID: 4889592234236265117, guid: 29bccb021597e414b8d4000b3a67e27b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440020736791744248, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645777717553113212, guid: 29bccb021597e414b8d4000b3a67e27b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287602429359275935, guid: 29bccb021597e414b8d4000b3a67e27b,
@@ -1261,6 +1281,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: isPreview
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: considerColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3770040739224624814, guid: acb13466d1f8c9947a574c60515ccb46,
         type: 3}
       propertyPath: m_Enabled
@@ -1617,6 +1647,7 @@ MonoBehaviour:
   button: {fileID: 547383365}
   instructionsAreSeperated: 0
   cross: {fileID: 8732195396968413222, guid: a5eb2f2b4e0146841b459e6f2d815af1, type: 3}
+  fadingMaterial: {fileID: 0}
   builtBars: []
 --- !u!1001 &5897773746125249795
 PrefabInstance:
@@ -1709,6 +1740,11 @@ PrefabInstance:
     - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
         type: 3}
       propertyPath: considerColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704726093381990267, guid: acb13466d1f8c9947a574c60515ccb46,
+        type: 3}
+      propertyPath: isPracticeTask
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5218769880790510900, guid: acb13466d1f8c9947a574c60515ccb46,

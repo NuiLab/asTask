@@ -31,6 +31,8 @@ public class FindSM : MonoBehaviour
     }
     public void LoadSceneByName(string scenename)
     {
+        if (scenename.Contains("Practice")) { sceneD.experimentType = SceneDirector.ExperimentType.ExpA; }
+        if (scenename.Contains("Waiting")) { sceneD.resetType(); }
         sceneD.LoadSceneByName(scenename);
     }
     public void activateHands()
@@ -45,5 +47,8 @@ public class FindSM : MonoBehaviour
     {
         instrManager.dataLog("Trial", "continued");
     }
-
+    public void wrongRepeat()
+    {
+        instrManager.WrongRepeat();
+    }
 }

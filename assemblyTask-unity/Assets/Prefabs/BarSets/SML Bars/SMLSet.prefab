@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae55c43c647060b4fb4968fb99a864a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: e2093ef6a3d334af286b728f0085c9a6, type: 2}
+  isColored: 0
 --- !u!1001 &4154167403437379319
 PrefabInstance:
   m_ObjectHideFlags: 0
