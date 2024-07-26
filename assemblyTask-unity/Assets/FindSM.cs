@@ -23,7 +23,7 @@ public class FindSM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     public void nextScene()
     {

@@ -36,6 +36,7 @@ public class SceneDirector : MonoBehaviour
         ExpB,
         Usability
     }
+    
     private void Awake()
     {
 
@@ -68,35 +69,35 @@ public class SceneDirector : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                LoadSceneByName("A_A2_AT");
+                LoadSceneByName("A_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.B))
             {
-                LoadSceneByName("B_A2_AT");
+                LoadSceneByName("B_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.C))
             {
-                LoadSceneByName("C_A2_AT");
+                LoadSceneByName("C_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                LoadSceneByName("D_A2_AT");
+                LoadSceneByName("D_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                LoadSceneByName("E_A2_AT");
+                LoadSceneByName("E_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
-                LoadSceneByName("F_A2_AT");
+                LoadSceneByName("F_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.G))
             {
-                LoadSceneByName("G_A2_AT");
+                LoadSceneByName("G_HiIn_LEx");
             }
             else if (Input.GetKeyDown(KeyCode.H))
             {
-                LoadSceneByName("H_A2_AT");
+                LoadSceneByName("H_HiIn_LEx");
             }
         }
         // Right Shift plus Letter loads the Adaptive Scene for that letter with COLOR and the instructions at the bench
@@ -104,35 +105,35 @@ public class SceneDirector : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                LoadSceneByName("A_A3_AT");
+                LoadSceneByName("A_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.B))
             {
-                LoadSceneByName("B_A3_AT");
+                LoadSceneByName("B_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.C))
             {
-                LoadSceneByName("C_A3_AT");
+                LoadSceneByName("C_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                LoadSceneByName("D_A3_AT");
+                LoadSceneByName("D_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                LoadSceneByName("E_A3_AT");
+                LoadSceneByName("E_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
-                LoadSceneByName("F_A3_AT");
+                LoadSceneByName("F_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.G))
             {
-                LoadSceneByName("G_A3_AT");
+                LoadSceneByName("G_HiIn_Lex");
             }
             else if (Input.GetKeyDown(KeyCode.H))
             {
-                LoadSceneByName("H_A3_AT");
+                LoadSceneByName("H_HiIn_Lex");
             }
         }
         // S plus Letter loads the  Scene for that letter with  COLOR and the instructions offset
@@ -140,35 +141,35 @@ public class SceneDirector : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                LoadSceneByName("A_S3_AT");
+                LoadSceneByName("A_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.B))
             {
-                LoadSceneByName("B_S3_AT");
+                LoadSceneByName("B_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.C))
             {
-                LoadSceneByName("C_S3_AT");
+                LoadSceneByName("C_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                LoadSceneByName("D_S3_AT");
+                LoadSceneByName("D_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                LoadSceneByName("E_S3_AT");
+                LoadSceneByName("E_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
-                LoadSceneByName("F_S3_AT");
+                LoadSceneByName("F_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.G))
             {
-                LoadSceneByName("G_S3_AT");
+                LoadSceneByName("G_HiIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.H))
             {
-                LoadSceneByName("H_S3_AT");
+                LoadSceneByName("H_HiIn_HiEx");
             }
         }
         // K plus Letter loads the  Scene for that letter with NO color and the instructions offset
@@ -176,35 +177,35 @@ public class SceneDirector : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                LoadSceneByName("A_S2_AT");
+                LoadSceneByName("A_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.B))
             {
-                LoadSceneByName("B_S2_AT");
+                LoadSceneByName("B_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.C))
             {
-                LoadSceneByName("C_S2_AT");
+                LoadSceneByName("C_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                LoadSceneByName("D_S2_AT");
+                LoadSceneByName("D_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                LoadSceneByName("E_S2_AT");
+                LoadSceneByName("E_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.F))
             {
-                LoadSceneByName("F_S2_AT");
+                LoadSceneByName("F_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.G))
             {
-                LoadSceneByName("G_S2_AT");
+                LoadSceneByName("G_LIn_HiEx");
             }
             else if (Input.GetKeyDown(KeyCode.H))
             {
-                LoadSceneByName("H_S2_AT");
+                LoadSceneByName("H_LIn_HiEx");
             }
         }
 
@@ -219,10 +220,10 @@ public class SceneDirector : MonoBehaviour
         if (!testing) { csvFile = Resources.Load<TextAsset>("Schedule/Yoke"); }
         else { csvFile = Resources.Load<TextAsset>("Schedule/YokeTest"); }
 
-        string[] lines = csvFile.text.Split('\n');
-        foreach (string line in lines)
+        string[] HiInes = csvFile.text.Split('\n');
+        foreach (string HiIne in HiInes)
         {
-            string[] values = line.Split(',');
+            string[] values = HiIne.Split(',');
             if (values.Length > 0 && int.TryParse(values[0], out int id) && id == participantId)
             {
                 int[] numbers = new int[values.Length - 1];
